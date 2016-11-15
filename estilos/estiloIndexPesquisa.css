@@ -1,0 +1,40 @@
+/* Carousel */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+
+	height:700px;
+}
+
+/*Menu lateral*/
+.ctMenuLateral{
+	width:auto; padding-right:50px
+}
+
+.menuLateral{
+	margin:50px 0 0 0;
+}
+
+/*Sessão de resultados*/
+#destaque{
+	margin-top:50px;
+	padding-left:5px;
+}
+
+.resultado{
+	border-top:1px dashed #337CBB;
+	margin-bottom:20px;
+	padding-top:10px;
+	float:right;
+}
+
+.resultado img{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-right:20px;
+}
+
