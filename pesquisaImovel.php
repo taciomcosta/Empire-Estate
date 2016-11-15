@@ -17,6 +17,98 @@
     // Fim da Busca
 
 
+    
+    //Código para definir a query da pesquisa de imóveis
+    $queryImoveis = "SELECT * FROM imoveis WHERE situacao_imovel=1";
+
+
+    //Se estiver definido, então
+    if( isset($_GET['categoriaF']) )
+    {
+        //Atribui o valor à $categoriaF e 
+        $categoriaF = $_GET['categoriaF'];
+        //Se for diferente de Todas, inclui na query
+        if(  $categoriaF != 'Todas'  )
+          $queryImoveis .= " AND cod_tipoImovel=$categoriaF";
+    }
+
+    if( isset( $_GET['ufF'] ) )
+    {
+      $ufF = $_GET['ufF'];
+      if(  $ufF != 'Todas'  )
+        $queryImoveis .= " AND uf_imovel LIKE '%$ufF%'";
+    }
+
+    
+    if( isset( $_GET['cidadeF'] ) )
+    {
+      $cidadeF = $_GET['cidadeF'];
+      if(  $cidadeF != 'Todas'  )
+        $queryImoveis .= " AND cidade_imovel LIKE '%$cidadeF%'";
+    }
+
+    if( isset( $_GET['valorMinF'] ) )
+    {
+      $valorMinF = $_GET['valorMinF'];
+      if(  $valorMinF != ''  )
+        $queryImoveis .= " AND valor_imovel >= $valorMinF";
+    }
+
+    if( isset( $_GET['valorMaxF'] ) )
+    {
+      $valorMaxF = $_GET['valorMaxF'];
+      if(  $valorMaxF != ''  )
+        $queryImoveis .= " AND valor_imovel <= $valorMaxF";
+    }
+
+    
+    if( isset( $_GET['tipoNegocioF'] ) )
+    {
+      $tipoNegocioF = $_GET['tipoNegocioF'];
+      if(  $tipoNegocioF != 'Todos'  )
+        $queryImoveis .= " AND tipoNegocio_imovel LIKE '%$tipoNegocioF%'";
+    }
+
+    if( isset( $_GET['dormitoriosF'] ) )
+    {
+      $dormitoriosF = $_GET['dormitoriosF'];
+      if(  $dormitoriosF != 'Qualquer'  )
+      {
+        if($dormitoriosF == '4 ou mais')
+          $queryImoveis .= " AND dormitorios_imovel>=$dormitoriosF ";
+        else
+          $queryImoveis .= " AND dormitorios_imovel=$dormitoriosF ";
+      }
+    }
+ 
+    if(isset( $_GET['banheirosF'] ) )
+    {
+      $banheirosF = $_GET['banheirosF'];
+      if(  $banheirosF != 'Qualquer'  )
+      {
+        if($banheirosF == '4 ou mais')
+          $queryImoveis .= " AND banheiros_imovel>=$banheirosF ";
+        else
+          $queryImoveis .= " AND banheiros_imovel=$banheirosF ";
+      }
+    }
+    
+    if(isset( $_GET['vagasF'] ) )
+    {
+      $vagasF = $_GET['vagasF'];
+      if(  $vagasF != 'Qualquer'  )
+      {
+        if($vagasF == '4 ou mais')
+          $queryImoveis .= " AND garagem_imovel>=$vagasF ";
+        else
+          $queryImoveis .= " AND garagem_imovel=$vagasF ";
+      }
+
+    }
+    //Fim da query de pesquisa de imóveis
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,73 +118,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="validacaoForms.js"></script>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="estilos/estiloGeral.css" rel="stylesheet" type="text/css">
         <link href="estilos/style.css" rel="stylesheet" type="text/css">
         <link href="estilos/estiloIndexPesquisa.css" rel="stylesheet" type="text/css">
         <link href="imgs/inicio.png" rel="icon">
-        <style type="text/css" rel="stylesheet">
-
-            /* Filtros */
-            #listaFiltros{
-                overflow:auto;
-            }
-
-            .filtros{
-                margin:5px 0;
-                height: 10px;
-                line-height: 0px;
-                font-size:14px;
-                border-radius:5px;
-                border:0;
-                background:#EEE;
-                color:#555;
-            }
-
-            .filtros a {
-                float:right;
-                padding-left:5px;
-                color:#000;
-                font-weight: bold;
-            }
-
-            .filtros a:hover{
-                text-decoration: none;
-                font-size:16px;
-            }
-
-            /* Classe utilizada para o 1° label de cada filtro que está em um linha única */
-            .linhaLbl{
-              margin:5px 0px 0 0;
-            }
-            /*Linhas que contém 2 campos */
-            .doisCamposEsq{
-                padding-left: 0;
-                margin-left:0;
-            }
-
-            .doisCamposDir{
-                padding-right: 0;
-                margin-right:0;
-            }
-
-            /* Classe utilizada para não fechar os form-group dos filtros, pois seus elementos estão com float */
-            .fmFiltros {
-              overflow: auto;
-            }
-
-            /*Estilo para distanciar os filtros 5px em relação aos títulos dos filtros*/
-            .linhaLbl, .fmFiltros{
-              margin-left: 5px;
-            }
-
-            /*Estilo para ocultar resultados*/
-            .invisivel{
-
-                display:none;
-            }
-
-        </style>
     </head>
     <body>
         <!-- Incluindo o Menu Principal -->
@@ -122,37 +153,25 @@
                             <li>
                                 <form role="form" action="pesquisaImovel.php">
                                 <div class="form-group linhaLbl">  
-                                  <label class="control-label" for="categoriaF">Categoria</label>
+                                      <label class="control-label" for="categoriaF">Subcategoria - Categoria</label>
                                 </div>
 
                                   <div class="form-group fmFiltros">                          
                                     <div class="col-xs-7 doisCamposEsq">
-                                        <select class="form-control" name="categoriaF">
-                                          <option>Todas</option>
-                                          <option>Residencial</option>
-                                          <option>Comercial</option>
-                                          <option>Rural</option>
-                                        </select>  
-
-                                    </div>
-
-                                    <button type="submit" class="btn btn-default">Buscar</button>
-                                  </div>
-
-                                  <div class="form-group fmFiltros">                          
-                                    <div class="col-xs-7 doisCamposEsq">
-                                      <label class="control-label" for="categoriaF">Subcategoria</label>
                                       <select class="form-control" name="categoriaF">
+                                        <option>Todas</option>
                                         <?php
                                             while( $row = mysqli_fetch_array($resultTipoImovel))
                                             {
-                                                $nome_tipoImovel = $row['nome_tipoImovel'];
-                                                echo "<option>$nome_tipoImovel</option>";
-                                            }
-                                            
+                                              $cod_tipoImovel = $row['cod_tipoImovel'];
+                                              $nome_tipoImovel = $row['nome_tipoImovel'];
+                                              $categoria_tipoImovel = $row['categoria_tipoImovel'];
+                                              echo "<option value='$cod_tipoImovel'>$nome_tipoImovel - $categoria_tipoImovel</option>";
+                                            }  
                                         ?>
                                       </select>  
                                     </div>
+                                    <button type="submit" class="btn btn-default">Buscar</button>
                                   </div>
                             </li><!-- Fim Tipo Imóvel -->
 
@@ -169,6 +188,7 @@
                                   <div class="form-group fmFiltros">                          
                                     <div class="col-xs-7 doisCamposEsq">
                                         <select class="form-control" name="ufF">
+                                          <option>Todas</option>
                                           <option>ES</option>
                                           <option>MG</option>
                                           <option>RJ</option>
@@ -184,6 +204,7 @@
                                     <div class="col-xs-7 doisCamposEsq">
                                       <label class="control-label" for="cidadeF">Cidade</label>
                                       <select class="form-control" name="cidadeF">
+                                        <option>Todas</option>
                                         <option>Arrume-me</option>
                                         <option>Arrume-me</option>
                                         <option>Arrume-me</option>
@@ -200,10 +221,12 @@
                               <div class="form-group fmFiltros" style="margin-top:10px">
                                 <div class="col-xs-7 doisCamposEsq">
                                     <select class="form-control" name="tipoNegocioF">
-                                      <option>Arrume-me</option>
-                                      <option>Arrume-me</option>
-                                      <option>Arrume-me</option>
-                                      <option>Arrume-me</option>
+                                      <option selected>Todos</option>
+                                      <option> Venda </option>
+                                      <option >Locação </option>
+                                      <option > Venda e Locação </option>
+                                      <option >Troca</option>
+                                      <option >Imóvel na planta</option>
                                     </select>  
 
                                 </div>
@@ -250,6 +273,7 @@
                                   <div class="form-group fmFiltros">                          
                                     <div class="col-xs-7 doisCamposEsq">
                                         <select class="form-control" name="dormitoriosF">
+                                          <option>Qualquer</option>
                                           <option>1</option>
                                           <option>2</option>
                                           <option>3</option>
@@ -265,6 +289,7 @@
                                     <div class="col-xs-7 doisCamposEsq">
                                         <label class="control-label" for="banheirosF">Banheiros</label>
                                             <select class="form-control" name="banheirosF">
+                                                <option>Qualquer</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -277,6 +302,7 @@
                                     <div class="col-xs-7 doisCamposEsq">
                                         <label class="control-label" for="vagasF">Vagas</label>
                                             <select class="form-control" name="vagasF">
+                                                <option>Qualquer</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -305,8 +331,8 @@
                                 echo
                                 "<div class=\"col-md-9 resultado invisivel\" id=\"registro$cont\">";
 
-                            echo "<img src=\"imgs/imoveis/residenciais/casa/casa$cont.jpg\" class=\"img-responsive img-thumbnail\">
-                                <h3 class=\"text-justify text-primary\">A titleA titleA titleA titleA titleA titleA titleA titleA titleA titleA titlesss</h3>
+                            echo "<img src=\"imgs/imoveis/residenciais/casa/casa3.jpg\" class=\"img-responsive img-thumbnail\">
+                                <h3 class=\"text-justify text-primary\">$cont A titleA titleA titleA titleA titleA titleA titleA titleA titleA titleA titlesss</h3>
                                 <p class=\"text-justify\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
                                 ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
                                 dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
@@ -315,19 +341,46 @@
                                 enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
                                 felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
                                 elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-                                porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus
-                                in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
-                                laoreet.</p>
+                                porttitor eu, consequat vitae, eleifend ac, enim. </p>
                             </div>"; //resultado 
 
                         }//for
                         //$cont = Número de Resultados
                         $cont--;
-
                     ?>
 
-                    
-                
+                    <!-- Paginação -->
+                    <?php
+                    //Se existir resultados cria a paginação
+                    if($cont > 0)
+                    {
+                    ?>
+                    <ul class="pagination">
+                        <?php
+                            //Determina o número de páginas que serão criadas
+                            $numeroPaginas = $cont /  5;
+                            //Se $numeroPaginas não for um número inteiro, arredonda para cima
+                            $numeroPaginas = ceil($numeroPaginas);
+                            //Imprime a numeração das páginas
+                        ?>
+                        <li>
+                            <a href="#" onclick="paginacao(1, <?php echo $cont . "," . $numeroPaginas?>)" id="pgAnterior">Anterior</a>
+                        </li>
+                        <?php
+                            for ($i=1; $i<=$numeroPaginas; $i++)
+                              echo "<li>
+                                        <a href=\"#\" onClick=\"paginacao($i, $cont, $numeroPaginas)\" id=\"$i\">$i
+                                        </a>
+                                    </li>";
+                            ?>
+                          <li>
+                            <a href="#" onclick="paginacao(2, <?php echo $cont . "," . $numeroPaginas ?>)" id="pgProxima">Próxima</a>
+                          </li>
+                    </ul>
+                    <?php 
+                        }//fim do if
+                    ?>
+
                 </div><!-- row -->
             
             </div><!-- container -->
@@ -339,3 +392,77 @@
     </body> 
 
 </html>
+
+<!--
+CÓDIGO PARA DEFINIR A QUERY DE SELEÇÃO DE IMÓVEIS
+
+$queryImoveis = "SELECT * FROM imoveis WHERE situacao_imovel=1";
+
+$categoriaF = $_GET['categoriaF'];
+if( $categoriaF != 'Todas' )
+{
+    $queryImoveis .= " AND cod_tipoImovel=$subcategoriaF";
+}
+
+
+$ufF = $_GET['ufF'];
+if( $ufF != 'Todas' )
+{
+  $queryImoveis .= " AND uf_imovel LIKE '%$ufF%'";
+}
+
+$cidadeF = $_GET['cidadeF'];
+if( $cidadeF != 'Todas' )
+{
+  $queryImoveis .= " AND cidade_imovel LIKE '%$cidadeF%'";
+}
+
+if( isset( $_GET['valorMinF'] ) )
+{
+  $valorMinF = $_GET['valorMinF'];
+  $queryImoveis .= " AND valor_imovel >= $valorMinF";
+}
+
+if( isset( $_GET['valorMaxF'] ) )
+{
+  $valorMaxF = $_GET['valorMaxF'];
+  $queryImoveis .= " AND valor_imovel <= $valorMaxF";
+}
+
+$tipoNegocioF = $_GET['tipoNegocioF'];
+if( $tipoNegoico != 'Todos' )
+{
+  $queryImoveis .= " AND tipoNegocio_imovel LIKE '%$tipoNegocioF%'";
+}
+
+
+$dormitoriosF = $_GET['dormitoriosF'];
+if($dormitoriosF != 'Qualquer')
+{
+  if($dormitoriosF == '4 ou mais')
+    $queryImoveis .= " AND dormitorios_imovel>=$dormitoriosF ";
+  else
+    $queryImoveis .= " AND dormitorios_imovel=$dormitoriosF ";
+}
+
+$banheirosF = $_GET['banheirosF'];
+if($banheirosF != 'Qualquer')
+{
+  if($banheirosF == '4 ou mais')
+    $queryImoveis .= " AND banheiros_imovel>=$banheirosF ";
+  else
+    $queryImoveis .= " AND banheiros_imovel=$banheirosF ";
+}
+
+
+$vagasF = $_GET['vagasF'];
+if($vagasF != 'Qualquer')
+{
+  if($vagasF == '4 ou mais')
+    $queryImoveis .= " AND garagem_imovel>=$vagasF ";
+  else
+    $queryImoveis .= " AND garagem_imovel=$vagasF ";
+
+}
+
+ -->

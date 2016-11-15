@@ -247,7 +247,6 @@ function abrirModal(codigoImovel) {
 
 //Função do pagination, para exibir/esconder os registros conforme clicar em cada botão
 function paginacao (pagina, nRegistros, nPaginas){
-
         //Define a página anterior
         if( pagina != 1 )
         {  
@@ -259,6 +258,7 @@ function paginacao (pagina, nRegistros, nPaginas){
             pg = "paginacao(" + pagina + ", " + nRegistros + ", " + nPaginas + ")";
             document.getElementById("pgAnterior").setAttribute("onclick", pg);
         }
+        //Fim
 
         //Define a próxima página
         //Se não for a última página
@@ -273,7 +273,9 @@ function paginacao (pagina, nRegistros, nPaginas){
             pg = "paginacao(" + pagina + ", " + nRegistros + ", " + nPaginas + " )";
             document.getElementById("pgProxima").setAttribute("onclick", pg);
         }
+        //Fim
 
+        //pagina recebrá o número do último registro que ficará visível
         pagina *= 5;
 
         //Oculta todos os registros
@@ -284,43 +286,6 @@ function paginacao (pagina, nRegistros, nPaginas){
         for(var i=0; i<=4; i++)
             //Se o registro existir
             if( pagina - i <= nRegistros )
-                document.getElementById('registro' + (pagina - i)).style.display="table-row";
-
-        
-        // //Se o click for em Anterior
-        // else if (pagina != nRegistros*5)
-        // {
-        //     //Determinando a página que está sendo exibida
-        //     i = nRegistros;
-        //     while(pagina == 0)
-        //     {
-        //         if (document.getElementById('registro' + i).style.display != "none")
-        //             pagina = i;
-        //         else
-        //             i--;
-        //     }
-        //     pagina -= 5;
-            
-        //     if(pagina > 0)
-        //     {
-        //     //Oculta todos os registros
-        //     for(var i=1; i<=nRegistros; i++)
-        //         document.getElementById('registro' + i).style.display="none";
-        //     //Mostra os registros referentes a página
-        //     for(var i=0; i<=4; i++)
-        //         //Se o registro existir
-        //         if( pagina - i <= nRegistros )
-        //             document.getElementById('registro' + (pagina - i)).style.display="table-row";
-        //     }
-
-        // }
-        // //Se o click for em Próxima
-        // else
-        // {
-
-        // }
-
-
-    
+                document.getElementById('registro' + (pagina - i)).style.display="table-row"; 
 
 }
