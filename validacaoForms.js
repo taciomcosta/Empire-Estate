@@ -130,6 +130,7 @@ function proximo(e1, e2, e3, e4, e5, col) {
 
 }
 
+
 function voltar(e1, e2, e3, e4, e5, col) {
 
     var display1 = document.getElementById(e1).style.display;
@@ -226,22 +227,34 @@ function checaAba()
 function altera(cod)
 {
 
-    location.href='pcImovel.php?alteraImovel=' + cod;
+    document.style.display = "none";
+    document.getElementById('oForm').style.display = "block";
 }
 
 // Funções para abrir e fechar os modals
-function fecharModal() {
+function fecharModal(modal) {
 
-    document.getElementById("modalDeletar").style.display = "none";
+        document.getElementById("modalDeletar").style.display = "none";    
+        document.getElementById("modalAlterar").style.display = "none";
+        voltar( 'tela1' , 'tela2', 'tela3', 'tela4', 'tela5', 'colFormCadastro' );
+
 
 }
 
 
-function abrirModal(codigoImovel) {
+function abrirModal(modal,codigoImovel) {
 
-        document.getElementById("modalDeletar").style.display = "block";
-        //Define o link do botão de Confirmar do delete 
-        document.getElementById("confirmaDeletar").href = 'deletaImovel.php?codigo=' + codigoImovel;
+        // Se for o modal de deletar
+        if(modal == 'D')
+        {
+            document.getElementById("modalDeletar").style.display = "block";
+            //Define o link do botão de Confirmar do delete 
+            document.getElementById("confirmaDeletar").href = 'deletaImovel.php?codigo=' + codigoImovel;
+        }
+        else
+        {
+            document.getElementById("modalAlterar").style.display = "block";
+        }
 
 }
 
@@ -287,5 +300,72 @@ function paginacao (pagina, nRegistros, nPaginas){
             //Se o registro existir
             if( pagina - i <= nRegistros )
                 document.getElementById('registro' + (pagina - i)).style.display="table-row"; 
+
+}
+
+// Preenchendo dados com Modal
+function alterarImovel(codImovel)
+{
+    location.href="pcImovel.php?alterarImovel="+codImovel;
+}
+
+function proximo_a(e1, e2, e3, e4, e5, col) {
+
+    var display1 = document.getElementById(e1).style.display;
+    var display2 = document.getElementById(e2).style.display;
+    var display3 = document.getElementById(e3).style.display;
+    var display4 = document.getElementById(e4).style.display;
+    
+    // Display da tela1 é undefined :/
+    if (display1 != "none" ) 
+    {
+        document.getElementById(e1).style.display = "none";
+        document.getElementById(e2).style.display = "block";
+    }
+    else if (display2 != "none" )
+    {
+        document.getElementById(e2).style.display = "none";
+        document.getElementById(e3).style.display = "block";
+    }
+    else if (display3 != "none" ) 
+    {
+        document.getElementById(e3).style.display = "none";
+        document.getElementById(e4).style.display = "block";
+        
+    }
+    else if (display4 != "none") 
+    {
+        document.getElementById(e4).style.display = "none";
+        document.getElementById(e5).style.display = "block";
+        document.formImovel.btCadastrar.className = "btn btn-primary";
+        document.getElementById(col).className = "col-md-6";
+    }
+
+
+
+}
+
+function voltar_a(e1, e2, e3, e4, e5, col) {
+
+    var display1 = document.getElementById(e1).style.display;
+    var display2 = document.getElementById(e2).style.display;
+
+
+
+    
+    if (display1 != "none") 
+    {
+        
+        document.getElementById(e2).style.display = "none";
+        document.getElementById(e1).style.display = "block";
+    }
+    
+    
+    else if (display2 != "none") 
+    {
+        
+        document.getElementById(e2).style.display = "none";
+        document.getElementById(e1).style.display = "block";
+    }
 
 }
