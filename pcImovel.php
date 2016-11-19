@@ -87,50 +87,76 @@
                     
                 }
             }
-    //  //Configurando a página para alterar um imóvel
-    //  if (isset($_GET['alteraImovel']))
-    //  {
-    //      //Consulta o imóvel no BD
-    //         //$alteraImovel é o código do imóvel a ser alterado
-    //         $alteraImovel = $_GET['alteraImovel'];  
-    //         $queryAlteraImovel = "SELECT * FROM imoveis WHERE cod_imovel = $alteraImovel";
-    //         $resultAlteraImovel = mysqli_query($conn, $queryAlteraImovel) or die('Erro ao consultar imóvel');
+    //CONFIGURANDO A PÁGINA PARA ALTERAR IMÓVEL E CONSULTANDO DADOS DO IMÓVEL
+     if (isset($_GET['alterarImovel']))
+     {
+        $aba = 1;
+         //Consulta o imóvel no BD
 
-    //         //Pegando dados do BD
-    //         if ( $rowAlteraImovel = mysqli_fetch_array($resultAlteraImovel) )
-    //         {
-    //             $codUsuario_I = $rowAlteraImovel['cod_usuario'];
-    //             $tituloImovel_I = $rowAlteraImovel['titulo_imovel'];
-    //             $tipoImovel_I = $rowAlteraImovel['tipo_imovel'];
-    //             $tipoNegocio_I = $rowAlteraImovel['tipoNegocio_imovel'];
-    //             $valor_I = $rowAlteraImovel['valor_imovel'];
-    //             $cidade_I = $rowAlteraImovel['cidade_imovel'];
-    //             $uf_I = $rowAlteraImovel['uf_imovel'];
-    //             $logradouro_I = $rowAlteraImovel['logradouro_imovel'];
-    //             $endereco_I = $rowAlteraImovel['endereco_imovel'];
-    //             $numero_I = $rowAlteraImovel['numero_imovel'];
-    //             $complemento_I = $rowAlteraImovel['complemento_imovel'];
-    //             $bairro_I = $rowAlteraImovel['bairro_imovel'];
-    //             $areaTotal_I = $rowAlteraImovel['areaTotal_imovel'];
-    //             $areaUtil_I = $rowAlteraImovel['areaUtil_imovel'];
-    //             $dormitorios_I = $rowAlteraImovel['dormitorios_imovel'];
-    //             $banheiros_I = $rowAlteraImovel['banheiros_imovel'];
-    //             $garagem_I = $rowAlteraImovel['garagem_imovel'];
-    //             $descricao_I = $rowAlteraImovel['descricao'];
-    //         }
+            //$alteraImovel é o código do imóvel a ser alterado
+            $alteraImovel = $_GET['alterarImovel'];
+            //JOIN e ON são utilizados em CHAVES ESTRANGEIRAS
+            //A query abaixo junta 4 tabelas (imoveis, tipoimovel, usuario e tabela_imagens)
+            $queryAlteraImovel = "SELECT i.*, t.nome_tipoImovel, u.cod_usuario, u.nome_usuario, u.email_usuario, tI.* FROM imoveis AS i 
+                JOIN tipoimovel AS t ON i.cod_tipoImovel=t.cod_tipoImovel 
+                JOIN usuarios u ON i.cod_usuario=u.cod_usuario 
+                RIGHT JOIN tabela_imagens tI ON i.cod_imovel=tI.cod_imovel 
+                WHERE i.cod_imovel=21";
+                
             
-    //         //Pegando email e nome do usuário
-    //         $queryAlteraImovel = "SELECT * FROM usuarios WHERE cod_usuario = $codUsuario_I";
-    //         $resultAlteraImovel = mysqli_query($conn, $queryAlteraImovel);
-    //         $rowAlteraImovel = mysqli_fetch_array($resultAlteraImovel);
-    //         $email_I = $rowAlteraImovel['email_usuario'];
-    //         $nome_I = $rowAlteraImovel['nome_usuario'];
+            $resultAlteraImovel = mysqli_query($conn, $queryAlteraImovel) or die('Erro ao consultar imóvel');
 
-    //         //Mandar para uma função do javascript para preencher no formulário e alterar a função do botão cadastrar
-    //         //OU QUASE ISSO
+            //Pegando dados do BD
+            $i=1;
+            $img[] = array();
+            while ( $rowAlteraImovel = mysqli_fetch_array($resultAlteraImovel) )
+            {   echo "RESULTADO $i";
+                $i++;
+                $codUsuario_I = $rowAlteraImovel['cod_usuario'];
+                $nome_I = $rowAlteraImovel['nome_usuario'];
+                $email_I = $rowAlteraImovel['email_usuario'];
+                $tituloImovel_I = $rowAlteraImovel['titulo_imovel'];
+                $tipoImovel_I = $rowAlteraImovel['nome_tipoImovel'];
+                $tipoNegocio_I = $rowAlteraImovel['tipoNegocio_imovel'];
+                $valor_I = $rowAlteraImovel['valor_imovel'];
+                $cidade_I = $rowAlteraImovel['cidade_imovel'];
+                $uf_I = $rowAlteraImovel['uf_imovel'];
+                $logradouro_I = $rowAlteraImovel['logradouro_imovel'];
+                $endereco_I = $rowAlteraImovel['endereco_imovel'];
+                $numero_I = $rowAlteraImovel['numero_imovel'];
+                $complemento_I = $rowAlteraImovel['complemento_imovel'];
+                $bairro_I = $rowAlteraImovel['bairro_imovel'];
+                $areaTotal_I = $rowAlteraImovel['areaTotal_imovel'];
+                $areaUtil_I = $rowAlteraImovel['areaUtil_imovel'];
+                $dormitorios_I = $rowAlteraImovel['dormitorios_imovel'];
+                $banheiros_I = $rowAlteraImovel['banheiros_imovel'];
+                $garagem_I = $rowAlteraImovel['garagem_imovel'];
+                $descricao_I = $rowAlteraImovel['descricao'];
+                $img_id = $rowAlteraImovel['img_id'];
+                $img_caminho = $rowAlteraImovel['img_caminho'];
+                $img_nome = $rowAlteraImovel['img_nome'];
+                // PARA TESTAR TIRE OS CÓDIGOS COMENTADOS ATÉ A LINHA 146
+                // echo"<pre>".var_dump($rowAlteraImovel)."</pre>";
+                // echo"<br><hr>";
+
+                //Atribuindo uma array(com $img_id, $img_caminho, $img_nome) para a array $img
+                array_push($img, array($img_id, $img_caminho, $img_nome));
+
+            }
+                // echo"<pre>".var_dump($img)."</pre>";
+                // echo"<br><hr>";
+                // die();
+            
+           
+            
+
+
+
+            //Mandar para uma função do javascript para preencher no formulário e alterar a função do botão cadastrar
+            //OU QUASE ISSO
             
             
-    // }
+    }
 
     
         
@@ -217,13 +243,20 @@
             }
 
             /*Estilo modal*/
-            #modalDeletar{
+            #modalDeletar, #modalAlterar{
                 margin-top:200px;
             }
 
         </style>
     </head> 
-    <body>
+    <?php
+        if(isset($alteraImovel))
+        {
+            echo "<body onload=\"abrirModal('A',$alteraImovel)\">";
+        }
+        else
+            echo "<body>";
+    ?>
 
         <!-- Importando o Menu Principal  -->
         <?php
@@ -308,17 +341,18 @@
                                                                         <td>$valorImovel</td>
                                                                         <td><a href=\"\">$codUsuario</a></td>
                                                                         <td style=\"padding-right:0\">
-                                                                            <button onclick=\"altera($codigoImovel)\">
+                                                                            <button onclick=\"alterarImovel($codigoImovel);\">
                                                                                 <img src=\"imgs/alterar.png\" alt=\"Alterar\">
                                                                             </button>
 
-                                                                            <button type=\"button\" onclick=\"abrirModal($codigoImovel)\">
+                                                                            <button type=\"button\" onclick=\"abrirModal('D',$codigoImovel)\">
                                                                                 <img src=\"imgs/deletar.png\" alt=\"Excluir\">
                                                                             </button>
                                                                         </td>
                                                                         
                                                                     </tr>
                                                                 ";
+
                                                             }
                                                         }
                                                         else
@@ -337,6 +371,7 @@
                                                     </tr>
                                                 </thead>
                                             </table>
+                                            
                                             <!-- Paginação -->
                                             <?php
                                             //Se existir resultados cria a paginação
@@ -368,6 +403,10 @@
                                             <?php 
                                                 }//fim do if
                                             ?>
+                                            <!-- MODAL ALTERAR -->
+                                            <?php include "modalAlterar.php" ?>
+                                            <!-- FIM MODAL ALTERAR -->
+
                                             <!--MODAL DELETAR-->
                                             <div class="modal" id="modalDeletar">
                                                 <div class="modal-dialog">
@@ -377,7 +416,7 @@
                                                             <h4 class="modal-title">Deletar Imóvel</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Deseja realmente apargar os dados do imóvel?&nbsp;</p>
+                                                            <p>Deseja realmente apagar os dados do imóvel?&nbsp;</p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <a class="btn btn-default" onclick="fecharModal()">Cancelar</a>
@@ -386,6 +425,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Fim MODAL DELETAR -->
                             </div><!-- fim da aba 1 -->
                             
                             <!-- ABA 2 - CADASTRO USUÁRIO-->
@@ -438,6 +478,7 @@
                                                     <option disabled>---------- Residencial ----------</option>
                                                     <!-- Exibindo os tipos de imóveisdo BD-->
                                                     <?php 
+                                                        $resultResidencial = mysqli_query($conn, $queryRes);
                                                         while( $row = mysqli_fetch_array($resultResidencial) )
                                                         {
                                                             $option = $row['nome_tipoImovel'];
@@ -448,6 +489,7 @@
                                                     ?>
                                                     <option disabled>---------- Comercial ----------</option>
                                                     <?php 
+                                                        $resultComercial = mysqli_query($conn, $queryCom);
                                                         while( $row = mysqli_fetch_array($resultComercial) )
                                                             $option = $row['nome_tipoImovel'];
                                                             $option = strtoupper(substr($option,0,1)) . substr($option,1) ;
@@ -455,6 +497,7 @@
                                                     ?>
                                                     <option disabled>---------- Rural ----------</option>
                                                     <?php 
+                                                        $resultRural = mysqli_query($conn, $queryRur);
                                                         while( $row = mysqli_fetch_array($resultRural) )
                                                             $option = $row['nome_tipoImovel'];
                                                             $option = strtoupper(substr($option,0,1)) . substr($option,1) ;
