@@ -27,6 +27,7 @@
             $nome = '';
         }
 
+
     // Obtendo tipos de imóveis do BD
         include_once("conexao.php");
         $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' ";
@@ -38,9 +39,9 @@
         $resultRural = mysqli_query($conn, $queryRur);
  
  
-        //Caso não seja uma pesquisa, $aba=0 deixa a aba de cadastro selecionada
-        $aba = 0;
-        $rowsImoveis = 0;
+    //Caso não seja uma pesquisa, $aba=0 deixa a aba de cadastro selecionada
+    $aba = 0;
+    $rowsImoveis = 0;
 
     //Pesquisando na tabela de imóveis
 
@@ -101,18 +102,17 @@
                 JOIN tipoimovel AS t ON i.cod_tipoImovel=t.cod_tipoImovel 
                 JOIN usuarios u ON i.cod_usuario=u.cod_usuario 
                 RIGHT JOIN tabela_imagens tI ON i.cod_imovel=tI.cod_imovel 
-                WHERE i.cod_imovel=21";
+                WHERE i.cod_imovel=$alteraImovel";
                 
             
             $resultAlteraImovel = mysqli_query($conn, $queryAlteraImovel) or die('Erro ao consultar imóvel');
 
             //Pegando dados do BD
-            $i=1;
+
+            // $img é uma matriz que conterá o caminho e o nome das imagens
             $img[] = array();
             while ( $rowAlteraImovel = mysqli_fetch_array($resultAlteraImovel) )
-            {   echo "RESULTADO $i";
-                $i++;
-                $codUsuario_I = $rowAlteraImovel['cod_usuario'];
+            {   
                 $nome_I = $rowAlteraImovel['nome_usuario'];
                 $email_I = $rowAlteraImovel['email_usuario'];
                 $tituloImovel_I = $rowAlteraImovel['titulo_imovel'];
@@ -132,10 +132,12 @@
                 $banheiros_I = $rowAlteraImovel['banheiros_imovel'];
                 $garagem_I = $rowAlteraImovel['garagem_imovel'];
                 $descricao_I = $rowAlteraImovel['descricao'];
+                $situacao_I = $rowAlteraImovel['situacao_imovel'];
                 $img_id = $rowAlteraImovel['img_id'];
                 $img_caminho = $rowAlteraImovel['img_caminho'];
                 $img_nome = $rowAlteraImovel['img_nome'];
                 // PARA TESTAR TIRE OS CÓDIGOS COMENTADOS ATÉ A LINHA 146
+                // echo"RESULTADOS";
                 // echo"<pre>".var_dump($rowAlteraImovel)."</pre>";
                 // echo"<br><hr>";
 
@@ -143,19 +145,29 @@
                 array_push($img, array($img_id, $img_caminho, $img_nome));
 
             }
+                // echo "IMGS";
                 // echo"<pre>".var_dump($img)."</pre>";
                 // echo"<br><hr>";
                 // die();
-            
-           
-            
 
+            // Passando os códigos da imagem para variáveis que ficarão em campos escondigos no modalAlterar.php
+            $codImg1_I = $img[1][0];
+            $codImg2_I = $img[2][0];
+            $codImg3_I = $img[3][0];
+            $codImg4_I = $img[4][0];
 
+            // Retirando as cadas decimais do valor do imóvel
+            $ponto = strpos($valor_I, '.');
+            $valor_I = substr($valor_I,0,$ponto);
 
-            //Mandar para uma função do javascript para preencher no formulário e alterar a função do botão cadastrar
-            //OU QUASE ISSO
-            
-            
+            // Pegando os dados de usuário para preencher no Alterar Imóvel
+            if (isset($_POST['codigo_I']))
+            {
+                $codigo_I = $_POST['codigo_I'];
+                $email_I = $_POST['email_I'];
+                $nome_I = $_POST['nome_I'];
+            }
+      
     }
 
     
@@ -184,7 +196,7 @@
             }
 
             /*Classe para aparecer somente a 1° parte do formulário inicialmente*/
-            /*Classa para aparecer somente os itens da primeira página, da aba de pesquisa, inicialmente*/
+            /*Classe para aparecer somente os itens da primeira página, da aba de pesquisa, inicialmente*/
             .invisivel{
 
                 display:none;
@@ -207,10 +219,11 @@
             }
 
             /*Divs das imagens*/
-            #div1, #div2, #div3{
+            #div1, #div2, #div3, #div4, #div1_I, #div2_I, #div3_I, #div4_I{
                 border:1px dashed #337CBB;
                 width: 100px;
                 height: 100px;
+                padding:0;
                 color:#337CBB;
                 font-size:40px;
                 text-align:center;
@@ -220,12 +233,18 @@
                 float:left;
             }
 
+            #div1_I img, #di2_I img, #div3_I img{
+                height:100px;
+                width:100px;
+                margin:0;
+            }
+
             .botaoImg{
                 float:left;
                 margin-left:20px;
             }
 
-            #tela5 input[type="file"]{
+            #tela5 input[type="file"], #tela5_a input[type="file"]{
                 display:none;
             }
             /*Estilo da tabela está inline*/
@@ -310,67 +329,70 @@
 
                                 </div>
                                 <table class="table" id="tabela" style="min-width:500px;max-width:700px;margin:10px auto;">
-                                                <tbody>
-                                                <!--Carrega dados na tabela-->
-                                                    <?php
-                                                        //Contador para atribuir um id a cada registro
-                                                        $cont = 0;
-                                                        //Checa se há resultados
-                                                       if( $rowsImoveis > 0) 
-                                                       { 
-                                                           while ( $linhasImoveis = mysqli_fetch_array($resultImoveis) )
-                                                            {
-                                                                $cont++;
-                                                                $codigoImovel = $linhasImoveis['cod_imovel'];
-                                                                $tipoNegocio = $linhasImoveis['tipoNegocio_imovel'];
-                                                                $valorImovel = $linhasImoveis['valor_imovel'];
-                                                                $codUsuario = $linhasImoveis['cod_usuario'];
-                                                                $queryUsuario = "SELECT * FROM usuarios WHERE cod_usuario = '$codUsuario'";
-                                                                $resultUsuario = mysqli_fetch_array(mysqli_query($conn, $queryUsuario));
-                                                                $codUsuario = $resultUsuario['nome_usuario'];
-                                                                
-                                                                //Condição para ocultar os itens
-                                                                if ($cont <= 5)
-                                                                    echo "<tr id=\"registro$cont\">";
-                                                                else
-                                                                    echo "<tr id=\"registro$cont\" class=\"invisivel\">";
+                                    <tbody>
+                                    <!--Carrega dados na tabela-->
+                                        <?php
+                                            //Contador para atribuir um id a cada registro
+                                            $cont = 0;
+                                            //Checa se há resultados
+                                           if( $rowsImoveis > 0) 
+                                           { 
+                                               while ( $linhasImoveis = mysqli_fetch_array($resultImoveis) )
+                                                {
+                                                    $cont++;
+                                                    $codigoImovel = $linhasImoveis['cod_imovel'];
+                                                    $tipoNegocio = $linhasImoveis['tipoNegocio_imovel'];
+                                                    $valorImovel = $linhasImoveis['valor_imovel'];
+                                                    $codUsuario = $linhasImoveis['cod_usuario'];
+                                                    $queryUsuario = "SELECT * FROM usuarios WHERE cod_usuario = '$codUsuario'";
+                                                    $resultUsuario = mysqli_fetch_array(mysqli_query($conn, $queryUsuario));
+                                                    $codUsuario = $resultUsuario['nome_usuario'];
+                                                    
+                                                    //Condição para ocultar os itens
+                                                    if ($cont <= 5)
+                                                        echo "<tr id=\"registro$cont\">";
+                                                    else
+                                                        echo "<tr id=\"registro$cont\" class=\"invisivel\">";
 
-                                                                echo"
-                                                                        <td>$codigoImovel</td>
-                                                                        <td>$tipoNegocio</td>
-                                                                        <td>$valorImovel</td>
-                                                                        <td><a href=\"\">$codUsuario</a></td>
-                                                                        <td style=\"padding-right:0\">
-                                                                            <button onclick=\"alterarImovel($codigoImovel);\">
-                                                                                <img src=\"imgs/alterar.png\" alt=\"Alterar\">
-                                                                            </button>
+                                                    echo"
+                                                            <td>$codigoImovel</td>
+                                                            <td>$tipoNegocio</td>
+                                                            <td>R\$ $valorImovel</td>
+                                                            <td><a href=\"\">$codUsuario</a></td>
+                                                            <td style=\"padding-right:0\">
+                                                                <button onclick=\"alterarImovel($codigoImovel);\">
+                                                                    <img src=\"imgs/alterar.png\" alt=\"Alterar\">
+                                                                </button>";
 
-                                                                            <button type=\"button\" onclick=\"abrirModal('D',$codigoImovel)\">
-                                                                                <img src=\"imgs/deletar.png\" alt=\"Excluir\">
-                                                                            </button>
-                                                                        </td>
-                                                                        
-                                                                    </tr>
-                                                                ";
+                                                                // Só mostra a opção de excluir um imóvel para usuários administradores
+                                                                if($tipoUsuario_L == 1)
+                                                                echo "<button type=\"button\" onclick=\"abrirModal('D',$codigoImovel)\">
+                                                                    <img src=\"imgs/deletar.png\" alt=\"Excluir\">
+                                                                </button>";
+                                                            echo"
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    ";
 
-                                                            }
-                                                        }
-                                                        else
-                                                            echo "<tr><td>Nenhum resultado encontrado</td></tr>";
+                                                }
+                                            }
+                                            else
+                                                echo "<tr><td>Nenhum resultado encontrado</td></tr>";
 
-                                                    ?> 
-                                                </tbody>
-                                                <!--thead é uma tag que contém os cabeçalhos-->
-                                                <thead>
-                                                    <tr>
-                                                    <th>Código</th>
-                                                    <th>Tipo de Negócio</th>
-                                                    <th>Valor do Imóvel</th>
-                                                    <th>Proprietário Cadastrado</th>
-                                                    <th style="padding-right:0">Opções</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+                                        ?> 
+                                    </tbody>
+                                    <!--thead é uma tag que contém os cabeçalhos-->
+                                    <thead>
+                                        <tr>
+                                        <th>Código</th>
+                                        <th>Tipo de Negócio</th>
+                                        <th>Valor do Imóvel</th>
+                                        <th>Proprietário Cadastrado</th>
+                                        <th style="padding-right:0">Opções</th>
+                                        </tr>
+                                    </thead>
+                                </table>
                                             
                                             <!-- Paginação -->
                                             <?php
@@ -436,7 +458,7 @@
                                         echo "<input type=\"radio\" name=\"tabs\" class=\"tabs\" id=\"tab2\" checked>";
                             ?>
                             <label for="tab2">Cadastrar Imóvel</label>
-                            <div class="row aba">
+                            <div class="row aba" style="overflow: auto">
                                 <div id="colFormCadastro" class="col-md-4">
                                 
 
@@ -482,7 +504,7 @@
                                                         while( $row = mysqli_fetch_array($resultResidencial) )
                                                         {
                                                             $option = $row['nome_tipoImovel'];
-                                                            $option = strtoupper(substr($option,0,1)) . substr($option,1) ;
+                                                            $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                                             echo "<option>$option</option>";
                                                         }
                                                             
@@ -492,7 +514,7 @@
                                                         $resultComercial = mysqli_query($conn, $queryCom);
                                                         while( $row = mysqli_fetch_array($resultComercial) )
                                                             $option = $row['nome_tipoImovel'];
-                                                            $option = strtoupper(substr($option,0,1)) . substr($option,1) ;
+                                                            $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                                             echo "<option>$option</option>";
                                                     ?>
                                                     <option disabled>---------- Rural ----------</option>
@@ -500,7 +522,7 @@
                                                         $resultRural = mysqli_query($conn, $queryRur);
                                                         while( $row = mysqli_fetch_array($resultRural) )
                                                             $option = $row['nome_tipoImovel'];
-                                                            $option = strtoupper(substr($option,0,1)) . substr($option,1) ;
+                                                            $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                                             echo "<option>$option</option>";
                                                     ?>
 
@@ -661,34 +683,54 @@
 
                                         <!-- tela5 - Imagens-->
                                         <div id="tela5" class="invisivel" style="display:none">
-                                            <h3 style="text-align:center">Imagens</h3><br>
-
-                                        <!-- Divs Imagens  -->
+                                        <div class="row">
                                             
-                                                <input type="file" name="myimage1" id="img1" >
-                                                <label for="img1">
-                                                    <div tabindex="0" name="div1" id="div1" onblur="carregaImg('img1','div1', 'btCancelarImg1')" onmouseout="carregaImg('img1','div1', 'btCancelarImg1')">+</div>
-                                                </label>
+                                        
+                                            <div class="col-xs-6">
+                                                <h3 style="text-align:center">Imagens</h3><br>
 
-                                                <input type="file" name="myimage2" id="img2" >
-                                                <label for="img2">
-                                                    <div tabindex="0" onblur="carregaImg('img2','div2', 'btCancelarImg2')" onmouseout="carregaImg('img2','div2', 'btCancelarImg2')" name="div2" id="div2">+</div>
-                                                </label>
+                                                    <input type="file" name="myimage1" id="img1" >
+                                                    <label for="img1">
+                                                        <div tabindex="0" name="div1" id="div1" onblur="carregaImg('img1','div1', 'btCancelarImg1')" onmouseout="carregaImg('img1','div1', 'btCancelarImg1')">+</div>
+                                                    </label>
 
-                                                <input type="file" name="myimage3" id="img3" >
-                                                <label for="img3">
-                                                    <div tabindex="0" onblur="carregaImg('img3','div3', 'btCancelarImg3')" onmouseout="carregaImg('img3','div3', 'btCancelarImg3')" name="div3" id="div3">+</div>
-                                                </label>
-                                            
-                                            
+                                                    <input type="file" name="myimage2" id="img2" >
+                                                    <label for="img2">
+                                                        <div tabindex="0" onblur="carregaImg('img2','div2', 'btCancelarImg2')" onmouseout="carregaImg('img2','div2', 'btCancelarImg2')" name="div2" id="div2">+</div>
+                                                    </label>
 
-                                            <!-- Botões de Cancelar -->
-                                            <div class="form-group" style="overflow:auto">   
-                                                <button type="button" class="btn btn-success botaoImg" style="display:none" id="btCancelarImg1" onClick="apaga('img1', 'div1','btCancelarImg1')">Cancelar imagem 1</button>
+                                                    <input type="file" name="myimage3" id="img3" >
+                                                    <label for="img3">
+                                                        <div tabindex="0" onblur="carregaImg('img3','div3', 'btCancelarImg3')" onmouseout="carregaImg('img3','div3', 'btCancelarImg3')" name="div3" id="div3">+</div>
+                                                    </label>
 
-                                                <button type="button" class="btn btn-success botaoImg" style="display:none" id="btCancelarImg2" onClick="apaga('img2', 'div2','btCancelarImg2')">Cancelar imagem 2</button>
-                                                <button type="button" class="btn btn-success botaoImg" style="display:none" id="btCancelarImg3" onClick="apaga('img3', 'div3','btCancelarImg3')">Cancelar imagem 3</button>
+                                                    
+                                                
+                                                
+
+                                                <!-- Botões de Cancelar -->
+                                                <div class="form-group" style="overflow:auto">   
+                                                    <button type="button" class="btn btn-success botaoImg" style="display:none" id="btCancelarImg1" onClick="apaga('img1', 'div1','btCancelarImg1')">Cancelar imagem 1</button>
+
+                                                    <button type="button" class="btn btn-success botaoImg" style="display:none" id="btCancelarImg2" onClick="apaga('img2', 'div2','btCancelarImg2')">Cancelar imagem 2</button>
+
+                                                    <button type="button" class="btn btn-success botaoImg" style="display:none;" id="btCancelarImg3" onClick="apaga('img3', 'div3','btCancelarImg3')">Cancelar imagem 3</button>
+
+                                                    
+
+                                                </div>
                                             </div>
+                                            <div class="col-xs-6">
+                                                <h3 style="text-align:center">Planta</h3><br>
+                                                <input type="file" name="myimage4" id="img4" >
+                                                <label for="img4">
+                                                    <div tabindex="0" onblur="carregaImg('img4','div4', 'btCancelarImg4')" onmouseout="carregaImg('img4','div4', 'btCancelarImg4')" name="div4" id="div4">+</div>
+                                                </label>
+                                                <div class="form-group" style="overflow:auto">  
+                                                    <button type="button" class="btn btn-success botaoImg" style="display:none" id="btCancelarImg4" onClick="apaga('img4', 'div4','btCancelarImg4')">Cancelar imagem 4</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                             
                             
 
@@ -699,15 +741,17 @@
                                         
 
                                         <!-- Botão Voltar, Próximo  e Cadastrar-->
-                                        <button type="button" class="btn btn-primary" onClick="voltar( 'tela1' , 'tela2', 'tela3', 'tela4', 'tela5', 'colFormCadastro' )">
-                                        Voltar
-                                        </button>
-                                        <button type="button" class="btn btn-primary" onClick="proximo( 'tela1' , 'tela2', 'tela3', 'tela4', 'tela5', 'colFormCadastro' )">
-                                        Próximo
-                                        </button>
-                                        <button type="submit" name="btCadastrar" id="btCadastrar" class="btn btn-primary disabled">
-                                        Cadastrar
-                                        </button>
+                                        <div style="padding:0 auto;">
+                                            <button type="button" class="btn btn-primary" onClick="voltar( 'tela1' , 'tela2', 'tela3', 'tela4', 'tela5', 'colFormCadastro' )" style="margin-left:5%">
+                                            Voltar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" onClick="proximo( 'tela1' , 'tela2', 'tela3', 'tela4', 'tela5', 'colFormCadastro' )">
+                                            Próximo
+                                            </button>
+                                            <button type="submit" name="btCadastrar" id="btCadastrar" class="btn btn-primary disabled">
+                                            Cadastrar
+                                            </button>
+                                        </div>
 
                                     </form>
 
@@ -719,41 +763,122 @@
                             <label for="tab3" name="lbltb3" id="lbltab3">Cadastrar Tipo de Imóvel</label>
                             <div class="row aba">
 
-                                <div id="colFormCadastroTipoImovel" class="col-md-4">
+                                <div id="colFormCadastroTipoImovel" class="col-md-12">
 
-                                    <form name="cadastroTipoImovel" method="POST" action="gravaTipoImovel.php">
+                                    <!-- Cadastrar Tipo de Imóvel -->
+                                    <div class="col-xs-5">
+                                        <form name="cadastroTipoImovel" method="POST" action="gravaTipoImovel.php">
 
-                                        <h3 style="text-align:center">Cadastro - Tipo de imóvel</h3><br>
+                                            <h3 style="text-align:center">Cadastrar tipo de imóvel</h3><br>
+                                                
+                                            <div class="form-group">
+                                                <label class="control-label">Subcategoria</label>
+                                                <input name="subcategoria" id="subcategoria" class="form-control" type="text" placeholder="Ex: Casa, Apartamento, Fazenda, Sítio..." maxlength="30" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="radio">
+                                                    <label class="radio-inline" for="residencial">
+                                                    <input name="categoriaTipoImovel" id="residencial" type="radio" value="Residencial" checked>
+                                                    Residencial
+                                                    </label>
+
+                                                    <label class="radio-inline" for="comercial">
+                                                    <input name="categoriaTipoImovel" id="comercial" type="radio" value="Comercial">
+                                                    Comercial
+                                                    </label>
+
+                                                    <label class="radio-inline" for="rural">
+                                                    <input name="categoriaTipoImovel" id="rural" type="radio" value="Rural">
+                                                    Rural
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button class="btn btn-primary" id="pesquisarUsuario" type="submit" onClick="return validaTipoImovel();">Cadastrar</button>
+                                            </div>
                                             
-                                        <div class="form-group">
-                                            <label class="control-label">Subcategoria</label>
-                                            <input name="subcategoria" id="subcategoria" class="form-control" type="text" placeholder="Ex: Casa, Apartamento, Fazenda, Sítio..." maxlength="30" required>
-                                        </div>
+                                        </form>
+                                    </div>
+                                    <!-- Fim do Cadastro de tipo de imóvel -->
 
-                                        <div class="form-group">
-                                            <div class="radio">
-                                                <label class="radio-inline" for="residencial">
-                                                <input name="categoriaTipoImovel" id="residencial" type="radio" value="Residencial" checked>
-                                                Residencial
-                                                </label>
+                                    <!-- Div vazia para deixar um espaço entre as duas partes  -->
+                                    <div class="col-xs-2"></div>
 
-                                                <label class="radio-inline" for="comercial">
-                                                <input name="categoriaTipoImovel" id="comercial"type="radio" value="Comercial">
-                                                Comercial
-                                                </label>
+                                    <!-- Tipos de imóveis cadastrados -->
+                                    <div class="col-xs-5">
+                                        
 
-                                                <label class="radio-inline" for="rural">
-                                                <input name="categoriaTipoImovel" id="rural" type="radio" value="Rural">
-                                                Rural
-                                                </label>
+                                            <h3 style="text-align:center">Tipos de imóveis cadastrados</h3><br>
+                                                
+                                    <table class="table" id="tabelaTipoImovel" >
+                                        <tbody>
+                                        <!-- Consultado os tipos de imóveis -->
+                                        <?php
+                                            $queryTipoImovel = "SELECT * FROM tipoimovel";
+                                            $resultTipoImovel = mysqli_query($conn, $queryTipoImovel);
+                                            while($rowTipoImovel = mysqli_fetch_array($resultTipoImovel))
+                                            {
+                                                $codigoTI = $rowTipoImovel['cod_tipoImovel'];
+                                                $categoriaTI = $rowTipoImovel['categoria_tipoImovel'];
+                                                $subcategoriaTI = $rowTipoImovel['nome_tipoImovel'];
+                                                $subcategoriaTI = mb_strtoupper(substr($subcategoriaTI,0,1)) . substr($subcategoriaTI,1) ;
+                                                echo"
+                                                <tr>
+                                                    <td>$subcategoriaTI</td>
+                                                    <td>$categoriaTI</td>
+                                                    <td style=\"padding-right:0\">
+                                                        <button type=\"button\" onclick=\"testanu();\">
+                                                            <img src=\"imgs/alterar.png\" alt=\"Alterar\">
+                                                        </button>";
+
+                                                        // Só mostra a opção de excluir um imóvel para usuários administradores
+                                                        if($tipoUsuario_L == 1)
+                                                        echo "<button type=\"button\" onclick=\"abrirModalTipoImovel()\">
+                                                            <img src=\"imgs/deletar.png\" alt=\"Excluir\">
+                                                        </button>";
+                                                    echo"
+                                                    </td>
+                                                    
+                                                </tr>
+                                                ";
+            
+                                            echo "<script>alert('oi')</script>";
+                                            }
+
+                                        ?>
+                                        </tbody>
+                                        <!--thead é uma tag que contém os cabeçalhos-->
+                                        <thead>
+                                            <tr>
+                                            <th>Subcategoria</th>
+                                            <th>Categoria</th>
+                                            <th style="padding-right:0">Opções</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <!--MODAL DELETAR TIPO DE IMÓVEL-->
+                                    <div class="modal" id="modalDeletarTipoImovel" style="display:none">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('modalDeletarTipoImovel').style.display='none'">×</button>
+                                                    <h4 class="modal-title">Deletar Tipo de Imóvel</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Deseja realmente apagar este tipo de imóvel?&nbsp;</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a class="btn btn-default" onclick="document.getElementById('modalDeletarTipoImovel').style.display='none'">Cancelar</a>
+                                                    <a class="btn btn-primary" id="confirmaDeletar">Sim, deletar tipo de imóvel</a>
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <!-- Fim MODAL DELETAR -->
 
-                                        <div class="form-group">
-                                            <button class="btn btn-primary" id="pesquisarUsuario" type="submit" onClick="return validaTipoImovel();">Cadastrar</button>
-                                        </div>
-                                        
-                                    </form>
+                                    </div>
 
                                 </div>
 

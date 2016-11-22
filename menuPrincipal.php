@@ -58,11 +58,11 @@
                                     
                                 ?> 
                                         <li>
-                                            <a href="#">Minha Conta</a>
+                                            <a href="minhaConta.php">Minha Conta</a>
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="#">Meus imóveis</a>
+                                            <a href="meusImoveis.php">Meus imóveis</a>
                                         </li>
                                         <li class="divider"></li>
                                         <li>

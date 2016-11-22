@@ -18,7 +18,7 @@
                 $local = $row['img_caminho'] . '/' . $row['img_nome'];
                 
                 //Se o arquivo for diferente de 'vazio', ou seja, se realmente existir a img referente ao imóvel no BD, então ela será
-                //deletada da pasta do Fotos
+                //deletada da pasta Fotos
                 if (!strpos($local,'vazio'))
                     //unlink deleta um arquivo
                     unlink($local);

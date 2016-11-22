@@ -4,6 +4,8 @@
 // Incluindo conexao
 include_once ("conexao.php");
 
+// GRAVANDO DADOS DE TEXTO
+
 // Pegando dados
 $codUsuario = $_POST['codUsuario'];
 $tituloImovel = $_POST['tituloImovel'];
@@ -47,6 +49,7 @@ $codImovel = $row['cod_imovel'];
 $codImovel = (int) $codImovel;
 
 
+// GRAVANDO 'IMAGENS'
 
 //Variavel para erro de upload
 $erro = false;
@@ -71,7 +74,9 @@ $_UP['erros'][3] = 'O upload do arquivo foi feito parcialmente';
 $_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 
 //Gravando Imagem 1
-$arquivo1 = $_FILES['myimage1']['name'];
+if(isset($_FILES['myimage1']['name']))
+{
+	$arquivo1 = $_FILES['myimage1']['name'];
 
 	$extensao = $_FILES['myimage1']['name'];
 	$extensao = explode('.', $extensao);
@@ -124,6 +129,7 @@ $arquivo1 = $_FILES['myimage1']['name'];
 			
 		}
 	}
+}
 
 //Gravando Imagem 2
 if(isset($_FILES['myimage2']['name']))
@@ -241,6 +247,63 @@ if(isset($_FILES['myimage3']['name']))
 	}
 }
 
+//Gravando Imagem 4
+if(isset($_FILES['myimage4']['name']))
+{
+	$arquivo4 = $_FILES['myimage4']['name'];
+
+	$extensao = $_FILES['myimage4']['name'];
+	$extensao = explode('.', $extensao);
+	$extensao = end ( $extensao );
+    $extensao = strtolower( $extensao );
+    //Se a imagem não foi upada
+    if( $_FILES['myimage4']['error'] == 4 )
+    {
+        $query = "INSERT INTO tabela_imagens VALUES( NULL, $codImovel, 'vazio', 'vazio' )";
+    	$result = mysqli_query($conn, $query) or die ("Erro ao cadastrar imagem vazia");
+        
+    }
+    //Caso a imagem tenha sido upada
+    //Verifica se houve algum erro, extensão inválida, tamanho inválido
+    else if( $_FILES['myimage4']['error'] != 0 || array_search($extensao, $_UP['extensoes'])=== false || $_UP['tamanho'] < $_FILES['myimage4']['size'] )
+    {
+        $erro = true;
+        $query = "INSERT INTO tabela_imagens VALUES( NULL, $codImovel, 'vazio', 'vazio' )";
+    	$result = mysqli_query($conn, $query) or die ("Erro ao cadastrar imagem vazia");
+       	
+        
+    }
+
+    //O arquivo passou em todas as verificações, hora de tentar move-lo para a pasta foto
+	else
+	{
+		//Primeiro verifica se deve trocar o nome do arquivo
+		if( $_UP['renomeia'] == true ){
+			//Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .jpg
+			$nome_final = time().'.jpg';
+		}
+		else
+		{
+			//mantem o nome original do arquivo
+			$nome_final = $_FILES['myimage4']['name'];
+		}
+		//Verificar se é possivel mover o arquivo para a pasta escolhida
+		if( move_uploaded_file($_FILES["myimage4"]["tmp_name"], "$local".$_FILES["myimage4"]["name"]) )
+		{
+			//Upload efetuado com sucesso, exibe a mensagem
+			$query = "INSERT INTO tabela_imagens VALUES( NULL, $codImovel, '$nome_final', '$local' )";
+			$result = mysqli_query($conn, $query) or die ("Erro ao cadastrar imagem no banco de dados");
+			
+		}
+		else
+		{
+			$erro = true;
+			$query = "INSERT INTO tabela_imagens VALUES( NULL, $codImovel, 'vazio', 'vazio' )";
+			$result = mysqli_query($conn, $query) or die ("Erro ao cadastrar imagem vazia");
+			
+		}
+	}
+}
 //Verificando se houve erro ao cadastrar
 if ( $erro )
     echo "

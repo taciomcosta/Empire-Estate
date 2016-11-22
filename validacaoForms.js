@@ -27,58 +27,116 @@
         }
     }
 
-// As funções abaixo validam as telas de cadastro de imóvel
-function validaImovel1()
+// As funções abaixo validam os campos do formulário de cadastro de imóvel e de alterar imóvel
+function validaImovel1(modal)
 {
-    if( document.getElementById('emailUsuario').value == '' ||  document.getElementById('nomeUsuario').value == '' )
+    if(modal == 'A')
     {
-        alert('Por favor, preencha todos os campos corretamente');
-        return false
+        if( document.getElementById('emailUsuario_I').value == '' ||  document.getElementById('nomeUsuario_I').value == '' )
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false
+        }
+        else
+            return true;
     }
     else
-        return true;
+    {
+        if( document.getElementById('emailUsuario').value == '' ||  document.getElementById('nomeUsuario').value == '' )
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false
+        }
+        else
+            return true;
+        
+    }
         
 }
 
-function validaImovel2()
+function validaImovel2(modal)
 {
-    if( document.getElementById('tituloImovel').value == '' || document.getElementById('valorImovel').value == '')
-    {
-        alert('Por favor, preencha todos os campos corretamente');
-        return false;
-    }
-    else if( document.getElementById('valorImovel').value.length > 7 )
-    {
-        alert("Preço Máximo: R$ 9.999.999,99");
-        return false;
+    if(modal == 'A')
+    {    
+        if( document.getElementById('tituloImovel_I').value == '' || document.getElementById('valorImovel_I').value == '')
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        else if( document.getElementById('valorImovel_I').value.length > 7 )
+        {
+            alert("Preço Máximo: R$ 9.999.999,99");
+            return false;
+        }
+        else
+            return true;
     }
     else
-        return true;
+    {
+        if( document.getElementById('tituloImovel').value == '' || document.getElementById('valorImovel').value == '')
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        else if( document.getElementById('valorImovel').value.length > 7 )
+        {
+            alert("Preço Máximo: R$ 9.999.999,99");
+            return false;
+        }
+        else
+            return true;
+    }
         
 }
 
-function validaImovel3()
+function validaImovel3(modal)
 {
-    if( document.getElementById('cidadeImovel').value == '' || document.getElementById('enderecoImovel').value == '' || document.getElementById('numeroImovel').value == '' || document.getElementById('complementoImovel').value == '' || document.getElementById('bairroImovel').value == '')
+    if(modal == 'A')
     {
-        alert('Por favor, preencha todos os campos corretamente');
-        return false;
+        if( document.getElementById('cidadeImovel_I').value == '' || document.getElementById('enderecoImovel_I').value == '' || document.getElementById('numeroImovel_I').value == '' || document.getElementById('complementoImovel_I').value == '' || document.getElementById('bairroImovel_I').value == '')
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        else
+            return true;
     }
     else
-        return true;
+    {
+        if( document.getElementById('cidadeImovel').value == '' || document.getElementById('enderecoImovel').value == '' || document.getElementById('numeroImovel').value == '' || document.getElementById('complementoImovel').value == '' || document.getElementById('bairroImovel').value == '')
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        else
+            return true;
+    }
         
 }
 
-function validaImovel4()
+function validaImovel4(modal)
 {
-    if( document.getElementById('areaTotalImovel').value == '' || document.getElementById('areaUtilImovel').value == '' || document.getElementById('dormitoriosImovel').value == '' || document.getElementById('banheirosImovel').value == '' || document.getElementById('garagemImovel').value == '' || document.getElementById('descricaoImovel').value == '')
-    {
-        alert('Por favor, preencha todos os campos corretamente');
-        return false;
+    if(modal == 'A')
+    {    
+        if( document.getElementById('areaTotalImovel_I').value == '' || document.getElementById('areaUtilImovel_I').value == '' || document.getElementById('dormitoriosImovel_I').value == '' || document.getElementById('banheirosImovel_I').value == '' || document.getElementById('garagemImovel_I').value == '' || document.getElementById('descricaoImovel_I').value == '')
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        else
+            return true;
     }
     else
-        return true;
-        
+    {
+        if( document.getElementById('areaTotalImovel').value == '' || document.getElementById('areaUtilImovel').value == '' || document.getElementById('dormitoriosImovel').value == '' || document.getElementById('banheirosImovel').value == '' || document.getElementById('garagemImovel').value == '' || document.getElementById('descricaoImovel').value == '')
+        {
+            alert('Por favor, preencha todos os campos corretamente');
+            return false;
+        }
+        else
+            return true;
+    }
+
 }
 
 // Valida Cadastro de tipo de imóvel
@@ -102,28 +160,28 @@ function proximo(e1, e2, e3, e4, e5, col) {
     var display4 = document.getElementById(e4).style.display;
     
     // Display da tela1 é undefined :/
-    if (display1 != "none" && validaImovel1()) 
+    if (display1 != "none" && validaImovel1() ) 
     {
         document.getElementById(e1).style.display = "none";
         document.getElementById(e2).style.display = "block";
     }
-    else if (display2 != "none" && validaImovel2()) 
+    else if (display2 != "none" && validaImovel2() ) 
     {
         document.getElementById(e2).style.display = "none";
         document.getElementById(e3).style.display = "block";
     }
-    else if (display3 != "none" && validaImovel3()) 
+    else if (display3 != "none" && validaImovel3() ) 
     {
         document.getElementById(e3).style.display = "none";
         document.getElementById(e4).style.display = "block";
         
     }
-    else if (display4 != "none" && validaImovel4()) 
+    else if (display4 != "none" && validaImovel4() ) 
     {
         document.getElementById(e4).style.display = "none";
         document.getElementById(e5).style.display = "block";
         document.formImovel.btCadastrar.className = "btn btn-primary";
-        document.getElementById(col).className = "col-md-6";
+        document.getElementById(col).className = "col-md-12";
     }
 
 
@@ -189,13 +247,15 @@ function voltar(e1, e2, e3, e4, e5, col) {
 }
 
 
-// Funções de carregar e excluir imagens das divs
+// Funções de carregar e excluir imagens das divs de cadastro
 function carregaImg(img, div, botao) {
 
     if (document.getElementById(img).value != '') {
         document.getElementById(div).innerText = "OK!";
         document.getElementById(botao).style.display = "block";
         document.getElementById(img).readOnly = true;
+        document.getElementById(div).setAttribute("onblur", "");
+        document.getElementById(div).setAttribute("onmouseout", "");
 
 
     }
@@ -206,10 +266,34 @@ function apaga(img, div, botao) {
     document.getElementById(div).innerText = "+";
     document.getElementById(botao).style.display = "none";
     document.getElementById(img).readOnly = false;
+    // Redefine a função do Botão de Cancelar
+    document.getElementById(botao).setAttribute("onclick", "apaga('"+img+"', '"+div+"','"+botao+"')");
+    // Redefine as funções de carregar da div
+    document.getElementById(div).setAttribute("onblur", "carregaImg('"+img+"', '"+div+"','"+botao+"')");
+    document.getElementById(div).setAttribute("onmouseout", "carregaImg('"+img+"', '"+div+"','"+botao+"')");
+    
+}
+
+// Função para apagar imagem da div no modal de Alterar Imóvel
+function apaga_a(img, div, botao, imgNome) {
+    
+    if( confirm(" Deseja realmente deletar esta imagem? ") )
+    {
+        document.getElementById(div).innerText = "+";
+        document.getElementById(div).style.fontSize = "40px";
+        document.getElementById(botao).style.display = "none";
+        document.getElementById(img).disabled = false;
+        document.getElementById(img).value = '';
+        document.getElementById(imgNome).style.display = "none";
+        // Redefine a função do Botão de Cancelar
+        document.getElementById(botao).setAttribute("onclick", "apaga('"+img+"', '"+div+"','"+botao+"')");
+        // Redefine as funções de carregar da div
+        document.getElementById(div).setAttribute("onblur", "carregaImg('"+img+"', '"+div+"','"+botao+"')");
+        document.getElementById(div).setAttribute("onmouseout", "carregaImg('"+img+"', '"+div+"','"+botao+"')");
+    }
 
 
 }
-
 
 function enviar()
 {
@@ -236,9 +320,6 @@ function fecharModal(modal) {
 
         document.getElementById("modalDeletar").style.display = "none";    
         document.getElementById("modalAlterar").style.display = "none";
-        voltar( 'tela1' , 'tela2', 'tela3', 'tela4', 'tela5', 'colFormCadastro' );
-
-
 }
 
 
@@ -257,6 +338,7 @@ function abrirModal(modal,codigoImovel) {
         }
 
 }
+
 
 //Função do pagination, para exibir/esconder os registros conforme clicar em cada botão
 function paginacao (pagina, nRegistros, nPaginas){
@@ -303,7 +385,7 @@ function paginacao (pagina, nRegistros, nPaginas){
 
 }
 
-// Preenchendo dados com Modal
+//As funções abaixo configuram o Modal de Alterar Imóveis
 function alterarImovel(codImovel)
 {
     location.href="pcImovel.php?alterarImovel="+codImovel;
@@ -311,35 +393,39 @@ function alterarImovel(codImovel)
 
 function proximo_a(e1, e2, e3, e4, e5, col) {
 
+    
     var display1 = document.getElementById(e1).style.display;
     var display2 = document.getElementById(e2).style.display;
     var display3 = document.getElementById(e3).style.display;
     var display4 = document.getElementById(e4).style.display;
     
     // Display da tela1 é undefined :/
-    if (display1 != "none" ) 
+    if (display1 != "none" && validaImovel1('A') ) 
     {
         document.getElementById(e1).style.display = "none";
         document.getElementById(e2).style.display = "block";
     }
-    else if (display2 != "none" )
+    else if (display2 != "none" && validaImovel2('A') ) 
     {
         document.getElementById(e2).style.display = "none";
         document.getElementById(e3).style.display = "block";
     }
-    else if (display3 != "none" ) 
+    else if (display3 != "none" && validaImovel3('A') ) 
     {
         document.getElementById(e3).style.display = "none";
         document.getElementById(e4).style.display = "block";
         
     }
-    else if (display4 != "none") 
+    else if (display4 != "none" && validaImovel4('A')) 
     {
         document.getElementById(e4).style.display = "none";
         document.getElementById(e5).style.display = "block";
-        document.formImovel.btCadastrar.className = "btn btn-primary";
-        document.getElementById(col).className = "col-md-6";
+        document.getElementById(col).style.width = "1100px";
+
+
+        
     }
+    
 
 
 
@@ -349,23 +435,53 @@ function voltar_a(e1, e2, e3, e4, e5, col) {
 
     var display1 = document.getElementById(e1).style.display;
     var display2 = document.getElementById(e2).style.display;
-
-
-
+    var display3 = document.getElementById(e3).style.display;
+    var display4 = document.getElementById(e4).style.display;
+    var display5 = document.getElementById(e5).style.display;
     
+
     if (display1 != "none") 
     {
-        
+        document.getElementById(e4).style.display = "none";
+        document.getElementById(e3).style.display = "none";
         document.getElementById(e2).style.display = "none";
         document.getElementById(e1).style.display = "block";
     }
-    
-    
+    else if (display5 != "none") 
+    {
+        document.getElementById(e5).style.display = "none";
+        document.getElementById(e4).style.display = "block";
+        document.getElementById(e3).style.display = "none";
+        document.getElementById(e2).style.display = "none";
+        document.getElementById(e1).style.display = "none";
+       
+    }
+   
+    else if (display4 != "none") 
+    {
+        document.getElementById(e4).style.display = "none";
+        document.getElementById(e3).style.display = "block";
+        document.getElementById(e2).style.display = "none";
+        document.getElementById(e1).style.display = "none";      
+    }
+    else if (display3 != "none") 
+    {
+        document.getElementById(e4).style.display = "none";
+        document.getElementById(e3).style.display = "none";
+        document.getElementById(e2).style.display = "block";
+        document.getElementById(e1).style.display = "none";
+                
+    }
     else if (display2 != "none") 
     {
-        
+        document.getElementById(e4).style.display = "none";
+        document.getElementById(e3).style.display = "none";
         document.getElementById(e2).style.display = "none";
         document.getElementById(e1).style.display = "block";
     }
 
 }
+
+// A FAZER
+//*Editar ou excluir a função voltar
+// Adicionar validação no cadastro de Imóvel

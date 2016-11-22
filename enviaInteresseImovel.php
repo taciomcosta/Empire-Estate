@@ -1,6 +1,6 @@
 <?php
 
-// Essa página manipula os dados da página contato.php
+// Esta página envia o e-mail do formulário de Interesse no Imóvel, na Página de Imóveis
 
 //Capturando dados do formulário
 $nome = $_POST['nome'];
@@ -9,12 +9,13 @@ $codigoImovel = $_POST['codigoImovel'];
 $assunto = "Interesse no imóvel de código $codigoImovel";
 $msg = $_POST['mensagem'];
 
+
 //Dados para a função mail()
 $to = 'empireestate@imoveis.com.br';
 $msgFinal = "De: $nome \\n $msg";
 
 // Enviando mensagem
-if(@mail($to, $assunto, $msgFinal, $email)){
+if( !@mail($to, $assunto, $msgFinal, $email) ){
 
 ?>
 	<script type="text/javascript">
@@ -22,7 +23,7 @@ if(@mail($to, $assunto, $msgFinal, $email)){
 	</script>
 
 <?php
-header("refresh: 0.5;contato.php");
+header("refresh: 0.5;paginaImovel.php?codImovel=$codigoImovel");
 }
 
 ?>
