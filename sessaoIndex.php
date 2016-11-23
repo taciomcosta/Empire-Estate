@@ -7,6 +7,7 @@
         {
             //Informações sobre as variáveis abaixo em sessaoLogin.php
             $sessao = true;
+            $codigo_L = $_SESSION['codigo'];
             $tipoUsuario_L = $_SESSION['tipoUsuario'];
             $nome_L = $_SESSION['nome'];
         }

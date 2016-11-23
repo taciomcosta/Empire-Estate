@@ -150,3 +150,18 @@ FOREIGN KEY (cod_imovel) REFERENCES imoveis(cod_imovel)
 
 
 );
+
+-----------------------------------------------------------------------------------
+CREATE TABLE favoritos(
+
+	cod_favoritos INT AUTO_INCREMENT PRIMARY KEY,
+
+	cod_usuario INT ,
+
+	cod_imovel INT,
+
+	FOREIGN KEY (cod_usuario) REFERENCES usuarios(cod_usuario),
+
+	FOREIGN KEY (cod_imovel) REFERENCES imoveis(cod_imovel)	
+	
+);

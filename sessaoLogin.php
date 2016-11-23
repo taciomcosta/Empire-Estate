@@ -12,6 +12,7 @@
     else
     {
         // Recebe o tipo de usuário e o nome, para serem usados em outras páginas em que esse arquivo está incluido. EX: menuPrincipla.php
+        $codigo_L = $_SESSION['codigo'];
         $tipoUsuario_L = $_SESSION['tipoUsuario'];
         $nome_L = $_SESSION['nome'];
 

@@ -262,7 +262,7 @@
             }
 
             /*Estilo modal*/
-            #modalDeletar, #modalAlterar{
+            #modalDeletar, #modalAlterar, #modalDeletarTipoImovel{
                 margin-top:200px;
             }
 
@@ -425,9 +425,9 @@
                                             <?php 
                                                 }//fim do if
                                             ?>
-                                            <!-- MODAL ALTERAR -->
+
+                                            <!-- IMPORTANDO MODAL MODAL ALTERAR -->
                                             <?php include "modalAlterar.php" ?>
-                                            <!-- FIM MODAL ALTERAR -->
 
                                             <!--MODAL DELETAR-->
                                             <div class="modal" id="modalDeletar">
@@ -769,11 +769,14 @@
                                     <div class="col-xs-5">
                                         <form name="cadastroTipoImovel" method="POST" action="gravaTipoImovel.php">
 
-                                            <h3 style="text-align:center">Cadastrar tipo de imóvel</h3><br>
+                                            <h3 style="text-align:center" id="tituloTipoImovel">Cadastrar tipo de imóvel</h3><br>
                                                 
                                             <div class="form-group">
                                                 <label class="control-label">Subcategoria</label>
                                                 <input name="subcategoria" id="subcategoria" class="form-control" type="text" placeholder="Ex: Casa, Apartamento, Fazenda, Sítio..." maxlength="30" required>
+
+                                                <!-- Input oculto com o código do tipo de imóvel. Será utilizado para alterar um imóvel -->
+                                                <input type="hidden" id='codigoTIAlterar' name='codigoTIAlterar' value=''>
                                             </div>
 
                                             <div class="form-group">
@@ -792,11 +795,15 @@
                                                     <input name="categoriaTipoImovel" id="rural" type="radio" value="Rural">
                                                     Rural
                                                     </label>
+                                                    <label class="invisivel" id="situacaoTipoImovel" style="float:right;margin-right:2%;">
+                                                        <input name="situacaoTipoImovel" type="checkbox" checked>Ativo
+                                                    </label>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <button class="btn btn-primary" id="pesquisarUsuario" type="submit" onClick="return validaTipoImovel();">Cadastrar</button>
+                                                <button class="btn btn-primary" id="btCadastrarTipoImovel" type="submit" onClick="return validaTipoImovel();">Cadastrar</button>
+                                                <button class="btn btn-danger" style="display:none" id="btCancelarTipoImovel" type="button" onClick="cancelaTipoImovel()">Cancelar</button>
                                             </div>
                                             
                                         </form>
@@ -809,74 +816,74 @@
                                     <!-- Tipos de imóveis cadastrados -->
                                     <div class="col-xs-5">
                                         
-
-                                            <h3 style="text-align:center">Tipos de imóveis cadastrados</h3><br>
+                                        <h3 style="text-align:center">Tipos de imóveis cadastrados</h3><br>
                                                 
-                                    <table class="table" id="tabelaTipoImovel" >
-                                        <tbody>
-                                        <!-- Consultado os tipos de imóveis -->
-                                        <?php
-                                            $queryTipoImovel = "SELECT * FROM tipoimovel";
-                                            $resultTipoImovel = mysqli_query($conn, $queryTipoImovel);
-                                            while($rowTipoImovel = mysqli_fetch_array($resultTipoImovel))
-                                            {
-                                                $codigoTI = $rowTipoImovel['cod_tipoImovel'];
-                                                $categoriaTI = $rowTipoImovel['categoria_tipoImovel'];
-                                                $subcategoriaTI = $rowTipoImovel['nome_tipoImovel'];
-                                                $subcategoriaTI = mb_strtoupper(substr($subcategoriaTI,0,1)) . substr($subcategoriaTI,1) ;
-                                                echo"
+                                        <table class="table" id="tabelaTipoImovel" >
+                                            <tbody>
+                                            <!-- Consultado os tipos de imóveis -->
+                                            <?php
+                                                $queryTipoImovel = "SELECT * FROM tipoimovel ORDER BY categoria_tipoImovel";
+                                                $resultTipoImovel = mysqli_query($conn, $queryTipoImovel);
+                                                while($rowTipoImovel = mysqli_fetch_array($resultTipoImovel))
+                                                {
+                                                    $codigoTI = $rowTipoImovel['cod_tipoImovel'];
+                                                    $categoriaTI = $rowTipoImovel['categoria_tipoImovel'];
+                                                    $subcategoriaTI = $rowTipoImovel['nome_tipoImovel'];
+                                                    $subcategoriaTI = mb_strtoupper(substr($subcategoriaTI,0,1)) . substr($subcategoriaTI,1) ;
+                                                    echo "<tr>";
+
+                                                        echo"
+                                                                <td>$subcategoriaTI</td>
+                                                               
+                                                                <td>$categoriaTI</td>
+                                                                <td style=\"padding-right:0\">
+                                                                    <button onclick=\"alterarTipoImovel('$codigoTI','$categoriaTI','$subcategoriaTI')\">
+                                                                        <img src=\"imgs/alterar.png\" alt=\"Alterar\">
+                                                                    </button>";
+
+                                                                    // Só mostra a opção de excluir um imóvel para usuários administradores
+                                                                    if($tipoUsuario_L == 1)
+                                                                    echo "<button type=\"button\" onclick=\"abrirModal('DTI','$codigoTI')\">
+                                                                        <img src=\"imgs/deletar.png\" alt=\"Excluir\">
+                                                                    </button>";
+                                                                echo"
+                                                                </td>
+                                                                
+                                                            </tr>
+                                                        ";
+                                                }//Fim while
+
+                                            ?>
+                                            </tbody>
+                                            <!--thead é uma tag que contém os cabeçalhos-->
+                                            <thead>
                                                 <tr>
-                                                    <td>$subcategoriaTI</td>
-                                                    <td>$categoriaTI</td>
-                                                    <td style=\"padding-right:0\">
-                                                        <button type=\"button\" onclick=\"testanu();\">
-                                                            <img src=\"imgs/alterar.png\" alt=\"Alterar\">
-                                                        </button>";
-
-                                                        // Só mostra a opção de excluir um imóvel para usuários administradores
-                                                        if($tipoUsuario_L == 1)
-                                                        echo "<button type=\"button\" onclick=\"abrirModalTipoImovel()\">
-                                                            <img src=\"imgs/deletar.png\" alt=\"Excluir\">
-                                                        </button>";
-                                                    echo"
-                                                    </td>
-                                                    
+                                                <th>Subcategoria</th>
+                                                <th>Categoria</th>
+                                                <th style="padding-right:0">Opções</th>
                                                 </tr>
-                                                ";
-            
-                                            echo "<script>alert('oi')</script>";
-                                            }
+                                            </thead>
+                                        </table>
 
-                                        ?>
-                                        </tbody>
-                                        <!--thead é uma tag que contém os cabeçalhos-->
-                                        <thead>
-                                            <tr>
-                                            <th>Subcategoria</th>
-                                            <th>Categoria</th>
-                                            <th style="padding-right:0">Opções</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                    <!--MODAL DELETAR TIPO DE IMÓVEL-->
-                                    <div class="modal" id="modalDeletarTipoImovel" style="display:none">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('modalDeletarTipoImovel').style.display='none'">×</button>
-                                                    <h4 class="modal-title">Deletar Tipo de Imóvel</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Deseja realmente apagar este tipo de imóvel?&nbsp;</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a class="btn btn-default" onclick="document.getElementById('modalDeletarTipoImovel').style.display='none'">Cancelar</a>
-                                                    <a class="btn btn-primary" id="confirmaDeletar">Sim, deletar tipo de imóvel</a>
+                                        <!--MODAL DELETAR TIPO DE IMÓVEL-->
+                                        <div class="modal" id="modalDeletarTipoImovel" style="display:none">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('modalDeletarTipoImovel').style.display='none'">×</button>
+                                                        <h4 class="modal-title">Deletar Tipo de Imóvel</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Deseja realmente apagar este tipo de imóvel?&nbsp;</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a class="btn btn-default" onclick="document.getElementById('modalDeletarTipoImovel').style.display='none'">Cancelar</a>
+                                                        <a class="btn btn-primary" id="confirmaDeletarTipoImovel">Sim, deletar tipo de imóvel</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Fim MODAL DELETAR -->
+                                        <!-- Fim MODAL DELETAR -->
 
                                     </div>
 

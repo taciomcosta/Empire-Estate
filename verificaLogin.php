@@ -15,16 +15,19 @@ $numRows = mysqli_num_rows($result);
 //Se o usuário existir, então 
 if ( $numRows > 0 )
 {
-    //Pega o nome do usuário e o tipo (ADMIN = 1, FUNCIONÁRIO = 2 E USUARIO COMUM = 3)
+    //Pega o nome do usuário, o código, e o tipo (ADMIN = 1, FUNCIONÁRIO = 2 E USUARIO COMUM = 3)
     $row = mysqli_fetch_array($result);
+    $codigo = $row['cod_usuario'];
     $nome = $row['nome_usuario'];
     $tipoUsuario =  $row['tipo_usuario'];
+
 
     //Inicia a sessão ( o @ supre os possíveis erros do php de aparecerem na tela)
     @session_start();
 
     //As atribuições abaixo foram feitas para os dados do usuário serem utilizados em outras páginas
     // EX: pcImovel.php, que precisa identificar o tipo de usuário que está acessando a página
+    $_SESSION['codigo'] = $codigo;
     $_SESSION['login'] = $email;
     $_SESSION['senha'] = $senha;
     $_SESSION['nome'] = $nome;
@@ -50,10 +53,6 @@ if ( $numRows > 0 )
 //Se o usuário não existir
 else
 {
-    unset($_SESSION['login']);
-    unset($_SESSION['senha']);
-    unset($_SESSION['nome']);
-    unset($_SESSION['tipoUsuario']);
     echo "<script>alert('Usuário não cadastrado.\\n Por favor, verifique os campos preenchidos');</script>";
     header("refresh:0.5; index.php");
 }

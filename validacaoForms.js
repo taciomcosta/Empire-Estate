@@ -1,4 +1,4 @@
-﻿// Funções de validação de formulário
+// Funções de validação de formulário
 
 // Valida Usuário Comum (cadastroUsuario, pcUsuario)
     function validaUsuarioComum() {
@@ -325,12 +325,20 @@ function fecharModal(modal) {
 
 function abrirModal(modal,codigoImovel) {
 
-        // Se for o modal de deletar
+        // Se for o modal de deletar imóvel
         if(modal == 'D')
         {
             document.getElementById("modalDeletar").style.display = "block";
             //Define o link do botão de Confirmar do delete 
             document.getElementById("confirmaDeletar").href = 'deletaImovel.php?codigo=' + codigoImovel;
+        }
+        // Se for o modal de deltar o tipo de imóvel
+        else if(modal == 'DTI')
+        {
+           alert('oi');
+        document.getElementById("modalDeletarTipoImovel").style.display = "block";
+        // document.getElementById("confirmaDeletarTipoImovel").href = 'deletaTipoImovel.php?codigo=' + codigoImovel;
+
         }
         else
         {
@@ -339,6 +347,49 @@ function abrirModal(modal,codigoImovel) {
 
 }
 
+// Função que troca os valores do formulário de cadastro, para que um tipo de imóvel seja alterado
+function alterarTipoImovel(codigoTI, categoriaTI, subcategoriaTI)
+{
+
+    document.getElementById('btCadastrarTipoImovel').innerHTML='Alterar';
+    // Mostrando o botão de cancelar
+    document.getElementById('btCancelarTipoImovel').style.display = "inline-block";
+
+    // Checando o tipo de categoria do imóvel a ser alterado
+    if(categoriaTI == 'Comercial')
+        document.getElementById('comercial').checked = true;
+    if(categoriaTI == 'Residencial')
+        document.getElementById('residencial').checked = true;
+    if(categoriaTI == 'Rural')
+        document.getElementById('rural').checked = true;
+
+    // Inserindo a subcategoria no input text
+    document.getElementById('subcategoria').value = subcategoriaTI;
+    // Mostrando a opção Ativo do tipo de imóvel
+    document.getElementById('situacaoTipoImovel').style.display = "block";
+    // Inserindo o código do tipo de imóvel no campo oculto da linha 779 do pcImovel.php
+    document.getElementById('codigoTIAlterar').value = codigoTI;
+
+}
+
+// Função oposta da função acima
+function cancelaTipoImovel()
+{
+    document.getElementById('btCadastrarTipoImovel').innerHTML='Cadastrar';
+
+    // Mostrando o botão de cancelar
+    document.getElementById('btCancelarTipoImovel').style.display = "none";
+
+    document.getElementById('residencial').checked = true;
+
+    // Inserindo a subcategoria no input text
+    document.getElementById('subcategoria').value = '';
+    // Mostrando a opção Ativo do tipo de imóvel
+    document.getElementById('situacaoTipoImovel').style.display = "none";
+    // Inserindo o código do tipo de imóvel no campo oculto da linha 779 do pcImovel.php
+    document.getElementById('codigoTIAlterar').value = '';
+
+}
 
 //Função do pagination, para exibir/esconder os registros conforme clicar em cada botão
 function paginacao (pagina, nRegistros, nPaginas){
