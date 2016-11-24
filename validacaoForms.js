@@ -318,7 +318,7 @@ function altera(cod)
 // Funções para abrir e fechar os modals
 function fecharModal(modal) {
 
-        document.getElementById("modalDeletar").style.display = "none";    
+        document.getElementById("modalDeletar").style.display = "none";
         document.getElementById("modalAlterar").style.display = "none";
 }
 
@@ -332,13 +332,17 @@ function abrirModal(modal,codigoImovel) {
             //Define o link do botão de Confirmar do delete 
             document.getElementById("confirmaDeletar").href = 'deletaImovel.php?codigo=' + codigoImovel;
         }
-        // Se for o modal de deltar o tipo de imóvel
+        // Se for o modal de deletar o tipo de imóvel
         else if(modal == 'DTI')
         {
-           alert('oi');
-        document.getElementById("modalDeletarTipoImovel").style.display = "block";
-        // document.getElementById("confirmaDeletarTipoImovel").href = 'deletaTipoImovel.php?codigo=' + codigoImovel;
+            document.getElementById("modalDeletarTipoImovel").style.display = "block";
+            document.getElementById("confirmaDeletarTipoImovel").href = 'deletaTipoImovel.php?codigo=' + codigoImovel;
 
+        }
+        // Se for o modal de alterar usuário, do Painel de Usuários
+        else if(modal == 'AU')
+        {
+            document.getElementById("modalAlterarUsuario").style.display = "block";
         }
         else
         {
@@ -348,7 +352,7 @@ function abrirModal(modal,codigoImovel) {
 }
 
 // Função que troca os valores do formulário de cadastro, para que um tipo de imóvel seja alterado
-function alterarTipoImovel(codigoTI, categoriaTI, subcategoriaTI)
+function alterarTipoImovel(codigoTI, categoriaTI, subcategoriaTI, situacaoTI)
 {
 
     document.getElementById('btCadastrarTipoImovel').innerHTML='Alterar';
@@ -363,12 +367,20 @@ function alterarTipoImovel(codigoTI, categoriaTI, subcategoriaTI)
     if(categoriaTI == 'Rural')
         document.getElementById('rural').checked = true;
 
+    //Marcando o Checkbox de ativo
+    if(situacaoTI == 1)
+        document.getElementById('situacaoTICheckbox').checked = true;
+    else
+        document.getElementById('situacaoTICheckbox').checked = false;
+
     // Inserindo a subcategoria no input text
     document.getElementById('subcategoria').value = subcategoriaTI;
     // Mostrando a opção Ativo do tipo de imóvel
     document.getElementById('situacaoTipoImovel').style.display = "block";
     // Inserindo o código do tipo de imóvel no campo oculto da linha 779 do pcImovel.php
     document.getElementById('codigoTIAlterar').value = codigoTI;
+    //Alterando o action do formulário
+    document.getElementById('formTipoImovel').action = 'alteraTipoImovel.php';
 
 }
 
@@ -388,6 +400,9 @@ function cancelaTipoImovel()
     document.getElementById('situacaoTipoImovel').style.display = "none";
     // Inserindo o código do tipo de imóvel no campo oculto da linha 779 do pcImovel.php
     document.getElementById('codigoTIAlterar').value = '';
+    //Alterando o action do formulário
+    document.getElementById('formTipoImovel').action = 'gravaTipoImovel.php';
+
 
 }
 
@@ -533,6 +548,10 @@ function voltar_a(e1, e2, e3, e4, e5, col) {
 
 }
 
-// A FAZER
-//*Editar ou excluir a função voltar
-// Adicionar validação no cadastro de Imóvel
+// Funções do Painel de Usuários
+
+//A função abaixo configura o Modal de Alterar Usuários
+function alterarUsuario(codUsuario)
+{
+    location.href="pcUsuario.php?alteraUsuario="+codUsuario;    
+}

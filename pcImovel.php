@@ -4,13 +4,13 @@
      include_once("sessaoLogin.php");
 
     // Bloqueando a página para usuário comum
-        if ( $tipoUsuario_L == 3 )
-        {
-            echo "<script>alert('Não é possível acessar esta página');</script>";
-            header("refresh:0.5;sessaoIndex.php");
-        }
-        else
-        {
+    if ( $tipoUsuario_L == 3 )
+    {
+        echo "<script>alert('Não é possível acessar esta página');</script>";
+        header("refresh:0.5;sessaoIndex.php");
+    }
+    else
+    {
 
 
     // Pegando dados do usuário para preencher no cadastro de imóvel *ver consultaUsuarioImovel.php
@@ -303,7 +303,7 @@
                                     //Se foi feito uma pesquisa, então carregar a página com a aba de pesquisa checada
                                     if ( $aba == 1)
                                         echo "<input type=\"radio\" name=\"tabs\" class=\"tabs\" id=\"tab1\" checked>";
-                                    //senão, carregar a página com sem a aba de pesquisa checada
+                                    //senão, carregar a página sem a aba de pesquisa checada
                                     else
                                         echo "<input type=\"radio\" name=\"tabs\" class=\"tabs\" id=\"tab1\">";
                             ?>
@@ -533,10 +533,10 @@
                                                 <select name="tipoNegocio" class="form-control" required>
 
                                                     <option selected> Venda </option>
-                                                    <option selected>Locação </option>
-                                                    <option selected> Venda e Locação </option>
-                                                    <option selected>Troca</option>
-                                                    <option selected>Imóvel na planta</option>
+                                                    <option >Locação </option>
+                                                    <option > Venda e Locação </option>
+                                                    <option >Troca</option>
+                                                    <option >Imóvel na planta</option>
 
                                                     
                                                 </select>
@@ -767,7 +767,7 @@
 
                                     <!-- Cadastrar Tipo de Imóvel -->
                                     <div class="col-xs-5">
-                                        <form name="cadastroTipoImovel" method="POST" action="gravaTipoImovel.php">
+                                        <form name="cadastroTipoImovel" id="formTipoImovel" method="POST" action="gravaTipoImovel.php">
 
                                             <h3 style="text-align:center" id="tituloTipoImovel">Cadastrar tipo de imóvel</h3><br>
                                                 
@@ -795,12 +795,11 @@
                                                     <input name="categoriaTipoImovel" id="rural" type="radio" value="Rural">
                                                     Rural
                                                     </label>
-                                                    <label class="invisivel" id="situacaoTipoImovel" style="float:right;margin-right:2%;">
-                                                        <input name="situacaoTipoImovel" type="checkbox" checked>Ativo
+                                                    <label class="invisivel" name="situacaoTipoImovel" id="situacaoTipoImovel" style="float:right;margin-right:2%;">
+                                                        <input name="situacaoTipoImovel" id="situacaoTICheckbox" type="checkbox">Ativo
                                                     </label>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <button class="btn btn-primary" id="btCadastrarTipoImovel" type="submit" onClick="return validaTipoImovel();">Cadastrar</button>
                                                 <button class="btn btn-danger" style="display:none" id="btCancelarTipoImovel" type="button" onClick="cancelaTipoImovel()">Cancelar</button>
@@ -829,15 +828,23 @@
                                                     $codigoTI = $rowTipoImovel['cod_tipoImovel'];
                                                     $categoriaTI = $rowTipoImovel['categoria_tipoImovel'];
                                                     $subcategoriaTI = $rowTipoImovel['nome_tipoImovel'];
+                                                    // Deixando a 1° letra maiúscula
                                                     $subcategoriaTI = mb_strtoupper(substr($subcategoriaTI,0,1)) . substr($subcategoriaTI,1) ;
+                                                    $situacaoTI = $rowTipoImovel['situacao_tipoImovel'];
                                                     echo "<tr>";
 
-                                                        echo"
+                                                        if(!$situacaoTI)
+                                                            echo"
+                                                                <td style='color:#999'>$subcategoriaTI</td>
+                                                                <td style='color:#999'>$categoriaTI</td>";
+                                                        else
+                                                            echo"
                                                                 <td>$subcategoriaTI</td>
-                                                               
-                                                                <td>$categoriaTI</td>
+                                                                <td>$categoriaTI</td>";
+
+                                                            echo"
                                                                 <td style=\"padding-right:0\">
-                                                                    <button onclick=\"alterarTipoImovel('$codigoTI','$categoriaTI','$subcategoriaTI')\">
+                                                                    <button onclick=\"alterarTipoImovel('$codigoTI','$categoriaTI','$subcategoriaTI', $situacaoTI)\">
                                                                         <img src=\"imgs/alterar.png\" alt=\"Alterar\">
                                                                     </button>";
 

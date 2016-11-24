@@ -311,6 +311,7 @@ if ( $erro )
             alert('Houve erro no cadastro de algumas imagens, \\n você será redirecionado para cadastrar uma nova imagem');
         </script>
     ";
+    header("refresh:0.5;pcImovel?alterarImovel=$codImovel");
 else
 {
     echo "

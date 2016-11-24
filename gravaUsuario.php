@@ -7,6 +7,10 @@
 	$nome = $_POST['nome'];
 	$email = strtolower($_POST['email']);
 	$senha = $_POST['senha'];
+	if(isset($_POST['tipoUsuario']))
+		$tipoUsuario = $_POST['tipoUsuario'];
+	else
+		$tipoUsuario = 3;
 
 	//Conectando ao MySQL
 	include_once("conexao.php");
@@ -29,7 +33,7 @@
     { 
 
 	//Inserindo dados
-	$query = "INSERT INTO usuarios VALUES (NULL, '$nome', '$email', '$senha', 3, 1)";
+	$query = "INSERT INTO usuarios VALUES (NULL, '$nome', '$email', '$senha', $tipoUsuario, 1)";
 
 	$sql = mysqli_query($conn,$query) or die("Erro ao gravar");
 
@@ -44,7 +48,10 @@
 	<?php
 
 	// Redireciona para a página incial depois de 0.5 segundo
-	header("refresh: 0.5;index.php");
+	if(isset($_POST['tipoUsuario']))
+		header("refresh: 0.5;pcUsuario.php");
+	else
+		header("refresh: 0.5;index.php");
 
 	}
 
