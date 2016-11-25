@@ -1,8 +1,23 @@
 // Funções de validação de formulário
 
 // Valida Usuário Comum (cadastroUsuario, pcUsuario)
-    function validaUsuarioComum() {
+function validaUsuarioComum(form) {
 
+    // Se for o formulário de alterar cadastro de usuários
+    if(form == 'A')
+    {
+        if (document.getElementById('senha_I').value == document.getElementById('confirmesenha_I').value) {
+
+            return true;
+        }
+        else {
+            alert('Senhas não conferem!');
+            return false;
+        }
+    }
+    // Se for algum dos formulários de cadastro
+    else
+    {
         if (document.getElementById('senha').value == document.getElementById('confirmesenha').value) {
 
             return true;
@@ -11,21 +26,22 @@
             alert('Senhas não conferem!');
             return false;
         }
-
     }
+
+}
 
 // valida Pesquisa de Imóvel
-    function validaPesquisaImovel()
-    {
-        if(document.getElementById('pesquisaImovel').value == ''){
-            alert('Por favor, preencha todos os campos corretamente');
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+function validaPesquisaImovel()
+{
+    if(document.getElementById('pesquisaImovel').value == ''){
+        alert('Por favor, preencha todos os campos corretamente');
+        return false;
     }
+    else
+    {
+        return true;
+    }
+}
 
 // As funções abaixo validam os campos do formulário de cadastro de imóvel e de alterar imóvel
 function validaImovel1(modal)
@@ -343,6 +359,12 @@ function abrirModal(modal,codigoImovel) {
         else if(modal == 'AU')
         {
             document.getElementById("modalAlterarUsuario").style.display = "block";
+        }
+        else if(modal == 'DU')
+        {
+            document.getElementById("modalDeletar").style.display = "block";
+            //Define o link do botão de Confirmar do delete 
+            document.getElementById("confirmaDeletar").href = 'deletaUsuario.php?codigo=' + codigoImovel;
         }
         else
         {

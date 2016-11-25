@@ -306,12 +306,14 @@ if(isset($_FILES['myimage4']['name']))
 }
 //Verificando se houve erro ao cadastrar
 if ( $erro )
+{
     echo "
         <script type=\"text/javascript\">
             alert('Houve erro no cadastro de algumas imagens, \\n você será redirecionado para cadastrar uma nova imagem');
         </script>
     ";
     header("refresh:0.5;pcImovel?alterarImovel=$codImovel");
+}
 else
 {
     echo "

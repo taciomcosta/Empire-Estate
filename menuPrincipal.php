@@ -23,7 +23,7 @@
 
                     <div class="form-group">
 
-                        <input name="txtPesqusa" type="text" class="form-control fa fa-search" placeholder="Pesquise por local, tipo ou código do imóvel">
+                        <input name="pesquisaMenuPrincipal" type="text" class="form-control fa fa-search" placeholder="Pesquise por local, tipo ou código do imóvel" required>
                         <button type="submit" class="btn btn-default hidden-xs" value="Pesquisar">
                             <img src="imgs/lupa.png">
                         </button>

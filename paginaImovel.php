@@ -1,62 +1,83 @@
 <?php
     //Sessão utilizada em páginas que não precisam de login ter acesso, mas que podem ter
-	include "conexao.php";
+    include "conexao.php";
     include "sessaoIndex.php";
-	if(isset($_GET['codImovel'])){
-		$codigoDoImovel = $_GET['codImovel'];		
-	}	
-	//INSERINDO NA TABELA DE FAVORITOS
-    $favoritado = false;
-	if(isset($_POST['codFavorito'])){
-		$codFavorito = $_POST['codFavorito'];
-		$codUsuario = $codigo_L;
-		$queryFavorito = "INSERT INTO favoritos VALUES (0,$codUsuario, $codFavorito)";
-		$result = mysqli_query($conn,$queryFavorito) or die("Erro ao favoritar!");
-		$codigoDoImovel = $codFavorito;
-        $verFavoritos = "SELECT * FROM favoritos WHERE cod_usuario = $codUsuario AND cod_imovel = $codFavorito";
-        $resultVerFavorito = mysqli_query($conn, $verFavoritos);
-        //SE ESTIVER FAVORITADO
-        if($rowVerFavoritos = mysqli_fetch_array($resultVerFavorito)){
-            $favoritado = true;
-        } else{
-            $favoritado = false;
-        }
-	}
-	
-	$query = "SELECT imoveis.*, tipoimovel.nome_tipoImovel, tipoimovel.categoria_tipoImovel, tabela_imagens.img_nome, tabela_imagens.img_caminho  
-						FROM imoveis JOIN tipoimovel ON imoveis.cod_tipoImovel=tipoimovel.cod_tipoImovel
-						JOIN tabela_imagens ON imoveis.cod_imovel=tabela_imagens.cod_imovel WHERE imoveis.cod_imovel = $codigoDoImovel AND imoveis.situacao_imovel = 1";	 
-					  
-	$dadosImovel = mysqli_query($conn,$query) or die($dadosImovel);
-	
-	$img[] = array();
-	
-	while($rowImovel = mysqli_fetch_array($dadosImovel)){
-		$titulo = $rowImovel['titulo_imovel'];
-		$tipoNegocio = $rowImovel['tipoNegocio_imovel'];
-		$valor = $rowImovel['valor_imovel'];
-		$cidade = $rowImovel['cidade_imovel'];
-		$uf = $rowImovel['uf_imovel'];
-		$logradouro = $rowImovel['logradouro_imovel'];
-		$endereco = $rowImovel['endereco_imovel'];
-		$numero = $rowImovel['numero_imovel'];
-		$complemento = $rowImovel['complemento_imovel'];
-		$bairro = $rowImovel['bairro_imovel'];
-		$areaTotal = $rowImovel['areaTotal_imovel'];
-		$areaUtil = $rowImovel['areaUtil_imovel'];
-		$dormitorios = $rowImovel['dormitorios_imovel'];
-		$banheiros = $rowImovel['banheiros_imovel'];
-		$vagas = $rowImovel['garagem_imovel'];
-		$descricao = $rowImovel['descricao'];
-		$subcategoria = $rowImovel['nome_tipoImovel'];	
-		$categoria = $rowImovel['categoria_tipoImovel'];
-		$imgCaminho = $rowImovel['img_caminho'];
-		$imgNome = $rowImovel['img_nome'];		
-		array_push($img, array($imgCaminho, $imgNome));
-	}
-	
-	
-	
+    if(isset($_GET['codImovel']))
+    {
+        if($_GET['codImovel'] != '')
+            $codigoDoImovel = $_GET['codImovel'];
+        else
+            header('refresh:0.5;index.php');
+    }
+    else
+    {
+        header('Location:index.php');
+    }   
+        
+    if(isset($codigo_L)){
+        $codUsuario = $codigo_L;
+    } else{
+        $codigo_L = 0;
+    }
+    
+    //INSERINDO NA TABELA DE FAVORITOS
+    $favoritado = false;    
+    if(isset($_POST['codFavorito'])){
+        $codFavorito = $_POST['codFavorito'];
+        $codUsuario = $codigo_L;
+        $queryFavorito = "INSERT INTO favoritos VALUES (0,$codUsuario, $codFavorito)";
+        $result = mysqli_query($conn,$queryFavorito) or die("Erro ao favoritar!");
+        $codigoDoImovel = $codFavorito;
+    } 
+    if(isset($_POST['deletar'])){
+        $favoritado = false;
+        $del = $_POST['deletar'];
+        $queryDeletar = "DELETE FROM favoritos WHERE cod_favoritos = $del";
+        $resultDel = mysqli_query($conn, $queryDeletar) or die ("Erro ao deletar");
+    }       
+    //SE ESTIVER FAVORITADO
+    $codFavorito = $codigoDoImovel;
+    $verFavoritos = "SELECT * FROM favoritos WHERE cod_usuario = $codUsuario AND cod_imovel = $codFavorito";
+    $resultVerFavorito = mysqli_query($conn, $verFavoritos);
+    if($rowVerFavoritos = mysqli_fetch_array($resultVerFavorito)){
+        $favoritado = true; 
+        $del = $rowVerFavoritos['cod_favoritos'];   
+    } else{
+        $favoritado = false;
+    }
+    
+    
+    $query = "SELECT imoveis.*, tipoimovel.nome_tipoImovel, tipoimovel.categoria_tipoImovel, tabela_imagens.img_nome, tabela_imagens.img_caminho  
+                        FROM imoveis JOIN tipoimovel ON imoveis.cod_tipoImovel=tipoimovel.cod_tipoImovel
+                        JOIN tabela_imagens ON imoveis.cod_imovel=tabela_imagens.cod_imovel WHERE imoveis.cod_imovel = $codigoDoImovel AND imoveis.situacao_imovel = 1";     
+                      
+    $dadosImovel = mysqli_query($conn,$query) or die($dadosImovel);
+    
+    $img[] = array();
+    
+    while($rowImovel = mysqli_fetch_array($dadosImovel)){
+        $titulo = $rowImovel['titulo_imovel'];
+        $tipoNegocio = $rowImovel['tipoNegocio_imovel'];
+        $valor = $rowImovel['valor_imovel'];
+        $cidade = $rowImovel['cidade_imovel'];
+        $uf = $rowImovel['uf_imovel'];
+        $logradouro = $rowImovel['logradouro_imovel'];
+        $endereco = $rowImovel['endereco_imovel'];
+        $numero = $rowImovel['numero_imovel'];
+        $complemento = $rowImovel['complemento_imovel'];
+        $bairro = $rowImovel['bairro_imovel'];
+        $areaTotal = $rowImovel['areaTotal_imovel'];
+        $areaUtil = $rowImovel['areaUtil_imovel'];
+        $dormitorios = $rowImovel['dormitorios_imovel'];
+        $banheiros = $rowImovel['banheiros_imovel'];
+        $vagas = $rowImovel['garagem_imovel'];
+        $descricao = $rowImovel['descricao'];
+        $subcategoria = $rowImovel['nome_tipoImovel'];  
+        $categoria = $rowImovel['categoria_tipoImovel'];
+        $imgCaminho = $rowImovel['img_caminho'];
+        $imgNome = $rowImovel['img_nome'];      
+        array_push($img, array($imgCaminho, $imgNome));
+    }   
 ?>
 
 <!DOCTYPE html>
@@ -230,7 +251,7 @@
     </head>
     <body>
         <!-- Incluindo o Menu Principal -->
-        <?php include_once("menuPrincipal.php"); ?>
+        <?php include_once('menuPrincipal.php') ?>
 
         <!-- MENU LATERAL (FILTROS)-->
         <div class="section" style="margin:50px 0;">
@@ -241,7 +262,10 @@
                 <div class="row">  
                     <div class="col-md-12" id="divTituloCidadeUf">                         
                         <h1><?php echo "$titulo"?></h1>
-                        <h4 id="cidadeUf"><?php echo "$cidade, $uf"?></h4>
+                        <div style="overflow:auto">
+                            <h4 id="cidadeUf" style="float:left"><?php echo "$cidade, $uf"?></h4>
+                            <h4 id="cidadeUf" style="float:right"><?php echo "Código: $codigoDoImovel "?></h4>
+                        </div>
                     </div>
                 </div>
                  <!-- FIM - TÍTULO/CIDADE/UF IMÓVEL -->
@@ -256,6 +280,7 @@
                         <h2>R$ <?php echo "$valor "?></h2>
                     </div>
                     <div class="col-md-8" id="row2ColunaDir">
+
                         <!-- CAROUSEL -->
                         <div id="carousel-example"  id="carrossel" data-interval="false" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">    
@@ -279,26 +304,31 @@
                             <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
                         </div>
                         <!-- FIM CAROUSEL -->
-                        <form method="POST" action="paginaImovel.php" style="">
+
+                        <form method="POST" action=<?php echo "paginaImovel.php?codImovel=$codigoDoImovel"?> style="">
                         <button type="button" class="btn-warning" onclick="document.getElementById('modalInteresse').style.display = 'block';" id="btInteresseImovel">
                             <img src="imgs/like.png">
                             Interesse no imóvel
-                        </button>                        
-						<input type="hidden" name="codFavorito" value= '<?php echo "$codigoDoImovel" ?>'>
-						<input type="hidden" name="codUsario" value='<?php echo "$codigo_L" ?>'>
-						<?php
-							if($favoritado){
-							echo '<button type="submit" class="btn-warning" id="btFavoritos" disabled>
-                            <img src="imgs/estrelinha.png">
-                            Adicionar aos favoritos
-							</button>';} else{
-								echo '<button type="submit" class="btn-warning" id="btFavoritos" >
-                            <img src="imgs/estrelinha.png">
-                            Adicionar aos favoritos
-							</button>';}
-							
-						?>
-						</form>
+                        </button> 
+                        <?php
+                            if(isset($codigo_L)){
+                                echo "<input type='hidden' name='codUsario' value=$codigo_L>";
+                            }                       
+                            if($favoritado){
+                                echo "<button type='submit' class='btn-warning' id='btFavoritos'>
+                                <img src='imgs/estrelinha.png'>
+                                Adicionar aos favoritos
+                                </button>";
+                                echo "<input type='hidden' name='deletar' value=$del>";} 
+                            else{
+                                echo "<button type='submit' class='btn-warning' id='btFavoritos' >
+                                <img src='imgs/nostar.png'>
+                                Adicionar aos favoritos
+                                </button>";
+                                echo "<input type='hidden' name='codFavorito' value=$codigoDoImovel>";  
+                            }                           
+                        ?>
+                        </form>
                     
                     </div>
                 </div> 
@@ -321,33 +351,33 @@
                         <hr>
                         <div id="divConteudoLocImovel">
                             <p style="padding:3px; margin-left:10px; font-size:16px;">Endereço: <?php echo "$logradouro $endereco, $numero<br>" ?>
-																	 Complemento: 	<?php echo "$complemento<br>" ?>		
-																	 Bairro: 	<?php echo "$bairro" ?>		
+                                                                     Complemento:   <?php echo "$complemento<br>" ?>        
+                                                                     Bairro:    <?php echo "$bairro" ?>     
                             </p>
                         </div>
                         <p id="tituloFichaImovel">Ficha técnica</p>
                         <hr>
                         <div id="divConteudoFichaImovel">
                         <p style="">
-								Cidade: <?php echo " $cidade, $uf<br>" ?>
-								Negociação: <?php echo " $tipoNegocio<br>" ?>
-								Categoria: <?php echo " $categoria<br>" ?>
-								Subcategoria: <?php echo " $subcategoria<br>" ?>
-								Área total: <?php echo " $areaTotal m² <br>" ?>
-								Área útil: <?php echo " $areaUtil m²<br>" ?>
-								Dormitórios: <?php echo " $dormitorios<br>" ?>
-								Banheiros: <?php echo " $banheiros<br>" ?>
-								Garagem:<?php echo " $vagas<br><bR><br>" ?>
-								
-								Valor: R$<?php echo " $valor<br>" ?>
-						</p></div>
+                                Cidade: <?php echo " $cidade, $uf<br>" ?>
+                                Negociação: <?php echo " $tipoNegocio<br>" ?>
+                                Categoria: <?php echo " $categoria<br>" ?>
+                                Subcategoria: <?php echo " $subcategoria<br>" ?>
+                                Área total: <?php echo " $areaTotal m² <br>" ?>
+                                Área útil: <?php echo " $areaUtil m²<br>" ?>
+                                Dormitórios: <?php echo " $dormitorios<br>" ?>
+                                Banheiros: <?php echo " $banheiros<br>" ?>
+                                Garagem:<?php echo " $vagas<br><bR><br>" ?>
+                                
+                                Valor: R$<?php echo " $valor<br>" ?>
+                        </p></div>
                     </div>
                     <div class="col-md-7">
                         <p id="tituloPlanta">Plantas</p>
                         <hr id="hrPlanta">
                             <div id="divConteudoPlanta">
                                 <!-- CAROUSEL PLANTA -->
-								 <img src='<?php echo $img[4][0] . $img[4][1]?>' style="margin-left: 10%; margin-top: 5%;height:80%;width:80%">
+                                 <img src='<?php echo $img[4][0] . $img[4][1]?>' style="margin-left: 10%; margin-top: 5%;height:80%;width:80%">
                                 <!-- FIM CAROUSEL -->
                             </div>
                     </div>
@@ -370,11 +400,23 @@
                                     <h3 style="text-align:center">Dados Pessoais</h3><br>
                                     <div class="form-group">
                                         <label class="control-label">E-mail</label>
-                                        <input name="email" id="email" class="form-control" type="email" maxlength="60" required>
+                                        <?php                                           
+                                            if(isset($email_L)){
+                                                echo "<input name='email' id='email' class='form-control' type='email' maxlength='60' value=$email_L required>";
+                                            } else {
+                                                echo "<input name='email' id='email' class='form-control' type='email' maxlength='60' required>";
+                                            }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Nome</label>
-                                        <input name="nome" id="nomeUsuario" class="form-control" type="text" required>
+                                        <?php                                           
+                                            if(isset($nome_L)){
+                                                echo "<input name='nome' id='nomeUsuario' class='form-control' type='text' value=$nome_L required>";
+                                            } else {
+                                                echo "<input name='nome' id='nomeUsuario' class='form-control' type='text' required>";
+                                            }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Mensagem</label>

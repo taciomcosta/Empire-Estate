@@ -6,7 +6,7 @@
     {
         
         echo "<script>alert('Não é possível acessar esta página');</script>";
-        header("refresh:0.5;index.php");
+        header("refresh:0.1;index.php");
 
     }
     else
@@ -15,6 +15,7 @@
         $codigo_L = $_SESSION['codigo'];
         $tipoUsuario_L = $_SESSION['tipoUsuario'];
         $nome_L = $_SESSION['nome'];
+        $email_L = $_SESSION['email'];
 
         //Varíavel para saber se existe uma sessão válida
         $sessao = true;

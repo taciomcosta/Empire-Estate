@@ -235,7 +235,7 @@
 
                                                             // Só mostra a opção de excluir um imóvel para usuários administradores
                                                             if($tipoUsuario_L == 1)
-                                                            echo "<button type=\"button\" onclick=\"abrirModal()\">
+                                                            echo "<button type=\"button\" onclick=\"abrirModal('DU',$codUsuario)\">
                                                                 <img src=\"imgs/deletar.png\" alt=\"Excluir\">
                                                             </button>";
                                                             echo"
@@ -278,6 +278,7 @@
                                         <div class="form-group">
                                             <label class="control-label">Nome</label>
                                             <input name="nome" class="form-control" type="text" maxlength="60"required>
+
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="email">E-mail</label>
@@ -316,7 +317,7 @@
                             </div>
 
                             <!-- MODAL ALTERAR USUÁRIO -->
-                            <form class="modal" id="modalAlterarUsuario" style="margin:80px auto;height:700px;" method="POST" action="alteraUsuario.php">
+                            <form class="modal" id="modalAlterarUsuario" style="margin:80px auto;height:700px;" method="POST" action="alteraCadastro.php" onsubmit="return validaUsuarioComum('A');">
                                 <div class="modal-dialog" id="mDialogAlterar" style="max-height:400px;">
                                     <div class="modal-content">
                                         <!-- Cabeçalho do Modal -->
@@ -340,11 +341,15 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                             <label class="control-label">Nome</label>
+
+                                            <!-- Input escondido com o código do usuário -->
+                                            <input name="codUsuario_I" class="form-control" type="hidden" value='<?php echo "$alteraUsuario "?>'>
+
                                             <input name="nome_I" class="form-control" type="text" maxlength="60" value='<?php echo "$nomeUsuario_I"?>' required>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="email_I">E-mail</label>
-                                            <input name="email_I" class="form-control" id="email" type="email" maxlength="60" value='<?php echo "$nomeUsuario_I"?>' required>
+                                            <input name="email_I" class="form-control" id="email" type="email" maxlength="60" value='<?php echo "$emailUsuario_I"?>' required>
                                         </div>
                                         <div class="form-group">
 
@@ -374,17 +379,12 @@
                                                         echo '<option value="2"> Funcionário </option>';
 
                                                     if($tipoUsuario_L == 1)
-                                                        if($tipoUsuario_I == 2)
+                                                        if($tipoUsuario_I == 1)
                                                             echo '<option value="1" selected> Administrador </option>';
                                                         else
                                                             echo '<option value="1"> Administrador </option>';
 
                                                 ?>
-                                                    <!-- Só mostra a opção abaixo para usuários administradores -->
-                                                    <?php
-                                                    if($tipoUsuario_L == 1)
-                                                        echo '<option value="1"> Administrador </option>';
-                                                    ?>
                                                 </select>  
                                         </div>
 
@@ -396,7 +396,7 @@
                                         <!-- Botões do Modal -->
                                         <div class="modal-footer">
                                             <a class="btn btn-default" onclick="document.getElementById('modalAlterarUsuario').style.display = 'none'">Cancelar</a>
-                                            <button class="btn btn-success" id="confirmaDeletar">Salvar Alterações</button>
+                                            <button class="btn btn-success" id="btAlterarCadastro">Salvar Alterações</button>
                                        </div> 
                                        <!-- Fim Botões do Modal -->
 
@@ -404,6 +404,26 @@
                                 </div>
                             </form>
                             <!-- FIM DO MODAL -->
+
+                            <!--MODAL DELETAR-->
+                            <div class="modal" id="modalDeletar">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="fecharModal()">×</button>
+                                            <h4 class="modal-title">Deletar Imóvel</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Deseja realmente apagar os dados do imóvel?&nbsp;</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a class="btn btn-default" onclick="fecharModal()">Cancelar</a>
+                                            <a class="btn btn-primary" id="confirmaDeletar">Sim, deletar imóvel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fim MODAL DELETAR -->
                 
                
                         </div>

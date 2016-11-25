@@ -10,6 +10,7 @@
             $codigo_L = $_SESSION['codigo'];
             $tipoUsuario_L = $_SESSION['tipoUsuario'];
             $nome_L = $_SESSION['nome'];
+            $email_L = $_SESSION['email'];
         }
     
    

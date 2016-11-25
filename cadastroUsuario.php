@@ -1,5 +1,6 @@
 <?php 
-    $sessao = false;
+
+    include_once('sessaoIndex.php');
 ?>
 <!DOCTYPE html>
 <html>

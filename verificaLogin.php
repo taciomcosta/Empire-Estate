@@ -7,7 +7,7 @@ $senha = $_POST['senha'];
 //Conectando ao BD
 include_once("conexao.php");
 
-//Verificando se o usuário existe
+//Verificando se o usuário existe (somente usuários ativos)
 $query = "SELECT * FROM usuarios WHERE email_usuario = '$email' AND senha_usuario = '$senha'";
 $result = mysqli_query($conn, $query) or die("Erro ao consultar usuário no banco de dados");
 $numRows = mysqli_num_rows($result);
@@ -20,6 +20,7 @@ if ( $numRows > 0 )
     $codigo = $row['cod_usuario'];
     $nome = $row['nome_usuario'];
     $tipoUsuario =  $row['tipo_usuario'];
+    $email = $row['email_usuario'];
 
 
     //Inicia a sessão ( o @ supre os possíveis erros do php de aparecerem na tela)
@@ -27,6 +28,7 @@ if ( $numRows > 0 )
 
     //As atribuições abaixo foram feitas para os dados do usuário serem utilizados em outras páginas
     // EX: pcImovel.php, que precisa identificar o tipo de usuário que está acessando a página
+    $_SESSION['email'] = $email;
     $_SESSION['codigo'] = $codigo;
     $_SESSION['login'] = $email;
     $_SESSION['senha'] = $senha;

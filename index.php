@@ -1,11 +1,21 @@
 <?php
     //Sessão utilizada em páginas que não precisam de login ter acesso, mas que podem ter
     include "sessaoIndex.php";
+    include "conexao.php";
+    
+    $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' ";
+    $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' ";
+    $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' ";
+
+    $resultResidencial = mysqli_query($conn, $queryRes);
+    $resultComercial = mysqli_query($conn, $queryCom);
+    $resultRural = mysqli_query($conn, $queryRur);
+    
 ?>
 
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <title>Empire Estate - Início</title>
         <meta charset="Western-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,29 +36,47 @@
         
         <!-- Carousel -->
         <div id="carousel-example" data-interval="5000" class="carousel slide" data-ride="carousel" style="margin:0 auto">
-
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="imgs/carousel/casa2.jpg">
-                    <div class="carousel-caption">
-                        <h2>Apartamento Ville de France</h2>
-                        <p>Jardins - SP</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="imgs/carousel/casa3.jpg">
-                    <div class="carousel-caption">
-                        <h2>Fazenda Santa Clara</h2>
-                        <p>Rio Preto - MG</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="imgs/carousel/casa1.jpg">
-                    <div class="carousel-caption">
-                        <h2>Galpão industrial</h2>
-                        <p>Valinhos - SP</p>
-                    </div>
-                </div>
+            <?php 
+                
+                    // Puxando os imóveis (4 no máximo)
+                    $queryPuxaDestaque = "SELECT * FROM imoveis LIMIT 4";
+                    $result = mysqli_query($conn,$queryPuxaDestaque) or die ("Erro ao puxar destaques");
+                    // $cont é utilizado para ativar a 1° img do carrousel
+                    $cont =0;
+                    while ( $rowPuxa = mysqli_fetch_array($result) )
+                    {   
+                        $cont++;
+
+                        $codImovel = $rowPuxa['cod_imovel'];
+                        $tituloImovel_I = $rowPuxa['titulo_imovel'];
+                        $cidade_I = $rowPuxa['cidade_imovel'];
+                        $uf_I = $rowPuxa['uf_imovel'];
+
+                        // Puxando a imagem do imóvel (1 só)
+                        $queryPuxaDestaqueImg = "SELECT * FROM tabela_imagens WHERE cod_imovel=$codImovel AND img_nome!='vazio' LIMIT 1";
+                        $resultImg = mysqli_query($conn, $queryPuxaDestaqueImg);
+                        if( $rowPuxaImg = mysqli_fetch_array($resultImg))
+                        {                                
+                            $img_caminho = $rowPuxaImg['img_caminho'];
+                            $img_nome = $rowPuxaImg['img_nome'];
+                            if($cont == 1)
+                                echo"<div class=\"item active\">";
+                            else
+                                echo"<div class=\"item\">";
+
+                                echo "<img src='" . $img_caminho . $img_nome . "'>
+                                <div class=\"carousel-caption\">
+                                    <h2>$tituloImovel_I</h2>
+                                    <p>$cidade_I - $uf_I</p>
+                                </div>
+                            </div>";
+                        }
+                       
+                    }                   
+
+                ?>
+                
             </div>
             <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
             <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
@@ -68,26 +96,39 @@
                             <li class="active">
                                 <a>Residencial</a>
                             </li>
+
                             <li>
-                                <a href="">Apartamento</a>
-                                <a href="#">Casa</a>
-                                <a href="#">Casa de Praia</a>
-                                <a href="#">Casa de Condomínio</a>
+                                <?php                                
+                                    while($row=mysqli_fetch_array($resultResidencial)){
+                                        $subcategoria = $row['nome_tipoImovel'];
+                                        $subcategoria = mb_strtoupper(substr($subcategoria,0,1)) . substr($subcategoria,1) ;
+                                        echo "<a href=''>$subcategoria</a>";
+                                    }
+                                ?>
                             </li>
                             <li class="active">
                                 <a>Comercial<br></a>
                             </li>
                             <li>
-                                <a href="">Galpão/Armazém</a>
-                                <a href="#">Loja/Salão</a>
+                                <?php                                
+                                    while($row=mysqli_fetch_array($resultComercial)){
+                                        $subcategoria = $row['nome_tipoImovel'];
+                                        $subcategoria = mb_strtoupper(substr($subcategoria,0,1)) . substr($subcategoria,1) ;
+                                        echo "<a href=''>$subcategoria</a>";
+                                    }
+                                ?>
                             </li>
                             <li class="active">
                                 <a>Rural<br></a>
                             </li>
                             <li>
-                                <a href="">Sítio</a>
-                                <a href="#">Chácara</a>
-                                <a href="#">Fazenda</a>
+                                <?php                                
+                                    while($row=mysqli_fetch_array($resultRural)){
+                                        $subcategoria = $row['nome_tipoImovel'];
+                                        $subcategoria = mb_strtoupper(substr($subcategoria,0,1)) . substr($subcategoria,1) ;
+                                        echo "<a href=''>$subcategoria</a>";
+                                    }
+                                ?>
                             </li>
                         </ul>
                     </div>
@@ -96,28 +137,33 @@
                     <h2 class="text-justify text-primary" id="destaque">Em Destaque</h2>
 
                     <?php 
+                    
+                        // Puxando os imóveis (4 no máximo)
+                        $queryPuxaDestaque = "SELECT * FROM imoveis LIMIT 4";
+                        $result = mysqli_query($conn,$queryPuxaDestaque) or die ("Erro ao puxar destaques");
+                        while ( $rowPuxa = mysqli_fetch_array($result) )
+                        {   
 
-                    	//Gera os Destaques
-                        for($i=1;$i<=2;$i++) {
-                          
-                            echo
-                            '<div class="col-md-9 resultado">
-                            <img src="imgs/imoveis/residenciais/casa/casa1.jpg" class="img-responsive img-thumbnail">
-                                <h3 class="text-justify text-primary">A titleA titleA titleA titleA titleA titleA titleA titleA titleA titleA titlesss</h3>
-                                <p class="text-justify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In
-                                enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
-                                felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-                                elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-                                porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus
-                                in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
-                                laoreet.</p>
-                            </div>'; //resultado 
+                            $codImovel = $rowPuxa['cod_imovel'];
+                            $tituloImovel_I = $rowPuxa['titulo_imovel'];
+                            $descricao_I = $rowPuxa['descricao'];       
 
-                        }//for
+                            // Puxando a imagem do imóvel (1 só)
+                            $queryPuxaDestaqueImg = "SELECT * FROM tabela_imagens WHERE cod_imovel=$codImovel AND img_nome!='vazio' LIMIT 1";
+                            $resultImg = mysqli_query($conn, $queryPuxaDestaqueImg);
+                            if( $rowPuxaImg = mysqli_fetch_array($resultImg))
+                            {                                
+                                $img_caminho = $rowPuxaImg['img_caminho'];
+                                $img_nome = $rowPuxaImg['img_nome'];
+                                echo
+                                "<div class='col-md-9 resultado'>
+                                    <a href='paginaImovel.php?codImovel=$codImovel'><img src='" . $img_caminho . $img_nome . "' class='img-responsive img-thumbnail'></a>
+                                    <h3 class='text-justify text-primary'><a href='paginaImovel.php?codImovel=$codImovel'>$tituloImovel_I</a></h3>
+                                    <p class='text-justify'>$descricao_I</p>
+                                </div>"; //resultado 
+                            }
+                           
+                        }                   
 
                     ?>
                 

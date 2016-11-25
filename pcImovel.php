@@ -142,13 +142,13 @@
                 // echo"<br><hr>";
 
                 //Atribuindo uma array(com $img_id, $img_caminho, $img_nome) para a array $img
-                array_push($img, array($img_id, $img_caminho, $img_nome));
+                array_push($img, array($img_id,$img_caminho, $img_nome));
 
             }
-                // echo "IMGS";
-                // echo"<pre>".var_dump($img)."</pre>";
-                // echo"<br><hr>";
-                // die();
+                /*echo "IMGS";
+                echo"<pre>".var_dump($img)."</pre>";
+                echo"<br><hr>";
+                die();*/
 
             // Passando os códigos da imagem para variáveis que ficarão em campos escondigos no modalAlterar.php
             $codImg1_I = $img[1][0];
