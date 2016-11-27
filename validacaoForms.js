@@ -30,7 +30,7 @@ function validaUsuarioComum(form) {
 
 }
 
-// valida Pesquisa de Imóvel
+// Valida Pesquisa de Imóvel
 function validaPesquisaImovel()
 {
     if(document.getElementById('pesquisaImovel').value == ''){
@@ -109,7 +109,7 @@ function validaImovel3(modal)
 {
     if(modal == 'A')
     {
-        if( document.getElementById('cidadeImovel_I').value == '' || document.getElementById('enderecoImovel_I').value == '' || document.getElementById('numeroImovel_I').value == '' || document.getElementById('complementoImovel_I').value == '' || document.getElementById('bairroImovel_I').value == '')
+        if( document.getElementById('cidadeImovel_I').value == '' || document.getElementById('enderecoImovel_I').value == '' || document.getElementById('numeroImovel_I').value == '' || document.getElementById('bairroImovel_I').value == '')
         {
             alert('Por favor, preencha todos os campos corretamente');
             return false;
@@ -119,7 +119,7 @@ function validaImovel3(modal)
     }
     else
     {
-        if( document.getElementById('cidadeImovel').value == '' || document.getElementById('enderecoImovel').value == '' || document.getElementById('numeroImovel').value == '' || document.getElementById('complementoImovel').value == '' || document.getElementById('bairroImovel').value == '')
+        if( document.getElementById('cidadeImovel').value == '' || document.getElementById('enderecoImovel').value == '' || document.getElementById('numeroImovel').value == '' ||  document.getElementById('bairroImovel').value == '')
         {
             alert('Por favor, preencha todos os campos corretamente');
             return false;

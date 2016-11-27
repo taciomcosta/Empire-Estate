@@ -126,19 +126,69 @@
                         <li class="dropdown menuPrincipal">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             Imóveis&nbsp;<i class="fa fa-caret-down"></i></a>
+                            <!-- Pegando os códigos que começam cada categoria -->
+                            <?php
+                                $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial'";
+                                $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial'";
+                                $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural'";
+                                $rsRes = mysqli_query($conn, $queryRes);
+                                $rsCom = mysqli_query($conn, $queryCom);
+                                $rsRur = mysqli_query($conn, $queryRur);
+
+
+                            ?>
                             <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="#">Residencial</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">Comercial</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">Rural</a>
-                                </li>
+                                    <?php
+                                        while($row = mysqli_fetch_array($rsRes))
+                                        {
+                                            $codCatMS = $row['cod_tipoImovel'];
+                                            $subCatMS = $row['nome_tipoImovel'];
+                                            // Deixando a 1° letra maiúscula
+                                            $subCatMS = mb_strtoupper(substr($subCatMS,0,1)) . substr($subCatMS,1) ;
+                                
+                                            echo "
+                                            <li>
+                                                <a href=\"pesquisaImovel.php?categoriaF=$codCatMS\">$subCatMS - Residencial</a>
+                                            </li>
+                                            <li class=\"divider\"></li>
+                                            ";
+                                        }
+                                    ?>
+                                    <?php
+                                        while($row = mysqli_fetch_array($rsCom))
+                                        {
+                                            $codCatMS = $row['cod_tipoImovel'];
+                                            $subCatMS = $row['nome_tipoImovel'];
+                                            // Deixando a 1° letra maiúscula
+                                            $subCatMS = mb_strtoupper(substr($subCatMS,0,1)) . substr($subCatMS,1) ;
+                                
+                                            echo "
+                                            <li>
+                                                <a href=\"pesquisaImovel.php?categoriaF=$codCatMS\">$subCatMS - Comercial</a>
+                                            </li>
+                                            <li class=\"divider\"></li>
+                                            ";
+                                        }
+                                    ?>
+                                    <?php
+                                        while($row = mysqli_fetch_array($rsRur))
+                                        {
+                                            $codCatMS = $row['cod_tipoImovel'];
+                                            $subCatMS = $row['nome_tipoImovel'];
+                                            // Deixando a 1° letra maiúscula
+                                            $subCatMS = mb_strtoupper(substr($subCatMS,0,1)) . substr($subCatMS,1) ;
+                                
+                                            echo "
+                                            <li>
+                                                <a href=\"pesquisaImovel.php?categoriaF=$codCatMS\">$subCatMS - Rural</a>
+                                            </li>
+                                            <li class=\"divider\"></li>
+                                            ";
+                                        }
+                                    ?>
+                                
                             </ul>
+
                         </li>
                         <li class="menuPrincipal botoesmenup">
                             <a href="quemSomos.php">Quem Somos<br></a>

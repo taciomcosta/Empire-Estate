@@ -2,13 +2,24 @@
     //Sessão utilizada em páginas que não precisam de login ter acesso, mas que podem ter
     include "conexao.php";
     include "sessaoIndex.php";
+    // Se o codImovel estiver setado na URL, carrega a página
     if(isset($_GET['codImovel']))
     {
         if($_GET['codImovel'] != '')
+        {
             $codigoDoImovel = $_GET['codImovel'];
+            // Verificando se o imóvel do $codigoDoImovel existe
+            $query = "SELECT * FROM imoveis WHERE cod_imovel = $codigoDoImovel";
+            $result = mysqli_query($conn, $query) or die('Erro ao consultar imóvel (1)');
+            $nLinhas = mysqli_num_rows($result);
+            // Se foi inserido um código na URL de um imóvel que nao existe
+            if($nLinhas <= 0)
+                header('Location:index.php');
+        }
         else
-            header('refresh:0.5;index.php');
+            header('Location:index.php');
     }
+    // Senão, redireciona para a Home Page
     else
     {
         header('Location:index.php');
@@ -22,6 +33,7 @@
     
     //INSERINDO NA TABELA DE FAVORITOS
     $favoritado = false;    
+    // Se o botão Adicionar Favoritos foi clicado para favoritar ($_POST['codFavorito'] é o código do imóvel)
     if(isset($_POST['codFavorito'])){
         $codFavorito = $_POST['codFavorito'];
         $codUsuario = $codigo_L;
@@ -29,22 +41,31 @@
         $result = mysqli_query($conn,$queryFavorito) or die("Erro ao favoritar!");
         $codigoDoImovel = $codFavorito;
     } 
+    // Se o botão Adicionar Favoritos foi clicado para desfavoritar
     if(isset($_POST['deletar'])){
         $favoritado = false;
         $del = $_POST['deletar'];
         $queryDeletar = "DELETE FROM favoritos WHERE cod_favoritos = $del";
         $resultDel = mysqli_query($conn, $queryDeletar) or die ("Erro ao deletar");
+
     }       
     //SE ESTIVER FAVORITADO
-    $codFavorito = $codigoDoImovel;
-    $verFavoritos = "SELECT * FROM favoritos WHERE cod_usuario = $codUsuario AND cod_imovel = $codFavorito";
-    $resultVerFavorito = mysqli_query($conn, $verFavoritos);
-    if($rowVerFavoritos = mysqli_fetch_array($resultVerFavorito)){
-        $favoritado = true; 
-        $del = $rowVerFavoritos['cod_favoritos'];   
-    } else{
-        $favoritado = false;
+    //(Se o usuário estiver, antes de tudo, logado)
+    if( isset($codUsuario) )
+    {
+        $codFavorito = $codigoDoImovel;
+        $verFavoritos = "SELECT * FROM favoritos WHERE cod_usuario = $codUsuario AND cod_imovel = $codFavorito";
+        $resultVerFavorito = mysqli_query($conn, $verFavoritos);
+        if( $rowVerFavoritos = mysqli_fetch_array($resultVerFavorito) ){
+            $favoritado = true; 
+            $del = $rowVerFavoritos['cod_favoritos'];   
+        } else{
+            $favoritado = false;
+        }      
     }
+
+
+
     
     
     $query = "SELECT imoveis.*, tipoimovel.nome_tipoImovel, tipoimovel.categoria_tipoImovel, tabela_imagens.img_nome, tabela_imagens.img_caminho  
@@ -74,8 +95,15 @@
         $descricao = $rowImovel['descricao'];
         $subcategoria = $rowImovel['nome_tipoImovel'];  
         $categoria = $rowImovel['categoria_tipoImovel'];
+
         $imgCaminho = $rowImovel['img_caminho'];
         $imgNome = $rowImovel['img_nome'];      
+        // Se não existir a imagem
+        if($imgNome == 'vazio')
+        {
+            $imgCaminho = 'imgs/';
+            $imgNome = 'semImagem.png';
+        }
         array_push($img, array($imgCaminho, $imgNome));
     }   
 ?>
@@ -311,22 +339,30 @@
                             Interesse no imóvel
                         </button> 
                         <?php
-                            if(isset($codigo_L)){
-                                echo "<input type='hidden' name='codUsario' value=$codigo_L>";
+                            if(isset($codigo_L))
+                            {
+                                if($codigo_L != '')
+                                {
+                                    echo "<input type='hidden' name='codUsario' value=$codigo_L>";
+
+                                    if($favoritado)
+                                    {
+                                        echo "<button type='submit' class='btn-warning' id='btFavoritos'>
+                                        <img src='imgs/estrelinha.png'>
+                                        Adicionar aos favoritos
+                                        </button>";
+                                        echo "<input type='hidden' name='deletar' value=$del>";
+                                    } 
+                                    else
+                                    {
+                                        echo "<button type='submit' class='btn-warning' id='btFavoritos' >
+                                        <img src='imgs/nostar.png'>
+                                        Adicionar aos favoritos
+                                        </button>";
+                                        echo "<input type='hidden' name='codFavorito' value=$codigoDoImovel>";  
+                                    }                           
+                                }
                             }                       
-                            if($favoritado){
-                                echo "<button type='submit' class='btn-warning' id='btFavoritos'>
-                                <img src='imgs/estrelinha.png'>
-                                Adicionar aos favoritos
-                                </button>";
-                                echo "<input type='hidden' name='deletar' value=$del>";} 
-                            else{
-                                echo "<button type='submit' class='btn-warning' id='btFavoritos' >
-                                <img src='imgs/nostar.png'>
-                                Adicionar aos favoritos
-                                </button>";
-                                echo "<input type='hidden' name='codFavorito' value=$codigoDoImovel>";  
-                            }                           
                         ?>
                         </form>
                     
@@ -376,9 +412,9 @@
                         <p id="tituloPlanta">Plantas</p>
                         <hr id="hrPlanta">
                             <div id="divConteudoPlanta">
-                                <!-- CAROUSEL PLANTA -->
+                                <!-- IMG PLANTA -->
                                  <img src='<?php echo $img[4][0] . $img[4][1]?>' style="margin-left: 10%; margin-top: 5%;height:80%;width:80%">
-                                <!-- FIM CAROUSEL -->
+                                <!-- FIM PLANTA -->
                             </div>
                     </div>
                 </div>
@@ -399,6 +435,8 @@
                                 <div id="tela1_a" >
                                     <h3 style="text-align:center">Dados Pessoais</h3><br>
                                     <div class="form-group">
+                                        <!-- Input escondido com o codigo do Imovel -->
+                                        <input type="hidden" name="codigoImovel" value='<?php echo $codigoDoImovel?>'>
                                         <label class="control-label">E-mail</label>
                                         <?php                                           
                                             if(isset($email_L)){
@@ -420,7 +458,6 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Mensagem</label>
-                                        <input type="hidden" name="codigoImovel">
                                         <textarea style="resize: none; height:170px;" name="mensagem" id="mensagem" class="form-control" type="text" required></textarea>
                                     </div>
                                 </div><!-- fim tela1 -->                                

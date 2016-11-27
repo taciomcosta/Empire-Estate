@@ -55,7 +55,7 @@ if ( $numRows > 0 )
 //Se o usuário não existir
 else
 {
-    echo "<script>alert('Usuário não cadastrado.\\n Por favor, verifique os campos preenchidos');</script>";
+    echo "<script>alert('Dados não conferem.\\n Por favor, verifique os campos preenchidos');</script>";
     header("refresh:0.5; index.php");
 }
 

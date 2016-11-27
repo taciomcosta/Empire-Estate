@@ -3,9 +3,9 @@
     include "sessaoIndex.php";
     include "conexao.php";
     
-    $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' ";
-    $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' ";
-    $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' ";
+    $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' AND situacao_tipoImovel=1";
+    $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' AND situacao_tipoImovel=1";
+    $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' AND situacao_tipoImovel=1";
 
     $resultResidencial = mysqli_query($conn, $queryRes);
     $resultComercial = mysqli_query($conn, $queryCom);
@@ -40,7 +40,7 @@
             <?php 
                 
                     // Puxando os imóveis (4 no máximo)
-                    $queryPuxaDestaque = "SELECT * FROM imoveis LIMIT 4";
+                    $queryPuxaDestaque = "SELECT * FROM imoveis WHERE situacao_imovel=1 LIMIT 4";
                     $result = mysqli_query($conn,$queryPuxaDestaque) or die ("Erro ao puxar destaques");
                     // $cont é utilizado para ativar a 1° img do carrousel
                     $cont =0;
@@ -65,10 +65,14 @@
                             else
                                 echo"<div class=\"item\">";
 
-                                echo "<img src='" . $img_caminho . $img_nome . "'>
+                                echo "<a href=\"paginaImovel.php?codImovel=$codImovel\">
+                                        <img src='" . $img_caminho . $img_nome . "'>
+                                    </a>
                                 <div class=\"carousel-caption\">
-                                    <h2>$tituloImovel_I</h2>
-                                    <p>$cidade_I - $uf_I</p>
+                                    <a href=\"paginaImovel.php?codImovel=$codImovel\" style='color:#FFF'>
+                                        <h2>$tituloImovel_I</h2>
+                                        <p>$cidade_I - $uf_I</p>
+                                    </a>
                                 </div>
                             </div>";
                         }
@@ -100,9 +104,10 @@
                             <li>
                                 <?php                                
                                     while($row=mysqli_fetch_array($resultResidencial)){
+                                        $codigoTI = $row['cod_tipoImovel'];
                                         $subcategoria = $row['nome_tipoImovel'];
                                         $subcategoria = mb_strtoupper(substr($subcategoria,0,1)) . substr($subcategoria,1) ;
-                                        echo "<a href=''>$subcategoria</a>";
+                                        echo "<a href='pesquisaImovel.php?categoriaF=$codigoTI'>$subcategoria</a>";
                                     }
                                 ?>
                             </li>
@@ -112,9 +117,10 @@
                             <li>
                                 <?php                                
                                     while($row=mysqli_fetch_array($resultComercial)){
+                                        $codigoTI = $row['cod_tipoImovel'];
                                         $subcategoria = $row['nome_tipoImovel'];
                                         $subcategoria = mb_strtoupper(substr($subcategoria,0,1)) . substr($subcategoria,1) ;
-                                        echo "<a href=''>$subcategoria</a>";
+                                        echo "<a href='pesquisaImovel.php?categoriaF=$codigoTI'>$subcategoria</a>";
                                     }
                                 ?>
                             </li>
@@ -124,9 +130,10 @@
                             <li>
                                 <?php                                
                                     while($row=mysqli_fetch_array($resultRural)){
+                                        $codigoTI = $row['cod_tipoImovel'];
                                         $subcategoria = $row['nome_tipoImovel'];
                                         $subcategoria = mb_strtoupper(substr($subcategoria,0,1)) . substr($subcategoria,1) ;
-                                        echo "<a href=''>$subcategoria</a>";
+                                        echo "<a href='pesquisaImovel.php?categoriaF=$codigoTI'>$subcategoria</a>";
                                     }
                                 ?>
                             </li>
@@ -139,7 +146,7 @@
                     <?php 
                     
                         // Puxando os imóveis (4 no máximo)
-                        $queryPuxaDestaque = "SELECT * FROM imoveis LIMIT 4";
+                        $queryPuxaDestaque = "SELECT * FROM imoveis WHERE situacao_imovel=1 LIMIT 4";
                         $result = mysqli_query($conn,$queryPuxaDestaque) or die ("Erro ao puxar destaques");
                         while ( $rowPuxa = mysqli_fetch_array($result) )
                         {   

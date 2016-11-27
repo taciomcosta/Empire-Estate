@@ -446,8 +446,9 @@
                               echo
                               "<div class=\"col-md-9 resultado invisivel\" id=\"registro$cont\">";
 
+                          // target='_blank' abrirá a página em outra guia
                           echo "
-                          <a href='paginaImovel.php?codImovel=$codImovel'>
+                          <a href='paginaImovel.php?codImovel=$codImovel' target='_blank'>
                             <img src='".$img_caminho.$img_nome."'' class=\"img-responsive img-thumbnail\">
                               <h3 class=\"text-justify text-primary\">
                                 $titulo - R$ $valor

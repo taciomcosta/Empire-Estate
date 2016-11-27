@@ -1,8 +1,8 @@
 <?php
     //incluindo a conexao com banco de dados
-    include("conexao.php");
+    include_once("conexao.php");
     //incluindo as vareaveis de sessão
-    include("sessaoIndex.php");
+    include_once("sessaoLogin.php");
     if(isset($codigo_L))
         $codigodousuario = $codigo_L;
         
@@ -34,6 +34,14 @@
                           }
     }
     
+    $queryfavoritos = "SELECT f.cod_favoritos, f.cod_imovel, f.cod_usuario, i.titulo_imovel, i.descricao, i.valor_imovel, t.img_nome, t.img_caminho FROM favoritos f 
+    JOIN imoveis i ON f.cod_imovel = i.cod_imovel
+    JOIN tabela_imagens t ON t.cod_imovel = f.cod_imovel
+    WHERE f.cod_usuario = $codigo_L AND t.img_nome != 'vazio' GROUP BY f.cod_favoritos";
+    $resulfavoritos = mysqli_query($conn,$queryfavoritos) or die("erro ao consultar na tabela favoritos");
+    $linhasfavoritos=mysqli_num_rows($resulfavoritos);
+    
+    
     
 
 ?>
@@ -59,6 +67,14 @@
             font-size:50px;
             font-family:"lato","verdana","comic sans";
         }
+
+    .favDiv{
+        border:1px dashed #999;
+    }
+    .favDiv:hover{
+        border:1px dashed #3383C4;
+    }
+
     </style>
 
     </head>
@@ -83,23 +99,26 @@
                                             <!--começa exibição dos imoveis cadastrados-->
                                         <?php
                                             if($linhas<=0){
-                                            echo '<div id="texto">Nenhum Imóvel por aqui...</div>';
+                                            echo '<div id="texto">Nenhum imóvel por aqui...</div>';
                                             }else{
                                             echo'<table>'; 
 
                                                 for($n=1;$n<=$linhas;$n++){
                                                 echo"<tr>";
                                                 echo "<td width=250 height=200 >";
+                                                echo "<a href=\"paginaImovel.php?codImovel=$codigoimovel\">";
                                                 echo '<div class="col-md-12" style=\"margin:20px 0\" >';
                                                 echo'<img src="'.$img[$n][0].$img[$n][1].'" class="img-responsive">';
                                                 echo '</div>';
+                                                echo '</a>';
                                                 echo "</td>";
                                                 echo "<td>";
-                                                echo '<div class="col-md-12" style=\"margin:20px 0\">
-                                                  <h3>'.$titulo.'</h3>
-                                                    <h4>'.$valor.'</h4>
-                                                    <p>'.$descricao.'</p>
-                                                </div>';
+                                                echo '<div class="col-md-12" style=\"margin:20px 0\">';
+                                                echo "<a href=\"paginaImovel.php?codImovel=$codigoimovel\">
+                                                  <h3>$titulo</h3>
+                                                    <h4>$valor</h4>
+                                                    <p>$descricao</p>
+                                                </div>";
                                                 echo "</td>";
                                                 echo "</tr>";
                                                 if($linhas>1){//caso tenha mais uma linha no resultado ele vai repetir
@@ -139,21 +158,27 @@
                                         <form name="formUsuarioComum" role="form" method="POST" action="gravaUsuario.php" onsubmit="return validaUsuarioComum();">
                                            <!--começa exibição dos imoveis cadastrados-->
                                         <?php
-                                        $codigo=0;
-                                            if($codigo==1){
-                                            echo '<div id="texto">Nenhum Imóvel por aqui...</div>';
-                                        }else{
-                                        for($i=1; $i<=10; $i++){
+                                            if($linhasfavoritos <= 0){
+                                                echo '<div id="texto">Nenhum imóvel por aqui...</div>';
+                                            }else{
+                                                while($rowfavorito= mysqli_fetch_array($resulfavoritos)){ 
+                                                    $titulofavorito = $rowfavorito['titulo_imovel'];
+                                                    $codImovel = $rowfavorito['cod_imovel'];
+                                                    $descricaofavo = $rowfavorito['descricao'];
+                                                    $valor = $rowfavorito['valor_imovel'];
+                                                    $imgnome = $rowfavorito['img_nome'];
+                                                    $imgcaminho = $rowfavorito['img_caminho'];
 
-                                          echo "<div class=\"col-md-3\" style=\"margin:10px 0\">
-                                           <img src=\"http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png\" class=\"img-responsive\">
-                                                <h2>A nome</h2>\"
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,\"
-                                                   <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.\"
-                                                   <br>Ut enim ad minim veniam, quis nostrud</p></div> ";
-                                        }
-                                        }  
-                                            ?>
+                                                echo "<a href='paginaImovel.php?codImovel=$codImovel'>
+                                                    <div class=\"col-md-3 favDiv\" style=\"margin:10px 0; padding:2%;margin:2%\">
+                                                    <img src=".$imgcaminho. $imgnome." class=\"img-responsive\" style=\"width:231px;height:173px\">
+                                                    <h2>$titulofavorito</h2>
+                                                    <h4>R$ $valor</h4>
+                                                    <p>$descricaofavo</p></div> 
+                                                    </a>";
+                                                }
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                             <!--termina exibição--> 

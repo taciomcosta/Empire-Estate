@@ -30,9 +30,9 @@
 
     // Obtendo tipos de imóveis do BD
         include_once("conexao.php");
-        $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' ";
-        $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' ";
-        $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' ";
+        $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' AND situacao_tipoImovel=1";
+        $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' AND situacao_tipoImovel=1";
+        $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' AND situacao_tipoImovel=1";
 
         $resultResidencial = mysqli_query($conn, $queryRes);
         $resultComercial = mysqli_query($conn, $queryCom);
@@ -614,7 +614,7 @@
                                                 
                                                 <div class="col-xs-8 doisCamposDir">
                                                     <label class="control-label">Complemento</label>
-                                                    <input name="complementoImovel" id="complementoImovel" class="form-control form-check-input" type="text" maxlength="50" required>
+                                                    <input name="complementoImovel" id="complementoImovel" class="form-control form-check-input" type="text" maxlength="50">
                                                     
                                                 </div>
 
