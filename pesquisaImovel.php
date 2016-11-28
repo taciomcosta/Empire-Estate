@@ -336,7 +336,7 @@
 
                                   <div class="form-group fmFiltros">                          
                                     <div class="col-xs-7 doisCamposEsq">
-                                        <input type="number" step="20000" class="form-control" name="valorMinF" placeholder="R$">
+                                        <input type="number" class="form-control" name="valorMinF" placeholder="R$">
                                     </div>
 
                                     <button type="submit" class="btn btn-default">Buscar</button>

@@ -1,6 +1,9 @@
 <?php
   // Incluindo sessão
   include_once("sessaoLogin.php");
+
+  // Incluindo Conexão (é necessária para preencher o Menu Principal )
+    include_once("conexao.php");
 ?>
 
 <!DOCTYPE html>

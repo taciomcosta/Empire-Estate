@@ -49,7 +49,9 @@
                             <option disabled>---------- Residencial ----------</option>
                             <!-- Exibindo os tipos de imóveisdo BD-->
                             <?php 
-                                while( $row = mysqli_fetch_array($resultResidencial) )
+                                // Deixando a 1° letra do tipo de imóvel maiúscula
+                                $tipoImovel_I = mb_strtoupper(substr($tipoImovel_I,0,1)) . substr($tipoImovel_I,1) ;
+                                while( $row = mysqli_fetch_array($resultResidencialA) )
                                 {
                                     $option = $row['nome_tipoImovel'];
                                     $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
@@ -66,7 +68,8 @@
                             ?>
                             <option disabled>---------- Comercial ----------</option>
                             <?php 
-                                while( $row = mysqli_fetch_array($resultComercial) )
+                                while( $row = mysqli_fetch_array($resultComercialA) )
+                                {
                                     $option = $row['nome_tipoImovel'];
                                     $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                     if($option == $tipoImovel_I )
@@ -77,10 +80,12 @@
                                     {
                                         echo "<option>$option</option>";   
                                     }
+                                }
                             ?>
                             <option disabled>---------- Rural ----------</option>
                             <?php 
-                                while( $row = mysqli_fetch_array($resultRural) )
+                                while( $row = mysqli_fetch_array($resultRuralA) )
+                                {
                                     $option = $row['nome_tipoImovel'];
                                     $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                     if($option == $tipoImovel_I)
@@ -91,6 +96,7 @@
                                     {
                                         echo "<option>$option</option>";   
                                     }
+                                }
                             ?>
 
                         </select>
@@ -216,7 +222,7 @@
                         
                         <div class="col-xs-8 doisCamposDir">
                             <label class="control-label">Complemento</label>
-                            <input name="complementoImovel_I" id="complementoImovel_I" class="form-control form-check-input" type="text" maxlength="50" value='<?php echo"$complemento_I" ?>' required>
+                            <input name="complementoImovel_I" id="complementoImovel_I" class="form-control form-check-input" type="text" maxlength="50" value='<?php echo"$complemento_I" ?>'>
                             
                         </div>
 
@@ -255,17 +261,17 @@
                         
                         <div class="col-xs-4 doisCamposEsq">
                             <label class="control-label">Dormitórios</label>
-                            <input name="dormitoriosImovel_I" id="dormitoriosImovel_I" class="form-control form-check-input" type="number" min="1" value='<?php echo"$dormitorios_I" ?>' required>    
+                            <input name="dormitoriosImovel_I" id="dormitoriosImovel_I" class="form-control form-check-input" type="number" min="0" value='<?php echo"$dormitorios_I" ?>' required>    
                         </div>
                         
                         <div class="col-xs-4">
                             <label class="control-label">Banheiros</label>
-                            <input name="banheirosImovel_I" id="banheirosImovel_I" type="number" class="form-control form-check-input" min="1" value='<?php echo"$banheiros_I" ?>' required>     
+                            <input name="banheirosImovel_I" id="banheirosImovel_I" type="number" class="form-control form-check-input" min="0" value='<?php echo"$banheiros_I" ?>' required>     
                         </div>
 
                         <div class="col-xs-4 doisCamposDir">
                             <label class="control-label">Garagem</label>
-                            <input name="garagemImovel_I" id="garagemImovel_I" type="number" class="form-control form-check-input" min="1" value='<?php echo"$garagem_I" ?>' required>     
+                            <input name="garagemImovel_I" id="garagemImovel_I" type="number" class="form-control form-check-input" min="0" value='<?php echo"$garagem_I" ?>' required>     
                         </div>
                         
                         

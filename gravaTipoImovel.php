@@ -2,6 +2,10 @@
 <meta charset="UTF-8" />
 <?php
 // Esse arquivo cadastra novos tipos de imoveis no banco de dados tipoImovel
+
+    // Incluindo a sessão
+    include_once('sessaoLogin.php');
+    
     //Conectando ao banco de dados
     include_once("conexao.php");
 

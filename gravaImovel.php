@@ -1,5 +1,7 @@
 <?php
 
+// Incluindo a sessão
+include_once('sessaoLogin.php');
 
 // Incluindo conexao
 include_once ("conexao.php");

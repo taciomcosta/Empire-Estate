@@ -27,16 +27,23 @@
             $nome = '';
         }
 
-
-    // Obtendo tipos de imóveis do BD
+        // Incluindo conexão
         include_once("conexao.php");
+
+        // Obtendo tipos de imóveis do BD para o Cadastro de Imóvel
         $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' AND situacao_tipoImovel=1";
         $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' AND situacao_tipoImovel=1";
         $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' AND situacao_tipoImovel=1";
 
-        $resultResidencial = mysqli_query($conn, $queryRes);
-        $resultComercial = mysqli_query($conn, $queryCom);
-        $resultRural = mysqli_query($conn, $queryRur);
+        // Obtendo tipos de imóveis do BD para o Modal de Alterar
+        $queryResA = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial'";
+        $queryComA = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial'";
+        $queryRurA = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural'";
+
+        // Consultas para  o modal Alterar (as consultas para o Cadastro estão juntas com o formulário de Cadastro)
+        $resultResidencialA = mysqli_query($conn, $queryResA);
+        $resultComercialA = mysqli_query($conn, $queryComA);
+        $resultRuralA = mysqli_query($conn, $queryRurA);
  
  
     //Caso não seja uma pesquisa, $aba=0 deixa a aba de cadastro selecionada
@@ -346,7 +353,7 @@
                                                     $codUsuario = $linhasImoveis['cod_usuario'];
                                                     $queryUsuario = "SELECT * FROM usuarios WHERE cod_usuario = '$codUsuario'";
                                                     $resultUsuario = mysqli_fetch_array(mysqli_query($conn, $queryUsuario));
-                                                    $codUsuario = $resultUsuario['nome_usuario'];
+                                                    $nomeUsuario = $resultUsuario['nome_usuario'];
                                                     
                                                     //Condição para ocultar os itens
                                                     if ($cont <= 5)
@@ -358,7 +365,7 @@
                                                             <td>$codigoImovel</td>
                                                             <td>$tipoNegocio</td>
                                                             <td>R\$ $valorImovel</td>
-                                                            <td><a href=\"\">$codUsuario</a></td>
+                                                            <td><a style='cursor:pointer' onclick=\"alterarImovel($codigoImovel);\">$nomeUsuario</a></td>
                                                             <td style=\"padding-right:0\">
                                                                 <button onclick=\"alterarImovel($codigoImovel);\">
                                                                     <img src=\"imgs/alterar.png\" alt=\"Alterar\">
@@ -513,17 +520,21 @@
                                                     <?php 
                                                         $resultComercial = mysqli_query($conn, $queryCom);
                                                         while( $row = mysqli_fetch_array($resultComercial) )
+                                                        {
                                                             $option = $row['nome_tipoImovel'];
                                                             $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                                             echo "<option>$option</option>";
+                                                        }
                                                     ?>
                                                     <option disabled>---------- Rural ----------</option>
                                                     <?php 
                                                         $resultRural = mysqli_query($conn, $queryRur);
                                                         while( $row = mysqli_fetch_array($resultRural) )
+                                                        {
                                                             $option = $row['nome_tipoImovel'];
                                                             $option = mb_strtoupper(substr($option,0,1)) . substr($option,1) ;
                                                             echo "<option>$option</option>";
+                                                        }
                                                     ?>
 
                                                 </select>
@@ -653,17 +664,17 @@
                                                 
                                                 <div class="col-xs-4 doisCamposEsq">
                                                     <label class="control-label">Dormitórios</label>
-                                                    <input name="dormitoriosImovel" id="dormitoriosImovel" class="form-control form-check-input" type="number" min="1" required>    
+                                                    <input name="dormitoriosImovel" id="dormitoriosImovel" class="form-control form-check-input" type="number" min="0" required>    
                                                 </div>
                                                 
                                                 <div class="col-xs-4">
                                                     <label class="control-label">Banheiros</label>
-                                                    <input name="banheirosImovel" id="banheirosImovel" type="number" class="form-control form-check-input" min="1" required>     
+                                                    <input name="banheirosImovel" id="banheirosImovel" type="number" class="form-control form-check-input" min="0" required>     
                                                 </div>
 
                                                 <div class="col-xs-4 doisCamposDir">
                                                     <label class="control-label">Garagem</label>
-                                                    <input name="garagemImovel" id="garagemImovel" type="number" class="form-control form-check-input" min="1" required>     
+                                                    <input name="garagemImovel" id="garagemImovel" type="number" class="form-control form-check-input" min="0 " required>     
                                                 </div>
                                                 
                                                 

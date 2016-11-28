@@ -1,6 +1,9 @@
 <?php
     //Sessão utilizada em páginas que não precisam de login ter acesso, mas que podem ter
-    include "sessaoIndex.php";
+    include_once("sessaoIndex.php");
+
+    // Incluindo Conexão (é necessária para preencher o Menu Principal )
+    include_once("conexao.php");
 ?>
 
 <!DOCTYPE html>

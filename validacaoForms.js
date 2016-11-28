@@ -542,6 +542,7 @@ function voltar_a(e1, e2, e3, e4, e5, col) {
         document.getElementById(e3).style.display = "none";
         document.getElementById(e2).style.display = "none";
         document.getElementById(e1).style.display = "none";
+        document.getElementById(col).style.width = "598px";
        
     }
    

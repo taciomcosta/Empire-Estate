@@ -12,8 +12,8 @@ $msg = $_POST['msg'];
 $to = 'empireestate@imoveis.com.br';
 $msgFinal = "De: $nome \\n $msg";
 
-// Enviando mensagem
-if(mail($to, $assunto, $msgFinal, $email)){
+// Enviando mensagem (Não funciona, pois é um servidor local)
+if(!@mail($to, $assunto, $msgFinal, $email)){
 
 ?>
 	<script type="text/javascript">

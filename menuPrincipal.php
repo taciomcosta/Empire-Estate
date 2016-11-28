@@ -85,10 +85,6 @@
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="#">Minha Conta</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
                                             <a href="encerraSessao.php">Sair</a>
                                         </li>
                             </ul>

@@ -2,6 +2,9 @@
   // Incluindo sessão
   include_once("sessaoLogin.php");
 
+  // Incluoindo conexão
+  include_once("conexao.php");
+
   // Bloqueando a página para usuário comum
   if ( $tipoUsuario_L == 3 )
   {

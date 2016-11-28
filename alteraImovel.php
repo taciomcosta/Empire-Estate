@@ -1,5 +1,7 @@
 <?php
 
+// Incluindo a sessão
+include_once('sessaoLogin.php');
 
 // Incluindo conexao
 include_once ("conexao.php");
@@ -47,7 +49,7 @@ $cod_tipoImovel = $row['cod_tipoImovel'];
 // GRAVANDO DADOS NO BANCO DE DADOS
 
 // Inserindo dados no na tabela de imóveis
-$query = "UPDATE imoveis SET titulo_imovel='$tituloImovel', tipoNegocio_imovel='$tipoNegocio', valor_imovel=$valor,
+$query = "UPDATE imoveis SET cod_tipoImovel=$cod_tipoImovel, titulo_imovel='$tituloImovel', tipoNegocio_imovel='$tipoNegocio', valor_imovel=$valor,
 cidade_imovel='$cidade', uf_imovel='$uf', logradouro_imovel='$logradouro', endereco_imovel='$endereco', numero_imovel=$numero, 
 complemento_imovel='$complemento', bairro_imovel='$bairro', areaTotal_imovel=$areaTotal, areaUtil_imovel=$areaUtil,dormitorios_imovel=$dormitorios, banheiros_imovel=$banheiros, garagem_imovel=$garagem, descricao='$descricao', situacao_imovel=$situacao WHERE cod_imovel=$codImovel_I";
 
@@ -90,7 +92,7 @@ if(isset($_FILES['myimage1_I']['name']))
 		// $imgBD contém o caminho de uma imagem que será deletada
 		$imgBD = $row['img_caminho'] . '/' . $row['img_nome'];
 		if (!mb_strpos($imgBD,'vazio',1))
-	    	unlink($imgBD);
+	    	@unlink($imgBD);
 	}
 
 	// Gravando a nova imagem no banco e na pasta
@@ -154,7 +156,7 @@ if(isset($_FILES['myimage2_I']['name']))
 		// $imgBD contém o caminho de uma imagem que será deletada
 		$imgBD = $row['img_caminho'] . '/' . $row['img_nome'];
 		if (!mb_strpos($imgBD,'vazio',1))
-	    	unlink($imgBD);
+	    	@unlink($imgBD);
 	}
 
 	// Gravando a nova imagem
@@ -218,7 +220,7 @@ if(isset($_FILES['myimage3_I']['name']))
 		// $imgBD contém o caminho de uma imagem que será deletada
 		$imgBD = $row['img_caminho'] . '/' . $row['img_nome'];
 		if (!mb_strpos($imgBD,'vazio',1))
-	    	unlink($imgBD);
+	    	@unlink($imgBD);
 	}
 
 	// Gravando a nova imagem
@@ -282,7 +284,7 @@ if(isset($_FILES['myimage4_I']['name']))
 		// $imgBD contém o caminho de uma imagem que será deletada
 		$imgBD = $row['img_caminho'] . '/' . $row['img_nome'];
 		if (!mb_strpos($imgBD,'vazio',1))
-	    	unlink($imgBD);
+	    	@unlink($imgBD);
 	}
 
 	// Gravando a nova imagem

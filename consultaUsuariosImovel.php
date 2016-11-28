@@ -5,6 +5,9 @@ FUNÇÃO:
     página (pcImovel) 
 */  
 
+// Incluindo a sessão
+include_once('sessaoLogin.php');
+
 //  Incluindo conexão
  include_once ("conexao.php");
 

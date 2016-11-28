@@ -6,7 +6,7 @@
     {
         
         echo "<script>alert('Não é possível acessar esta página');</script>";
-        header("refresh:0.1;index.php");
+        header("Location:index.php");
 
     }
     else

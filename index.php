@@ -3,6 +3,7 @@
     include "sessaoIndex.php";
     include "conexao.php";
     
+    // Consultando os tipos de imóveis cadastrados para preencher o menu lateral
     $queryRes = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Residencial' AND situacao_tipoImovel=1";
     $queryCom = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Comercial' AND situacao_tipoImovel=1";
     $queryRur = "SELECT * FROM tipoimovel WHERE categoria_tipoImovel = 'Rural' AND situacao_tipoImovel=1";
@@ -10,6 +11,7 @@
     $resultResidencial = mysqli_query($conn, $queryRes);
     $resultComercial = mysqli_query($conn, $queryCom);
     $resultRural = mysqli_query($conn, $queryRur);
+    // Fim da Consulta
     
 ?>
 
@@ -39,8 +41,10 @@
             <div class="carousel-inner">
             <?php 
                 
-                    // Puxando os imóveis (4 no máximo)
-                    $queryPuxaDestaque = "SELECT * FROM imoveis WHERE situacao_imovel=1 LIMIT 4";
+                    // Puxando os imóveis (últimos 4 cadastrados, no máximo) - Somente de tipos de imóveis ativos
+                    $queryPuxaDestaque = "SELECT i.*,t.* FROM imoveis i
+                     JOIN tipoimovel t ON i.cod_tipoImovel=t.cod_tipoImovel 
+                     WHERE i.situacao_imovel=1 AND t.situacao_tipoImovel=1 ORDER BY i.cod_imovel DESC LIMIT 4";
                     $result = mysqli_query($conn,$queryPuxaDestaque) or die ("Erro ao puxar destaques");
                     // $cont é utilizado para ativar a 1° img do carrousel
                     $cont =0;
@@ -145,8 +149,11 @@
 
                     <?php 
                     
-                        // Puxando os imóveis (4 no máximo)
-                        $queryPuxaDestaque = "SELECT * FROM imoveis WHERE situacao_imovel=1 LIMIT 4";
+                        // Puxando os imóveis (últimos 4 cadastrados, no máximo) - Somente dos tipos de imóveis ativos
+                        $queryPuxaDestaque = "SELECT i.*,t.* FROM imoveis i
+                         JOIN tipoimovel t ON i.cod_tipoImovel=t.cod_tipoImovel 
+                         WHERE i.situacao_imovel=1 AND t.situacao_tipoImovel=1 ORDER BY i.cod_imovel DESC LIMIT 4";
+
                         $result = mysqli_query($conn,$queryPuxaDestaque) or die ("Erro ao puxar destaques");
                         while ( $rowPuxa = mysqli_fetch_array($result) )
                         {   
