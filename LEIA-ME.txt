@@ -9,3 +9,6 @@
 (PODE SER DELETADA)
 
 5- A pasta logo contém os logos que criamos no site https://www.logaster.com.br/
+
+6- Altere a senha do arquivo conexao.php
+
