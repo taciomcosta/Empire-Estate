@@ -1,0 +1,167 @@
+CREATE DATABASE empireestate;
+
+-----------------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE usuarios(
+
+
+cod_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ 
+
+nome_usuario VARCHAR(60),
+ 
+email_usuario VARCHAR(60),
+ 
+
+senha_usuario VARCHAR(16),
+
+
+tipo_usuario INT,
+ 
+
+situacao_usuario
+ BOOL
+
+);
+
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE tipoimovel(
+
+
+cod_tipoImovel INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+
+
+nome_tipoImovel VARCHAR(50),
+
+
+categoria_tipoImovel VARCHAR(15),
+
+
+situacao_tipoImovel BOOL
+
+
+);
+
+
+
+-------------------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE imoveis(
+
+
+cod_imovel INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+
+
+cod_usuario INT,
+
+
+cod_tipoImovel INT,
+
+
+titulo_imovel VARCHAR(80),
+
+
+tipoNegocio_imovel VARCHAR(30),
+
+
+valor_imovel FLOAT(10,2),
+
+
+cidade_imovel VARCHAR(40),
+
+
+uf_imovel CHAR(2),
+
+
+logradouro_imovel VARCHAR(10),
+
+
+endereco_imovel VARCHAR(50),
+
+
+numero_imovel INT,
+
+
+complemento_imovel VARCHAR(50),
+
+
+bairro_imovel VARCHAR(50),
+
+
+areaTotal_imovel INT(6),
+
+
+areaUtil_imovel INT(6),
+
+
+dormitorios_imovel INT,
+
+
+banheiros_imovel INT,
+
+
+garagem_imovel INT,
+
+
+descricao TEXT,
+
+
+situacao_imovel BOOL,
+
+
+FOREIGN KEY (cod_usuario) REFERENCES usuarios(cod_usuario),
+
+
+FOREIGN KEY (cod_tipoImovel) REFERENCES tipoimovel(cod_tipoImovel)
+
+
+
+);
+
+-------------------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE tabela_imagens(
+
+
+img_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+
+
+cod_imovel INT,
+
+
+img_nome VARCHAR(100),
+
+
+img_caminho VARCHAR(200),
+
+
+FOREIGN KEY (cod_imovel) REFERENCES imoveis(cod_imovel)
+
+
+);
+
+-----------------------------------------------------------------------------------
+CREATE TABLE favoritos(
+
+	cod_favoritos INT AUTO_INCREMENT PRIMARY KEY,
+
+	cod_usuario INT ,
+
+	cod_imovel INT,
+
+	FOREIGN KEY (cod_usuario) REFERENCES usuarios(cod_usuario),
+
+	FOREIGN KEY (cod_imovel) REFERENCES imoveis(cod_imovel)	
+	
+);

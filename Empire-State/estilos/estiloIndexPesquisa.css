@@ -1,0 +1,110 @@
+/* Carousel */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+
+	height:700px;
+}
+
+/*Menu lateral*/
+.ctMenuLateral{
+	width:auto; padding-right:50px
+}
+
+.menuLateral{
+	margin:50px 0 0 0;
+}
+
+/*Sessão de resultados*/
+#destaque{
+	margin-top:50px;
+	padding-left:5px;
+}
+
+.resultado{
+	border-top:1px dashed #337CBB;
+	margin-bottom:20px;
+	padding-top:10px;
+	float:right;
+}
+
+.resultado img{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-right:20px;
+}
+
+
+/*Estilo próprio da Pesquisa de Imóvel começa aqui*/
+
+/* Filtros */
+#listaFiltros{
+    overflow:auto;
+}
+
+.filtros{
+    margin:5px 0;
+    height: 10px;
+    line-height: 0px;
+    font-size:14px;
+    border-radius:5px;
+    border:0;
+    background:#EEE;
+    color:#555;
+}
+
+.filtros a {
+    float:right;
+    padding-left:5px;
+    color:#000;
+    font-weight: bold;
+}
+
+.filtros a:hover{
+    text-decoration: none;
+    font-size:16px;
+}
+
+/* Classe utilizada para o 1° label de cada filtro que está em um linha única */
+.linhaLbl{
+  margin:5px 0px 0 0;
+}
+/*Linhas que contém 2 campos */
+.doisCamposEsq{
+    padding-left: 0;
+    margin-left:0;
+}
+
+.doisCamposDir{
+    padding-right: 0;
+    margin-right:0;
+}
+
+/* Classe utilizada para não fechar os form-group dos filtros, pois seus elementos estão com float */
+.fmFiltros {
+  overflow: auto;
+}
+
+/*Estilo para distanciar os filtros 5px em relação aos títulos dos filtros*/
+.linhaLbl, .fmFiltros{
+  margin-left: 5px;
+}
+
+/*Estilo para ocultar resultados*/
+.invisivel{
+
+    display:none;
+}
+
+.pagination{
+    display:block;
+    padding:0;
+    margin:0;
+    min-width: 350px;
+    margin-left: 400px;
+}
+

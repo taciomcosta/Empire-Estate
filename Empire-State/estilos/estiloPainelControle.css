@@ -1,0 +1,123 @@
+/*SECTION QUE VEM DEPOIS DO MENU*/
+.section{
+margin:90px 0 auto auto
+}
+
+
+/*ABAS*/
+
+	/* Container das ABAS */
+        .tabs-container {
+            position: relative;
+            height: 500px;
+            max-width: 98%;
+            margin: 0 auto;
+        }
+        .tabs-container p {
+            margin: 0;
+            padding: 0;
+        }
+        .tabs-container:after {
+            content: '.';
+            display: block;
+            clear: both;
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+            visibility: none;
+        }
+         
+        /* ABAS */
+        input.tabs {
+            /*Esconde os botões do radio*/
+            display: none;
+        }
+
+        .aba
+        {
+            margin:0 auto;
+        }
+
+        /*une os elementos irmãos*/
+        /*'Esconde' a div não selecionada */
+        input.tabs + label + div {
+            width: 98%;
+            opacity: 0;
+            position: absolute;
+            background: #eee;
+            top: 40px;
+            left: 0;
+            height: 440px;
+            padding: 10px;
+            z-index: -1;
+            transition: opacity ease-in-out .3s;
+        }
+        /*Sobrepõe a div selecionada*/
+        input.tabs:checked + label + div {
+            opacity: 1;
+            z-index: 1000;
+        }
+         
+        /* Labels */
+
+        /*Quando a label não está selecionada*/
+        input.tabs + label {
+            line-height: 40px;
+            padding: 0 20px;
+            float: left;
+            background: #337cbf;
+            color: #fff;
+            cursor: pointer;
+            transition: background ease-in-out .3s;
+            border-radius:10px 10px 0 0 ;
+        }
+
+        /*Quando a label está selecionada*/
+        input.tabs:checked + label {
+            color: #000;
+            background: #eee;
+        }
+ 
+
+ /*ABA DE CADASTRO - USUÁRIO */
+		#sForm{
+
+			margin:100px 0;
+
+		}
+
+
+		#sForm #colCabecalho, #colFormCadastro,#colFormPesquisa, #colFormCadastroTipoImovel{
+
+			margin:0 auto;float:none;
+
+		}
+
+		
+		.formPesquisaUsuario{
+			width: 300px;
+			height: 34px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			color: #555555;
+			background-color: #ffffff;
+			background-image: none;
+			border: 1px solid #cccccc;
+			border-radius: 4px;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+
+/*Rodapé*/
+
+#rodape{
+
+    position:absolute;
+    width:100%;
+    bottom:0;
+    
+}

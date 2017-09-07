@@ -1,0 +1,14 @@
+1- A pasta empireestate é do banco de dados. 
+É a pasta que precisa ser copiada para o diretório do MySQL, do Wamp;
+
+2- A pasta estilos contém os arquivos CSS
+
+3- A pasta Fotos armazena as imagens dos imóveis cadastrados
+
+4- A pasta imgs contém algumas imagens de imóveis que baixamos para utilizar no cadastro de alguns imóveis
+(PODE SER DELETADA)
+
+5- A pasta logo contém os logos que criamos no site https://www.logaster.com.br/
+
+6- Altere a senha do arquivo conexao.php
+
