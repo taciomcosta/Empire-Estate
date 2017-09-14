@@ -6,8 +6,6 @@ import pieces.*;
 import pieces.piece.Piece;
 import pieces.piece.Piece.Icon;
 import pieces.piece.PieceModel;
-import player.Human;
-import player.Player;
 
 import java.util.ArrayList;
 
@@ -64,6 +62,6 @@ public class CheckmateTest
                 board.addPiece(p, row, col);
                 model.setRow(row);
                 model.setCol(col);
-                p.increaseMove();
+                p.increaseMoves();
         }
 }

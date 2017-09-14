@@ -19,7 +19,7 @@ public class Human extends Player
 	}
 
 	@Override
-	public void promotePawn()
+	public void verifyPawnPromotion()
 	{
 		ArrayList<Piece> capturedPieces = getCapturedPieces();
 		if (capturedPieces.size() == 0)

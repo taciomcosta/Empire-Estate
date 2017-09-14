@@ -191,7 +191,6 @@ public class King extends Piece
 	 */
 	private boolean canMoveWithoutBeingChecked(ArrayList<Piece> enemyPieces)
 	{
-//		check conditions 2 and 3 for each cell
 		for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
 			for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
 			        boolean p = canMove(i, j) || canCapture(i, j);
@@ -201,7 +200,7 @@ public class King extends Piece
 					return true;
 			}
 		}
-		System.out.println("can't move safely");
+		System.out.println("can't move without being checked!");
 		return false;
 	}
 

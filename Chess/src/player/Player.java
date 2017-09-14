@@ -23,7 +23,7 @@ public abstract class Player
 	protected int row;
 	protected int col;
 
-	Player(Chessboard b, Color piecesColor)
+	protected Player(Chessboard b, Color piecesColor)
 	{
 		setPiecesColor(piecesColor);
 		setChessboard(b);
@@ -33,22 +33,6 @@ public abstract class Player
 	public Piece[] getPieces()
 	{
 		return pieces;
-	}
-	
-	protected ArrayList<Piece> getEnemyPiecesAlive()
-	{
-		ArrayList<Piece> enemies = new ArrayList<>();
-		Color c = getPiecesColor();
-		for (int i = 0; i < Utils.BOARD_LENGTH; ++i) {
-			for (int j = 0; j < Utils.BOARD_LENGTH; ++j) {
-				Piece enemy = board.getPieceAt(i, j); 
-				if (enemy != null)
-				if (enemy.getColor() != c && 
-						!enemy.isCaptured())
-					enemies.add(enemy);
-			}
-		}
-		return enemies;
 	}
 	
 	private Piece getPiece(int i)
@@ -243,7 +227,7 @@ public abstract class Player
 		board.addPiece(p, destRow, destCol);
 		p.setRow(destRow);
 		p.setCol(destCol);
-		p.increaseMove();
+		p.increaseMoves();
 	}
 
 	private void unmoveTmp(Piece p, int startRow, int startCol)
@@ -252,7 +236,7 @@ public abstract class Player
 		board.addPiece(p, startRow, startCol);
 		p.setRow(startRow);
 		p.setCol(startCol);
-		p.decreaseMove();
+		p.decreaseMoves();
 	}
 
 	private void captureTmp(Piece p, Piece e, Move move)
@@ -269,7 +253,7 @@ public abstract class Player
 		board.addPiece(p, move.getFinalRow(), move.getFinalCol());
 		p.setRow(move.getFinalRow());
 		p.setCol(move.getFinalCol());
-		p.increaseMove();
+		p.increaseMoves();
 		System.out.println("============================");
 	}
 
@@ -279,7 +263,7 @@ public abstract class Player
 		board.removePiece(m.getFinalRow(), m.getFinalCol());
 //		add capturer piece to its start position
 		board.addPiece(p, m.getStartRow(), m.getStartCol());
-		p.decreaseMove();
+		p.decreaseMoves();
 //		add captured piece back
 		board.addPiece(e, m.getFinalRow(), m.getFinalCol());
 		e.setCaptured(false);
@@ -288,5 +272,5 @@ public abstract class Player
 	}
 
 	public abstract boolean play();
-	public abstract void promotePawn();
+	public abstract void verifyPawnPromotion();
 }

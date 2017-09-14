@@ -16,7 +16,8 @@ public class ChessGame
 		SELF_CHECKED,
 		STALEMATE, 
 		OK
-	};
+	}
+
 	public ChessGameModel model;
 
 	public ChessGame()
@@ -25,13 +26,12 @@ public class ChessGame
 		Player p1 = new Human(board, Color.WHITE);
 		Player p2 = new Computer(board, Color.BLACK, p1);
 		model = new ChessGameModel(board, p1, p2);
-//		setUp();
-//		gameLoop();
+		setUp();
+		gameLoop();
 	}
 
         public void setUp()
         {
-//		set first current player
         	model.currentPlayer = model.player2;
         }
         
@@ -40,15 +40,11 @@ public class ChessGame
         	model.board.printModel();
         	for(;;) {
 			model.setCurrentPlayer();
-//	        	while it's not a successfully play
 			while(!model.currentPlayer.play());
-//			print who played and board model
 			System.out.println(model.getCurrentPlayer().getPiecesColor());
 			model.board.printModel();
-//			verify pawn promotion
-			model.currentPlayer.promotePawn();
-//			verify check status
-			CheckStatus status = verify_status();
+			model.currentPlayer.verifyPawnPromotion();
+			CheckStatus status = verifyGameStatus();
 			if (status == CheckStatus.STALEMATE) {
 				System.out.println("STALEMATE!");
 				end();
@@ -62,18 +58,15 @@ public class ChessGame
         	}
         }
         
-	public CheckStatus verify_status()
+	public CheckStatus verifyGameStatus()
 	{
 		Player current = model.getCurrentPlayer();
 		Player enemy = model.getEnemy();
-//		verify stalemate
 		if (current.is_stalemate() || enemy.is_stalemate())
 			return CheckStatus.STALEMATE;
-//	        verify checkmate
-		else if(current.king_is_checkmated(enemy) || 
+		else if(current.king_is_checkmated(enemy) ||
 				enemy.king_is_checkmated(current))
 			return CheckStatus.CHECKMATE;
-//	       	verify check
 		else if (enemy.king_is_checked(current.getPiecesAlive()))
 			return CheckStatus.ENEMY_CHECKED;
 		else if (current.king_is_checked(enemy.getPiecesAlive()))

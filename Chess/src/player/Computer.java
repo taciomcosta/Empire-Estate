@@ -29,7 +29,7 @@ public class Computer extends Player
 	}
 
 	@Override
-	public void promotePawn()
+	public void verifyPawnPromotion()
 	{
 		ArrayList<Piece> capturedPieces;
 //		for each pawn
