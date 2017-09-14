@@ -25,8 +25,8 @@ public class ChessGame
 		Player p1 = new Human(board, Color.WHITE);
 		Player p2 = new Computer(board, Color.BLACK, p1);
 		model = new ChessGameModel(board, p1, p2);
-		setUp();
-		gameLoop();
+//		setUp();
+//		gameLoop();
 	}
 
         public void setUp()
@@ -46,7 +46,7 @@ public class ChessGame
 			System.out.println(model.getCurrentPlayer().getPiecesColor());
 			model.board.printModel();
 //			verify pawn promotion
-			model.currentPlayer.check_pawn_promotion();
+			model.currentPlayer.promotePawn();
 //			verify check status
 			CheckStatus status = verify_status();
 			if (status == CheckStatus.STALEMATE) {
@@ -67,8 +67,7 @@ public class ChessGame
 		Player current = model.getCurrentPlayer();
 		Player enemy = model.getEnemy();
 //		verify stalemate
-		if (current.is_stalemate(enemy.getPiecesAlive()) ||
-				enemy.is_stalemate(current.getPiecesAlive()))
+		if (current.is_stalemate() || enemy.is_stalemate())
 			return CheckStatus.STALEMATE;
 //	        verify checkmate
 		else if(current.king_is_checkmated(enemy) || 

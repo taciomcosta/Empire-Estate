@@ -32,7 +32,7 @@ public class Rook extends Piece
 //		if it's a valid move for Rook
 		boolean p = getRow() == row || getCol() == col;
 //		if there's no piece between origin and destination
-		boolean q = !has_piece_in_its_way(row, col);
+		boolean q = !hasPieceBetween(row, col);
 		if (p && q)
 			return true;
 //		return false by default
@@ -51,7 +51,7 @@ public class Rook extends Piece
 //		if it's a valid move for Rook
 		boolean p = getRow() == row || getCol() == col;
 //		if there's no piece between origin and destination
-		boolean q = !has_piece_in_its_way(row, col);
+		boolean q = !hasPieceBetween(row, col);
 		if (p && q)
 			return true;
 //		return false by default
@@ -67,9 +67,8 @@ public class Rook extends Piece
 			super.capture(pieceToCapture);
 	}
 
-	public boolean has_piece_in_its_way(int finalRow, int finalCol)
+	public boolean hasPieceBetween(int finalRow, int finalCol)
 	{
-//	        determine direction
 		int startRow = getRow();
 		int startCol = getCol();
                 int rowDirection = 0;
@@ -82,10 +81,8 @@ public class Rook extends Piece
 			colDirection = -1;
 		else if (finalCol < startCol)
 			colDirection = 1;
-//		increase for disconsidering the final position itself
 		finalRow += rowDirection;
 		finalCol += colDirection;
-//		check if there's a piece in [startPosition; position [
 		while (finalRow != startRow && finalCol != startCol) {
 			if (board.getPieceAt(finalRow, finalCol) != null) {
 				return true;
@@ -93,7 +90,6 @@ public class Rook extends Piece
 			finalRow += rowDirection;
 			finalCol += colDirection;
 		}
-//		if there's no piece
 		return false;
 	}
 

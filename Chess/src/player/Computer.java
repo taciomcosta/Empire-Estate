@@ -29,7 +29,7 @@ public class Computer extends Player
 	}
 
 	@Override
-	public void check_pawn_promotion()
+	public void promotePawn()
 	{
 		ArrayList<Piece> capturedPieces;
 //		for each pawn
@@ -147,11 +147,13 @@ public class Computer extends Player
 
 	private Move getBestMove(int depth)
 	{
+		System.out.println("depth " + depth);
 	        Move bestMove = null;
 	        int minValue = Integer.MAX_VALUE;
                 ArrayList<Move> moves = getPossibleMoves();
 //		for each possible move
                 for (Move m : moves) {
+                        System.out.println("== getBest ==");
                         setState(m);
 //                      compare values
 			int currentValue = max(depth - 1);
@@ -160,17 +162,20 @@ public class Computer extends Player
 				bestMove = m;
 			}
 			unsetState(m);
+			System.out.println("== fim getBest ==");
                 }
 		return bestMove;
 	}
 
 	private int max(int depth)
 	{
+		System.out.println("depth " + depth);
 		ArrayList<Integer> minimums = new ArrayList<>();
 //		get enemy possible moves
                 ArrayList<Move> enemyMoves = enemy.getPossibleMoves();
 //		for each possible move
                 for (Move m : enemyMoves) {
+			System.out.println("== max ==");
                         setState(m);
 //			if depth == 0 evaluate state
 			if (depth == 0) {
@@ -180,6 +185,7 @@ public class Computer extends Player
 				minimums.add(min(depth - 1));
 			}
 			unsetState(m);
+			System.out.println("== fim max ==");
                 }
 //		get minimum possibility
 		int min = Integer.MAX_VALUE;
@@ -191,10 +197,12 @@ public class Computer extends Player
 
 	private int min(int depth)
 	{
+	        System.out.println("depth " + depth);
 		ArrayList<Integer> maximums = new ArrayList<>();
                 ArrayList<Move> moves = getPossibleMoves();
 //		for each possible move
                 for (Move m : moves) {
+			System.out.println("== min ==");
                 	setState(m);
 //			if depth == 0 evaluate state
                         if (depth == 0) {
@@ -204,6 +212,7 @@ public class Computer extends Player
                                 maximums.add(max(depth - 1));
                         }
                         unsetState(m);
+			System.out.println("== fim min ==");
                 }
 //		get maximum possibility
 		int max = Integer.MIN_VALUE;
@@ -211,79 +220,6 @@ public class Computer extends Player
 			if (value > max)
 				max = value;
 		return max;
-	}
-
-	private void moveTmp(Piece p, int destRow, int destCol)
-	{
-		board.removePiece(p.getRow(), p.getCol());
-		board.addPiece(p, destRow, destCol);
-		p.setRow(destRow);
-		p.setCol(destCol);
-		p.increaseMove();
-	}
-
-	private void unmoveTmp(Piece p, int startRow, int startCol)
-	{
-		board.removePiece(p.getRow(), p.getCol());
-		board.addPiece(p, startRow, startCol);
-		p.setRow(startRow);
-		p.setCol(startCol);
-		p.decreaseMove();
-	}
-
-	private void captureTmp(Piece p, Piece e, Move m)
-	{
-//		remove captured piece
-                board.removePiece(m.getFinalRow(), m.getFinalCol());
-                e.setCaptured(true);
-		e.unsetPositionFromBoardRange();
-//		move this to captured pieces' position
-                board.removePiece(m.getStartRow(), m.getStartCol());
-                board.addPiece(p, m.getFinalRow(), m.getFinalCol());
-                p.setRow(m.getFinalRow());
-                p.setCol(m.getFinalCol());
-                p.increaseMove();
-	}
-
-	private void uncaptureTmp(Piece p, Piece e, Move m)
-	{
-//	        remove capturer piece
-		board.removePiece(m.getFinalRow(), m.getFinalCol());
-//		add capturer piece to its start position
-		board.addPiece(p, m.getStartRow(), m.getStartCol());
-		p.decreaseMove();
-//		add captured piece back
-                board.addPiece(e, m.getFinalRow(), m.getFinalCol());
-                e.setCaptured(false);
-                e.setRow(m.getFinalRow());
-                e.setCol(m.getFinalCol());
-	}
-
-	private void setState(Move m)
-	{
-	        int finalRow = m.getFinalRow();
-	        int finalCol = m.getFinalCol();
-	        Piece p = m.getPiece();
-	        Piece e = board.getPieceAt(finalRow, finalCol);
-		m.setCapturedPiece(e);
-//              do move/capture
-		if (m.getType() == 'm')
-			moveTmp(p, finalRow, finalCol);
-		else
-			captureTmp(p, e, m);
-	}
-
-	private void unsetState(Move m)
-	{
-		int startRow = m.getStartRow();
-		int startCol = m.getStartCol();
-		Piece p = m.getPiece();
-		Piece e = m.getCapturedPiece();
-//              undo move/capture
-		if (m.getType() == 'm')
-			unmoveTmp(p, startRow, startCol);
-                else
-                        uncaptureTmp(p, e, m);
 	}
 }
 

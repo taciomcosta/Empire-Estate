@@ -30,7 +30,7 @@ public class Bishop extends Piece
 //		check if it's a diagonal move
 		if (Math.abs(row - getRow()) == Math.abs(col - getCol()))
 //			check if there's no friend piece in its way
-			if (!has_piece_in_its_way(row, col))
+			if (!hasPieceBetween(row, col))
 				return true;
 		return false;
 	}
@@ -50,7 +50,7 @@ public class Bishop extends Piece
 		if (Math.abs(row - getRow()) != Math.abs(col - getCol()))
 			return false;
 //		check if there's no friend piece in its way
-		if (has_piece_in_its_way(row, col))
+		if (hasPieceBetween(row, col))
 			return false;
 		return true;
 	}
@@ -64,24 +64,29 @@ public class Bishop extends Piece
 				super.capture(pieceToCapture);
 	}
 	
-	private boolean has_piece_in_its_way(int row, int col)
+	private boolean hasPieceBetween(int finalRow, int finalCol)
 	{
-	        int startRow = getRow();
-	        int startCol = getCol();
-//	        determine direction
-		int rowDirection = row > getRow() ? -1 : 1;
-		int colDirection = col > getCol() ? -1 : 1;
-//		increase for disconsider the final row itself
-		row += rowDirection;
-		col += colDirection;
-		while (row != startRow && col != startCol) {
-			if (board.getPieceAt(row, col) != null) {
+		int startRow = getRow();
+		int startCol = getCol();
+		int rowDirection = 0;
+		int colDirection = 0;
+		if (finalRow > startRow)
+			rowDirection = -1;
+		else if (finalRow < startRow)
+			rowDirection = 1;
+		if (finalCol > startCol)
+			colDirection = -1;
+		else if (finalCol < startCol)
+			colDirection = 1;
+		finalRow += rowDirection;
+		finalCol += colDirection;
+		while (finalRow != startRow && finalCol != startCol) {
+			if (board.getPieceAt(finalRow, finalCol) != null) {
 				return true;
 			}
-			row += rowDirection;
-			col += colDirection;
+			finalRow += rowDirection;
+			finalCol += colDirection;
 		}
-//		if there's no piece
 		return false;
 	}
 }

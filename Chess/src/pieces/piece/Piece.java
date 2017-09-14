@@ -162,6 +162,7 @@ public abstract class Piece
 
 	public boolean canCapture(int row, int col)
 	{
+//		TODO Utils.inRange() should go here???
 //		check if it's captured
 		if (isCaptured())
 			return false;
@@ -174,7 +175,7 @@ public abstract class Piece
 		return true;
 	}
 	
-	public boolean[][] get_capture_route(Piece enemy)
+	public boolean[][] getAttackingRoute(Piece enemy)
 	{
 //		initialize map
 		boolean[][] map = new boolean[8][8];

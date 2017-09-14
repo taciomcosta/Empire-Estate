@@ -4,15 +4,19 @@ import pieces.piece.Piece;
 
 public class Move
 {
+        public enum MoveType {
+                MOVE,
+                CAPTURE
+        }
         private int startRow;
         private int startCol;
         private int finalRow;
         private int finalCol;
         private Piece piece;
         private Piece capturedPiece;
-        private char type;
+        private MoveType type;
 
-        public Move(Piece p, char type, int finalRow, int finalCol)
+        public Move(Piece p, MoveType type, int finalRow, int finalCol)
         {
                 this.piece = p;
                 this.startRow = p.getRow();
@@ -47,7 +51,7 @@ public class Move
                 return this.finalCol;
         }
 
-        public char getType() { return this.type; }
+        public MoveType getType() { return this.type; }
 
         public void setCapturedPiece(Piece p)
         {

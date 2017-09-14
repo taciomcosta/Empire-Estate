@@ -1,8 +1,6 @@
 package player;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
 
 import chessboard.Chessboard;
 import chessboard.Utils;
@@ -13,25 +11,23 @@ import pieces.Knight;
 import pieces.Pawn;
 import pieces.piece.Piece;
 import pieces.piece.Piece.Color;
-import pieces.piece.Piece.Icon;
 import pieces.Queen;
 import pieces.Rook;
 
-// TODO Refactor Player.java
+// TODO test stalemate
 public abstract class Player
 {
-	protected Scanner input = new Scanner(System.in);
+	protected Piece[] pieces = new Piece[16];
+	private Color piecesColor;
+	protected Chessboard board;
 	protected int row;
 	protected int col;
-	protected Color piecesColor;
-	protected Piece[] pieces = new Piece[16];
-	protected Chessboard board;
 
-	public Player(Chessboard b, Color piecesColor)
+	Player(Chessboard b, Color piecesColor)
 	{
 		setPiecesColor(piecesColor);
 		setChessboard(b);
-		setPieces();
+		initializePieces();
 	}
 
 	public Piece[] getPieces()
@@ -41,7 +37,7 @@ public abstract class Player
 	
 	protected ArrayList<Piece> getEnemyPiecesAlive()
 	{
-		ArrayList<Piece> enemies = new ArrayList<Piece>();
+		ArrayList<Piece> enemies = new ArrayList<>();
 		Color c = getPiecesColor();
 		for (int i = 0; i < Utils.BOARD_LENGTH; ++i) {
 			for (int j = 0; j < Utils.BOARD_LENGTH; ++j) {
@@ -55,12 +51,12 @@ public abstract class Player
 		return enemies;
 	}
 	
-	public Piece getPiece(int i)
+	private Piece getPiece(int i)
 	{
 		return pieces[i];
 	}
 
-	private void setPieces()
+	private void initializePieces()
 	{
 //		FOR BLACK PIECES
 		if (getPiecesColor() == Color.BLACK) {
@@ -70,18 +66,14 @@ public abstract class Player
 //	              	set Rooks
 			pieces[8] = new Rook(Color.BLACK, board, 0, 0);
 			pieces[9] = new Rook(Color.BLACK, board, 0, 7);
-
-//	                set Bishops 
+//	                set Bishops
 			pieces[10] = new Bishop(Color.BLACK, board, 0, 2);
 			pieces[11] = new Bishop(Color.BLACK, board, 0, 5);
-
-//	              	set Knight 
+//	              	set Knight
 			pieces[12] = new Knight(Color.BLACK, board, 0, 6);
 			pieces[13] = new Knight(Color.BLACK, board, 0, 1);
-			
 //	            	set Queen
 			pieces[14] = new Queen(Color.BLACK, board, 0, 3);
-			
 //	              	set Kings
 			pieces[15] = new King(Color.BLACK, board, 0, 4);
 //		FOR WHITE PIECES
@@ -112,10 +104,8 @@ public abstract class Player
 	
 	public ArrayList<Piece> getCapturedPieces()
 	{
-		ArrayList<Piece> capturedPieces = new ArrayList<Piece>();
-//		for each piece
+		ArrayList<Piece> capturedPieces = new ArrayList<>();
 		for (Piece p : pieces) {
-//			add to array, if it's captured
 			if (p.isCaptured())
 				capturedPieces.add(p);
 		}
@@ -125,12 +115,11 @@ public abstract class Player
 	public ArrayList<Piece> getPiecesAlive()
 	{
 		ArrayList<Piece> piecesAlive = new ArrayList<>();
-//		for each piece
 		for (Piece p : pieces) {
-//			add to array, if it's captured
 			if (!p.isCaptured())
 				piecesAlive.add(p);
 		}
+		// =========================================== remove line below
 		System.out.println(piecesAlive.size());
 		return piecesAlive;
 	}
@@ -158,128 +147,146 @@ public abstract class Player
 	}
 	
 
-	public void castPosition(String pos)
-	{
-//		cast row and col. Ex: A5 -> col=0, row=3
-		col = pos.charAt(0) - 97;
-		row = 8 - Integer.parseInt(pos.substring(1, 2));
-	}
 
-	
-	public void check_pawn_promotion()
+
+
+	/*
+	* Stalemate requisites:
+	* - King is not checked
+	* - There's no legal moves but checkmating its own King
+	* */
+	public boolean is_stalemate()
 	{
-	}
-	
-	public boolean is_stalemate(ArrayList <Piece> enemyPieces)
-	{
-//		get its own king
 		King king = (King) pieces[15];
-//		if king is checked, then it can't be a stalemate
-		if (king.is_checked())
+		if (!king.is_checked())
 			return false;
-//		get friend pieces alive that can move
-		ArrayList <Piece> moveable = new ArrayList<Piece>();
-		for (Piece p : getPiecesAlive()) {
-			for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
-				for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
-				        boolean r = p.getPieceInitial() != Icon.K;
-				        boolean s = p.canMove(i, j);
-				        boolean t = !moveable.contains(p);
-					if (r && s && t)
-						moveable.add(p);
-				}
-			}
-		}
-//		for each piece that can move 
-		int wouldLetKingChecked = 0;
-		for (Piece p : moveable) {
-//			backup piece pos, for removing it temporarily
-			int backupRow = p.getRow();
-			int backupCol = p.getCol();
-//			remove piece from board
-			board.removePiece(backupRow, backupCol);
-			p.setRow(Integer.MIN_VALUE);
-			p.setCol(Integer.MIN_VALUE);
-			p.setCaptured(true);
-//			verify if king could be checked
-//			without piece
-			boolean isChecked = king.is_checked();
-//			add piece back
-			board.addPiece(p, backupRow, backupCol);
-			p.setRow(backupRow);
-			p.setCol(backupCol);
-			p.setCaptured(false);
-			if (isChecked)
-				wouldLetKingChecked++;
-		}
-//		check if all pieces that can move would let king in check
-		if (moveable.size() != wouldLetKingChecked) 
-			return false;
-//		check if king can move safely
-		for (int i = -1; i < 2; i++) {
-			for (int j = -1; j < 2; j++) {
-//				set propositions
-				boolean p = king.would_be_checked(enemyPieces, 
-						king.getRow() + i, 
-						king.getCol() + j); 
-				boolean q = board.getPieceAt(i, j) == null;
-				boolean r = i != 0 || j != 0;
-//				check them
-				if (!p && q && r) {
-//					TEST: System.out.println("can move safely " + (king.getRow() + i) + " " + (king.getCol() + j));
-					return false;
-				}
-			}
+		ArrayList<Move> legalMoves = getPossibleMoves();
+		for (Move move : legalMoves) {
+			if (!king_would_be_checked(move))
+				return false;
 		}
 		return true;
 	}
 
-	protected ArrayList<Move> getPossibleMoves()
+	public ArrayList<Move> getPossibleMoves()
 	{
-	        ArrayList<Move> possibleMoves = new ArrayList<Move>();
-//	        get pieces alive
-		ArrayList<Piece> piecesAlive = getPiecesAlive();
-//		for each cell in chessboard
-		for (int i = 0; i < Utils.BOARD_LENGTH; ++i) {
-			for (int j = 0; j < Utils.BOARD_LENGTH; ++j) {
-//				check what pieces can move/capture to it
-				for (Piece p : piecesAlive) {
-					boolean q = p.canMove(i, j);
-					boolean r = p.canCapture(i, j);
-					boolean s = board.getPieceAt(i, j)
-						!= null;
-					if (q) {
-						possibleMoves.add(
-							new Move(p,
-								'm',
-								i,
-								j));
-					} else if (r && s) {
-						possibleMoves.add(
-							new Move(p,
-								'c',
-								i,
-								j));
-					}
-				}
-			}
-		}
-//		sort possibleMoves by piece
-		possibleMoves.sort(new Comparator<Move>() {
-			@Override
-			public int compare(Move m, Move m1)
-			{
-				char p1 = m.getPiece().toString().charAt(0);
-				char p2 = m1.getPiece().toString().charAt(0);
-				if (p1 > p2)
-					return 1;
-				if (p1 < p2)
-					return -1;
-				return 0;
-			}
-		});
+	        ArrayList<Move> possibleMoves = new ArrayList<>();
+		for (int row = 0; row < Utils.BOARD_LENGTH; ++row)
+			for (int col = 0; col < Utils.BOARD_LENGTH; ++col)
+				addPossibleMoves(possibleMoves, row, col);
 		return possibleMoves;
 	}
 
+	private void addPossibleMoves(ArrayList<Move> possibleMoves,
+				     int finalRow,
+				     int finalCol)
+	{
+		ArrayList<Piece> piecesAlive = getPiecesAlive();
+		for (Piece piece : piecesAlive) {
+			boolean q = piece.canMove(finalRow, finalCol);
+			boolean r = piece.canCapture(finalRow, finalCol);
+			boolean s = board.getPieceAt(finalRow, finalCol) != null;
+			if (q) {
+				possibleMoves.add(
+					new Move(piece,
+						Move.MoveType.MOVE,
+						finalRow,
+						finalCol));
+			} else if (r && s) {
+				possibleMoves.add(
+					new Move(piece,
+						Move.MoveType.CAPTURE,
+						finalRow,
+						finalCol));
+			}
+		}
+	}
+
+	private boolean king_would_be_checked(Move move)
+	{
+		King king = (King) pieces[15];
+		setState(move);
+		boolean wouldBeChecked = king.is_checked();
+		unsetState(move);
+		return wouldBeChecked;
+	}
+
+	protected void setState(Move move)
+	{
+		int finalRow = move.getFinalRow();
+		int finalCol = move.getFinalCol();
+		Piece p = move.getPiece();
+		Piece e = board.getPieceAt(finalRow, finalCol);
+		move.setCapturedPiece(e);
+		if (move.getType() == Move.MoveType.MOVE)
+			moveTmp(p, finalRow, finalCol);
+		else
+			captureTmp(p, e, move);
+	}
+
+	protected void unsetState(Move move)
+	{
+	        System.out.println(move.toString() + move.getType().toString());
+		int startRow = move.getStartRow();
+		int startCol = move.getStartCol();
+		Piece p = move.getPiece();
+		Piece e = move.getCapturedPiece();
+		if (move.getType() == Move.MoveType.MOVE)
+			unmoveTmp(p, startRow, startCol);
+		else
+			uncaptureTmp(p, e, move);
+	}
+
+	private void moveTmp(Piece p, int destRow, int destCol)
+	{
+		board.removePiece(p.getRow(), p.getCol());
+		board.addPiece(p, destRow, destCol);
+		p.setRow(destRow);
+		p.setCol(destCol);
+		p.increaseMove();
+	}
+
+	private void unmoveTmp(Piece p, int startRow, int startCol)
+	{
+		board.removePiece(p.getRow(), p.getCol());
+		board.addPiece(p, startRow, startCol);
+		p.setRow(startRow);
+		p.setCol(startCol);
+		p.decreaseMove();
+	}
+
+	private void captureTmp(Piece p, Piece e, Move move)
+	{
+	        System.out.println("============= captureTmp");
+	        System.out.println(move.getPiece().getPieceInitial() + move.getPiece().getColor().toString());
+		System.out.println(move.toString() + move.getType().toString());
+//		remove captured piece
+		board.removePiece(move.getFinalRow(), move.getFinalCol());
+		e.setCaptured(true);
+		e.unsetPositionFromBoardRange();
+//		move this to captured pieces' position
+		board.removePiece(move.getStartRow(), move.getStartCol());
+		board.addPiece(p, move.getFinalRow(), move.getFinalCol());
+		p.setRow(move.getFinalRow());
+		p.setCol(move.getFinalCol());
+		p.increaseMove();
+		System.out.println("============================");
+	}
+
+	private void uncaptureTmp(Piece p, Piece e, Move m)
+	{
+//	        remove capturer piece
+		board.removePiece(m.getFinalRow(), m.getFinalCol());
+//		add capturer piece to its start position
+		board.addPiece(p, m.getStartRow(), m.getStartCol());
+		p.decreaseMove();
+//		add captured piece back
+		board.addPiece(e, m.getFinalRow(), m.getFinalCol());
+		e.setCaptured(false);
+		e.setRow(m.getFinalRow());
+		e.setCol(m.getFinalCol());
+	}
+
 	public abstract boolean play();
+	public abstract void promotePawn();
 }

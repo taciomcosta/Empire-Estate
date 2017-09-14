@@ -35,7 +35,7 @@ public class Queen extends Piece
 //		check if it's a valid move for queen
 		boolean p = getRow() == row || getCol() == col;
 		boolean q = Math.abs(getCol() - col) == Math.abs(row - getRow());
-		boolean r = !has_piece_in_its_way(row, col);
+		boolean r = !hasPieceBetween(row, col);
 		if ((p || q) && r)
 		        return true;
 //		return false by default
@@ -54,7 +54,7 @@ public class Queen extends Piece
 //		check if it's a valid move for queen
 		boolean p = getRow() == row || getCol() == col;
 		boolean q = Math.abs(getCol() - col) == Math.abs(row - getRow());
-		boolean r = !has_piece_in_its_way(row, col);
+		boolean r = !hasPieceBetween(row, col);
 		if ((p || q) && r)
 		        return  true;
 //		return false by default
@@ -72,7 +72,7 @@ public class Queen extends Piece
 	/*
 	* Check if there's a piece in [startPos; finalPos[
 	*/
-	private boolean has_piece_in_its_way(int finalRow, int finalCol)
+	private boolean hasPieceBetween(int finalRow, int finalCol)
 	{
 //	        determine direction
 		int startRow = getRow();
