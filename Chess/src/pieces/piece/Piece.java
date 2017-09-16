@@ -11,18 +11,13 @@ public abstract class Piece
 	public PieceModel model;
 	protected Chessboard board;
 
-	public Piece(Color color, Icon i, Chessboard b, int row, int col)  
+	public Piece(Color color, Icon icon, Chessboard board, int row, int col)
 	{
-		setChessboard(b);
-		model = new PieceModel(color, i, row, col);
-		b.addPiece(this, row, col);
+		this.board = board;
+		model = new PieceModel(color, icon, row, col);
+		board.addPiece(this, row, col);
 	}
 	
-	void setChessboard(Chessboard b)
-	{
-		this.board = b;
-	}
-
 	public void setColor(Color color)
 	{
 		model.setColor(color);
@@ -56,26 +51,6 @@ public abstract class Piece
 	public int getFirstRow()
 	{
 		return model.getFirstRow();
-	}
-	
-	public int getFirstCol()
-	{
-		return model.getFirstCol();
-	}
-
-	public int getLastRow()
-	{
-		return model.getLastRow();
-	}
-	
-	public int getLastCol()
-	{
-		return model.getLastCol();
-	}
-	
-	public void setPieceInitial(Icon i)
-	{
-		model.setPieceInitial(i);
 	}
 	
 	public Icon getPieceInitial()
