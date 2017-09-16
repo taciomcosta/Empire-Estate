@@ -8,7 +8,6 @@ import player.Player;
 import chessboard.Chessboard;
 import chessboard.Utils;
 
-// TODO Refactor King.java
 public class King extends Piece
 {
 	public King(Color color, Chessboard b, int row, int col)
@@ -54,7 +53,7 @@ public class King extends Piece
 			return false;
 		if (!Utils.inRange(row, col))
 			return false;
-		if (can_castle(row, col))
+		if (canCastle(row, col))
 			return true;
 		if (board.getPieceAt(row, col) != null)
 			return false;
@@ -64,11 +63,11 @@ public class King extends Piece
 		return true;
 	}
 
-	public boolean is_checkmated(Player friend, Player enemy)
+	public boolean isCheckmated(Player friend, Player enemy)
 	{
 		ArrayList <Piece> enemyPieces = enemy.getPiecesAlive();
 		ArrayList<Piece> friendPieces = friend.getPiecesAlive();
-		if (!is_checked(enemy.getPiecesAlive()))
+		if (!isChecked(enemy.getPiecesAlive()))
 			return false;
 		if (canMoveWithoutBeingChecked(enemyPieces))
 			return false;
@@ -77,7 +76,7 @@ public class King extends Piece
 		return true;
 	}
 
-	public boolean is_checked(ArrayList<Piece> enemyPieces)
+	public boolean isChecked(ArrayList<Piece> enemyPieces)
 	{
 	        int kingRow = getRow();
 	        int kingCol = getCol();
@@ -87,7 +86,7 @@ public class King extends Piece
 		return false;
 	}
 
-	public boolean is_checked()
+	public boolean isChecked()
 	{
 		int kingRow = getRow();
 		int kingCol = getCol();
@@ -97,9 +96,9 @@ public class King extends Piece
 		return false;
 	}
 
-	public boolean would_be_checked(ArrayList<Piece> enemies,
-			int destRow,
-			int destCol)
+	public boolean wouldBeChecked(ArrayList<Piece> enemies,
+				      int destRow,
+				      int destCol)
 	{
 		boolean checked = false;
 		int kingCurrentRow = getRow();
@@ -190,7 +189,7 @@ public class King extends Piece
 		for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
 			for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
 			        if ((canMove(i, j) || canCapture(i, j)) &&
-			        !would_be_checked(enemyPieces, i, j))
+			        !wouldBeChecked(enemyPieces, i, j))
 					return true;
 			}
 		}
@@ -199,10 +198,8 @@ public class King extends Piece
 
 	public void castle(int row, int col)
 	{
-		if (can_castle(row, col)) {
-//			finally, move king
+		if (canCastle(row, col)) {
 			super.move(row, col);
-//			move rook
 			Rook rook = (Rook) board.getPieceAt(row, 0);
 			int direction = col < getCol() ? -1 : 1;
 			rook.castle(getRow(), getCol() - direction);
@@ -215,7 +212,7 @@ public class King extends Piece
 	 * - King may not have been moved yet
 	 * - There must be a Rook for castling
 	 */
-	private boolean can_castle(int row, int col)
+	private boolean canCastle(int row, int col)
 	{
 		Piece rook = board.getPieceAt(row, col);
 		if (Math.abs(getCol() - col) != 2 ||
@@ -223,7 +220,7 @@ public class King extends Piece
 			return false;
 		if (getMoves() > 0)
 			return false;
-		if (is_checked())
+		if (isChecked())
 			return false;
 		if (rook == null)
 			return false;

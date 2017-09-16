@@ -36,7 +36,7 @@ public class Computer extends Player
 		for (int i = 0; i < 8; i++) {
 			Pawn pawn = (Pawn) pieces[i];
 //			check if can be promoted
-			if (pawn.can_be_promoted()) {
+			if (pawn.canBePromoted()) {
 //				get captured pieces
 				capturedPieces = getCapturedPieces();
 //				if there's no captured piece, return
@@ -56,7 +56,7 @@ public class Computer extends Player
 	@Override
 	public boolean play()
 	{
-		Piece p = choose_pieceToMove_and_destination();
+		Piece p = choosePieceToMoveAndDestination();
 //		if there's no piece on destination
 		if (board.getPieceAt(row, col) == null) {
 //			if can move to destination, then move and end play
@@ -77,7 +77,7 @@ public class Computer extends Player
 		return false;
 	}
 	
-	private Piece choose_pieceToMove_and_destination()
+	private Piece choosePieceToMoveAndDestination()
 	{
 //		get best move based on evaluation
                 Move m = getBestMove(3);

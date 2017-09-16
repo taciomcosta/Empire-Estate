@@ -16,7 +16,6 @@ public class Queen extends Piece
 	{
 		int enemyRow = pieceToCapture.getRow();
 		int enemyCol = pieceToCapture.getCol();
-//		capture straight
 		if (canCapture(enemyRow, enemyCol))
 			super.capture(pieceToCapture);
 	}
@@ -26,19 +25,15 @@ public class Queen extends Piece
 	{
 		if (!super.canMove(row, col))
 			return false;
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check if there's piece on destination
 		if (board.getPieceAt(row, col) != null)
 			return false;
-//		check if it's a valid move for queen
 		boolean p = getRow() == row || getCol() == col;
 		boolean q = Math.abs(getCol() - col) == Math.abs(row - getRow());
 		boolean r = !hasPieceBetween(row, col);
 		if ((p || q) && r)
 		        return true;
-//		return false by default
 		return false;
 	}
 
@@ -93,10 +88,8 @@ public class Queen extends Piece
 			colDirection = -1;
 		else if (finalCol < startCol)
 			colDirection = 1;
-//		increase for disconsidering the final position itself
 		finalRow += rowDirection;
 		finalCol += colDirection;
-//		check if there's a piece in [startPosition; position [
 		while (finalRow != startRow && finalCol != startCol) {
 			if (board.getPieceAt(finalRow, finalCol) != null) {
 				return true;
@@ -104,7 +97,6 @@ public class Queen extends Piece
 			finalRow += rowDirection;
 			finalCol += colDirection;
 		}
-//		if there's no piece
 		return false;
 	}
 }

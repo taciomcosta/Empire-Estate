@@ -6,13 +6,11 @@ public final class Cell
 {
 	private CellModel model;
 
-	//constructor
 	public Cell()
 	{
 		model = new CellModel();
 	}
 	
-	// setters and getters
 	public void setPiece(Piece p)
 	{
 		model.setPiece(p);

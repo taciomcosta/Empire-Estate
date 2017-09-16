@@ -36,7 +36,7 @@ public class CheckmateTest
         @Test
         public void testIsCheckmate()
         {
-                assertTrue(whitePlayer.king_is_checkmated(blackPlayer));
+                assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
         }
 
         public void setUp1()

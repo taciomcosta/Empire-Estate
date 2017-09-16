@@ -126,7 +126,7 @@ public final class Pawn extends Piece
 		return true;
 	}
 
-	public boolean can_be_promoted()
+	public boolean canBePromoted()
 	{
 		if (hasSameColor(Color.WHITE) && getRow() == 0)
 			return true;

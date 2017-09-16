@@ -63,14 +63,14 @@ public class ChessGame
 	{
 		Player current = model.getCurrentPlayer();
 		Player enemy = model.getEnemy();
-		if (current.is_stalemate() || enemy.is_stalemate())
+		if (current.isStalemate() || enemy.isStalemate())
 			return CheckStatus.STALEMATE;
-		else if(current.king_is_checkmated(enemy) ||
-				enemy.king_is_checkmated(current))
+		else if(current.kingIsCheckmated(enemy) ||
+				enemy.kingIsCheckmated(current))
 			return CheckStatus.CHECKMATE;
-		else if (enemy.king_is_checked(current.getPiecesAlive()))
+		else if (enemy.kingIsChecked(current.getPiecesAlive()))
 			return CheckStatus.ENEMY_CHECKED;
-		else if (current.king_is_checked(enemy.getPiecesAlive()))
+		else if (current.kingIsChecked(enemy.getPiecesAlive()))
 			return CheckStatus.SELF_CHECKED;
 		return CheckStatus.OK;
 	}
@@ -79,11 +79,11 @@ public class ChessGame
         {
         	Player current = model.getCurrentPlayer();
         	Player enemy = model.getEnemy();
-        	/*delete it */System.out.println(current.getPiecesColor() + " checkmated: " + current.king_is_checkmated(enemy));
-        	System.out.println(enemy.getPiecesColor() + " checkmated: " + enemy.king_is_checkmated(current));
+        	/*delete it */System.out.println(current.getPiecesColor() + " checkmated: " + current.kingIsCheckmated(enemy));
+        	System.out.println(enemy.getPiecesColor() + " checkmated: " + enemy.kingIsCheckmated(current));
         	System.out.println("\nChecked");
-        	System.out.println(current.getPiecesColor() + " checked: " + current.king_is_checked(enemy.getPiecesAlive()));
-        	/**/ System.out.println(enemy.getPiecesColor() + " checked: " + enemy.king_is_checked(current.getPiecesAlive()));
+        	System.out.println(current.getPiecesColor() + " checked: " + current.kingIsChecked(enemy.getPiecesAlive()));
+        	/**/ System.out.println(enemy.getPiecesColor() + " checked: " + enemy.kingIsChecked(current.getPiecesAlive()));
 		System.exit(0);
         }
 }

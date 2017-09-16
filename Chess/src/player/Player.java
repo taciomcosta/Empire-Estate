@@ -112,16 +112,16 @@ public abstract class Player
 		this.piecesColor = piecesColor;
 	}
 	
-	public boolean king_is_checked(ArrayList<Piece> enemyPieces)
+	public boolean kingIsChecked(ArrayList<Piece> enemyPieces)
 	{
 		King k = (King) getPiece(15);
-		return k.is_checked(enemyPieces);
+		return k.isChecked(enemyPieces);
 	}
 
-	public boolean king_is_checkmated(Player enemy)
+	public boolean kingIsCheckmated(Player enemy)
 	{
 		King k = (King) getPiece(15);
-		return k.is_checkmated(this, enemy);
+		return k.isCheckmated(this, enemy);
 	}
 	
 	public void setChessboard(Chessboard board)
@@ -134,16 +134,16 @@ public abstract class Player
 	* - King is not checked
 	* - There's no legal moves but checkmating its own King
 	* */
-	public boolean is_stalemate()
+	public boolean isStalemate()
 	{
 		King king = (King) pieces[15];
 		int kingRow = king.getRow();
 		int kingCol = king.getCol();
-		if (king.is_checked())
+		if (king.isChecked())
 			return false;
 		ArrayList<Move> legalMoves = getPossibleMoves();
 		for (Move move : legalMoves) {
-		        boolean p = !king_would_be_checked(move);
+		        boolean p = !kingWouldBeChecked(move);
 		        boolean q = move.getFinalRow() != kingRow;
 			boolean s = move.getFinalCol() != kingCol;
 			if (p && q && s)
@@ -186,11 +186,11 @@ public abstract class Player
 		}
 	}
 
-	private boolean king_would_be_checked(Move move)
+	private boolean kingWouldBeChecked(Move move)
 	{
 		King king = (King) pieces[15];
 		setState(move);
-		boolean wouldBeChecked = king.is_checked();
+		boolean wouldBeChecked = king.isChecked();
 		unsetState(move);
 		return wouldBeChecked;
 	}

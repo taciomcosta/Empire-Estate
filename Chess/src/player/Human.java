@@ -26,7 +26,7 @@ public class Human extends Player
 			return;
 		for (int i = 0; i < 8; i++) {
 			Pawn pawn = (Pawn) pieces[i];
-			if (pawn.can_be_promoted()) {
+			if (pawn.canBePromoted()) {
 				pawn.promote(pickCapturedPiece(capturedPieces));
 				return;
 			}

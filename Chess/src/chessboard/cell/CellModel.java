@@ -6,7 +6,6 @@ public class CellModel
 {
 	private Piece piece = null;
 
-	//constructor
 	public CellModel()
 	{}
 	
@@ -15,7 +14,6 @@ public class CellModel
 		setPiece(piece);
 	}
 
-	// setters and getters
 	public void setPiece(Piece p)
 	{
 		this.piece = p;

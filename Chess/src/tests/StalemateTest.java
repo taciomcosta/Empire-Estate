@@ -36,7 +36,7 @@ public class StalemateTest
         @Test
         public void testIsStalemate()
         {
-                assertTrue(blackPlayer.is_stalemate());
+                assertTrue(blackPlayer.isStalemate());
         }
 
         public void setUp1()
