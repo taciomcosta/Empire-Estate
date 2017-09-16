@@ -97,7 +97,7 @@ public class King extends Piece
 		int kingCol = getCol();
 		for (Piece enemy : getEnemyPiecesFromBoard())
 			if (enemy.canCapture(kingRow, kingCol))
-			        return true;
+				return true;
 		return false;
 	}
 

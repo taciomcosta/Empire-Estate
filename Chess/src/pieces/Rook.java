@@ -42,19 +42,14 @@ public class Rook extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check color
 		if (!super.canCapture(row, col))
 			return false;
-//		if it's a valid move for Rook
 		boolean p = getRow() == row || getCol() == col;
-//		if there's no piece between origin and destination
 		boolean q = !hasPieceBetween(row, col);
 		if (p && q)
 			return true;
-//		return false by default
 		return false;
 	}
 
@@ -83,10 +78,9 @@ public class Rook extends Piece
 			colDirection = 1;
 		finalRow += rowDirection;
 		finalCol += colDirection;
-		while (finalRow != startRow && finalCol != startCol) {
-			if (board.getPieceAt(finalRow, finalCol) != null) {
+		while (finalRow != startRow || finalCol != startCol) {
+			if (board.getPieceAt(finalRow, finalCol) != null)
 				return true;
-			}
 			finalRow += rowDirection;
 			finalCol += colDirection;
 		}

@@ -157,6 +157,8 @@ public abstract class Piece
 	{
 		if (isCaptured())
 			return false;
+		if (row == getRow() && col == getCol())
+			return false;
 		return true;
 	}
 
@@ -164,6 +166,8 @@ public abstract class Piece
 	{
 //		TODO Utils.inRange() should go here???
 		if (isCaptured())
+			return false;
+		if (row == getRow() && col == getCol())
 			return false;
 		if (board.getPieceAt(row, col) == null)
 			return true;

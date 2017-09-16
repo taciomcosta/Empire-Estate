@@ -17,7 +17,7 @@ import pieces.Rook;
 // TODO test stalemate
 public abstract class Player
 {
-	protected Piece[] pieces = new Piece[16];
+	public Piece[] pieces = new Piece[16];
 	private Color piecesColor;
 	protected Chessboard board;
 	protected int row;
@@ -130,10 +130,6 @@ public abstract class Player
 		this.board = board;
 	}
 	
-
-
-
-
 	/*
 	* Stalemate requisites:
 	* - King is not checked
@@ -142,11 +138,16 @@ public abstract class Player
 	public boolean is_stalemate()
 	{
 		King king = (King) pieces[15];
-		if (!king.is_checked())
+		int kingRow = king.getRow();
+		int kingCol = king.getCol();
+		if (king.is_checked())
 			return false;
 		ArrayList<Move> legalMoves = getPossibleMoves();
 		for (Move move : legalMoves) {
-			if (!king_would_be_checked(move))
+		        boolean p = !king_would_be_checked(move);
+		        boolean q = move.getFinalRow() != kingRow;
+			boolean s = move.getFinalCol() != kingCol;
+			if (p && q && s)
 				return false;
 		}
 		return true;
@@ -157,13 +158,13 @@ public abstract class Player
 	        ArrayList<Move> possibleMoves = new ArrayList<>();
 		for (int row = 0; row < Utils.BOARD_LENGTH; ++row)
 			for (int col = 0; col < Utils.BOARD_LENGTH; ++col)
-				addPossibleMoves(possibleMoves, row, col);
+				addMovablePieces(possibleMoves, row, col);
 		return possibleMoves;
 	}
 
-	private void addPossibleMoves(ArrayList<Move> possibleMoves,
-				     int finalRow,
-				     int finalCol)
+	private void addMovablePieces(ArrayList<Move> possibleMoves,
+				      int finalRow,
+				      int finalCol)
 	{
 		ArrayList<Piece> piecesAlive = getPiecesAlive();
 		for (Piece piece : piecesAlive) {
