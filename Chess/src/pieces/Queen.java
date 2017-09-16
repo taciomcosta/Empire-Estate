@@ -45,20 +45,26 @@ public class Queen extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check color
 		if (!super.canCapture(row, col))
 			return false;
-//		check if it's a valid move for queen
-		boolean p = getRow() == row || getCol() == col;
-		boolean q = Math.abs(getCol() - col) == Math.abs(row - getRow());
-		boolean r = !hasPieceBetween(row, col);
-		if ((p || q) && r)
-		        return  true;
-//		return false by default
+		if (!canCaptureStraightly(row, col) &&
+			!canCaptureDiagonally(row, col))
+			return false;
+		if (hasPieceBetween(row, col))
+			return false;
 		return false;
+	}
+
+	public boolean canCaptureStraightly(int row, int col)
+	{
+		return getRow() == row || getCol() == col;
+	}
+
+	public boolean canCaptureDiagonally(int row, int col)
+	{
+		return Math.abs(getCol() - col) == Math.abs(row - getRow());
 	}
 
 	@Override

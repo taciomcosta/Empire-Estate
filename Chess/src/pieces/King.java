@@ -107,7 +107,7 @@ public class King extends Piece
 		captureTmp(this);
 		Piece pieceOnDestination = board.getPieceAt(destRow, destCol);
 		if (pieceOnDestination != null &&
-			pieceOnDestination.getColor() != getColor())
+			!pieceOnDestination.hasSameColor(getColor()))
 		        captureTmp(pieceOnDestination);
 		for (Piece enemy : enemies) {
 			if (enemy.canCapture(destRow, destCol)) {
@@ -117,7 +117,7 @@ public class King extends Piece
 		}
 		uncaptureTmp(this, kingCurrentRow, kingCurrentCol);
 		if (pieceOnDestination != null &&
-			pieceOnDestination.getColor() != getColor())
+			!pieceOnDestination.hasSameColor(getColor()))
 		        uncaptureTmp(pieceOnDestination, destRow, destCol);
 		return checked;
 	}
@@ -189,9 +189,8 @@ public class King extends Piece
 	{
 		for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
 			for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
-			        boolean p = canMove(i, j) || canCapture(i, j);
-			        boolean q = !would_be_checked(enemyPieces, i, j);
-				if (p && q)
+			        if ((canMove(i, j) || canCapture(i, j)) &&
+			        !would_be_checked(enemyPieces, i, j))
 					return true;
 			}
 		}
