@@ -8,7 +8,7 @@ public class Bishop extends Piece
 {
 	public Bishop(Color color, Chessboard b, int row, int col)
 	{
-		super(color, Icon.B, b, row, col);
+		super(color, Icon.B, b, row, col, 3);
 	}
 	
 	@Override

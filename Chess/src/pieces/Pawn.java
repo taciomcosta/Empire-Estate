@@ -9,7 +9,7 @@ public final class Pawn extends Piece
 	// constructor
 	public Pawn(Color color, Chessboard b, int row, int col)
 	{
-		super(color, Icon.P, b, row, col);
+		super(color, Icon.P, b, row, col, 1);
 	}
 
 	//others

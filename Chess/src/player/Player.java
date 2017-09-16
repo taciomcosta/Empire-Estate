@@ -16,6 +16,7 @@ import pieces.Rook;
 
 public abstract class Player
 {
+	protected Player enemy;
 	public Piece[] pieces = new Piece[16];
 	private Color piecesColor;
 	protected Chessboard board;
@@ -269,6 +270,22 @@ public abstract class Player
 		e.setCaptured(false);
 		e.setRow(m.getFinalRow());
 		e.setCol(m.getFinalCol());
+	}
+
+	protected int evaluateBoard()
+	{
+		int score = 0;
+		if (pieces[15].isCaptured())
+			return Integer.MIN_VALUE;
+		if (enemy.pieces[15].isCaptured())
+			return Integer.MAX_VALUE;
+		for (Piece piece : getPiecesAlive()) {
+			score += piece.getValue();
+		}
+		for (Piece piece : getPiecesAlive()) {
+			score -= piece.getValue();
+		}
+		return score;
 	}
 
 	public abstract boolean play();

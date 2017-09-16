@@ -12,7 +12,7 @@ public class King extends Piece
 {
 	public King(Color color, Chessboard b, int row, int col)
 	{
-		super(color, Icon.K, b, row, col);
+		super(color, Icon.K, b, row, col, Integer.MAX_VALUE);
 	}
 
 	@Override

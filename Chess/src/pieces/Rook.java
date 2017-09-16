@@ -8,7 +8,7 @@ public class Rook extends Piece
 {
 	public Rook(Color color, Chessboard b, int row, int col)
 	{
-		super(color, Icon.R, b, row, col);
+		super(color, Icon.R, b, row, col, 5);
 	}
 
 	@Override

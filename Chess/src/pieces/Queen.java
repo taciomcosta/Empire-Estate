@@ -8,7 +8,7 @@ public class Queen extends Piece
 {
 	public Queen(Color color, Chessboard b, int row, int col)
 	{
-		super(color, Icon.Q, b, row, col);
+		super(color, Icon.Q, b, row, col, 9);
 	}
 
 	@Override

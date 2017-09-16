@@ -1,5 +1,7 @@
 package chessboard;
 
+import java.util.HashMap;
+
 public class Utils
 {
 	public static final int BOARD_LENGTH = 8;

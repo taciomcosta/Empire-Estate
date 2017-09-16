@@ -8,7 +8,7 @@ public class Knight extends Piece
 {
 	public Knight(Color color, Chessboard b, int row, int col)
 	{
-		super(color, Icon.N, b, row, col);
+		super(color, Icon.N, b, row, col, 3);
 	}
 	
 	@Override

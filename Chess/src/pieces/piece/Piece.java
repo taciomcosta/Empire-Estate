@@ -11,10 +11,11 @@ public abstract class Piece
 	public PieceModel model;
 	protected Chessboard board;
 
-	public Piece(Color color, Icon icon, Chessboard board, int row, int col)
+	public Piece(Color color, Icon icon, Chessboard board, int row, int col,
+		     int value)
 	{
 		this.board = board;
-		model = new PieceModel(color, icon, row, col);
+		model = new PieceModel(color, icon, row, col, value);
 		board.addPiece(this, row, col);
 	}
 	
@@ -62,6 +63,8 @@ public abstract class Piece
 	{
 		return model.getMoves();
 	}
+
+	public int getValue() { return model.getValue(); }
 
 	public void setCaptured(boolean b)
 	{
