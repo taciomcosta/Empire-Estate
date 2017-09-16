@@ -111,6 +111,8 @@ public class StalemateTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet3();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                removePiece(whitePlayer.pieces[9]);
+                removePiece(blackPlayer.pieces[11]);
         }
 
         public void setPositions3()
@@ -127,6 +129,7 @@ public class StalemateTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet4();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                removePiece(whitePlayer.pieces[9]);
         }
 
         public void setPositions4()
@@ -142,6 +145,8 @@ public class StalemateTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet5();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                for (int i = 1; i < 8; ++i)
+                        removePiece(blackPlayer.pieces[i]);
         }
 
         public void setPositions5()
@@ -158,6 +163,8 @@ public class StalemateTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet6();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                for (int i = 1; i < 8; ++i)
+                        removePiece(whitePlayer.pieces[i]);
         }
 
         public void setPositions6()
@@ -203,7 +210,6 @@ public class StalemateTest
                 ArrayList<Piece.Icon> icons = new ArrayList<>();
                 icons.add(Piece.Icon.R);
                 icons.add(Piece.Icon.K);
-                removePiece(whitePlayer.pieces[9]);
                 return icons;
         }
 
@@ -212,7 +218,6 @@ public class StalemateTest
                 ArrayList<Piece.Icon> icons = new ArrayList<>();
                 icons.add(Piece.Icon.B);
                 icons.add(Piece.Icon.K);
-                removePiece(blackPlayer.pieces[11]);
                 return icons;
         }
 
@@ -221,7 +226,6 @@ public class StalemateTest
                 ArrayList<Piece.Icon> icons = new ArrayList<>();
                 icons.add(Piece.Icon.R);
                 icons.add(Piece.Icon.K);
-                removePiece(whitePlayer.pieces[9]);
                 return icons;
         }
 
@@ -245,8 +249,6 @@ public class StalemateTest
                 ArrayList<Piece.Icon> icons = new ArrayList<>();
                 icons.add(Piece.Icon.P);
                 icons.add(Piece.Icon.K);
-                for (int i = 1; i < 8; ++i)
-                        removePiece(blackPlayer.pieces[i]);
                 return icons;
         }
 
@@ -257,8 +259,6 @@ public class StalemateTest
                 icons.add(Piece.Icon.B);
                 icons.add(Piece.Icon.K);
                 removePiece(whitePlayer.pieces[11]);
-                for (int i = 1; i < 8; ++i)
-                        removePiece(whitePlayer.pieces[i]);
                 return icons;
         }
 

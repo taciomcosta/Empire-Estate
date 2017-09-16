@@ -38,17 +38,13 @@ public class King extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check color
 		if (!super.canCapture(row, col))
 			return false;
-//		check if destination is valid for king
 		if (Math.abs(row - getRow()) > 1 ||
 				Math.abs(col - getCol()) > 1)
 			return false;
-//		return true if there's no friend piece in its way
 		return true;
 	}
 
@@ -151,7 +147,6 @@ public class King extends Piece
 	*/
 	private boolean canBeDefendedByFriends(ArrayList<Piece> friendPieces)
 	{
-		System.out.println("1");
 		ArrayList<Piece> piecesAttacking = getAttackingPieces();
 		Piece enemyPiece = piecesAttacking.get(0);
 		int enemyRow = enemyPiece.getRow();

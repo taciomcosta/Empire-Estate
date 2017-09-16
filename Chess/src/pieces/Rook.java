@@ -23,20 +23,15 @@ public class Rook extends Piece
 	{
 		if (!super.canMove(row, col))
 			return false;
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check if there's no piece on destination
 		if (board.getPieceAt(row, col) != null)
 			return false;
-//		if it's a valid move for Rook
-		boolean p = getRow() == row || getCol() == col;
-//		if there's no piece between origin and destination
-		boolean q = !hasPieceBetween(row, col);
-		if (p && q)
-			return true;
-//		return false by default
-		return false;
+		if (getRow() != row && getCol() != col)
+			return false;
+		if (hasPieceBetween(row, col))
+			return false;
+		return true;
 	}
 
 	@Override
@@ -83,7 +78,6 @@ public class Rook extends Piece
 				return true;
 			finalRow += rowDirection;
 			finalCol += colDirection;
-			System.out.println(finalRow + ", " + finalCol);
 		}
 		return false;
 	}
