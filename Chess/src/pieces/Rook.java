@@ -46,11 +46,11 @@ public class Rook extends Piece
 			return false;
 		if (!super.canCapture(row, col))
 			return false;
-		boolean p = getRow() == row || getCol() == col;
-		boolean q = !hasPieceBetween(row, col);
-		if (p && q)
-			return true;
-		return false;
+		if (getRow() != row && getCol() != col)
+			return false;
+		if (hasPieceBetween(row, col))
+			return false;
+		return true;
 	}
 
 	@Override
@@ -83,6 +83,7 @@ public class Rook extends Piece
 				return true;
 			finalRow += rowDirection;
 			finalCol += colDirection;
+			System.out.println(finalRow + ", " + finalCol);
 		}
 		return false;
 	}

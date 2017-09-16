@@ -9,7 +9,7 @@ import player.Player;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 public class StalemateTest
 {
@@ -36,7 +36,7 @@ public class StalemateTest
         @Test
         public void testIsStalemate()
         {
-                assertEquals(true, blackPlayer.is_stalemate());
+                assertTrue(blackPlayer.is_stalemate());
         }
 
         public void setUp1()

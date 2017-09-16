@@ -14,7 +14,6 @@ import pieces.piece.Piece.Color;
 import pieces.Queen;
 import pieces.Rook;
 
-// TODO test stalemate
 public abstract class Player
 {
 	public Piece[] pieces = new Piece[16];

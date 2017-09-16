@@ -18,66 +18,88 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="170" column="47" lean-forward="false" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
+            <state relative-caret-position="1273">
+              <caret line="123" column="36" lean-forward="false" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
               <folding>
-                <element signature="e#640#641#0" expanded="true" />
-                <element signature="e#660#661#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#637#638#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pieces/piece/Piece.java">
+      <file leaf-file-name="CheckmateTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tests/CheckmateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding>
+                <element signature="e#1083#1084#0" expanded="true" />
+                <element signature="method#setUp2#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setUp3#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setUp4#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setUp5#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setUp6#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePieces2#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setPositions2#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePieces3#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setPositions3#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePieces4#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setPositions4#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePieces5#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setPositions5#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePieces6#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#setPositions6#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#whiteTestSet1#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#blackTestSet1#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#whiteTestSet2#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#blackTestSet2#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#whiteTestSet3#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#blackTestSet3#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#whiteTestSet4#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#blackTestSet4#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#whiteTestSet5#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#blackTestSet5#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#whiteTestSet6#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#blackTestSet6#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePiecesDifferent#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#removePiece#0;class#CheckmateTest#0" expanded="false" />
+                <element signature="method#movePiece#0;class#CheckmateTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rook.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pieces/Rook.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChessGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/chessgame/ChessGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StalemateTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests/StalemateTest.java">
+      <file leaf-file-name="King.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pieces/King.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="273" column="8" lean-forward="false" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="8" />
+            <state relative-caret-position="450">
+              <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#testIsStalemate#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setUp1#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setUp2#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setUp3#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setUp4#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setUp5#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setUp6#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#removePieces1#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setPositions1#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#removePieces2#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setPositions2#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#removePieces3#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setPositions3#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#removePieces4#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setPositions4#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#removePieces5#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setPositions5#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#removePieces6#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#setPositions6#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#whiteTestSet1#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#blackTestSet1#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#whiteTestSet2#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#blackTestSet2#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#whiteTestSet3#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#blackTestSet3#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#whiteTestSet4#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#blackTestSet4#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#whiteTestSet5#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#blackTestSet5#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#whiteTestSet6#0;class#StalemateTest#0" expanded="false" />
-                <element signature="method#blackTestSet6#0;class#StalemateTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,13 +139,13 @@
         <option value="$PROJECT_DIR$/src/pieces/Queen.java" />
         <option value="$PROJECT_DIR$/src/pieces/Bishop.java" />
         <option value="$PROJECT_DIR$/src/pieces/KingTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/CheckmateTest.java" />
-        <option value="$PROJECT_DIR$/src/pieces/Rook.java" />
-        <option value="$PROJECT_DIR$/src/pieces/King.java" />
+        <option value="$PROJECT_DIR$/src/pieces/piece/Piece.java" />
+        <option value="$PROJECT_DIR$/src/chessgame/ChessGame.java" />
         <option value="$PROJECT_DIR$/src/player/Player.java" />
         <option value="$PROJECT_DIR$/src/tests/StalemateTest.java" />
-        <option value="$PROJECT_DIR$/src/chessgame/ChessGame.java" />
-        <option value="$PROJECT_DIR$/src/pieces/piece/Piece.java" />
+        <option value="$PROJECT_DIR$/src/pieces/King.java" />
+        <option value="$PROJECT_DIR$/src/pieces/Rook.java" />
+        <option value="$PROJECT_DIR$/src/tests/CheckmateTest.java" />
       </list>
     </option>
   </component>
@@ -185,13 +207,13 @@
               <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
               <item name="Chess" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pieces" type="462c0819:PsiDirectoryNode" />
+              <item name="chessgame" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
               <item name="Chess" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="player" type="462c0819:PsiDirectoryNode" />
+              <item name="pieces" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
@@ -240,20 +262,56 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.StalemateTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+  <component name="RunManager" selected="JUnit.CheckmateTest">
+    <configuration name="CheckmateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ChessIntelliJ" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.CheckmateTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ChessIntelliJ" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
+    </configuration>
+    <configuration name="CheckmateTest.testIsCheckmate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ChessIntelliJ" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.CheckmateTest" />
+      <option name="METHOD_NAME" value="testIsCheckmate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration name="StalemateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -293,31 +351,6 @@
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.StalemateTest" />
       <option name="METHOD_NAME" value="testIsStalemate" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="StalemateTest.testStalemate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ChessIntelliJ" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.StalemateTest" />
-      <option name="METHOD_NAME" value="testStalemate" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -412,19 +445,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.StalemateTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StalemateTest.testStalemate" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.StalemateTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StalemateTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.CheckmateTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckmateTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CheckmateTest.testIsCheckmate" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.StalemateTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.StalemateTest.testStalemate" />
-        <item index="3" class="java.lang.String" itemvalue="Application.StalemateTest" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CheckmateTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CheckmateTest.testIsCheckmate" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CheckmateTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.StalemateTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
       </list>
     </recent_temporary>
   </component>
@@ -446,35 +479,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 25m 14s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 55m 58s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 28m 38s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 56m 15s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 28m 45s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 58m 46s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 29m 02s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 59m 23s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 29m 20s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 59m 38s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 38m 11s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 59m 49s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 38m 47s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 22h 59m 58s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 43m 08s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 23h 00m 04s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 43m 56s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 23h 00m 15s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StalemateTest - 2017.09.15 at 20h 44m 03s.xml">
-      <configuration name="StalemateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest - 2017.09.15 at 23h 02m 43s.xml">
+      <configuration name="CheckmateTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -499,7 +532,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16983895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16983895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17423134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -894,16 +927,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pieces/KingTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/tests/CheckmateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="48" column="32" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/player/Move.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -938,43 +961,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chessgame/ChessGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pieces/Rook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="68" column="36" lean-forward="false" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pieces/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/StalemateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="273" column="8" lean-forward="false" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="8" />
+        <state relative-caret-position="198">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#testIsStalemate#0;class#StalemateTest#0" expanded="false" />
+            <element signature="method#setUp#0;class#StalemateTest#0" expanded="false" />
+            <element signature="e#650#677#0" expanded="false" />
             <element signature="method#setUp1#0;class#StalemateTest#0" expanded="false" />
             <element signature="method#setUp2#0;class#StalemateTest#0" expanded="false" />
             <element signature="method#setUp3#0;class#StalemateTest#0" expanded="false" />
@@ -1005,27 +999,99 @@
             <element signature="method#blackTestSet5#0;class#StalemateTest#0" expanded="false" />
             <element signature="method#whiteTestSet6#0;class#StalemateTest#0" expanded="false" />
             <element signature="method#blackTestSet6#0;class#StalemateTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="170" column="47" lean-forward="false" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
-          <folding>
-            <element signature="e#640#641#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
+            <element signature="method#removePiecesDifferent#0;class#StalemateTest#0" expanded="false" />
+            <element signature="method#removePiece#0;class#StalemateTest#0" expanded="false" />
+            <element signature="method#movePiece#0;class#StalemateTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pieces/piece/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+        <state relative-caret-position="274">
+          <caret line="134" column="27" lean-forward="false" selection-start-line="134" selection-start-column="27" selection-end-line="134" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1273">
+          <caret line="123" column="36" lean-forward="false" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pieces/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chessgame/ChessGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pieces/Rook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/CheckmateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="method#setUp2#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setUp3#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setUp4#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setUp5#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setUp6#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePieces2#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setPositions2#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePieces3#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setPositions3#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePieces4#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setPositions4#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePieces5#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setPositions5#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePieces6#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#setPositions6#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#whiteTestSet1#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#blackTestSet1#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#whiteTestSet2#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#blackTestSet2#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#whiteTestSet3#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#blackTestSet3#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#whiteTestSet4#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#blackTestSet4#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#whiteTestSet5#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#blackTestSet5#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#whiteTestSet6#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#blackTestSet6#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePiecesDifferent#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#removePiece#0;class#CheckmateTest#0" expanded="false" />
+            <element signature="method#movePiece#0;class#CheckmateTest#0" expanded="false" />
           </folding>
         </state>
       </provider>

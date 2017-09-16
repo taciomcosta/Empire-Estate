@@ -2,66 +2,286 @@ package tests;
 
 import chessboard.Chessboard;
 import chessgame.ChessGame;
-import pieces.*;
+import org.junit.Before;
+import org.junit.Test;
 import pieces.piece.Piece;
-import pieces.piece.Piece.Icon;
-import pieces.piece.PieceModel;
+import player.Player;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertTrue;
+
 public class CheckmateTest
 {
-        static ChessGame game = new ChessGame();
-        static Chessboard board = game.model.board;
-        static ArrayList<Piece> friend = game.model.player1.getPiecesAlive();
-        static ArrayList<Piece> enemy = game.model.player2.getPiecesAlive();
+        private ChessGame game = new ChessGame();
+        private Player whitePlayer = game.model.player1;
+        private Player blackPlayer = game.model.player2;
+        private Chessboard board = game.model.board;
 
-        public static void main(String[] args)
+        /*
+        * Run one testCase per time, because only one game was created :)
+        * */
+        @Before
+        public void setUp()
         {
-                King enemyKing = (King) enemy.get(15);
-                King friendKing = (King) friend.get(15);
-//              capture all enemy pieces except King
-                for (Piece p : enemy) {
-                        if (p.getPieceInitial() != Icon.K)
-                                capture(p);
-                }
-//              capture all friend pieces except King and Rook
-                for (Piece p : friend) {
-                        if (p.getPieceInitial() != Icon.K &&
-                                p.getPieceInitial() != Icon.B)
-                                capture(p);
-                }
-//              get pieces
-                Bishop friendBishop = (Bishop) friend.get(10);
-//              move remaining pieces to right position
-                move(enemyKing, 0, 1); //king
-                move(friendBishop, 1, 1); //king
-                move(friendKing, 2, 1);
-//              print board
+                setUp1();
+//                setUp2();
+//                setUp3();
+//                setUp4();
+//                setUp5();
+//                setUp6();
                 board.printModel();
-//              check conditions
-                if (enemyKing.is_checkmated(game.model.player2, game.model.player1))
-                        System.out.println("CHECKMATE!");
         }
 
-        public static void capture(Piece p)
+        @Test
+        public void testIsCheckmate()
         {
-                int enemyRow = p.getRow();
-                int enemyCol = p.getCol();
-//		remove captured piece
-                board.removePiece(enemyRow, enemyCol);
-                p.setCaptured(true);
-//		move this to captured pieces' position
-                p.unsetPositionFromBoardRange();
+                assertTrue(whitePlayer.king_is_checkmated(blackPlayer));
         }
 
-        public static void move(Piece p, int row, int col)
+        public void setUp1()
         {
-                PieceModel model = p.model;
-                board.removePiece(p.getRow(), p.getCol());
-                board.addPiece(p, row, col);
-                model.setRow(row);
-                model.setCol(col);
-                p.increaseMoves();
+                setPositions1();
+        }
+
+        public void setUp2()
+        {
+                removePieces2();
+                setPositions2();
+        }
+
+        public void setUp3()
+        {
+                removePieces3();
+                setPositions3();
+        }
+
+        public void setUp4()
+        {
+                removePieces4();
+                setPositions4();
+        }
+
+        public void setUp5()
+        {
+                removePieces5();
+                setPositions5();
+        }
+
+        public void setUp6()
+        {
+                removePieces6();
+                setPositions6();
+        }
+
+        public void setPositions1()
+        {
+                movePiece(blackPlayer.pieces[14], 4, 7);
+                movePiece(whitePlayer.pieces[5], 5, 5);
+                movePiece(whitePlayer.pieces[6], 4, 6);
+
+        }
+
+        public void removePieces2()
+        {
+                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet2();
+                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet2();
+                removePiecesDifferent(whitePlayer, whitePiecesIcon);
+                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+        }
+
+        public void setPositions2()
+        {
+                movePiece(whitePlayer.pieces[0], 1,5);
+                movePiece(whitePlayer.pieces[15], 2, 5);
+                movePiece(blackPlayer.pieces[15], 0, 5);
+        }
+
+        public void removePieces3()
+        {
+                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet3();
+                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet3();
+                removePiecesDifferent(whitePlayer, whitePiecesIcon);
+                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+        }
+
+        public void setPositions3()
+        {
+                movePiece(whitePlayer.pieces[8], 0,7);
+                movePiece(whitePlayer.pieces[15], 2,1);
+                movePiece(blackPlayer.pieces[10], 0, 1);
+                movePiece(blackPlayer.pieces[15], 0,0);
+        }
+
+        public void removePieces4()
+        {
+                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet4();
+                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet4();
+                removePiecesDifferent(whitePlayer, whitePiecesIcon);
+                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+        }
+
+        public void setPositions4()
+        {
+                movePiece(whitePlayer.pieces[8], 6,1);
+                movePiece(whitePlayer.pieces[15], 5,2);
+                movePiece(blackPlayer.pieces[15], 7,0);
+        }
+
+        public void removePieces5()
+        {
+                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet5();
+                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet5();
+                removePiecesDifferent(whitePlayer, whitePiecesIcon);
+                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+        }
+
+        public void setPositions5()
+        {
+                movePiece(whitePlayer.pieces[14], 5,1);
+                movePiece(whitePlayer.pieces[15], 3,6);
+                movePiece(blackPlayer.pieces[0], 6,0);
+                movePiece(blackPlayer.pieces[15], 7,0);
+        }
+
+        public void removePieces6()
+        {
+                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet6();
+                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet6();
+                removePiecesDifferent(whitePlayer, whitePiecesIcon);
+                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+        }
+
+        public void setPositions6()
+        {
+                movePiece(whitePlayer.pieces[0], 1,0);
+                movePiece(whitePlayer.pieces[10], 4,5);
+                movePiece(whitePlayer.pieces[15], 2,0);
+                movePiece(blackPlayer.pieces[15], 0,0);
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet1()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.Q);
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet1()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet2()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.P);
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet2()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet3()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.R);
+                icons.add(Piece.Icon.K);
+                removePiece(whitePlayer.pieces[9]);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet3()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.B);
+                icons.add(Piece.Icon.K);
+                removePiece(blackPlayer.pieces[11]);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet4()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.R);
+                icons.add(Piece.Icon.K);
+                removePiece(whitePlayer.pieces[9]);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet4()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet5()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.Q);
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet5()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.P);
+                icons.add(Piece.Icon.K);
+                for (int i = 1; i < 8; ++i)
+                        removePiece(blackPlayer.pieces[i]);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet6()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.P);
+                icons.add(Piece.Icon.B);
+                icons.add(Piece.Icon.K);
+                removePiece(whitePlayer.pieces[11]);
+                for (int i = 1; i < 8; ++i)
+                        removePiece(whitePlayer.pieces[i]);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet6()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.K);
+                return icons;
+        }
+
+        public void removePiecesDifferent(Player player,
+                                          ArrayList<Piece.Icon> piecesIcon)
+        {
+                for (Piece playerPiece : player.getPieces())
+                        if (!piecesIcon.contains(playerPiece.getPieceInitial()))
+                                removePiece(playerPiece);
+        }
+
+        public void removePiece(Piece piece)
+        {
+                board.removePiece(piece.getRow(), piece.getCol());
+                piece.setCaptured(true);
+                piece.unsetPositionFromBoardRange();
+        }
+
+        public void movePiece(Piece piece, int finalRow, int finalCol)
+        {
+                board.removePiece(piece.getRow(), piece.getCol());
+                board.addPiece(piece, finalRow, finalCol);
+                piece.setRow(finalRow);
+                piece.setCol(finalCol);
+                piece.increaseMoves();
         }
 }

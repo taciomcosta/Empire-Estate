@@ -151,6 +151,7 @@ public class King extends Piece
 	*/
 	private boolean canBeDefendedByFriends(ArrayList<Piece> friendPieces)
 	{
+		System.out.println("1");
 		ArrayList<Piece> piecesAttacking = getAttackingPieces();
 		Piece enemyPiece = piecesAttacking.get(0);
 		int enemyRow = enemyPiece.getRow();
@@ -195,12 +196,10 @@ public class King extends Piece
 			for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
 			        boolean p = canMove(i, j) || canCapture(i, j);
 			        boolean q = !would_be_checked(enemyPieces, i, j);
-			        boolean r = getRow() != i || getCol() != j;
-				if (p && q && r)
+				if (p && q)
 					return true;
 			}
 		}
-		System.out.println("can't move without being checked!");
 		return false;
 	}
 
