@@ -148,11 +148,11 @@ public class King extends Piece
 	private boolean canBeDefendedByFriends(ArrayList<Piece> friendPieces)
 	{
 		ArrayList<Piece> piecesAttacking = getAttackingPieces();
+		if (piecesAttacking.size() > 1)
+			return false;
 		Piece enemyPiece = piecesAttacking.get(0);
 		int enemyRow = enemyPiece.getRow();
 		int enemyCol = enemyPiece.getCol();
-		if (piecesAttacking.size() > 1)
-			return false;
 		friendPieces.remove(this);
 		for (Piece friend : friendPieces)
 			if (friend.canCapture(enemyRow, enemyCol))

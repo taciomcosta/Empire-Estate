@@ -62,7 +62,8 @@ public class Human extends Player
 			piece.move(row, col);
 			System.out.println("Piece moved!");
 			return true;
-		} else if(piece.canCapture(row, col)) {
+		} else if(piece.canCapture(row, col) &&
+			board.getPieceAt(row, col) != null) {
 			piece.capture(board.getPieceAt(row, col));
 			System.out.println("Piece captured!");
 			return true;

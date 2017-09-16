@@ -67,7 +67,8 @@ public class Computer extends Player
 			}
 		} else {
 //			if can capture, then capture and end play
-			if(p.canCapture(row, col)) {
+			if(p.canCapture(row, col) &&
+				board.getPieceAt(row, col) != null) {
 				p.capture(board.getPieceAt(row, col));
 				System.out.println("Piece captured!");
 				return true;
