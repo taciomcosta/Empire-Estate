@@ -15,6 +15,8 @@ import chessboard.Chessboard;
 
 public class Computer extends Player
 {
+	private Player enemy;
+
 	public Computer(Chessboard b, Color piecesColor, Player enemy)
 	{
 		super(b, piecesColor);
@@ -78,13 +80,13 @@ public class Computer extends Player
 	private Move getBestMove(int depth)
 	{
 	        Move bestMove = null;
-	        int minValue = Integer.MAX_VALUE;
+	        int maxValue = Integer.MIN_VALUE;
                 ArrayList<Move> moves = getPossibleMoves();
                 for (Move m : moves) {
                         setState(m);
 			int currentValue = max(depth - 1);
-			if (currentValue < minValue) {
-				minValue = currentValue;
+			if (currentValue > maxValue) {
+				maxValue = currentValue;
 				bestMove = m;
 			}
 			unsetState(m);
@@ -99,7 +101,9 @@ public class Computer extends Player
                 for (Move m : enemyMoves) {
                         setState(m);
 			if (depth == 0) {
-				minimums.add(enemy.evaluateBoard());
+				minimums.add(evaluateBoard(
+					enemy,
+					this));
 			} else {
 				minimums.add(min(depth - 1));
 			}
@@ -119,7 +123,9 @@ public class Computer extends Player
                 for (Move m : moves) {
                 	setState(m);
                         if (depth == 0) {
-                                maximums.add(evaluateBoard());
+                                maximums.add(evaluateBoard(
+                                	this,
+					enemy));
                         } else {
                                 maximums.add(max(depth - 1));
                         }
@@ -130,6 +136,22 @@ public class Computer extends Player
 			if (value > max)
 				max = value;
 		return max;
+	}
+
+	protected int evaluateBoard(Player currentPlayer, Player enemyPlayer)
+	{
+		int score = 0;
+		if (currentPlayer.pieces[15].isCaptured())
+			return Integer.MIN_VALUE;
+		if (enemyPlayer.pieces[15].isCaptured())
+			return Integer.MAX_VALUE;
+		for (Piece piece : currentPlayer.getPiecesAlive()) {
+			score += piece.getValue();
+		}
+		for (Piece piece : enemyPlayer.getPiecesAlive()) {
+			score -= piece.getValue();
+		}
+		return score;
 	}
 }
 

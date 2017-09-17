@@ -16,7 +16,6 @@ import pieces.Rook;
 
 public abstract class Player
 {
-	protected Player enemy;
 	public Piece[] pieces = new Piece[16];
 	private Color piecesColor;
 	protected Chessboard board;
@@ -103,8 +102,6 @@ public abstract class Player
 			if (!p.isCaptured())
 				piecesAlive.add(p);
 		}
-		// =========================================== remove line below
-		System.out.println(piecesAlive.size());
 		return piecesAlive;
 	}
 	
@@ -211,7 +208,6 @@ public abstract class Player
 
 	protected void unsetState(Move move)
 	{
-	        System.out.println(move.toString() + move.getType().toString());
 		int startRow = move.getStartRow();
 		int startCol = move.getStartCol();
 		Piece p = move.getPiece();
@@ -242,50 +238,25 @@ public abstract class Player
 
 	private void captureTmp(Piece p, Piece e, Move move)
 	{
-	        System.out.println("============= captureTmp");
-	        System.out.println(move.getPiece().getPieceInitial() + move.getPiece().getColor().toString());
-		System.out.println(move.toString() + move.getType().toString());
-//		remove captured piece
 		board.removePiece(move.getFinalRow(), move.getFinalCol());
 		e.setCaptured(true);
 		e.unsetPositionFromBoardRange();
-//		move this to captured pieces' position
 		board.removePiece(move.getStartRow(), move.getStartCol());
 		board.addPiece(p, move.getFinalRow(), move.getFinalCol());
 		p.setRow(move.getFinalRow());
 		p.setCol(move.getFinalCol());
 		p.increaseMoves();
-		System.out.println("============================");
 	}
 
 	private void uncaptureTmp(Piece p, Piece e, Move m)
 	{
-//	        remove capturer piece
 		board.removePiece(m.getFinalRow(), m.getFinalCol());
-//		add capturer piece to its start position
 		board.addPiece(p, m.getStartRow(), m.getStartCol());
 		p.decreaseMoves();
-//		add captured piece back
 		board.addPiece(e, m.getFinalRow(), m.getFinalCol());
 		e.setCaptured(false);
 		e.setRow(m.getFinalRow());
 		e.setCol(m.getFinalCol());
-	}
-
-	protected int evaluateBoard()
-	{
-		int score = 0;
-		if (pieces[15].isCaptured())
-			return Integer.MIN_VALUE;
-		if (enemy.pieces[15].isCaptured())
-			return Integer.MAX_VALUE;
-		for (Piece piece : getPiecesAlive()) {
-			score += piece.getValue();
-		}
-		for (Piece piece : getPiecesAlive()) {
-			score -= piece.getValue();
-		}
-		return score;
 	}
 
 	public abstract boolean play();
