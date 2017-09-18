@@ -2,7 +2,6 @@ package tests;
 
 import chessboard.Chessboard;
 import chessgame.ChessGame;
-import org.junit.Before;
 import org.junit.Test;
 import pieces.piece.Piece;
 import player.Player;
@@ -13,64 +12,72 @@ import static junit.framework.Assert.assertTrue;
 
 public class StalemateTest
 {
-        private ChessGame game = new ChessGame();
-        private Player whitePlayer = game.model.player1;
-        private Player blackPlayer = game.model.player2;
-        private Chessboard board = game.model.board;
-
-        /*
-        * Run one testCase per time, because only one game was created :)
-        * */
-        @Before
-        public void setUp()
-        {
-//                setUp1();
-//                setUp2();
-//                setUp3();
-//                setUp4();
-//                setUp5();
-//                setUp6();
-                board.printModel();
-        }
+        private ChessGame game;
+        private Player whitePlayer;
+        private Player blackPlayer;
+        private Chessboard board;
 
         @Test
         public void testIsStalemate()
         {
+                setUp1();
+                board.printModel();
+                assertTrue(blackPlayer.isStalemate());
+                setUp2();
+                board.printModel();
+                assertTrue(blackPlayer.isStalemate());
+                setUp3();
+                board.printModel();
+                assertTrue(blackPlayer.isStalemate());
+                setUp4();
+                board.printModel();
+                assertTrue(blackPlayer.isStalemate());
+                setUp5();
+                board.printModel();
+                assertTrue(blackPlayer.isStalemate());
+                setUp6();
+                board.printModel();
                 assertTrue(blackPlayer.isStalemate());
         }
 
         public void setUp1()
         {
+                resetElements();
                 removePieces1();
                 setPositions1();
         }
 
         public void setUp2()
         {
+                resetElements();
                 removePieces2();
                 setPositions2();
         }
 
         public void setUp3()
         {
+                resetElements();
                 removePieces3();
                 setPositions3();
         }
 
         public void setUp4()
         {
+                resetElements();
                 removePieces4();
                 setPositions4();
         }
 
         public void setUp5()
         {
+                resetElements();
                 removePieces5();
                 setPositions5();
         }
 
         public void setUp6()
         {
+                resetElements();
                 removePieces6();
                 setPositions6();
         }
@@ -291,5 +298,13 @@ public class StalemateTest
                 piece.setRow(finalRow);
                 piece.setCol(finalCol);
                 piece.increaseMoves();
+        }
+
+        public void resetElements()
+        {
+                game = new ChessGame();
+                whitePlayer = game.model.player1;
+                blackPlayer = game.model.player2;
+                board = game.model.board;
         }
 }
