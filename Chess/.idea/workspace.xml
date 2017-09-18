@@ -18,8 +18,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="259" column="8" lean-forward="false" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
+            <state relative-caret-position="445">
+              <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,26 +27,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Computer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/player/Computer.java">
+      <file leaf-file-name="PawnTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/PawnTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#verifyPawnPromotion#0;class#Computer#0" expanded="false" />
-                <marker date="1505606829419" expanded="false" signature="1786:1987" ph="{...}" />
+                <element signature="method#setUp2#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setUp3#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setUp4#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setUp5#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setUp6#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePieces1#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setPositions1#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePieces2#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setPositions2#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePieces3#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setPositions3#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePieces4#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setPositions4#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePieces5#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setPositions5#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePieces6#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#setPositions6#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#whiteTestSet1#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#blackTestSet1#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#whiteTestSet2#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#blackTestSet2#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#whiteTestSet3#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#blackTestSet3#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#whiteTestSet4#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#blackTestSet4#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#whiteTestSet5#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#blackTestSet5#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#whiteTestSet6#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#blackTestSet6#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePiecesDifferent#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#removePiece#0;class#PawnTest#0" expanded="false" />
+                <element signature="method#movePiece#0;class#PawnTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Knight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pieces/Knight.java">
+      <file leaf-file-name="CheckmateTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tests/CheckmateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+            <state relative-caret-position="198">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Queen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pieces/Queen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,8 +96,8 @@
       <file leaf-file-name="King.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pieces/King.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+            <state relative-caret-position="454">
+              <caret line="287" column="0" lean-forward="false" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,23 +132,24 @@
         <option value="$PROJECT_DIR$/src/chessboard/Chessboard.java" />
         <option value="$PROJECT_DIR$/src/player/Move.java" />
         <option value="$PROJECT_DIR$/src/pieces/KingTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/StalemateTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/CheckmateTest.java" />
-        <option value="$PROJECT_DIR$/src/chessgame/ChessGame.java" />
         <option value="$PROJECT_DIR$/src/chessboard/cell/Cell.java" />
         <option value="$PROJECT_DIR$/src/chessboard/cell/CellModel.java" />
         <option value="$PROJECT_DIR$/src/player/Human.java" />
         <option value="$PROJECT_DIR$/src/pieces/piece/Piece.java" />
         <option value="$PROJECT_DIR$/src/pieces/piece/PieceModel.java" />
         <option value="$PROJECT_DIR$/src/pieces/Bishop.java" />
-        <option value="$PROJECT_DIR$/src/pieces/King.java" />
-        <option value="$PROJECT_DIR$/src/pieces/Queen.java" />
         <option value="$PROJECT_DIR$/src/pieces/Knight.java" />
         <option value="$PROJECT_DIR$/src/pieces/Rook.java" />
         <option value="$PROJECT_DIR$/src/pieces/Pawn.java" />
         <option value="$PROJECT_DIR$/src/chessboard/Utils.java" />
         <option value="$PROJECT_DIR$/src/player/Computer.java" />
+        <option value="$PROJECT_DIR$/src/chessgame/ChessGame.java" />
+        <option value="$PROJECT_DIR$/src/pieces/King.java" />
         <option value="$PROJECT_DIR$/src/player/Player.java" />
+        <option value="$PROJECT_DIR$/src/pieces/Queen.java" />
+        <option value="$PROJECT_DIR$/src/tests/StalemateTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/PawnTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/CheckmateTest.java" />
       </list>
     </option>
   </component>
@@ -151,8 +194,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -190,13 +233,6 @@
               <item name="Chess" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pieces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chess" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pieces" type="462c0819:PsiDirectoryNode" />
-              <item name="piece" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
@@ -249,7 +285,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PawnTest.testIsStalemate">
     <configuration name="CheckmateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -300,19 +336,30 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration name="PawnTest.testIsStalemate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ChessIntelliJ" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.PawnTest" />
+      <option name="METHOD_NAME" value="testIsStalemate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ChessIntelliJ" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
     </configuration>
     <configuration name="StalemateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -446,19 +493,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.PawnTest.testIsStalemate" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.StalemateTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CheckmateTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckmateTest.testIsCheckmate" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckmateTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CheckmateTest.testIsCheckmate" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CheckmateTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CheckmateTest.testIsCheckmate" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PawnTest.testIsStalemate" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CheckmateTest.testIsCheckmate" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.StalemateTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.StalemateTest.testIsStalemate" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CheckmateTest" />
       </list>
     </recent_temporary>
   </component>
@@ -480,35 +527,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CheckmateTest - 2017.09.16 at 13h 49m 19s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="CheckmateTest_testIsCheckmate - 2017.09.18 at 01h 09m 48s.xml">
+      <configuration name="CheckmateTest.testIsCheckmate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 16m 40s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="PawnTest_testIsStalemate - 2017.09.18 at 01h 14m 16s.xml">
+      <configuration name="PawnTest.testIsStalemate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 16m 50s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest - 2017.09.18 at 01h 00m 54s.xml">
+      <configuration name="StalemateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 16m 56s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest - 2017.09.18 at 01h 01m 01s.xml">
+      <configuration name="StalemateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 17m 00s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest - 2017.09.18 at 01h 01m 27s.xml">
+      <configuration name="StalemateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 17m 05s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest_testIsStalemate - 2017.09.18 at 01h 02m 37s.xml">
+      <configuration name="StalemateTest.testIsStalemate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 17m 09s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest_testIsStalemate - 2017.09.18 at 01h 03m 33s.xml">
+      <configuration name="StalemateTest.testIsStalemate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 17m 14s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest_testIsStalemate - 2017.09.18 at 01h 04m 05s.xml">
+      <configuration name="StalemateTest.testIsStalemate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 17m 41s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest_testIsStalemate - 2017.09.18 at 01h 05m 29s.xml">
+      <configuration name="StalemateTest.testIsStalemate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CheckmateTest - 2017.09.16 at 14h 17m 53s.xml">
-      <configuration name="CheckmateTest" configurationId="JUnit" />
+    <history-entry file="StalemateTest_testIsStalemate - 2017.09.18 at 01h 07m 52s.xml">
+      <configuration name="StalemateTest.testIsStalemate" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -534,35 +581,19 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16983895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17423134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707354" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.24450952" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="988" y="163" width="378" height="570" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16983895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17423134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -604,16 +635,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4302">
-          <caret line="239" column="49" lean-forward="false" selection-start-line="239" selection-start-column="49" selection-end-line="239" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/player/Computer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4698">
@@ -621,7 +642,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#verifyPawnPromotion#0;class#Computer#0" expanded="false" />
-            <marker date="1505606829419" expanded="false" signature="1786:1987" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -632,8 +652,6 @@
           <caret line="54" column="7" lean-forward="false" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3675#3676#0" expanded="true" />
-            <element signature="e#3695#3696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -654,8 +672,6 @@
           <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -666,8 +682,6 @@
           <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3675#3676#0" expanded="true" />
-            <element signature="e#3695#3696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -679,7 +693,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#verifyPawnPromotion#0;class#Computer#0" expanded="false" />
-            <marker date="1505606829419" expanded="false" signature="1786:1987" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -714,8 +727,6 @@
           <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -771,7 +782,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="e#1123#1124#0" expanded="false" />
+            <element signature="e#1157#1158#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -782,7 +796,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#verifyPawnPromotion#0;class#Computer#0" expanded="false" />
-            <marker date="1505606829419" expanded="false" signature="1786:1987" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -804,7 +817,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#verifyPawnPromotion#0;class#Computer#0" expanded="false" />
-            <marker date="1505606829419" expanded="false" signature="1786:1987" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -872,56 +884,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/StalemateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#setUp1#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setUp2#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setUp3#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setUp4#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setUp5#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setUp6#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePieces1#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setPositions1#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePieces2#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setPositions2#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePieces3#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setPositions3#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePieces4#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setPositions4#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePieces5#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setPositions5#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePieces6#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#setPositions6#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#whiteTestSet1#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#blackTestSet1#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#whiteTestSet2#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#blackTestSet2#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#whiteTestSet3#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#blackTestSet3#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#whiteTestSet4#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#blackTestSet4#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#whiteTestSet5#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#blackTestSet5#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#whiteTestSet6#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#blackTestSet6#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePiecesDifferent#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#removePiece#0;class#StalemateTest#0" expanded="false" />
-            <element signature="method#movePiece#0;class#StalemateTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chessboard/cell/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="false" />
+            <element signature="e#329#330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -930,26 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#329#330#0" expanded="false" />
-            <element signature="e#353#354#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chessboard/Chessboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chessboard/ChessboardModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" column="48" lean-forward="false" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -957,14 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/CheckmateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -983,39 +924,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1206#1207#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pieces/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pieces/piece/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3675#3676#0" expanded="true" />
-            <element signature="e#3695#3696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pieces/Queen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
@@ -1030,18 +942,6 @@
         <state relative-caret-position="162">
           <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chessgame/ChessGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,20 +971,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pieces/King.java">
+    <entry file="file://$PROJECT_DIR$/src/chessboard/Chessboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+        <state relative-caret-position="463">
+          <caret line="44" column="25" lean-forward="true" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1123#1124#0" expanded="false" />
+            <element signature="e#1157#1158#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/player/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/chessboard/ChessboardModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="259" column="8" lean-forward="false" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="8" />
+        <state relative-caret-position="234">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pieces/piece/Piece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1093,13 +1002,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/player/Computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="774">
+          <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#verifyPawnPromotion#0;class#Computer#0" expanded="false" />
-            <marker date="1505606829419" expanded="false" signature="1786:1987" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chessgame/ChessGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="30" column="22" lean-forward="false" selection-start-line="29" selection-start-column="2" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pieces/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="287" column="0" lean-forward="false" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pieces/Queen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/StalemateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="302" column="0" lean-forward="false" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/PawnTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp2#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setUp3#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setUp4#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setUp5#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setUp6#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePieces1#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setPositions1#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePieces2#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setPositions2#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePieces3#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setPositions3#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePieces4#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setPositions4#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePieces5#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setPositions5#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePieces6#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#setPositions6#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#whiteTestSet1#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#blackTestSet1#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#whiteTestSet2#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#blackTestSet2#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#whiteTestSet3#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#blackTestSet3#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#whiteTestSet4#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#blackTestSet4#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#whiteTestSet5#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#blackTestSet5#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#whiteTestSet6#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#blackTestSet6#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePiecesDifferent#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#removePiece#0;class#PawnTest#0" expanded="false" />
+            <element signature="method#movePiece#0;class#PawnTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/CheckmateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

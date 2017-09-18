@@ -49,7 +49,7 @@ public class Queen extends Piece
 			return false;
 		if (hasPieceBetween(row, col))
 			return false;
-		return false;
+		return true;
 	}
 
 	public boolean canCaptureStraightly(int row, int col)

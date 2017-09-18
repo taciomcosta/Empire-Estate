@@ -13,63 +13,71 @@ import static org.junit.Assert.assertTrue;
 
 public class CheckmateTest
 {
-        private ChessGame game = new ChessGame();
-        private Player whitePlayer = game.model.player1;
-        private Player blackPlayer = game.model.player2;
-        private Chessboard board = game.model.board;
-
-        /*
-        * Run one testCase per time, because only one game was created :)
-        * */
-        @Before
-        public void setUp()
-        {
-//                setUp1();
-//                setUp2();
-//                setUp3();
-//                setUp4();
-//                setUp5();
-//                setUp6();
-                board.printModel();
-        }
+        ChessGame game;
+        Player whitePlayer;
+        Player blackPlayer;
+        Chessboard board;
 
         @Test
         public void testIsCheckmate()
         {
+                setUp1();
+                board.printModel();
+                assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
+                setUp2();
+                board.printModel();
+                assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
+                setUp3();
+                board.printModel();
+                assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
+                setUp4();
+                board.printModel();
+                assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
+                setUp5();
+                board.printModel();
+                assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
+                setUp6();
+                board.printModel();
                 assertTrue(whitePlayer.kingIsCheckmated(blackPlayer));
         }
 
         public void setUp1()
         {
+                resetElements();
                 setPositions1();
         }
 
         public void setUp2()
         {
+                resetElements();
                 removePieces2();
                 setPositions2();
         }
 
         public void setUp3()
         {
+                resetElements();
                 removePieces3();
                 setPositions3();
         }
 
         public void setUp4()
         {
+                resetElements();
                 removePieces4();
                 setPositions4();
         }
 
         public void setUp5()
         {
+                resetElements();
                 removePieces5();
                 setPositions5();
         }
 
         public void setUp6()
         {
+                resetElements();
                 removePieces6();
                 setPositions6();
         }
@@ -282,5 +290,13 @@ public class CheckmateTest
                 piece.setRow(finalRow);
                 piece.setCol(finalCol);
                 piece.increaseMoves();
+        }
+
+        public void resetElements()
+        {
+                game = new ChessGame();
+                whitePlayer = game.model.player1;
+                blackPlayer = game.model.player2;
+                board = game.model.board;
         }
 }

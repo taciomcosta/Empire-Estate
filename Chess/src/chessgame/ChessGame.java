@@ -24,11 +24,11 @@ public class ChessGame
 	{
 		Chessboard board = new Chessboard();
 		Player p1 = new Human(board, Color.WHITE);
-		Player p2 = new Computer(board, Color.BLACK, p1);
+		Player p2 = new Human(board, Color.BLACK);
 		model = new ChessGameModel(board, p1, p2);
 		// comment the two following lines, for using tests
-		setUp();
-		gameLoop();
+//		setUp();
+//		gameLoop();
 	}
 
         public void setUp()

@@ -68,13 +68,10 @@ public class Computer extends Player
 	
 	private Piece choosePieceToMoveAndDestination()
 	{
-//		get best move based on evaluation
-                Move m = getBestMove(3);
-//		set destination
-		row = m.getFinalRow();
-		col = m.getFinalCol();
-//		return piece to move
-		return m.getPiece();
+                Move bestMove = getBestMove(2);
+		row = bestMove.getFinalRow();
+		col = bestMove.getFinalCol();
+		return bestMove.getPiece();
 	}
 	
 	private Move getBestMove(int depth)
@@ -96,17 +93,13 @@ public class Computer extends Player
 
 	private int max(int depth)
 	{
+		if (depth == 0)
+			return evaluateBoard(enemy, this);
 		ArrayList<Integer> minimums = new ArrayList<>();
                 ArrayList<Move> enemyMoves = enemy.getPossibleMoves();
                 for (Move m : enemyMoves) {
                         setState(m);
-			if (depth == 0) {
-				minimums.add(evaluateBoard(
-					enemy,
-					this));
-			} else {
-				minimums.add(min(depth - 1));
-			}
+			minimums.add(min(depth - 1));
 			unsetState(m);
                 }
 		int min = Integer.MAX_VALUE;
@@ -118,17 +111,13 @@ public class Computer extends Player
 
 	private int min(int depth)
 	{
+		if (depth == 0)
+			return evaluateBoard(this, enemy);
 		ArrayList<Integer> maximums = new ArrayList<>();
                 ArrayList<Move> moves = getPossibleMoves();
                 for (Move m : moves) {
                 	setState(m);
-                        if (depth == 0) {
-                                maximums.add(evaluateBoard(
-                                	this,
-					enemy));
-                        } else {
-                                maximums.add(max(depth - 1));
-                        }
+			maximums.add(max(depth - 1));
                         unsetState(m);
                 }
 		int max = Integer.MIN_VALUE;
@@ -152,6 +141,25 @@ public class Computer extends Player
 			score -= piece.getValue();
 		}
 		return score;
+	}
+
+	// delete it
+	public void printBoard()
+	{
+		for (int i = 0; i < 8; i++) {
+			System.out.print((8 - i) + " | ");
+			for (int j = 0; j < 8; j++) {
+				Piece p = board.getPieceAt(i, j);
+				if (p != null) {
+					System.out.print(p.getRow() + "" + p.getCol() + "  ");
+				}
+				else
+					System.out.print("-  ");
+			}
+			System.out.println();
+		}
+		System.out.println("    ------------------------------------");
+		System.out.println("    a  b  c  d  e  f  g  h\n");
 	}
 }
 
