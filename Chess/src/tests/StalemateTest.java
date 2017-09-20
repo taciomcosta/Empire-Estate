@@ -1,22 +1,14 @@
 package tests;
 
-import chessboard.Chessboard;
-import chessgame.ChessGame;
 import org.junit.Test;
 import pieces.piece.Piece;
-import player.Player;
 
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertTrue;
 
-public class StalemateTest
+public class StalemateTest extends tests.Test
 {
-        private ChessGame game;
-        private Player whitePlayer;
-        private Player blackPlayer;
-        private Chessboard board;
-
         @Test
         public void testIsStalemate()
         {
@@ -274,37 +266,5 @@ public class StalemateTest
                 ArrayList<Piece.Icon> icons = new ArrayList<>();
                 icons.add(Piece.Icon.K);
                 return icons;
-        }
-
-        public void removePiecesDifferent(Player player,
-                                          ArrayList<Piece.Icon> piecesIcon)
-        {
-                for (Piece playerPiece : player.getPieces())
-                        if (!piecesIcon.contains(playerPiece.getPieceInitial()))
-                                removePiece(playerPiece);
-        }
-
-        public void removePiece(Piece piece)
-        {
-                board.removePiece(piece.getRow(), piece.getCol());
-                piece.setCaptured(true);
-                piece.unsetPositionFromBoardRange();
-        }
-
-        public void movePiece(Piece piece, int finalRow, int finalCol)
-        {
-                board.removePiece(piece.getRow(), piece.getCol());
-                board.addPiece(piece, finalRow, finalCol);
-                piece.setRow(finalRow);
-                piece.setCol(finalCol);
-                piece.increaseMoves();
-        }
-
-        public void resetElements()
-        {
-                game = new ChessGame();
-                whitePlayer = game.model.player1;
-                blackPlayer = game.model.player2;
-                board = game.model.board;
         }
 }

@@ -1,44 +1,34 @@
 package tests;
 
-import chessboard.Chessboard;
-import chessgame.ChessGame;
-import org.junit.Before;
+import chessboard.Utils;
 import org.junit.Test;
 import pieces.Pawn;
 import pieces.piece.Piece;
-import player.Player;
 
 import java.util.ArrayList;
 
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
-public class PawnTest
+public class PawnTest extends tests.Test
 {
-        private ChessGame game = new ChessGame();
-        private Player whitePlayer = game.model.player1;
-        private Player blackPlayer = game.model.player2;
-        private Chessboard board = game.model.board;
-        private Pawn pawn = (Pawn) whitePlayer.pieces[0];
-
-        /*
-        * Run one testCase per time, because only one game was created :)
-        * */
-        @Before
-        public void setUp()
-        {
-//                setUp2();
-//                setUp3();
-//                setUp4();
-//                setUp5();
-//                setUp6();
-        }
+        private Pawn pawn;
 
         @Test
-        public void testIsStalemate()
+        public void testCanCaptureAndCanMove()
         {
                 setUp1();
                 board.printModel();
-                assertTrue(pawn.canCapture(0, 0));
+                assertTrue(captureTestShouldReturnTrue1());
+                setUp2();
+                board.printModel();
+                assertTrue(captureTestShouldReturnTrue2());
+                setUp3();
+                board.printModel();
+                assertTrue(moveTestShouldReturnTrue3());
+                setUp4();
+                board.printModel();
+                assertTrue(moveTestShouldReturnTrue4());
         }
 
         public void setUp1()
@@ -46,36 +36,6 @@ public class PawnTest
                 resetElements();
                 removePieces1();
                 setPositions1();
-        }
-
-        public void setUp2()
-        {
-                removePieces2();
-                setPositions2();
-        }
-
-        public void setUp3()
-        {
-                removePieces3();
-                setPositions3();
-        }
-
-        public void setUp4()
-        {
-                removePieces4();
-                setPositions4();
-        }
-
-        public void setUp5()
-        {
-                removePieces5();
-                setPositions5();
-        }
-
-        public void setUp6()
-        {
-                removePieces6();
-                setPositions6();
         }
 
         public void removePieces1()
@@ -90,8 +50,54 @@ public class PawnTest
 
         public void setPositions1()
         {
-                movePiece(whitePlayer.pieces[0], 1,1);
-                movePiece(blackPlayer.pieces[15], 0, 0);
+                movePiece(pawn, 4,4);
+                movePiece(whitePlayer.pieces[14], 3, 5);
+                movePiece(blackPlayer.pieces[15], 3, 3);
+                movePiece(blackPlayer.pieces[8], 5, 3);
+                movePiece(blackPlayer.pieces[9], 4, 5);
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet1()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.P);
+                icons.add(Piece.Icon.Q);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet1()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.K);
+                icons.add(Piece.Icon.R);
+                return icons;
+        }
+
+        public boolean captureTestShouldReturnTrue1()
+        {
+                boolean[][] testMap = {
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, true, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                };
+                boolean[][] currentMap = getCaptureMap(pawn);
+                for (int i = 0; i < Utils.BOARD_LENGTH; ++i)
+                        for (int j = 0; j < Utils.BOARD_LENGTH; ++j)
+                                if (testMap[i][j] != currentMap[i][j])
+                                        return false;
+                return true;
+        }
+
+        public void setUp2()
+        {
+                resetElements();
+                removePieces2();
+                setPositions2();
         }
 
         public void removePieces2()
@@ -100,13 +106,59 @@ public class PawnTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet2();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                for (int i = 1; i < 8; ++i) {
+                        removePiece(whitePlayer.pieces[i]);
+                        removePiece(blackPlayer.pieces[i]);
+                }
         }
 
         public void setPositions2()
         {
-                movePiece(whitePlayer.pieces[0], 1,5);
-                movePiece(whitePlayer.pieces[15], 2, 5);
-                movePiece(blackPlayer.pieces[15], 0, 5);
+                movePiece(whitePlayer.pieces[0], 4, 0);
+                movePiece(blackPlayer.pieces[0], 4, 1);
+                movePiece(blackPlayer.pieces[8], 2, 2);
+                movePiece(blackPlayer.pieces[9], 2, 2);
+        }
+
+        public ArrayList<Piece.Icon> whiteTestSet2()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.P);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet2()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.R);
+                icons.add(Piece.Icon.P);
+                return icons;
+        }
+
+        public boolean captureTestShouldReturnTrue2()
+        {
+                boolean[][] testMap = {
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, true, false, false, false, false, false, false},
+                        {false, true, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                };
+                boolean[][] currentMap = getCaptureMap(pawn);
+                for (int i = 0; i < Utils.BOARD_LENGTH; ++i)
+                        for (int j = 0; j < Utils.BOARD_LENGTH; ++j)
+                                if (testMap[i][j] != currentMap[i][j])
+                                        return false;
+                return true;
+        }
+
+        public void setUp3()
+        {
+                resetElements();
+                removePieces3();
         }
 
         public void removePieces3()
@@ -115,16 +167,48 @@ public class PawnTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet3();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
-                removePiece(whitePlayer.pieces[9]);
-                removePiece(blackPlayer.pieces[11]);
+                for (int i = 1; i < 8; ++i)
+                        removePiece(whitePlayer.pieces[i]);
         }
 
-        public void setPositions3()
+        public ArrayList<Piece.Icon> whiteTestSet3()
         {
-                movePiece(whitePlayer.pieces[8], 0,7);
-                movePiece(whitePlayer.pieces[15], 2,1);
-                movePiece(blackPlayer.pieces[10], 0, 1);
-                movePiece(blackPlayer.pieces[15], 0,0);
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                icons.add(Piece.Icon.P);
+                return icons;
+        }
+
+        public ArrayList<Piece.Icon> blackTestSet3()
+        {
+                ArrayList<Piece.Icon> icons = new ArrayList<>();
+                return icons;
+        }
+
+        public boolean moveTestShouldReturnTrue3()
+        {
+                boolean[][] testMap = {
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {true, false, false, false, false, false, false, false},
+                        {true, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                };
+                boolean[][] currentMap = getMoveMap(pawn);
+                for (int i = 0; i < Utils.BOARD_LENGTH; ++i)
+                        for (int j = 0; j < Utils.BOARD_LENGTH; ++j)
+                                if (testMap[i][j] != currentMap[i][j])
+                                        return false;
+                return true;
+        }
+
+        public void setUp4()
+        {
+                resetElements();
+                removePieces4();
+                setPositions4();
         }
 
         public void removePieces4()
@@ -133,102 +217,19 @@ public class PawnTest
                 ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet4();
                 removePiecesDifferent(whitePlayer, whitePiecesIcon);
                 removePiecesDifferent(blackPlayer, blackPiecesIcon);
-                removePiece(whitePlayer.pieces[9]);
-        }
-
-        public void setPositions4()
-        {
-                movePiece(whitePlayer.pieces[8], 6,1);
-                movePiece(whitePlayer.pieces[15], 5,2);
-                movePiece(blackPlayer.pieces[15], 7,0);
-        }
-
-        public void removePieces5()
-        {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet5();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet5();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
-                for (int i = 1; i < 8; ++i)
-                        removePiece(blackPlayer.pieces[i]);
-        }
-
-        public void setPositions5()
-        {
-                movePiece(whitePlayer.pieces[14], 5,1);
-                movePiece(whitePlayer.pieces[15], 3,6);
-                movePiece(blackPlayer.pieces[0], 6,0);
-                movePiece(blackPlayer.pieces[15], 7,0);
-        }
-
-        public void removePieces6()
-        {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet6();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet6();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
                 for (int i = 1; i < 8; ++i)
                         removePiece(whitePlayer.pieces[i]);
         }
 
-        public void setPositions6()
+        public void setPositions4()
         {
-                movePiece(whitePlayer.pieces[0], 1,0);
-                movePiece(whitePlayer.pieces[10], 4,5);
-                movePiece(whitePlayer.pieces[15], 2,0);
-                movePiece(blackPlayer.pieces[15], 0,0);
-        }
-
-        public ArrayList<Piece.Icon> whiteTestSet1()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.P);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> blackTestSet1()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> whiteTestSet2()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> blackTestSet2()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> whiteTestSet3()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.R);
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> blackTestSet3()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.B);
-                icons.add(Piece.Icon.K);
-                return icons;
+                movePiece(blackPlayer.pieces[15], 5,0);
         }
 
         public ArrayList<Piece.Icon> whiteTestSet4()
         {
                 ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.R);
-                icons.add(Piece.Icon.K);
+                icons.add(Piece.Icon.P);
                 return icons;
         }
 
@@ -239,69 +240,29 @@ public class PawnTest
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet5()
+        public boolean moveTestShouldReturnTrue4()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.Q);
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> blackTestSet5()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> whiteTestSet6()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.B);
-                icons.add(Piece.Icon.K);
-                removePiece(whitePlayer.pieces[11]);
-                return icons;
-        }
-
-        public ArrayList<Piece.Icon> blackTestSet6()
-        {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
-                return icons;
-        }
-
-        public void removePiecesDifferent(Player player,
-                                          ArrayList<Piece.Icon> piecesIcon)
-        {
-                for (Piece playerPiece : player.getPieces())
-                        if (!piecesIcon.contains(playerPiece.getPieceInitial()))
-                                removePiece(playerPiece);
-        }
-
-        public void removePiece(Piece piece)
-        {
-                board.removePiece(piece.getRow(), piece.getCol());
-                piece.setCaptured(true);
-                piece.unsetPositionFromBoardRange();
-        }
-
-        public void movePiece(Piece piece, int finalRow, int finalCol)
-        {
-                board.removePiece(piece.getRow(), piece.getCol());
-                board.addPiece(piece, finalRow, finalCol);
-                piece.setRow(finalRow);
-                piece.setCol(finalCol);
-                piece.increaseMoves();
+                boolean[][] testMap = {
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                        {false, false, false, false, false, false, false, false},
+                };
+                boolean[][] currentMap = getMoveMap(pawn);
+                for (int i = 0; i < Utils.BOARD_LENGTH; ++i)
+                        for (int j = 0; j < Utils.BOARD_LENGTH; ++j)
+                                if (testMap[i][j] != currentMap[i][j])
+                                        return false;
+                return true;
         }
 
         public void resetElements()
         {
-                game = new ChessGame();
-                whitePlayer = game.model.player1;
-                blackPlayer = game.model.player2;
-                board = game.model.board;
+                super.resetElements();
                 pawn = (Pawn) whitePlayer.pieces[0];
         }
 }
