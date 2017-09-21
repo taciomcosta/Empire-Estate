@@ -22,68 +22,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KnightTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/tests/KnightTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="method#setUp1#0;class#KnightTest#0" expanded="false" />
-                <element signature="method#removePieces1#0;class#KnightTest#0" expanded="false" />
-                <element signature="method#setPositions1#0;class#KnightTest#0" expanded="false" />
-                <element signature="method#whiteTestSet1#0;class#KnightTest#0" expanded="false" />
-                <element signature="method#blackTestSet1#0;class#KnightTest#0" expanded="false" />
-                <element signature="method#captureTestShouldReturnTrue1#0;class#KnightTest#0" expanded="false" />
-                <element signature="method#resetElements#0;class#KnightTest#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RookTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests/RookTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setUp1#0;class#RookTest#0" expanded="false" />
-                <element signature="method#removePieces1#0;class#RookTest#0" expanded="false" />
-                <element signature="method#setPositions1#0;class#RookTest#0" expanded="false" />
-                <element signature="method#whiteTestSet1#0;class#RookTest#0" expanded="false" />
-                <element signature="method#blackTestSet1#0;class#RookTest#0" expanded="false" />
-                <element signature="method#captureTestShouldReturnTrue1#0;class#RookTest#0" expanded="false" />
-                <element signature="method#setUp2#0;class#RookTest#0" expanded="false" />
-                <element signature="method#removePieces2#0;class#RookTest#0" expanded="false" />
-                <element signature="method#setPositions2#0;class#RookTest#0" expanded="false" />
-                <element signature="method#whiteTestSet2#0;class#RookTest#0" expanded="false" />
-                <element signature="method#blackTestSet2#0;class#RookTest#0" expanded="false" />
-                <element signature="method#captureTestShouldReturnTrue2#0;class#RookTest#0" expanded="false" />
-                <element signature="method#setUp3#0;class#RookTest#0" expanded="false" />
-                <element signature="method#removePieces3#0;class#RookTest#0" expanded="false" />
-                <element signature="method#whiteTestSet3#0;class#RookTest#0" expanded="false" />
-                <element signature="method#blackTestSet3#0;class#RookTest#0" expanded="false" />
-                <element signature="method#moveTestShouldReturnTrue3#0;class#RookTest#0" expanded="false" />
-                <element signature="method#resetElements#0;class#RookTest#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+            <state relative-caret-position="450">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
                 <element signature="method#removePiecesDifferent#0;class#Test#0" expanded="false" />
                 <element signature="method#removePiece#0;class#Test#0" expanded="false" />
                 <element signature="method#movePiece#0;class#Test#0" expanded="false" />
                 <element signature="method#getCaptureMap#0;class#Test#0" expanded="false" />
-                <element signature="method#getMoveMap#0;class#Test#0" expanded="false" />
                 <element signature="method#printMap#0;class#Test#0" expanded="false" />
                 <element signature="method#resetElements#0;class#Test#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueenTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/QueenTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#testCanCaptureAndCanMove#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#setUp1#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#removePieces1#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#setPositions1#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#whiteTestSet1#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#blackTestSet1#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#captureTestShouldReturnTrue1#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#setUp2#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#removePieces2#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#setPositions2#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#whiteTestSet2#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#blackTestSet2#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#captureTestShouldReturnTrue2#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#setUp3#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#removePieces3#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#setPositions3#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#whiteTestSet3#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#blackTestSet3#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#moveTestShouldReturnTrue3#0;class#QueenTest#0" expanded="false" />
+                <element signature="method#resetElements#0;class#QueenTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Queen.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pieces/Queen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,12 +94,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/tests/StalemateTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/Test.java" />
         <option value="$PROJECT_DIR$/src/tests/CheckmateTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/RookTest.java" />
         <option value="$PROJECT_DIR$/src/tests/PawnTest.java" />
         <option value="$PROJECT_DIR$/src/chessgame/ChessGame.java" />
         <option value="$PROJECT_DIR$/src/tests/KnightTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/RookTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/Test.java" />
+        <option value="$PROJECT_DIR$/src/pieces/Queen.java" />
+        <option value="$PROJECT_DIR$/src/tests/QueenTest.java" />
       </list>
     </option>
   </component>
@@ -193,7 +188,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.KnightTest">
+  <component name="RunManager" selected="JUnit.QueenTest">
     <configuration name="KnightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -244,19 +239,55 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration name="QueenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ChessIntelliJ" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.QueenTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ChessIntelliJ" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
+    </configuration>
+    <configuration name="QueenTest.testCanCaptureAndCanMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ChessIntelliJ" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.QueenTest" />
+      <option name="METHOD_NAME" value="testCanCaptureAndCanMove" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration name="RookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -272,31 +303,6 @@
       <option name="MAIN_CLASS_NAME" value="tests.RookTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="RookTest.testCanCaptureAndCanMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ChessIntelliJ" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.RookTest" />
-      <option name="METHOD_NAME" value="testCanCaptureAndCanMove" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -391,18 +397,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RookTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.RookTest.testCanCaptureAndCanMove" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.KnightTest.testCanCaptureAndCanMove" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.KnightTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.KnightTest.testCanCaptureAndCanMove" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.KnightTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.QueenTest.testCanCaptureAndCanMove" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.QueenTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.KnightTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.KnightTest.testCanCaptureAndCanMove" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.QueenTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.QueenTest.testCanCaptureAndCanMove" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.RookTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.RookTest.testCanCaptureAndCanMove" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.KnightTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.KnightTest.testCanCaptureAndCanMove" />
       </list>
     </recent_temporary>
   </component>
@@ -420,43 +426,52 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="KnightTest - 2017.09.20 at 22h 55m 44s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.20 at 23h 56m 22s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest - 2017.09.20 at 22h 56m 23s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.20 at 23h 58m 26s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest - 2017.09.20 at 22h 56m 34s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.20 at 23h 58m 54s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest - 2017.09.20 at 22h 57m 33s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.20 at 23h 59m 13s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest - 2017.09.20 at 22h 57m 56s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.21 at 00h 00m 12s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest - 2017.09.20 at 23h 01m 18s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.21 at 00h 03m 41s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest - 2017.09.20 at 23h 01m 30s.xml">
-      <configuration name="KnightTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.21 at 00h 04m 06s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="KnightTest_testCanCaptureAndCanMove - 2017.09.20 at 22h 57m 44s.xml">
-      <configuration name="KnightTest.testCanCaptureAndCanMove" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.21 at 00h 05m 17s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RookTest - 2017.09.20 at 21h 30m 00s.xml">
-      <configuration name="RookTest" configurationId="JUnit" />
+    <history-entry file="QueenTest - 2017.09.21 at 00h 05m 33s.xml">
+      <configuration name="QueenTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RookTest_testCanCaptureAndCanMove - 2017.09.20 at 21h 26m 45s.xml">
-      <configuration name="RookTest.testCanCaptureAndCanMove" configurationId="JUnit" />
+    <history-entry file="QueenTest_testCanCaptureAndCanMove - 2017.09.20 at 23h 58m 32s.xml">
+      <configuration name="QueenTest.testCanCaptureAndCanMove" configurationId="JUnit" />
     </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="289" y="57" width="1366" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -466,6 +481,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -475,7 +491,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -629,22 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-          <folding>
-            <element signature="method#removePiecesDifferent#0;class#Test#0" expanded="false" />
-            <element signature="method#removePiece#0;class#Test#0" expanded="false" />
-            <element signature="method#movePiece#0;class#Test#0" expanded="false" />
-            <element signature="method#getCaptureMap#0;class#Test#0" expanded="false" />
-            <element signature="method#getMoveMap#0;class#Test#0" expanded="false" />
-            <element signature="method#printMap#0;class#Test#0" expanded="false" />
-            <element signature="method#resetElements#0;class#Test#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/PawnTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -686,11 +685,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/KnightTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp1#0;class#KnightTest#0" expanded="false" />
+            <element signature="method#removePieces1#0;class#KnightTest#0" expanded="false" />
+            <element signature="method#setPositions1#0;class#KnightTest#0" expanded="false" />
+            <element signature="method#whiteTestSet1#0;class#KnightTest#0" expanded="false" />
+            <element signature="method#blackTestSet1#0;class#KnightTest#0" expanded="false" />
+            <element signature="method#captureTestShouldReturnTrue1#0;class#KnightTest#0" expanded="false" />
+            <element signature="method#resetElements#0;class#KnightTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/RookTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp1#0;class#RookTest#0" expanded="false" />
+            <element signature="method#setPositions1#0;class#RookTest#0" expanded="false" />
+            <element signature="method#whiteTestSet1#0;class#RookTest#0" expanded="false" />
+            <element signature="method#captureTestShouldReturnTrue1#0;class#RookTest#0" expanded="false" />
+            <element signature="method#setUp2#0;class#RookTest#0" expanded="false" />
+            <element signature="method#removePieces2#0;class#RookTest#0" expanded="false" />
+            <element signature="method#setPositions2#0;class#RookTest#0" expanded="false" />
+            <element signature="method#whiteTestSet2#0;class#RookTest#0" expanded="false" />
+            <element signature="method#blackTestSet2#0;class#RookTest#0" expanded="false" />
+            <element signature="method#captureTestShouldReturnTrue2#0;class#RookTest#0" expanded="false" />
+            <element signature="method#setUp3#0;class#RookTest#0" expanded="false" />
+            <element signature="method#removePieces3#0;class#RookTest#0" expanded="false" />
+            <element signature="method#setPositions3#0;class#RookTest#0" expanded="false" />
+            <element signature="method#whiteTestSet3#0;class#RookTest#0" expanded="false" />
+            <element signature="method#blackTestSet3#0;class#RookTest#0" expanded="false" />
+            <element signature="method#resetElements#0;class#RookTest#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -702,47 +736,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/RookTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setUp1#0;class#RookTest#0" expanded="false" />
-            <element signature="method#removePieces1#0;class#RookTest#0" expanded="false" />
-            <element signature="method#setPositions1#0;class#RookTest#0" expanded="false" />
-            <element signature="method#whiteTestSet1#0;class#RookTest#0" expanded="false" />
-            <element signature="method#blackTestSet1#0;class#RookTest#0" expanded="false" />
-            <element signature="method#captureTestShouldReturnTrue1#0;class#RookTest#0" expanded="false" />
-            <element signature="method#setUp2#0;class#RookTest#0" expanded="false" />
-            <element signature="method#removePieces2#0;class#RookTest#0" expanded="false" />
-            <element signature="method#setPositions2#0;class#RookTest#0" expanded="false" />
-            <element signature="method#whiteTestSet2#0;class#RookTest#0" expanded="false" />
-            <element signature="method#blackTestSet2#0;class#RookTest#0" expanded="false" />
-            <element signature="method#captureTestShouldReturnTrue2#0;class#RookTest#0" expanded="false" />
-            <element signature="method#setUp3#0;class#RookTest#0" expanded="false" />
-            <element signature="method#removePieces3#0;class#RookTest#0" expanded="false" />
-            <element signature="method#whiteTestSet3#0;class#RookTest#0" expanded="false" />
-            <element signature="method#blackTestSet3#0;class#RookTest#0" expanded="false" />
-            <element signature="method#moveTestShouldReturnTrue3#0;class#RookTest#0" expanded="false" />
-            <element signature="method#resetElements#0;class#RookTest#0" expanded="false" />
+            <element signature="method#removePiecesDifferent#0;class#Test#0" expanded="false" />
+            <element signature="method#removePiece#0;class#Test#0" expanded="false" />
+            <element signature="method#movePiece#0;class#Test#0" expanded="false" />
+            <element signature="method#getCaptureMap#0;class#Test#0" expanded="false" />
+            <element signature="method#printMap#0;class#Test#0" expanded="false" />
+            <element signature="method#resetElements#0;class#Test#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/KnightTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/QueenTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding>
-            <element signature="method#setUp1#0;class#KnightTest#0" expanded="false" />
-            <element signature="method#removePieces1#0;class#KnightTest#0" expanded="false" />
-            <element signature="method#setPositions1#0;class#KnightTest#0" expanded="false" />
-            <element signature="method#whiteTestSet1#0;class#KnightTest#0" expanded="false" />
-            <element signature="method#blackTestSet1#0;class#KnightTest#0" expanded="false" />
-            <element signature="method#captureTestShouldReturnTrue1#0;class#KnightTest#0" expanded="false" />
-            <element signature="method#resetElements#0;class#KnightTest#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#testCanCaptureAndCanMove#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#setUp1#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#removePieces1#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#setPositions1#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#whiteTestSet1#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#blackTestSet1#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#captureTestShouldReturnTrue1#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#setUp2#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#removePieces2#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#setPositions2#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#whiteTestSet2#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#blackTestSet2#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#captureTestShouldReturnTrue2#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#setUp3#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#removePieces3#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#setPositions3#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#whiteTestSet3#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#blackTestSet3#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#moveTestShouldReturnTrue3#0;class#QueenTest#0" expanded="false" />
+            <element signature="method#resetElements#0;class#QueenTest#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pieces/Queen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

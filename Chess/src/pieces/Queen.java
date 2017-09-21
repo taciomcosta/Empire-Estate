@@ -29,12 +29,13 @@ public class Queen extends Piece
 			return false;
 		if (board.getPieceAt(row, col) != null)
 			return false;
-		boolean p = getRow() == row || getCol() == col;
-		boolean q = Math.abs(getCol() - col) == Math.abs(row - getRow());
-		boolean r = !hasPieceBetween(row, col);
-		if ((p || q) && r)
-		        return true;
-		return false;
+		if (getRow() != row &&
+			getCol() != col &&
+			Math.abs(getCol() - col) != Math.abs(row - getRow()))
+		        return false;
+		if (hasPieceBetween(row, col))
+			return false;
+		return true;
 	}
 
 	@Override
@@ -71,11 +72,10 @@ public class Queen extends Piece
 	}
 
 	/*
-	* Check if there's a piece in [startPos; finalPos[
+	* Check if there's a piece in interval [startPos; finalPos[
 	*/
-	private boolean hasPieceBetween(int finalRow, int finalCol)
+	public boolean hasPieceBetween(int finalRow, int finalCol)
 	{
-//	        determine direction
 		int startRow = getRow();
 		int startCol = getCol();
                 int rowDirection = 0;
@@ -90,10 +90,9 @@ public class Queen extends Piece
 			colDirection = 1;
 		finalRow += rowDirection;
 		finalCol += colDirection;
-		while (finalRow != startRow && finalCol != startCol) {
-			if (board.getPieceAt(finalRow, finalCol) != null) {
+		while (finalRow != startRow || finalCol != startCol) {
+			if (board.getPieceAt(finalRow, finalCol) != null)
 				return true;
-			}
 			finalRow += rowDirection;
 			finalCol += colDirection;
 		}
