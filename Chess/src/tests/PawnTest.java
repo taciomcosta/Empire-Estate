@@ -259,6 +259,7 @@ public class PawnTest extends tests.Test
                 return true;
         }
 
+        @Override
         public void resetElements()
         {
                 super.resetElements();
