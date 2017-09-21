@@ -6,13 +6,11 @@ import chessboard.Utils;
 
 public final class Pawn extends Piece
 {
-	// constructor
 	public Pawn(Color color, Chessboard b, int row, int col)
 	{
 		super(color, Icon.P, b, row, col, 1);
 	}
 
-	//others
 	@Override
 	public void move(int row, int col)
 	{
@@ -26,19 +24,16 @@ public final class Pawn extends Piece
 	{
 		if (!super.canMove(row, col))
 			return false;
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check if there's piece on destination
 		if (board.getPieceAt(row, col) != null)
 			return false;
-//		check if it's moving to the same column
 		if (col != getCol())
 			return false;
 //		check if it's a valid first move
-		if (getMoves() == 0 && 
+		if (getMoves() == 0 &&
 				Math.abs(row - getRow()) == 2 &&
-				board.getPieceAt((row + getRow()) / 2, 
+				board.getPieceAt((row + getRow()) / 2,
 						col) == null)
 			return true;
 //		check if it's a valid row, according to its color
