@@ -21,18 +21,15 @@ public class Bishop extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check color
 		if (!super.canCapture(row, col))
 			return false;
-//		check if it's a diagonal move
-		if (Math.abs(row - getRow()) == Math.abs(col - getCol()))
-//			check if there's no friend piece in its way
-			if (!hasPieceBetween(row, col))
-				return true;
-		return false;
+		if (Math.abs(row - getRow()) != Math.abs(col - getCol()))
+		        return false;
+		if (hasPieceBetween(row, col))
+			return false;
+		return true;
 	}
 
 	@Override
@@ -40,16 +37,12 @@ public class Bishop extends Piece
 	{
 		if (!super.canMove(row, col))
 			return false;
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check if there's no piece on destination
 		if (board.getPieceAt(row, col) != null)
 			return false;
-//		check if it's a diagonal move
 		if (Math.abs(row - getRow()) != Math.abs(col - getCol()))
 			return false;
-//		check if there's no friend piece in its way
 		if (hasPieceBetween(row, col))
 			return false;
 		return true;
