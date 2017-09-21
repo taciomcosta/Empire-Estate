@@ -27,25 +27,28 @@ public class Computer extends Player
 	public void verifyPawnPromotion()
 	{
 		ArrayList<Piece> capturedPieces;
-//		for each pawn
 		for (int i = 0; i < 8; i++) {
 			Pawn pawn = (Pawn) pieces[i];
-//			check if can be promoted
 			if (pawn.canBePromoted()) {
-//				get captured pieces
 				capturedPieces = getCapturedPieces();
-//				if there's no captured piece, return
 				if (capturedPieces.size() == 0)
 					return;
-//				choose piece
-				Random r = new Random();
-				int n = r.nextInt(capturedPieces.size());
-//				select piece
-				Piece pieceToPromote = capturedPieces.get(n);
-//				finally, promote pawn
-				pawn.promote(pieceToPromote);
+				Piece pieceToPromoteTo =
+					getMostValuablePiece(capturedPieces);
+				pawn.promote(pieceToPromoteTo);
 			}
 		}
+	}
+
+	public Piece getMostValuablePiece(ArrayList<Piece> pieces)
+	{
+	        if (pieces.size() == 0)
+	        	return null;
+		Piece mostValuablePiece = pieces.get(0);
+		for (Piece piece : pieces)
+			if (piece.getValue() > mostValuablePiece.getValue())
+				mostValuablePiece = piece;
+		return mostValuablePiece;
 	}
 
 	@Override

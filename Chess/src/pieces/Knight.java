@@ -23,15 +23,12 @@ public class Knight extends Piece
 	{
 		if (!super.canMove(row, col))
 			return false;
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check if there's a piece on destination
 		if (board.getPieceAt(row, col) != null)
 			return false;
 		int rowsDifference = Math.abs(getRow() - row);
 		int colsDifference = Math.abs(getCol() - col);
-//		check if it shapes a L
 		if (rowsDifference == 2 && colsDifference == 1)
 			return true;
 		if (rowsDifference == 1 && colsDifference == 2)
@@ -42,15 +39,12 @@ public class Knight extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-//		check if destination is in range
 		if (!Utils.inRange(row, col))
 			return false;
-//		check color
 		if (!super.canCapture(row, col))
 			return false;
 		int rowsDifference = Math.abs(getRow() - row);
 		int colsDifference = Math.abs(getCol() - col);
-//		check if it shapes a L
 		if (rowsDifference == 2 && colsDifference == 1)
 			return true;
 		if (rowsDifference == 1 && colsDifference == 2)

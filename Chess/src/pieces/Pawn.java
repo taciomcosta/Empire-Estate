@@ -56,9 +56,8 @@ public final class Pawn extends Piece
 		int enemyRow = pieceToCapture.getRow();
 		int firstRow = pieceToCapture.getFirstRow();
 		int enemyCol = pieceToCapture.getCol();
-		if (canCaptureByDiagonal(enemyRow, enemyCol)) {
+		if (canCaptureByDiagonal(enemyRow, enemyCol))
 			super.capture(pieceToCapture);
-		}
 		if (canCaptureEnPassant(enemyRow, enemyCol)) {
 			super.capture(pieceToCapture);
 			int rowToMove = (firstRow + enemyRow) / 2;
