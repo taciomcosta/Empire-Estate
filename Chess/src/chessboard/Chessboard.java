@@ -13,7 +13,6 @@ public final class Chessboard
         {
         	model = new ChessboardModel();
         	cells = new Cell[Utils.BOARD_LENGTH][Utils.BOARD_LENGTH];
-//        	initialize empty cells and add them to chessboard model
         	for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
         		for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
         			cells[i][j] = new Cell();
@@ -29,14 +28,11 @@ public final class Chessboard
         
         public void removePiece(int row, int col)
         {
-//        	remove piece from cell
         	cells[row][col].unsetPiece();
         }
         
         public Piece getPieceAt(int row, int col)
         {
-        	if (!Utils.inRange(row, col))
-        		return null;
         	return cells[row][col].getPiece();
         }
         

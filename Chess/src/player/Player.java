@@ -98,9 +98,13 @@ public abstract class Player
 	public ArrayList<Piece> getPiecesAlive()
 	{
 		ArrayList<Piece> piecesAlive = new ArrayList<>();
-		for (Piece p : pieces) {
-			if (!p.isCaptured())
-				piecesAlive.add(p);
+		for (int i = 0; i < Utils.BOARD_LENGTH; ++i) {
+			for (int j = 0; j < Utils.BOARD_LENGTH; ++j) {
+				Piece p = board.getPieceAt(i, j);
+				if (p != null)
+					if (p.hasSameColor(getPiecesColor()))
+						piecesAlive.add(p);
+			}
 		}
 		return piecesAlive;
 	}
@@ -193,7 +197,8 @@ public abstract class Player
 		return wouldBeChecked;
 	}
 
-	protected void setState(Move move)
+	// TODO private
+	public void setState(Move move)
 	{
 		int finalRow = move.getFinalRow();
 		int finalCol = move.getFinalCol();
@@ -202,11 +207,21 @@ public abstract class Player
 		move.setCapturedPiece(e);
 		if (move.getType() == Move.MoveType.MOVE)
 			moveTmp(p, finalRow, finalCol);
-		else
-			captureTmp(p, e, move);
+		else {
+			try {
+				captureTmp(p, e, move);
+			} catch (NullPointerException nulls) {
+				System.out.println("ERROR");
+				System.out.println(finalRow + ", " + finalCol);
+				System.out.println(board.getPieceAt(0, 4));
+				System.out.println(board.getPieceAt(1, 4));
+				board.printModel();
+			}
+		}
 	}
 
-	protected void unsetState(Move move)
+	// TODO private
+	public void unsetState(Move move)
 	{
 		int startRow = move.getStartRow();
 		int startCol = move.getStartCol();
@@ -252,6 +267,8 @@ public abstract class Player
 	{
 		board.removePiece(m.getFinalRow(), m.getFinalCol());
 		board.addPiece(p, m.getStartRow(), m.getStartCol());
+		p.setRow(m.getStartRow());
+		p.setCol(m.getStartCol());
 		p.decreaseMoves();
 		board.addPiece(e, m.getFinalRow(), m.getFinalCol());
 		e.setCaptured(false);

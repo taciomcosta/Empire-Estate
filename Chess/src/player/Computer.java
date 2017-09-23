@@ -16,6 +16,7 @@ import chessboard.Chessboard;
 public class Computer extends Player
 {
 	private Player enemy;
+	public int depth = 4;
 
 	public Computer(Chessboard b, Color piecesColor, Player enemy)
 	{
@@ -24,9 +25,7 @@ public class Computer extends Player
 	}
 
 	@Override
-	public void verifyPawnPromotion()
-	{
-		ArrayList<Piece> capturedPieces;
+	public void verifyPawnPromotion() { ArrayList<Piece> capturedPieces;
 		for (int i = 0; i < 8; i++) {
 			Pawn pawn = (Pawn) pieces[i];
 			if (pawn.canBePromoted()) {
@@ -68,16 +67,17 @@ public class Computer extends Player
                 }
 		return false;
 	}
-	
+
 	private Piece choosePieceToMoveAndDestination()
 	{
-                Move bestMove = getBestMove(2);
+                Move bestMove = getBestMove(depth);
 		row = bestMove.getFinalRow();
 		col = bestMove.getFinalCol();
 		return bestMove.getPiece();
 	}
-	
-	private Move getBestMove(int depth)
+
+	// TODO private
+	public Move getBestMove(int depth)
 	{
 	        Move bestMove = null;
 	        int maxValue = Integer.MIN_VALUE;
@@ -96,14 +96,14 @@ public class Computer extends Player
 
 	private int max(int depth)
 	{
-		if (depth == 0)
-			return evaluateBoard(enemy, this);
+		if (depth == 0 || someKingIsCaptured())
+			return evaluateBoard();
 		ArrayList<Integer> minimums = new ArrayList<>();
                 ArrayList<Move> enemyMoves = enemy.getPossibleMoves();
                 for (Move m : enemyMoves) {
-                        setState(m);
+                        enemy.setState(m);
 			minimums.add(min(depth - 1));
-			unsetState(m);
+			enemy.unsetState(m);
                 }
 		int min = Integer.MAX_VALUE;
 		for (Integer value : minimums)
@@ -114,8 +114,8 @@ public class Computer extends Player
 
 	private int min(int depth)
 	{
-		if (depth == 0)
-			return evaluateBoard(this, enemy);
+		if (depth == 0 || someKingIsCaptured())
+			return evaluateBoard();
 		ArrayList<Integer> maximums = new ArrayList<>();
                 ArrayList<Move> moves = getPossibleMoves();
                 for (Move m : moves) {
@@ -130,39 +130,26 @@ public class Computer extends Player
 		return max;
 	}
 
-	protected int evaluateBoard(Player currentPlayer, Player enemyPlayer)
+	// TODO private
+	public int evaluateBoard()
 	{
 		int score = 0;
-		if (currentPlayer.pieces[15].isCaptured())
+		if (pieces[15].isCaptured())
 			return Integer.MIN_VALUE;
-		if (enemyPlayer.pieces[15].isCaptured())
+		if (enemy.pieces[15].isCaptured())
 			return Integer.MAX_VALUE;
-		for (Piece piece : currentPlayer.getPiecesAlive()) {
+		for (Piece piece : getPiecesAlive()) {
 			score += piece.getValue();
 		}
-		for (Piece piece : enemyPlayer.getPiecesAlive()) {
+		for (Piece piece : enemy.getPiecesAlive()) {
 			score -= piece.getValue();
 		}
 		return score;
 	}
 
-	// delete it
-	public void printBoard()
+	public boolean someKingIsCaptured()
 	{
-		for (int i = 0; i < 8; i++) {
-			System.out.print((8 - i) + " | ");
-			for (int j = 0; j < 8; j++) {
-				Piece p = board.getPieceAt(i, j);
-				if (p != null) {
-					System.out.print(p.getRow() + "" + p.getCol() + "  ");
-				}
-				else
-					System.out.print("-  ");
-			}
-			System.out.println();
-		}
-		System.out.println("    ------------------------------------");
-		System.out.println("    a  b  c  d  e  f  g  h\n");
+		return pieces[15].isCaptured() || enemy.pieces[15].isCaptured();
 	}
 }
 

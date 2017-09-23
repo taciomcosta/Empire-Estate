@@ -6,14 +6,6 @@ public class CellModel
 {
 	private Piece piece = null;
 
-	public CellModel()
-	{}
-	
-	public CellModel(Piece pice)
-	{
-		setPiece(piece);
-	}
-
 	public void setPiece(Piece p)
 	{
 		this.piece = p;

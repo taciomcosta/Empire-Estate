@@ -111,10 +111,8 @@ public abstract class Piece
 		int enemyRow = pieceToCapture.getRow();
 		int enemyCol = pieceToCapture.getCol();
 		if (!hasSameColor(pieceToCapture)) {
-//			remove captured piece
 			board.removePiece(enemyRow, enemyCol);
 			pieceToCapture.setCaptured(true);
-//			move this to captured pieces' position
 			model.setLastPosition(getRow(), getCol());
 			board.removePiece(getRow(), getCol());
 			board.addPiece(this, enemyRow, enemyCol);
