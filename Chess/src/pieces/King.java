@@ -37,8 +37,6 @@ public class King extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canCapture(row, col))
 			return false;
 		if (Math.abs(row - getRow()) > 1 ||
@@ -49,8 +47,6 @@ public class King extends Piece
 
 	public boolean canMove(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canMove(row, col))
 			return false;
 		if (canCastle(row, col))

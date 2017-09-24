@@ -21,8 +21,6 @@ public class Knight extends Piece
 	@Override
 	public boolean canMove(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canMove(row, col))
 			return false;
 		if (board.getPieceAt(row, col) != null)
@@ -39,8 +37,6 @@ public class Knight extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canCapture(row, col))
 			return false;
 		int rowsDifference = Math.abs(getRow() - row);

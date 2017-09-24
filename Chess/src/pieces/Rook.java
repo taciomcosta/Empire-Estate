@@ -2,7 +2,6 @@ package pieces;
 
 import pieces.piece.Piece;
 import chessboard.Chessboard;
-import chessboard.Utils;
 
 public class Rook extends Piece
 {
@@ -21,8 +20,6 @@ public class Rook extends Piece
 	@Override
 	public boolean canMove(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canMove(row, col))
 			return false;
 		if (board.getPieceAt(row, col) != null)
@@ -37,8 +34,6 @@ public class Rook extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canCapture(row, col))
 			return false;
 		if (getRow() != row && getCol() != col)

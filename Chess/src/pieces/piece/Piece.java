@@ -131,6 +131,8 @@ public abstract class Piece
 	
 	public boolean canMove(int row, int col)
 	{
+		if (!Utils.inRange(row, col))
+			return false;
 		if (isCaptured())
 			return false;
 		if (row == getRow() && col == getCol())
@@ -140,7 +142,8 @@ public abstract class Piece
 
 	public boolean canCapture(int row, int col)
 	{
-//		TODO Utils.inRange() should go here???
+		if (!Utils.inRange(row, col))
+			return false;
 		if (isCaptured())
 			return false;
 		if (row == getRow() && col == getCol())

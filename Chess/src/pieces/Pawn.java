@@ -21,8 +21,6 @@ public final class Pawn extends Piece
 	@Override
 	public boolean canMove(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canMove(row, col))
 			return false;
 		if (board.getPieceAt(row, col) != null)
@@ -69,8 +67,6 @@ public final class Pawn extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canCapture(row, col))
 			return false;
 		if (!canCaptureByDiagonal(row, col) &&

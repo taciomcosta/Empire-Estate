@@ -21,8 +21,6 @@ public class Bishop extends Piece
 	@Override
 	public boolean canCapture(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canCapture(row, col))
 			return false;
 		if (Math.abs(row - getRow()) != Math.abs(col - getCol()))
@@ -35,8 +33,6 @@ public class Bishop extends Piece
 	@Override
 	public boolean canMove(int row, int col)
 	{
-		if (!Utils.inRange(row, col))
-			return false;
 		if (!super.canMove(row, col))
 			return false;
 		if (board.getPieceAt(row, col) != null)
