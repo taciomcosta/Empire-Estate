@@ -1,7 +1,7 @@
 package pieces.piece;
 
 import pieces.piece.Piece.Color;
-import pieces.piece.Piece.Icon;
+import pieces.Icon;
 
 public class PieceModel
 {
@@ -100,10 +100,17 @@ public class PieceModel
 	
 	public String toString()
 	{
+		String ANSI_RESET = "\u001B[0m";
+		String ANSI_RED = "\u001B[31m";
+		String ANSI_GREEN = "\u001B[32m";
 		if (getColor() == Color.BLACK)
-			return getPieceInitial().toString().toUpperCase();
+			return ANSI_RED +
+				getPieceInitial().toString().toUpperCase() +
+				ANSI_RESET;
 		if (getColor() == Color.WHITE)
-			return getPieceInitial().toString().toLowerCase();
+			return ANSI_GREEN +
+				getPieceInitial().toString().toLowerCase() +
+				ANSI_RESET;
 		return "-";
 	}
 }

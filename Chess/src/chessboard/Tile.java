@@ -1,14 +1,14 @@
-package chessboard.cell;
+package chessboard;
 
 import pieces.piece.Piece;
 
-public class CellModel
+public final class Tile
 {
 	private Piece piece = null;
 
-	public void setPiece(Piece p)
+	public void setPiece(Piece piece)
 	{
-		this.piece = p;
+		this.piece = piece;
 	}
 	
 	public Piece getPiece()
@@ -18,6 +18,6 @@ public class CellModel
 	
 	public void unsetPiece()
 	{
-		this.piece = null;
+	        this.piece = null;
 	}
 }

@@ -1,7 +1,7 @@
 package tests;
 
 import org.junit.Test;
-import pieces.piece.Piece;
+import pieces.Icon;
 import player.Computer;
 import player.Move;
 
@@ -18,10 +18,10 @@ public class ComputerTest extends tests.Test
         {
                 setUp1();
                 assertEquals(0, computer.evaluateBoard());
-//                board.printModel();
+//                board.print();
                 setUp2();
                 assertEquals(Integer.MIN_VALUE, computer.evaluateBoard());
-//                board.printModel();
+//                board.print();
         }
 
         @Test
@@ -32,45 +32,44 @@ public class ComputerTest extends tests.Test
                         blackPlayer.pieces[14],
                         computer.getMostValuablePiece(computer.getCapturedPieces())
                 );
-//                board.printModel();
+//                board.print();
                 setUp2();
                 assertEquals(
                         blackPlayer.pieces[15],
                         computer.getMostValuablePiece(computer.getCapturedPieces())
                 );
-//                board.printModel();
+//                board.print();
         }
 
         @Test
         public void testGetBestMove()
         {
-                computer.depth = 4;
                 setUp3();
-//                board.printModel();
+//                board.print();
                 assertTrue(isBestMoveShouldReturnTrue(3, 3));
                 setUp4();
-//                board.printModel();
+//                board.print();
                 assertTrue(isBestMoveShouldReturnTrue(5, 5));
         }
 
-        public void setUp1()
+        private void setUp1()
         {
                 resetElements();
                 removePieces1();
                 setPositions1();
         }
 
-        public void removePieces1()
+        private void removePieces1()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet1();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet1();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet1();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet1();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
                 for (int i = 1; i < 8; ++i)
                         removePiece(whitePlayer.pieces[i]);
         }
 
-        public void setPositions1()
+        private void setPositions1()
         {
                 movePiece(whitePlayer.pieces[0], 4,4);
                 movePiece(whitePlayer.pieces[14], 3, 5);
@@ -79,41 +78,41 @@ public class ComputerTest extends tests.Test
                 movePiece(blackPlayer.pieces[9], 4, 5);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet1()
+        private ArrayList<Icon> whiteTestSet1()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.Q);
-                icons.add(Piece.Icon.K);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.P);
+                icons.add(Icon.Q);
+                icons.add(Icon.K);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet1()
+        private ArrayList<Icon> blackTestSet1()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
-                icons.add(Piece.Icon.R);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.K);
+                icons.add(Icon.R);
                 return icons;
         }
 
-        public void setUp2()
+        private void setUp2()
         {
                 resetElements();
                 removePieces2();
                 setPositions2();
         }
 
-        public void removePieces2()
+        private void removePieces2()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet2();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet2();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet2();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet2();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
                 for (int i = 1; i < 8; ++i)
                         removePiece(whitePlayer.pieces[i]);
         }
 
-        public void setPositions2()
+        private void setPositions2()
         {
                 movePiece(whitePlayer.pieces[0], 4,4);
                 movePiece(whitePlayer.pieces[14], 3, 5);
@@ -122,40 +121,40 @@ public class ComputerTest extends tests.Test
                 movePiece(blackPlayer.pieces[9], 4, 5);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet2()
+        private ArrayList<Icon> whiteTestSet2()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.K);
-                icons.add(Piece.Icon.Q);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.P);
+                icons.add(Icon.K);
+                icons.add(Icon.Q);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet2()
+        private ArrayList<Icon> blackTestSet2()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.R);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.R);
                 return icons;
         }
 
-        public void setUp3()
+        private void setUp3()
         {
                 resetElements();
                 removePieces3();
                 setPositions3();
         }
 
-        public void removePieces3()
+        private void removePieces3()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet3();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet3();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet3();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet3();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
                 for (int i = 1; i < 8; ++i)
                         removePiece(blackPlayer.pieces[i]);
         }
 
-        public void setPositions3()
+        private void setPositions3()
         {
                 movePiece(blackPlayer.pieces[0], 4,4);
                 movePiece(whitePlayer.pieces[14], 3, 5);
@@ -164,41 +163,41 @@ public class ComputerTest extends tests.Test
                 movePiece(blackPlayer.pieces[9], 4, 5);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet3()
+        private ArrayList<Icon> whiteTestSet3()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.Q);
-                icons.add(Piece.Icon.K);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
+                icons.add(Icon.K);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet3()
+        private ArrayList<Icon> blackTestSet3()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.R);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.K);
+                icons.add(Icon.P);
+                icons.add(Icon.R);
                 return icons;
         }
 
-        public void setUp4()
+        private void setUp4()
         {
                 resetElements();
                 removePieces4();
                 setPositions4();
         }
 
-        public void removePieces4()
+        private void removePieces4()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet4();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet4();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet4();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet4();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
                 for (int i = 1; i < 8; ++i)
                         removePiece(blackPlayer.pieces[i]);
         }
 
-        public void setPositions4()
+        private void setPositions4()
         {
                 movePiece(blackPlayer.pieces[0], 4,4);
                 movePiece(whitePlayer.pieces[14], 5, 5);
@@ -206,30 +205,28 @@ public class ComputerTest extends tests.Test
                 movePiece(blackPlayer.pieces[9], 4, 5);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet4()
+        private ArrayList<Icon> whiteTestSet4()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.Q);
-                icons.add(Piece.Icon.K);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
+                icons.add(Icon.K);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet4()
+        private ArrayList<Icon> blackTestSet4()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
-                icons.add(Piece.Icon.P);
-                icons.add(Piece.Icon.R);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.K);
+                icons.add(Icon.P);
+                icons.add(Icon.R);
                 return icons;
         }
 
-        public boolean isBestMoveShouldReturnTrue(int bestRow, int bestCol)
+        private boolean isBestMoveShouldReturnTrue(int bestRow, int bestCol)
         {
-                Move bestMove = computer.getBestMove(computer.depth);
-                if (bestMove.getFinalRow() == bestRow &&
-                        bestMove.getFinalCol() == bestCol)
-                        return true;
-                return false;
+                Move bestMove = computer.getBestMove(Computer.DEPTH);
+                return bestMove.getFinalRow() == bestRow &&
+                        bestMove.getFinalCol() == bestCol;
         }
 
         public void resetElements()

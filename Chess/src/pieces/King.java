@@ -49,9 +49,9 @@ public class King extends Piece
 
 	public boolean canMove(int row, int col)
 	{
-		if (!super.canMove(row, col))
-			return false;
 		if (!Utils.inRange(row, col))
+			return false;
+		if (!super.canMove(row, col))
 			return false;
 		if (canCastle(row, col))
 			return true;
@@ -103,25 +103,25 @@ public class King extends Piece
 		boolean checked = false;
 		int kingCurrentRow = getRow();
 		int kingCurrentCol = getCol();
-		captureTmp(this);
+		removeTmp(this);
 		Piece pieceOnDestination = board.getPieceAt(destRow, destCol);
 		if (pieceOnDestination != null &&
 			!pieceOnDestination.hasSameColor(getColor()))
-		        captureTmp(pieceOnDestination);
+		        removeTmp(pieceOnDestination);
 		for (Piece enemy : enemies) {
 			if (enemy.canCapture(destRow, destCol)) {
 			        checked = true;
 			        break;
 			}
 		}
-		uncaptureTmp(this, kingCurrentRow, kingCurrentCol);
+		unremoveTmp(this, kingCurrentRow, kingCurrentCol);
 		if (pieceOnDestination != null &&
 			!pieceOnDestination.hasSameColor(getColor()))
-		        uncaptureTmp(pieceOnDestination, destRow, destCol);
+		        unremoveTmp(pieceOnDestination, destRow, destCol);
 		return checked;
 	}
 
-	private void captureTmp(Piece piece)
+	private void removeTmp(Piece piece)
 	{
 		board.removePiece(piece.getRow(), piece.getCol());
 		piece.setRow(Integer.MIN_VALUE);
@@ -129,7 +129,7 @@ public class King extends Piece
 		piece.setCaptured(true);
 	}
 
-	private void uncaptureTmp(Piece piece, int previousRow, int previousCol)
+	private void unremoveTmp(Piece piece, int previousRow, int previousCol)
 	{
 		board.addPiece(piece, previousRow, previousCol);
 		piece.setRow(previousRow);

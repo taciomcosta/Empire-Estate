@@ -13,7 +13,8 @@ import org.junit.runners.Suite;
         KnightTest.class,
         PawnTest.class,
         QueenTest.class,
-        RookTest.class
+        RookTest.class,
+        ComputerTest.class
 })
 
 public class TestSuite {}

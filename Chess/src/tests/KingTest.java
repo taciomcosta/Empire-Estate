@@ -2,9 +2,8 @@ package tests;
 
 import chessboard.Utils;
 import org.junit.Test;
+import pieces.Icon;
 import pieces.King;
-import pieces.Queen;
-import pieces.piece.Piece;
 
 import java.util.ArrayList;
 
@@ -18,53 +17,53 @@ public class KingTest extends tests.Test
         public void testCanCaptureAndCanMove()
         {
                 setUp1();
-                board.printModel();
+//                board.printModel();
                 assertTrue(captureTestShouldReturnTrue1());
                 setUp2();
-                board.printModel();
+//                board.printModel();
                 assertTrue(captureTestShouldReturnTrue2());
                 setUp3();
-                board.printModel();
+//                board.printModel();
                 assertTrue(moveTestShouldReturnTrue3());
         }
 
-        public void setUp1()
+        private void setUp1()
         {
                 resetElements();
                 removePieces1();
                 setPositions1();
         }
 
-        public void removePieces1()
+        private void removePieces1()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet1();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet1();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet1();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet1();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
         }
 
-        public void setPositions1()
+        private void setPositions1()
         {
                 movePiece(king, 4,3);
                 movePiece(blackPlayer.pieces[10], 1, 3);
                 movePiece(blackPlayer.pieces[11], 4, 1);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet1()
+        private ArrayList<Icon> whiteTestSet1()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.K);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.K);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet1()
+        private ArrayList<Icon> blackTestSet1()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.B);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.B);
                 return icons;
         }
 
-        public boolean captureTestShouldReturnTrue1()
+        private boolean captureTestShouldReturnTrue1()
         {
                 boolean[][] testMap = {
                         {false, false, false, false, false, false, false, false},
@@ -84,22 +83,22 @@ public class KingTest extends tests.Test
                 return true;
         }
 
-        public void setUp2()
+        private void setUp2()
         {
                 resetElements();
                 removePieces2();
                 setPositions2();
         }
 
-        public void removePieces2()
+        private void removePieces2()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet2();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet2();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet2();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet2();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
         }
 
-        public void setPositions2()
+        private void setPositions2()
         {
                 movePiece(king, 4, 3);
                 movePiece(whitePlayer.pieces[14], 5, 3);
@@ -107,22 +106,22 @@ public class KingTest extends tests.Test
                 movePiece(blackPlayer.pieces[11], 4, 2);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet2()
+        private ArrayList<Icon> whiteTestSet2()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.Q);
-                icons.add(Piece.Icon.K);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
+                icons.add(Icon.K);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet2()
+        private ArrayList<Icon> blackTestSet2()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.B);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.B);
                 return icons;
         }
 
-        public boolean captureTestShouldReturnTrue2()
+        private boolean captureTestShouldReturnTrue2()
         {
                 boolean[][] testMap = {
                         {false, false, false, false, false, false, false, false},
@@ -142,44 +141,44 @@ public class KingTest extends tests.Test
                 return true;
         }
 
-        public void setUp3()
+        private void setUp3()
         {
                 resetElements();
                 removePieces3();
                 setPositions3();
         }
 
-        public void removePieces3()
+        private void removePieces3()
         {
-                ArrayList<Piece.Icon> whitePiecesIcon = whiteTestSet3();
-                ArrayList<Piece.Icon> blackPiecesIcon = blackTestSet3();
-                removePiecesDifferent(whitePlayer, whitePiecesIcon);
-                removePiecesDifferent(blackPlayer, blackPiecesIcon);
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet3();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet3();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
         }
 
-        public void setPositions3()
+        private void setPositions3()
         {
                 movePiece(king, 4, 3);
                 movePiece(whitePlayer.pieces[14], 5, 3);
                 movePiece(blackPlayer.pieces[14], 3, 3);
         }
 
-        public ArrayList<Piece.Icon> whiteTestSet3()
+        private ArrayList<Icon> whiteTestSet3()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.Q);
-                icons.add(Piece.Icon.K);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
+                icons.add(Icon.K);
                 return icons;
         }
 
-        public ArrayList<Piece.Icon> blackTestSet3()
+        private ArrayList<Icon> blackTestSet3()
         {
-                ArrayList<Piece.Icon> icons = new ArrayList<>();
-                icons.add(Piece.Icon.Q);
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
                 return icons;
         }
 
-        public boolean moveTestShouldReturnTrue3()
+        private boolean moveTestShouldReturnTrue3()
         {
                 boolean[][] testMap = {
                         {false, false, false, false, false, false, false, false},

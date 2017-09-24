@@ -5,14 +5,9 @@ import java.util.ArrayList;
 import chessboard.Chessboard;
 import chessboard.Utils;
 
-import pieces.Bishop;
-import pieces.King;
-import pieces.Knight;
-import pieces.Pawn;
+import pieces.*;
 import pieces.piece.Piece;
 import pieces.piece.Piece.Color;
-import pieces.Queen;
-import pieces.Rook;
 
 public abstract class Player
 {
@@ -22,11 +17,14 @@ public abstract class Player
 	protected int row;
 	protected int col;
 
-	protected Player(Chessboard b, Color piecesColor)
+	Player(Chessboard b, Color piecesColor)
 	{
-		setPiecesColor(piecesColor);
-		setChessboard(b);
-		initializePieces();
+		this.piecesColor = piecesColor;
+		this.board = b;
+		if (this.piecesColor == Color.WHITE)
+			initializeWhitePieces();
+		else
+			initializeBlackPieces();
 	}
 
 	public Piece[] getPieces()
@@ -39,47 +37,52 @@ public abstract class Player
 		return pieces[i];
 	}
 
-	private void initializePieces()
+	private void initializeWhitePieces()
 	{
-//		FOR BLACK PIECES
-		if (getPiecesColor() == Color.BLACK) {
-//			set pawns
-			for (int i = 0; i < 8; i++)
-				pieces[i] = new Pawn(Color.BLACK, board, 1, i);
-//	              	set Rooks
-			pieces[8] = new Rook(Color.BLACK, board, 0, 0);
-			pieces[9] = new Rook(Color.BLACK, board, 0, 7);
-//	                set Bishops
-			pieces[10] = new Bishop(Color.BLACK, board, 0, 2);
-			pieces[11] = new Bishop(Color.BLACK, board, 0, 5);
-//	              	set Knight
-			pieces[12] = new Knight(Color.BLACK, board, 0, 6);
-			pieces[13] = new Knight(Color.BLACK, board, 0, 1);
-//	            	set Queen
-			pieces[14] = new Queen(Color.BLACK, board, 0, 3);
-//	              	set Kings
-			pieces[15] = new King(Color.BLACK, board, 0, 4);
-//		FOR WHITE PIECES
-		} else {
-//			set pawns
-			for (int i = 0; i < 8; i++)
-				pieces[i] = new Pawn(Color.WHITE, board, 6, i);
-//	              	set Rooks
-			pieces[8] = new Rook(Color.WHITE, board, 7, 0);
-			pieces[9] = new Rook(Color.WHITE, board, 7, 7);
-//	                set Bishops 
-			pieces[10] = new Bishop(Color.WHITE, board, 7, 2);
-			pieces[11] = new Bishop(Color.WHITE, board, 7, 5);
-//	              	set Knight 
-			pieces[12] = new Knight(Color.WHITE, board, 7, 6);
-			pieces[13] = new Knight(Color.WHITE, board, 7, 1);
-//	            	set Queen
-			pieces[14] = new Queen(Color.WHITE, board, 7, 3);
-//	              	set Kings
-			pieces[15] = new King(Color.WHITE, board, 7, 4);
-		}
+                for (int i = 0; i < 8; i++)
+                        pieces[Icon.P.getValue() + i] =
+				new Pawn(Color.BLACK, board, 1, i);
+                pieces[Icon.R.getValue()] =
+			new Rook(Color.BLACK, board, 0, 0);
+                pieces[Icon.R.getValue() + 1] =
+			new Rook(Color.BLACK, board, 0, 7);
+                pieces[Icon.B.getValue()] =
+			new Bishop(Color.BLACK, board, 0, 2);
+                pieces[Icon.B.getValue() + 1] =
+			new Bishop(Color.BLACK, board, 0, 5);
+                pieces[Icon.N.getValue()] =
+			new Knight(Color.BLACK, board, 0, 6);
+                pieces[Icon.N.getValue() + 1] =
+			new Knight(Color.BLACK, board, 0, 1);
+                pieces[Icon.Q.getValue()] =
+			new Queen(Color.BLACK, board, 0, 3);
+                pieces[Icon.K.getValue()] =
+			new King(Color.BLACK, board, 0, 4);
 	}
-	
+
+	private void initializeBlackPieces()
+	{
+		for (int i = 0; i < 8; i++)
+			pieces[Icon.P.getValue() + i] =
+				new Pawn(Color.WHITE, board, 6, i);
+		pieces[Icon.R.getValue()] =
+			new Rook(Color.WHITE, board, 7, 0);
+		pieces[Icon.R.getValue() + 1] =
+			new Rook(Color.WHITE, board, 7, 7);
+		pieces[Icon.B.getValue()] =
+			new Bishop(Color.WHITE, board, 7, 2);
+		pieces[Icon.B.getValue() + 1] =
+			new Bishop(Color.WHITE, board, 7, 5);
+		pieces[Icon.N.getValue()] =
+			new Knight(Color.WHITE, board, 7, 6);
+		pieces[Icon.N.getValue() + 1] =
+			new Knight(Color.WHITE, board, 7, 1);
+		pieces[Icon.Q.getValue()] =
+			new Queen(Color.WHITE, board, 7, 3);
+		pieces[Icon.K.getValue()] =
+			new King(Color.WHITE, board, 7, 4);
+	}
+
 	public Color getPiecesColor()
 	{
 		return this.piecesColor;
@@ -109,11 +112,6 @@ public abstract class Player
 		return piecesAlive;
 	}
 	
-	private void setPiecesColor(Color piecesColor)
-	{
-		this.piecesColor = piecesColor;
-	}
-	
 	public boolean kingIsChecked(ArrayList<Piece> enemyPieces)
 	{
 		King k = (King) getPiece(15);
@@ -124,11 +122,6 @@ public abstract class Player
 	{
 		King k = (King) getPiece(15);
 		return k.isCheckmated(this, enemy);
-	}
-	
-	public void setChessboard(Chessboard board)
-	{
-		this.board = board;
 	}
 	
 	/*
@@ -154,7 +147,7 @@ public abstract class Player
 		return true;
 	}
 
-	public ArrayList<Move> getPossibleMoves()
+	ArrayList<Move> getPossibleMoves()
 	{
 	        ArrayList<Move> possibleMoves = new ArrayList<>();
 		for (int row = 0; row < Utils.BOARD_LENGTH; ++row)
@@ -197,8 +190,8 @@ public abstract class Player
 		return wouldBeChecked;
 	}
 
-	// TODO private
-	public void setState(Move move)
+
+	void setState(Move move)
 	{
 		int finalRow = move.getFinalRow();
 		int finalCol = move.getFinalCol();
@@ -207,21 +200,11 @@ public abstract class Player
 		move.setCapturedPiece(e);
 		if (move.getType() == Move.MoveType.MOVE)
 			moveTmp(p, finalRow, finalCol);
-		else {
-			try {
-				captureTmp(p, e, move);
-			} catch (NullPointerException nulls) {
-				System.out.println("ERROR");
-				System.out.println(finalRow + ", " + finalCol);
-				System.out.println(board.getPieceAt(0, 4));
-				System.out.println(board.getPieceAt(1, 4));
-				board.printModel();
-			}
-		}
+		else
+			captureTmp(p, e, move);
 	}
 
-	// TODO private
-	public void unsetState(Move move)
+	void unsetState(Move move)
 	{
 		int startRow = move.getStartRow();
 		int startCol = move.getStartCol();

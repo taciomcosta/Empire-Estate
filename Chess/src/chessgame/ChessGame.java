@@ -10,22 +10,24 @@ import player.Player;
 
 public class ChessGame
 {
-	public enum CheckStatus {
+	private enum CheckStatus
+	{
 		CHECKMATE, 
 		ENEMY_CHECKED, 
 		SELF_CHECKED,
 		STALEMATE, 
 		OK
 	}
-
-	public ChessGameModel model;
+	public Chessboard board;
+	public Player player1;
+	public Player player2;
+	public Player currentPlayer;
 
 	public ChessGame()
 	{
-		Chessboard board = new Chessboard();
-		Player p1 = new Human(board, Color.WHITE);
-		Player p2 = new Computer(board, Color.BLACK, p1);
-		model = new ChessGameModel(board, p1, p2);
+		this.board =  new Chessboard();
+		this.player1 = new Human(board, Color.WHITE);
+		this.player2 = new Computer(board, Color.BLACK, player1);
 		// comment the two following lines, for using tests
 //		setUp();
 //		gameLoop();
@@ -33,57 +35,65 @@ public class ChessGame
 
         public void setUp()
         {
-        	model.currentPlayer = model.player2;
+        	currentPlayer = player2;
         }
         
-        public void gameLoop()
+        private void gameLoop()
         {
-        	model.board.printModel();
+        	board.print();
         	for(;;) {
-			model.setCurrentPlayer();
-			while(!model.currentPlayer.play());
-			System.out.println(model.getCurrentPlayer().getPiecesColor());
-			model.board.printModel();
-			model.currentPlayer.verifyPawnPromotion();
+			changeCurrentPlayer();
+			while(!currentPlayer.play());
+			board.print();
+			currentPlayer.verifyPawnPromotion();
 			CheckStatus status = verifyGameStatus();
 			if (status == CheckStatus.STALEMATE) {
 				System.out.println("STALEMATE!");
 				end();
-			} else if (status == CheckStatus.CHECKMATE ||
+			}
+			if (status == CheckStatus.CHECKMATE ||
 					status == CheckStatus.SELF_CHECKED) {
 				System.out.println("CHECKMATE! + " + status);
 				end();
-			} else if (status == CheckStatus.ENEMY_CHECKED) {
+			}
+			if (status == CheckStatus.ENEMY_CHECKED) {
 				System.out.println("CHECK!");
 			}
         	}
         }
         
-	public CheckStatus verifyGameStatus()
+	private CheckStatus verifyGameStatus()
 	{
-		Player current = model.getCurrentPlayer();
-		Player enemy = model.getEnemy();
-		if (current.isStalemate() || enemy.isStalemate())
+		Player enemy = getCurrentEnemy();
+		if (currentPlayer.isStalemate() || enemy.isStalemate())
 			return CheckStatus.STALEMATE;
-		else if(current.kingIsCheckmated(enemy) ||
-				enemy.kingIsCheckmated(current))
+		else if(currentPlayer.kingIsCheckmated(enemy) ||
+				enemy.kingIsCheckmated(currentPlayer))
 			return CheckStatus.CHECKMATE;
-		else if (enemy.kingIsChecked(current.getPiecesAlive()))
+		else if (enemy.kingIsChecked(currentPlayer.getPiecesAlive()))
 			return CheckStatus.ENEMY_CHECKED;
-		else if (current.kingIsChecked(enemy.getPiecesAlive()))
+		else if (currentPlayer.kingIsChecked(enemy.getPiecesAlive()))
 			return CheckStatus.SELF_CHECKED;
 		return CheckStatus.OK;
 	}
 
-        public void end()
+	public void changeCurrentPlayer()
+	{
+		if (currentPlayer == player1)
+			currentPlayer = player2;
+		else
+			currentPlayer = player1;
+	}
+
+	public Player getCurrentEnemy()
+	{
+	        if (currentPlayer == player1)
+	        	return player2;
+	        return player1;
+	}
+
+        private void end()
         {
-        	Player current = model.getCurrentPlayer();
-        	Player enemy = model.getEnemy();
-        	/*delete it */System.out.println(current.getPiecesColor() + " checkmated: " + current.kingIsCheckmated(enemy));
-        	System.out.println(enemy.getPiecesColor() + " checkmated: " + enemy.kingIsCheckmated(current));
-        	System.out.println("\nChecked");
-        	System.out.println(current.getPiecesColor() + " checked: " + current.kingIsChecked(enemy.getPiecesAlive()));
-        	/**/ System.out.println(enemy.getPiecesColor() + " checked: " + enemy.kingIsChecked(current.getPiecesAlive()));
 		System.exit(0);
         }
 }

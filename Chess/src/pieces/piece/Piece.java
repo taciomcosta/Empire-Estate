@@ -2,12 +2,12 @@ package pieces.piece;
 
 import chessboard.Chessboard;
 import chessboard.Utils;
+import pieces.Icon;
 
 public abstract class Piece
 {
 	public enum Color {BLACK, WHITE};
-	public enum Icon {P, R, N, B, Q, K};
-	
+
 	public PieceModel model;
 	protected Chessboard board;
 

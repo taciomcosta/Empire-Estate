@@ -2,6 +2,7 @@ package tests;
 
 import chessboard.Chessboard;
 import chessgame.ChessGame;
+import pieces.Icon;
 import pieces.piece.Piece;
 import player.Player;
 
@@ -15,7 +16,7 @@ public abstract class Test
         public Chessboard board;
 
         public void removePiecesDifferent(Player player,
-                                          ArrayList<Piece.Icon> piecesIcon)
+                                          ArrayList<Icon> piecesIcon)
         {
                 for (Piece playerPiece : player.getPieces())
                         if (!piecesIcon.contains(playerPiece.getPieceInitial()))
@@ -38,7 +39,7 @@ public abstract class Test
                 piece.increaseMoves();
         }
 
-        public boolean[][] getCaptureMap(Piece piece)
+        boolean[][] getCaptureMap(Piece piece)
         {
                 boolean[][] map = new boolean[8][8];
                 for (int i = 0; i < 8; ++i)
@@ -47,7 +48,7 @@ public abstract class Test
                 return map;
         }
 
-        public boolean[][] getMoveMap(Piece piece)
+        boolean[][] getMoveMap(Piece piece)
         {
                 boolean[][] map = new boolean[8][8];
                 for (int i = 0; i < 8; ++i)
@@ -72,8 +73,8 @@ public abstract class Test
         public void resetElements()
         {
                 game = new ChessGame();
-                whitePlayer = game.model.player1;
-                blackPlayer = game.model.player2;
-                board = game.model.board;
+                whitePlayer = game.player1;
+                blackPlayer = game.player2;
+                board = game.board;
         }
 }

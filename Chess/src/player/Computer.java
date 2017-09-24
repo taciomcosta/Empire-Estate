@@ -8,6 +8,8 @@
 package player;
 
 import java.util.*;
+
+import pieces.Icon;
 import pieces.Pawn;
 import pieces.piece.Piece;
 import pieces.piece.Piece.Color;
@@ -16,7 +18,7 @@ import chessboard.Chessboard;
 public class Computer extends Player
 {
 	private Player enemy;
-	public int depth = 4;
+	public static final int DEPTH = 4;
 
 	public Computer(Chessboard b, Color piecesColor, Player enemy)
 	{
@@ -70,13 +72,12 @@ public class Computer extends Player
 
 	private Piece choosePieceToMoveAndDestination()
 	{
-                Move bestMove = getBestMove(depth);
+                Move bestMove = getBestMove(DEPTH);
 		row = bestMove.getFinalRow();
 		col = bestMove.getFinalCol();
 		return bestMove.getPiece();
 	}
 
-	// TODO private
 	public Move getBestMove(int depth)
 	{
 	        Move bestMove = null;
@@ -130,20 +131,17 @@ public class Computer extends Player
 		return max;
 	}
 
-	// TODO private
 	public int evaluateBoard()
 	{
 		int score = 0;
-		if (pieces[15].isCaptured())
+		if (pieces[Icon.K.getValue()].isCaptured())
 			return Integer.MIN_VALUE;
-		if (enemy.pieces[15].isCaptured())
+		if (enemy.pieces[Icon.K.getValue()].isCaptured())
 			return Integer.MAX_VALUE;
-		for (Piece piece : getPiecesAlive()) {
+		for (Piece piece : getPiecesAlive())
 			score += piece.getValue();
-		}
-		for (Piece piece : enemy.getPiecesAlive()) {
+		for (Piece piece : enemy.getPiecesAlive())
 			score -= piece.getValue();
-		}
 		return score;
 	}
 

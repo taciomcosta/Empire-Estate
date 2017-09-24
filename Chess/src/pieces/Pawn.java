@@ -21,9 +21,9 @@ public final class Pawn extends Piece
 	@Override
 	public boolean canMove(int row, int col)
 	{
-		if (!super.canMove(row, col))
-			return false;
 		if (!Utils.inRange(row, col))
+			return false;
+		if (!super.canMove(row, col))
 			return false;
 		if (board.getPieceAt(row, col) != null)
 			return false;

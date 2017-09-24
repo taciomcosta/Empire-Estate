@@ -1,48 +1,50 @@
 package chessboard;
 
-import chessboard.cell.Cell;
-
 import pieces.piece.Piece;
 
 public final class Chessboard
 {
-	private ChessboardModel model;
-	private Cell[][] cells;
+	private Tile[][] tiles;
 
         public Chessboard()
         {
-        	model = new ChessboardModel();
-        	cells = new Cell[Utils.BOARD_LENGTH][Utils.BOARD_LENGTH];
+        	tiles = new Tile[Utils.BOARD_LENGTH][Utils.BOARD_LENGTH];
         	for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
         		for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
-        			cells[i][j] = new Cell();
-        			model.setCell(cells[i][j].getModel(), i, j);
+        			tiles[i][j] = new Tile();
         		}
 		}
         }
         
         public void addPiece(Piece p, int row, int col)
         {
-        	cells[row][col].setPiece(p);
+        	tiles[row][col].setPiece(p);
         }
         
         public void removePiece(int row, int col)
         {
-        	cells[row][col].unsetPiece();
+        	tiles[row][col].unsetPiece();
         }
         
         public Piece getPieceAt(int row, int col)
         {
-        	return cells[row][col].getPiece();
+        	return tiles[row][col].getPiece();
         }
         
-        public void printModel()
-        {
-        	model.print();
-        }
-
-        public char[][] getModel()
+	public void print()
 	{
-		return model.getState();
+		for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
+			System.out.print((8 - i) + " | ");
+			for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
+				Piece p = tiles[i][j].getPiece();
+				if (p != null)
+					System.out.print(p.toString() + " ");
+				else
+					System.out.print("- ");
+			}
+			System.out.println();
+		}
+		System.out.println("   -----------------");
+		System.out.println("    a b c d e f g h\n");
 	}
 }
