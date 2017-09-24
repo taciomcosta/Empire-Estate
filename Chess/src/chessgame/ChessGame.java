@@ -2,7 +2,7 @@ package chessgame;
 
 import chessboard.Chessboard;
 
-import pieces.piece.Piece.Color;
+import pieces.Piece.Color;
 
 import player.Computer;
 import player.Human;

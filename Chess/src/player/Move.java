@@ -1,6 +1,6 @@
 package player;
 
-import pieces.piece.Piece;
+import pieces.Piece;
 
 public class Move
 {

@@ -1,8 +1,6 @@
 package pieces;
 
-import pieces.piece.Piece;
 import chessboard.Chessboard;
-import chessboard.Utils;
 
 public class Queen extends Piece
 {

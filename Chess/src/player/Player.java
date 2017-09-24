@@ -6,8 +6,8 @@ import chessboard.Chessboard;
 import chessboard.Utils;
 
 import pieces.*;
-import pieces.piece.Piece;
-import pieces.piece.Piece.Color;
+import pieces.Piece;
+import pieces.Piece.Color;
 
 public abstract class Player
 {

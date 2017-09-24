@@ -2,7 +2,6 @@ package pieces;
 
 import java.util.ArrayList;
 
-import pieces.piece.Piece;
 import player.Player;
 
 import chessboard.Chessboard;

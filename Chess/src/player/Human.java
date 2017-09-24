@@ -6,8 +6,8 @@ import java.util.Scanner;
 import chessboard.Chessboard;
 
 import pieces.Pawn;
-import pieces.piece.Piece;
-import pieces.piece.Piece.Color;
+import pieces.Piece;
+import pieces.Piece.Color;
 
 public class Human extends Player
 {

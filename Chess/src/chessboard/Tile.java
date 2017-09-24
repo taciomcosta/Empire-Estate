@@ -1,6 +1,6 @@
 package chessboard;
 
-import pieces.piece.Piece;
+import pieces.Piece;
 
 public final class Tile
 {

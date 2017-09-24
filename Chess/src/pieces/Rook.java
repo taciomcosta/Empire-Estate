@@ -1,6 +1,5 @@
 package pieces;
 
-import pieces.piece.Piece;
 import chessboard.Chessboard;
 
 public class Rook extends Piece

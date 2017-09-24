@@ -3,7 +3,7 @@ package tests;
 import chessboard.Chessboard;
 import chessgame.ChessGame;
 import pieces.Icon;
-import pieces.piece.Piece;
+import pieces.Piece;
 import player.Player;
 
 import java.util.ArrayList;

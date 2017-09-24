@@ -4,7 +4,6 @@ import chessboard.Utils;
 import org.junit.Test;
 import pieces.Icon;
 import pieces.Pawn;
-import pieces.piece.Piece;
 
 import java.util.ArrayList;
 
