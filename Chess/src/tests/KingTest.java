@@ -17,13 +17,13 @@ public class KingTest extends tests.Test
         public void testCanCaptureAndCanMove()
         {
                 setUp1();
-//                board.printModel();
+//                board.print();
                 assertTrue(captureTestShouldReturnTrue1());
                 setUp2();
-//                board.printModel();
+//                board.print();
                 assertTrue(captureTestShouldReturnTrue2());
                 setUp3();
-//                board.printModel();
+//                board.print();
                 assertTrue(moveTestShouldReturnTrue3());
         }
 

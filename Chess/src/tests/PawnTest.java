@@ -18,7 +18,7 @@ public class PawnTest extends tests.Test
         public void testCanCaptureAndCanMove()
         {
                 setUp1();
-                board.print();
+//                board.print();
                 assertTrue(captureTestShouldReturnTrue1());
                 setUp2();
 //                board.print();

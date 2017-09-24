@@ -39,29 +39,6 @@ public abstract class Player
 
 	private void initializeWhitePieces()
 	{
-                for (int i = 0; i < 8; i++)
-                        pieces[Icon.P.getValue() + i] =
-				new Pawn(Color.BLACK, board, 1, i);
-                pieces[Icon.R.getValue()] =
-			new Rook(Color.BLACK, board, 0, 0);
-                pieces[Icon.R.getValue() + 1] =
-			new Rook(Color.BLACK, board, 0, 7);
-                pieces[Icon.B.getValue()] =
-			new Bishop(Color.BLACK, board, 0, 2);
-                pieces[Icon.B.getValue() + 1] =
-			new Bishop(Color.BLACK, board, 0, 5);
-                pieces[Icon.N.getValue()] =
-			new Knight(Color.BLACK, board, 0, 6);
-                pieces[Icon.N.getValue() + 1] =
-			new Knight(Color.BLACK, board, 0, 1);
-                pieces[Icon.Q.getValue()] =
-			new Queen(Color.BLACK, board, 0, 3);
-                pieces[Icon.K.getValue()] =
-			new King(Color.BLACK, board, 0, 4);
-	}
-
-	private void initializeBlackPieces()
-	{
 		for (int i = 0; i < 8; i++)
 			pieces[Icon.P.getValue() + i] =
 				new Pawn(Color.WHITE, board, 6, i);
@@ -81,6 +58,29 @@ public abstract class Player
 			new Queen(Color.WHITE, board, 7, 3);
 		pieces[Icon.K.getValue()] =
 			new King(Color.WHITE, board, 7, 4);
+	}
+
+	private void initializeBlackPieces()
+	{
+		for (int i = 0; i < 8; i++)
+			pieces[Icon.P.getValue() + i] =
+				new Pawn(Color.BLACK, board, 1, i);
+		pieces[Icon.R.getValue()] =
+			new Rook(Color.BLACK, board, 0, 0);
+		pieces[Icon.R.getValue() + 1] =
+			new Rook(Color.BLACK, board, 0, 7);
+		pieces[Icon.B.getValue()] =
+			new Bishop(Color.BLACK, board, 0, 2);
+		pieces[Icon.B.getValue() + 1] =
+			new Bishop(Color.BLACK, board, 0, 5);
+		pieces[Icon.N.getValue()] =
+			new Knight(Color.BLACK, board, 0, 6);
+		pieces[Icon.N.getValue() + 1] =
+			new Knight(Color.BLACK, board, 0, 1);
+		pieces[Icon.Q.getValue()] =
+			new Queen(Color.BLACK, board, 0, 3);
+		pieces[Icon.K.getValue()] =
+			new King(Color.BLACK, board, 0, 4);
 	}
 
 	public Color getPiecesColor()
