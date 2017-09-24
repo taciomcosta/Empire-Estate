@@ -18,10 +18,10 @@ public class PawnTest extends tests.Test
         {
                 setUp1();
 //                board.print();
-                assertTrue(captureTestShouldReturnTrue1());
+                assertTrue(captureTestShouldReturnTrue());
                 setUp2();
 //                board.print();
-                assertTrue(captureTestShouldReturnTrue2());
+                assertTrue(canCaptureByEnPassantTestShouldReturnTrue());
                 setUp3();
 //                board.print();
                 assertTrue(moveTestShouldReturnTrue3());
@@ -72,7 +72,7 @@ public class PawnTest extends tests.Test
                 return icons;
         }
 
-        private boolean captureTestShouldReturnTrue1()
+        private boolean captureTestShouldReturnTrue()
         {
                 boolean[][] testMap = {
                         {false, false, false, false, false, false, false, false},
@@ -99,6 +99,7 @@ public class PawnTest extends tests.Test
                 resetElements();
                 removePieces2();
                 setPositions2();
+                board.setLastMovedPiece(blackPlayer.pieces[0]);
         }
 
         private void removePieces2()
@@ -115,8 +116,8 @@ public class PawnTest extends tests.Test
 
         private void setPositions2()
         {
-                movePiece(whitePlayer.pieces[0], 4, 0);
-                movePiece(blackPlayer.pieces[0], 4, 1);
+                movePiece(whitePlayer.pieces[0], 3, 0);
+                movePiece(blackPlayer.pieces[0], 3, 1);
                 movePiece(blackPlayer.pieces[8], 2, 2);
                 movePiece(blackPlayer.pieces[9], 2, 2);
         }
@@ -136,24 +137,9 @@ public class PawnTest extends tests.Test
                 return icons;
         }
 
-        private boolean captureTestShouldReturnTrue2()
+        private boolean canCaptureByEnPassantTestShouldReturnTrue()
         {
-                boolean[][] testMap = {
-                        {false, false, false, false, false, false, false, false},
-                        {false, false, false, false, false, false, false, false},
-                        {false, false, false, false, false, false, false, false},
-                        {false, true, false, false, false, false, false, false},
-                        {false, true, false, false, false, false, false, false},
-                        {false, false, false, false, false, false, false, false},
-                        {false, false, false, false, false, false, false, false},
-                        {false, false, false, false, false, false, false, false},
-                };
-                boolean[][] currentMap = getCaptureMap(pawn);
-                for (int i = 0; i < Utils.BOARD_LENGTH; ++i)
-                        for (int j = 0; j < Utils.BOARD_LENGTH; ++j)
-                                if (testMap[i][j] != currentMap[i][j])
-                                        return false;
-                return true;
+                return pawn.canCaptureEnPassant(2, 1);
         }
 
         private void setUp3()

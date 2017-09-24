@@ -4,9 +4,12 @@ import chessboard.Chessboard;
 
 public final class Pawn extends Piece
 {
+	private int firstRow;
+
 	public Pawn(Color color, Chessboard b, int row, int col)
 	{
 		super(color, Icon.P, b, row, col, 1);
+		this.firstRow = row;
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public final class Pawn extends Piece
 
 	private boolean canMoveTwoSpaces(int row, int col)
 	{
-		return getMoves() == 0 &&
+		return getNumberOfMoves() == 0 &&
 		Math.abs(row - getRow()) == 2 &&
 		board.getPieceAt((row + getRow()) / 2, col) == null;
 	}
@@ -50,13 +53,12 @@ public final class Pawn extends Piece
 	public void capture(Piece pieceToCapture)
 	{
 		int enemyRow = pieceToCapture.getRow();
-		int firstRow = pieceToCapture.getFirstRow();
 		int enemyCol = pieceToCapture.getCol();
 		if (canCaptureByDiagonal(enemyRow, enemyCol))
 			super.capture(pieceToCapture);
 		if (canCaptureEnPassant(enemyRow, enemyCol)) {
 			super.capture(pieceToCapture);
-			int rowToMove = (firstRow + enemyRow) / 2;
+			int rowToMove = (this.firstRow + enemyRow) / 2;
 			int colToMove = enemyCol;
 			super.move(rowToMove, colToMove);
 		}
@@ -79,9 +81,9 @@ public final class Pawn extends Piece
 			return false;
 		if (Math.abs(col - getCol()) != 1)
                         return false;
-		if ((hasSameColor(Color.BLACK) && getRow() >= row))
+		if (hasSameColor(Color.BLACK) && getRow() >= row)
 			return false;
-		if ((hasSameColor(Color.WHITE) && getRow() <= row))
+		if (hasSameColor(Color.WHITE) && getRow() <= row)
 			return false;
 		return true;
 	}
@@ -91,18 +93,20 @@ public final class Pawn extends Piece
 	 * Different from others canCapture() methods, canCaptureEnPassant()
 	 * returns false if cell (enemyRow, enemyCol) is an empty one.
 	 */
-	private boolean canCaptureEnPassant(int enemyRow, int enemyCol)
+	public boolean canCaptureEnPassant(int finalRow, int finalCol)
 	{
-		if (board.getPieceAt(enemyRow, enemyCol) == null)
+		Piece pieceToCapture = board.getPieceAt(getRow(), finalCol);
+		if (!canCaptureByDiagonal(finalRow, finalCol))
 			return false;
-		Piece pieceToCapture = board.getPieceAt(enemyRow, enemyCol);
+		if (pieceToCapture == null)
+			return false;
 		if (pieceToCapture.getPieceInitial() != Icon.P)
 			return false;
-		if (pieceToCapture.getMoves() != 1)
+		if (pieceToCapture.getNumberOfMoves() != 1)
 			return false;
-		if (Math.abs(getCol() - enemyCol) != 1)
+		if (pieceToCapture != board.getLastMovedPiece())
 			return false;
-		if (Math.abs(getRow() - enemyRow) != 0)
+		if (Math.abs(getRow() - this.firstRow) != 3)
 			return false;
 		return true;
 	}
