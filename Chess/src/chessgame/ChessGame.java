@@ -29,8 +29,8 @@ public class ChessGame
 		this.player1 = new Human(board, Color.WHITE);
 		this.player2 = new Computer(board, Color.BLACK, player1);
 		// comment the two following lines, for using tests
-//		setUp();
-//		gameLoop();
+		setUp();
+		gameLoop();
 	}
 
         public void setUp()

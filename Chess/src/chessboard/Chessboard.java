@@ -5,7 +5,6 @@ import pieces.Piece;
 public final class Chessboard
 {
 	private Tile[][] tiles;
-	private Piece lastMovedPiece;
 
         public Chessboard()
         {
@@ -31,16 +30,6 @@ public final class Chessboard
         {
         	return tiles[row][col].getPiece();
         }
-
-        public void setLastMovedPiece(Piece piece)
-	{
-		this.lastMovedPiece = piece;
-	}
-
-	public Piece getLastMovedPiece()
-	{
-		return this.lastMovedPiece;
-	}
         
 	public void print()
 	{

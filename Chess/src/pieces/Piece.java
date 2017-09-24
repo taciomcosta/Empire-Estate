@@ -12,8 +12,10 @@ public abstract class Piece
 	private Icon pieceInitial;
 	private int row;
 	private int col;
+	private int firstRow;
+	private int firstCol;
 	private int value;
-	private int moves = 0;
+	int moves = 0;
 	private boolean captured = false;
 
 	public Piece(Color color, Icon icon, Chessboard board, int row, int col,
@@ -24,6 +26,8 @@ public abstract class Piece
 		this.pieceInitial = icon;
 		this.row = row;
 		this.col = col;
+		this.firstRow = row;
+		this.firstCol = col;
 		this.value = value;
 		board.addPiece(this, row, col);
 	}
@@ -58,12 +62,17 @@ public abstract class Piece
 		return this.col;
 	}
 
+	public int getFirstRow()
+	{
+		return this.firstRow;
+	}
+
 	public Icon getPieceInitial()
 	{
 		return this.pieceInitial;
 	}
 
-	public int getNumberOfMoves()
+	public int getMoves()
 	{
 		return this.moves;
 	}
@@ -94,20 +103,9 @@ public abstract class Piece
 	{
 		board.removePiece(getRow(), getCol());
 		board.addPiece(this, row, col);
-		board.setLastMovedPiece(this);
 		setRow(row);
 		setCol(col);
 		increaseMoves();
-	}
-
-	public void capture(Piece pieceToCapture)
-	{
-		int enemyRow = pieceToCapture.getRow();
-		int enemyCol = pieceToCapture.getCol();
-		board.removePiece(enemyRow, enemyCol);
-		pieceToCapture.setCaptured(true);
-		pieceToCapture.unsetPositionFromBoardRange();
-		move(enemyRow, enemyCol);
 	}
 
 	public boolean hasSameColor(Piece piece)
@@ -118,6 +116,22 @@ public abstract class Piece
 	public boolean hasSameColor(Color c)
 	{
 	        return c == getColor();
+	}
+	
+	public void capture(Piece pieceToCapture)
+	{
+		int enemyRow = pieceToCapture.getRow();
+		int enemyCol = pieceToCapture.getCol();
+		if (!hasSameColor(pieceToCapture)) {
+			board.removePiece(enemyRow, enemyCol);
+			pieceToCapture.setCaptured(true);
+			board.removePiece(getRow(), getCol());
+			board.addPiece(this, enemyRow, enemyCol);
+			setRow(enemyRow);
+			setCol(enemyCol);
+			increaseMoves();
+			pieceToCapture.unsetPositionFromBoardRange();
+		}
 	}
 
 	public void unsetPositionFromBoardRange()

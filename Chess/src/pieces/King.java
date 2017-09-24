@@ -213,7 +213,7 @@ public class King extends Piece
 		if (Math.abs(getCol() - col) != 2 ||
 			Math.abs(getRow() - row) != 0)
 			return false;
-		if (getNumberOfMoves() > 0)
+		if (getMoves() > 0)
 			return false;
 		if (isChecked())
 			return false;
@@ -223,7 +223,7 @@ public class King extends Piece
 			return false;
 		if (rook.getPieceInitial() != Icon.R)
 			return false;
-		if (rook.getNumberOfMoves() > 0)
+		if (rook.getMoves() > 0)
 			return false;
                 return !hasPieceBetween(rook.getRow(), rook.getCol());
 	}
