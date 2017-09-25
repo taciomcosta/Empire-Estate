@@ -51,36 +51,27 @@ public class Human extends Player
 		}
 		return pieceToPromote;
 	}
-	
-	public boolean play()
+
+	@Override
+	Piece choosePieceToMoveAndDestination()
 	{
-	        Piece piece = pickPieceToMove();
-		if(piece ==  null)
-			return false;
+		Piece pieceToMove = pickPieceToMove();
 		pickDestination();
-		if(piece.canMove(row, col)) {
-			piece.move(row, col);
-			System.out.println("Piece moved!");
-			return true;
-		}
-		if(piece.canCapture(row, col) &&
-			board.getPieceAt(row, col) != null) {
-			piece.capture(board.getPieceAt(row, col));
-			System.out.println("Piece captured!");
-			return true;
-		}
-		return false;
+		return pieceToMove;
 	}
 
 	private Piece pickPieceToMove()
 	{
-		System.out.print("(" + getPiecesColor() + ") Piece to move: ");
-		String pos = input.nextLine();
-		castPosition(pos);
-		Piece piece = board.getPieceAt(row, col);
-		if (!piece.hasSameColor(getPiecesColor()))
-			return null;
-		return piece;
+	        Piece pieceToMove;
+	        do {
+			System.out.print("(" + getPiecesColor() +
+				") Piece to move: ");
+			String pos = input.nextLine();
+			castPosition(pos);
+			pieceToMove = board.getPieceAt(row, col);
+		} while (pieceToMove == null ||
+			!pieceToMove.hasSameColor(getPiecesColor()) );
+		return pieceToMove;
 	}
 
 	private void pickDestination()

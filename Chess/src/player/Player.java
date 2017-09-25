@@ -259,6 +259,23 @@ public abstract class Player
 		e.setCol(m.getFinalCol());
 	}
 
-	public abstract boolean play();
+	public boolean play()
+	{
+		Piece pieceToMove = choosePieceToMoveAndDestination();
+		if(pieceToMove.canMove(row, col)) {
+			pieceToMove.move(row, col);
+			System.out.println("Piece moved!");
+			return true;
+		}
+		if (pieceToMove.canCapture(row, col) &&
+			board.getPieceAt(row, col) != null) {
+			pieceToMove.capture(board.getPieceAt(row, col));
+			System.out.println("Piece captured!");
+			return true;
+		}
+		return false;
+	}
+
+	abstract Piece choosePieceToMoveAndDestination();
 	public abstract void verifyPawnPromotion();
 }
