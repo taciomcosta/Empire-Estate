@@ -18,10 +18,10 @@ public class PawnTest extends tests.Test
         {
                 setUp1();
 //                board.print();
-                assertTrue(captureTestShouldReturnTrue1());
+                assertTrue(captureTestShouldReturnTrue());
                 setUp2();
-//                board.print();
-                assertTrue(captureTestShouldReturnTrue2());
+                board.print();
+                assertTrue(captureEnPassantTestShouldReturnTrue());
                 setUp3();
 //                board.print();
                 assertTrue(moveTestShouldReturnTrue3());
@@ -72,7 +72,7 @@ public class PawnTest extends tests.Test
                 return icons;
         }
 
-        private boolean captureTestShouldReturnTrue1()
+        private boolean captureTestShouldReturnTrue()
         {
                 boolean[][] testMap = {
                         {false, false, false, false, false, false, false, false},
@@ -111,14 +111,14 @@ public class PawnTest extends tests.Test
                         removePiece(whitePlayer.pieces[i]);
                         removePiece(blackPlayer.pieces[i]);
                 }
+                removePiece(blackPlayer.pieces[9]);
         }
 
         private void setPositions2()
         {
-                movePiece(whitePlayer.pieces[0], 4, 0);
-                movePiece(blackPlayer.pieces[0], 4, 1);
-                movePiece(blackPlayer.pieces[8], 2, 2);
-                movePiece(blackPlayer.pieces[9], 2, 2);
+                movePiece(whitePlayer.pieces[0], 3, 1);
+                movePiece(blackPlayer.pieces[0], 3, 0);
+                movePiece(blackPlayer.pieces[8], 4, 3);
         }
 
         private ArrayList<Icon> whiteTestSet2()
@@ -136,7 +136,7 @@ public class PawnTest extends tests.Test
                 return icons;
         }
 
-        private boolean captureTestShouldReturnTrue2()
+        private boolean captureEnPassantTestShouldReturnTrue()
         {
                 boolean[][] testMap = {
                         {false, false, false, false, false, false, false, false},
