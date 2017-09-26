@@ -122,16 +122,14 @@ public abstract class Piece
 	{
 		int enemyRow = pieceToCapture.getRow();
 		int enemyCol = pieceToCapture.getCol();
-		if (!hasSameColor(pieceToCapture)) {
-			board.removePiece(enemyRow, enemyCol);
-			pieceToCapture.setCaptured(true);
-			board.removePiece(getRow(), getCol());
-			board.addPiece(this, enemyRow, enemyCol);
-			setRow(enemyRow);
-			setCol(enemyCol);
-			increaseMoves();
-			pieceToCapture.unsetPositionFromBoardRange();
-		}
+                board.removePiece(enemyRow, enemyCol);
+                pieceToCapture.setCaptured(true);
+		pieceToCapture.unsetPositionFromBoardRange();
+                board.removePiece(getRow(), getCol());
+                board.addPiece(this, enemyRow, enemyCol);
+                setRow(enemyRow);
+                setCol(enemyCol);
+                increaseMoves();
 	}
 
 	public void unsetPositionFromBoardRange()
