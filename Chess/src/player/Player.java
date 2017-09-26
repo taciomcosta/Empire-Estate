@@ -262,18 +262,38 @@ public abstract class Player
 	public boolean play()
 	{
 		Piece pieceToMove = choosePieceToMoveAndDestination();
+		Piece pieceToBeCaptured;
+		System.out.println("---------------------------------");
 		if(pieceToMove.canMove(row, col)) {
 			pieceToMove.move(row, col);
 			System.out.println("Piece moved!");
 			return true;
 		}
+		pieceToBeCaptured = board.getPieceAt(row, col);
 		if (pieceToMove.canCapture(row, col) &&
-			board.getPieceAt(row, col) != null) {
-			pieceToMove.capture(board.getPieceAt(row, col));
+			pieceToBeCaptured != null) {
+			pieceToMove.capture(pieceToBeCaptured);
 			System.out.println("Piece captured!");
 			return true;
 		}
+		if (canCaptureByEnPassant(pieceToMove, pieceToBeCaptured)) {
+		        pieceToBeCaptured = board.getPieceAt(
+		        	pieceToMove.getRow(),
+				col
+			);
+		        pieceToMove.capture(pieceToBeCaptured);
+			System.out.println("Piece captured! (En passant)");
+			return true;
+		}
 		return false;
+	}
+
+	private boolean canCaptureByEnPassant(Piece pieceToMove,
+					     Piece pieceToBeCaptured)
+	{
+		return pieceToMove.getPieceInitial() == Icon.P &&
+			pieceToBeCaptured == null &&
+			pieceToMove.canCapture(pieceToMove.getRow(), col);
 	}
 
 	abstract Piece choosePieceToMoveAndDestination();

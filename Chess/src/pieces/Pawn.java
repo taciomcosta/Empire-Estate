@@ -32,7 +32,7 @@ public final class Pawn extends Piece
 
 	private boolean canMoveTwoSpaces(int row, int col)
 	{
-		return getMoves() == 0 &&
+		return getNumberOfMoves() == 0 &&
 		Math.abs(row - getRow()) == 2 &&
 		board.getPieceAt((row + getRow()) / 2, col) == null;
 	}
@@ -50,25 +50,25 @@ public final class Pawn extends Piece
 	public void capture(Piece pieceToCapture)
 	{
 		int enemyRow = pieceToCapture.getRow();
-		int firstRow = pieceToCapture.getFirstRow();
 		int enemyCol = pieceToCapture.getCol();
 		if (canCaptureByDiagonal(enemyRow, enemyCol))
 			super.capture(pieceToCapture);
 		if (canCaptureEnPassant(enemyRow, enemyCol)) {
 			super.capture(pieceToCapture);
-			int rowToMove = (firstRow + enemyRow) / 2;
-			int colToMove = enemyCol;
-			super.move(rowToMove, colToMove);
+			int firstRow = pieceToCapture.getFirstRow();
+			int finalRow = (firstRow + enemyRow) / 2;
+			super.move(finalRow, enemyCol);
+			decreaseMoves();
 		}
 	}
 	
 	@Override
-	public boolean canCapture(int row, int col)
+	public boolean canCapture(int enemyRow, int enemyCol)
 	{
-		if (!super.canCapture(row, col))
+		if (!super.canCapture(enemyRow, enemyCol))
 			return false;
-		if (!canCaptureByDiagonal(row, col) &&
-			!canCaptureEnPassant(row, col))
+		if (!canCaptureByDiagonal(enemyRow, enemyCol) &&
+			!canCaptureEnPassant(enemyRow, enemyCol))
 			return false;
 		return true;
 	}
@@ -93,16 +93,20 @@ public final class Pawn extends Piece
 	 */
 	private boolean canCaptureEnPassant(int enemyRow, int enemyCol)
 	{
-		if (board.getPieceAt(enemyRow, enemyCol) == null)
+		Piece pieceToBeCaptured = board.getPieceAt(enemyRow, enemyCol);
+		int finalRow;
+		if (pieceToBeCaptured == null)
 			return false;
-		Piece pieceToCapture = board.getPieceAt(enemyRow, enemyCol);
-		if (pieceToCapture.getPieceInitial() != Icon.P)
+		if (pieceToBeCaptured.getPieceInitial() != Icon.P)
 			return false;
-		if (pieceToCapture.getMoves() != 1)
+		if (pieceToBeCaptured.getNumberOfMoves() != 1)
 			return false;
-		if (Math.abs(getCol() - enemyCol) != 1)
+		if (Math.abs(enemyRow - pieceToBeCaptured.getFirstRow()) != 2)
 			return false;
-		if (Math.abs(getRow() - enemyRow) != 0)
+		if (pieceToBeCaptured != board.getLastMovedPiece())
+			return false;
+		finalRow = (enemyRow + pieceToBeCaptured.getFirstRow()) / 2;
+		if (!canCaptureByDiagonal(finalRow, enemyCol))
 			return false;
 		return true;
 	}

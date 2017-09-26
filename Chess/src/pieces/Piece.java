@@ -72,7 +72,7 @@ public abstract class Piece
 		return this.pieceInitial;
 	}
 
-	public int getMoves()
+	public int getNumberOfMoves()
 	{
 		return this.moves;
 	}
@@ -103,6 +103,7 @@ public abstract class Piece
 	{
 		board.removePiece(getRow(), getCol());
 		board.addPiece(this, row, col);
+		board.setLastMovedPiece(this);
 		setRow(row);
 		setCol(col);
 		increaseMoves();
@@ -127,6 +128,7 @@ public abstract class Piece
 		pieceToCapture.unsetPositionFromBoardRange();
                 board.removePiece(getRow(), getCol());
                 board.addPiece(this, enemyRow, enemyCol);
+                board.setLastMovedPiece(this);
                 setRow(enemyRow);
                 setCol(enemyCol);
                 increaseMoves();
