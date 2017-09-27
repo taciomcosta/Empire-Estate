@@ -19,6 +19,7 @@ public class Computer extends Player
 {
 	private Player enemy;
 	public static final int DEPTH = 4;
+	private int possibilitiesChecked;
 
 	public Computer(Chessboard b, Color piecesColor, Player enemy)
 	{
@@ -65,15 +66,18 @@ public class Computer extends Player
 	        Move bestMove = null;
 	        int maxValue = Integer.MIN_VALUE;
                 ArrayList<Move> moves = getPossibleMoves();
+                int currentValue;
+                possibilitiesChecked = 0;
                 for (Move m : moves) {
                         setState(m);
-			int currentValue = max(depth - 1);
+			currentValue = max(depth - 1);
+			unsetState(m);
 			if (currentValue > maxValue) {
 				maxValue = currentValue;
 				bestMove = m;
 			}
-			unsetState(m);
                 }
+                System.out.println("Possibilities checked: " + possibilitiesChecked);
 		return bestMove;
 	}
 
@@ -83,15 +87,15 @@ public class Computer extends Player
 			return evaluateBoard();
 		ArrayList<Integer> minimums = new ArrayList<>();
                 ArrayList<Move> enemyMoves = enemy.getPossibleMoves();
+		int min = Integer.MAX_VALUE;
+                int currentValue;
                 for (Move m : enemyMoves) {
                         enemy.setState(m);
-			minimums.add(min(depth - 1));
+			currentValue = min(depth - 1);
 			enemy.unsetState(m);
+			if (currentValue < min)
+				min = currentValue;
                 }
-		int min = Integer.MAX_VALUE;
-		for (Integer value : minimums)
-			if (value < min)
-				min = value;
 		return min;
 	}
 
@@ -101,20 +105,21 @@ public class Computer extends Player
 			return evaluateBoard();
 		ArrayList<Integer> maximums = new ArrayList<>();
                 ArrayList<Move> moves = getPossibleMoves();
+		int max = Integer.MIN_VALUE;
+		int currentValue;
                 for (Move m : moves) {
                 	setState(m);
-			maximums.add(max(depth - 1));
+			currentValue = max(depth - 1);
                         unsetState(m);
+			if (currentValue > max)
+				max = currentValue;
                 }
-		int max = Integer.MIN_VALUE;
-		for (Integer value : maximums)
-			if (value > max)
-				max = value;
 		return max;
 	}
 
 	public int evaluateBoard()
 	{
+	        ++possibilitiesChecked;
 		int score = 0;
 		if (pieces[Icon.K.getValue()].isCaptured())
 			return Integer.MIN_VALUE;
