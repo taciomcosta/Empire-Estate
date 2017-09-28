@@ -27,10 +27,10 @@ public class King extends Piece
 	@Override
 	public void move(int row, int col)
 	{
+		if (canCastle(row, col))
+			castle(row, col);
 		if (canMove(row, col))
 			super.move(row, col);
-		else
-			castle(row, col);
 	}
 
 	@Override
@@ -191,32 +191,36 @@ public class King extends Piece
 		return false;
 	}
 
-	public void castle(int row, int col)
+	public void castle(int finalRow, int finalCol)
 	{
-		if (canCastle(row, col)) {
-			super.move(row, col);
-			Rook rook = (Rook) board.getPieceAt(row, 0);
-			int direction = col < getCol() ? -1 : 1;
-			rook.castle(getRow(), getCol() - direction);
-		}
+		int rookCol = getCol() < finalCol ? 7 : 0;
+	        int rookFinalCol = (getCol() + finalCol) / 2;
+                super.move(finalRow, finalCol);
+                Rook rook = (Rook) board.getPieceAt(finalRow, rookCol);
+                rook.castle(finalRow, rookFinalCol);
 	}
 
 	/**
 	 * Requisites for castle
-	 * - King cannot be checked
-	 * - King may not have been moved yet
-	 * - There must be a Rook for castling
+	 * - King cannot be checked and will not be checked in any tile
+	 *   until the final position
+	 * - King and Rook may not have been moved yet
+         * - Tiles between the two pieces are not being attacked
 	 */
-	private boolean canCastle(int row, int col)
+	private boolean canCastle(int finalRow, int finalCol)
 	{
-		Piece rook = board.getPieceAt(row, col);
-		if (Math.abs(getCol() - col) != 2 ||
-			Math.abs(getRow() - row) != 0)
+		if (Math.abs(getCol() - finalCol) != 2)
+			return false;
+		if(Math.abs(getRow() - finalRow) != 0)
 			return false;
 		if (getNumberOfMoves() > 0)
 			return false;
 		if (isChecked())
 			return false;
+		if (willBeCheckedThroughMove(finalRow, finalCol))
+			return false;
+		int rookCol = getCol() < finalCol ? 7 : 0;
+		Piece rook = board.getPieceAt(finalRow, rookCol);
 		if (rook == null)
 			return false;
 		if (!rook.hasSameColor(getColor()))
@@ -225,7 +229,34 @@ public class King extends Piece
 			return false;
 		if (rook.getNumberOfMoves() > 0)
 			return false;
-                return !hasPieceBetween(rook.getRow(), rook.getCol());
+		if (hasPieceBetween(finalRow, rookCol))
+			return false;
+		return true;
+	}
+
+	private boolean willBeCheckedThroughMove(int finalRow, int finalCol)
+	{
+		ArrayList<Piece> enemyPieces = getEnemyPiecesFromBoard();
+		int startRow = getRow();
+		int startCol = getCol();
+		int rowDirection = 0;
+		int colDirection = 0;
+		if (finalRow > startRow)
+			rowDirection = -1;
+		else if (finalRow < startRow)
+			rowDirection = 1;
+		if (finalCol > startCol)
+			colDirection = -1;
+		else if (finalCol < startCol)
+			colDirection = 1;
+		while (finalRow != startRow || finalCol != startCol) {
+		        for (Piece enemyPiece : enemyPieces)
+		        	if (enemyPiece.canCapture(finalRow, finalCol))
+		        		return true;
+		        finalRow += rowDirection;
+		        finalCol += colDirection;
+		}
+	        return false;
 	}
 
 	private boolean hasPieceBetween(int finalRow, int finalCol)
@@ -244,10 +275,9 @@ public class King extends Piece
 			colDirection = 1;
 		finalRow += rowDirection;
 		finalCol += colDirection;
-		while (finalRow != startRow && finalCol != startCol) {
-			if (board.getPieceAt(finalRow, finalCol) != null) {
+		while (finalRow != startRow || finalCol != startCol) {
+			if (board.getPieceAt(finalRow, finalCol) != null)
 				return true;
-			}
 			finalRow += rowDirection;
 			finalCol += colDirection;
 		}
@@ -259,10 +289,10 @@ public class King extends Piece
 		ArrayList<Piece> enemyPieces = new ArrayList<>();
 		for (int i = 0; i < Utils.BOARD_LENGTH; i++) {
 			for (int j = 0; j < Utils.BOARD_LENGTH; j++) {
-				if (board.getPieceAt(i, j) != null) {
-					Piece enemy = board.getPieceAt(i, j);
-					if (!hasSameColor(enemy))
-						enemyPieces.add(enemy);
+				Piece enemyPiece = board.getPieceAt(i, j);
+				if (enemyPiece != null &&
+					!hasSameColor(enemyPiece)) {
+						enemyPieces.add(enemyPiece);
 				}
 			}
 		}

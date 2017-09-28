@@ -8,6 +8,7 @@ import pieces.King;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertTrue;
+import static junit.framework.TestCase.assertFalse;
 
 public class KingTest extends tests.Test
 {
@@ -25,6 +26,12 @@ public class KingTest extends tests.Test
                 setUp3();
 //                board.print();
                 assertTrue(moveTestShouldReturnTrue3());
+                setUp4();
+//                board.print();
+                assertTrue(canCastleShouldReturnTrue());
+                setUp5();
+                board.print();
+                assertFalse(canCastleShouldReturnFalse());
         }
 
         private void setUp1()
@@ -196,6 +203,82 @@ public class KingTest extends tests.Test
                                 if (testMap[i][j] != currentMap[i][j])
                                         return false;
                 return true;
+        }
+
+        private void setUp4()
+        {
+                resetElements();
+                removePieces4();
+                setPositions4();
+        }
+
+        private void removePieces4()
+        {
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet4();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet4();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
+                removePiece(whitePlayer.pieces[9]);
+        }
+
+        private void setPositions4()
+        {
+                movePiece(blackPlayer.pieces[14], 0, 7);
+        }
+
+        private ArrayList<Icon> whiteTestSet4()
+        {
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.R);
+                icons.add(Icon.K);
+                return icons;
+        }
+
+        private ArrayList<Icon> blackTestSet4()
+        {
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
+                return icons;
+        }
+
+        private boolean canCastleShouldReturnTrue()
+        {
+                return king.canMove(7, 2);
+        }
+
+        private void setUp5()
+        {
+                resetElements();
+                removePieces5();
+        }
+
+        private void removePieces5()
+        {
+                ArrayList<Icon> whitePiecesIcons = whiteTestSet5();
+                ArrayList<Icon> blackPiecesIcons = blackTestSet5();
+                removePiecesDifferent(whitePlayer, whitePiecesIcons);
+                removePiecesDifferent(blackPlayer, blackPiecesIcons);
+                removePiece(whitePlayer.pieces[9]);
+        }
+
+        private ArrayList<Icon> whiteTestSet5()
+        {
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.R);
+                icons.add(Icon.K);
+                return icons;
+        }
+
+        private ArrayList<Icon> blackTestSet5()
+        {
+                ArrayList<Icon> icons = new ArrayList<>();
+                icons.add(Icon.Q);
+                return icons;
+        }
+
+        private boolean canCastleShouldReturnFalse()
+        {
+                return king.canMove(7, 2);
         }
 
         @Override
