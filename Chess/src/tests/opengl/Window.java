@@ -5,14 +5,12 @@ import static org.lwjgl.glfw.GLFW.*;
 import org.lwjgl.glfw.GLFWVidMode;
 
 import static org.lwjgl.opengl.GL.createCapabilities;
-import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.glClear;
-import static org.lwjgl.opengl.GL11.glClearColor;
+import static org.lwjgl.opengl.GL11.*;
 
 public class Window
 {
         public static final float DEFAULT_WIDTH = 600f;
-        public static final float DEFAULT_HEIGHT = 600f;
+        public static final float DEFAULT_HEIGHT = 600;
         private long windowId;
         private int width;
         private int height;
@@ -47,7 +45,7 @@ public class Window
         private void clear()
         {
                 glClearColor(0.1f, 0.1f, 0.3f, 0.5f);
-                glClear(GL_COLOR_BUFFER_BIT);
+                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         }
 
 

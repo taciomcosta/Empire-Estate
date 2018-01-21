@@ -61,4 +61,22 @@ public class Transform
                 this.rot.y = y;
                 this.rot.z = z;
         }
+
+
+        public Vector3f getPos()
+        {
+                return this.pos;
+        }
+
+
+        public Vector3f getScale()
+        {
+                return this.scale;
+        }
+
+
+        public Vector3f getRot()
+        {
+                return this.rot;
+        }
 }

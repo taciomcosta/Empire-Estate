@@ -66,7 +66,7 @@ public class ColoredMesh extends Mesh
                         this.color.getBlue() / 255f);
                 glBindVertexArray(vao);
                 glDrawElements(
-                        GL_TRIANGLES,
+                        GL_TRIANGLES, //GL_LINES
                         buffers[ELEMENT.ordinal()].remaining(),
                         GL_UNSIGNED_INT, 0);
                 //glDrawArrays(GL_TRIANGLES, 0, vertices.size() / coords);

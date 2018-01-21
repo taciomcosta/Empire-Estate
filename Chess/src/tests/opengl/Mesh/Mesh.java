@@ -1,5 +1,6 @@
 package tests.opengl.Mesh;
 
+import org.joml.Vector3f;
 import tests.opengl.Shader;
 import tests.opengl.Transform;
 
@@ -80,4 +81,69 @@ public abstract class Mesh
         {
                 this.transform.rotate(x, y, z);
         }
+
+
+        public void translateX(float x)
+        {
+                Vector3f pos = this.transform.getPos();
+                transform.translate(x, pos.y, pos.z);
+        }
+
+
+        public void translateY(float y)
+        {
+                Vector3f pos = this.transform.getPos();
+                transform.translate(pos.x, y, pos.z);
+        }
+
+
+        public void translateZ(float z)
+        {
+                Vector3f pos = this.transform.getPos();
+                transform.translate(pos.x, pos.y, z);
+        }
+
+
+        public void rotateX(float x)
+        {
+                Vector3f rot = this.transform.getRot();
+                transform.rotate(x, rot.y, rot.z);
+        }
+
+
+        public void rotateY(float y)
+        {
+                Vector3f rot = this.transform.getRot();
+                transform.rotate(rot.x, y, rot.z);
+        }
+
+
+        public void rotateZ(float z)
+        {
+                Vector3f rot = this.transform.getRot();
+                transform.rotate(rot.x, rot.y, z);
+        }
+
+
+        public void scaleX(float x)
+        {
+                Vector3f scale = this.transform.getScale();
+                transform.scale(x, scale.y, scale.z);
+        }
+
+
+        public void scaleY(float y)
+        {
+                Vector3f scale = this.transform.getScale();
+                transform.scale(scale.x, y, scale.z);
+        }
+
+
+        public void scaleZ(float z)
+        {
+                Vector3f scale = this.transform.getScale();
+                transform.scale(scale.x, scale.y, z);
+        }
+
+
 }

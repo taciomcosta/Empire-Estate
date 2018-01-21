@@ -12,7 +12,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.LinkedList;
 
-// Should it be a static class?
+
 public class MeshLoader
 {
         private static FloatBuffer vertices;
@@ -23,10 +23,79 @@ public class MeshLoader
 
         public static Mesh parseFile(String filePath, Window window)
         {
-                float ratioW = Window.DEFAULT_WIDTH / window.getWidth();
-                float ratioH = Window.DEFAULT_HEIGHT / window.getHeight();
                 LinkedList<Float> vList = new LinkedList<>();
                 LinkedList<Integer> iList = new LinkedList<>();
+                categorizeFileData(filePath, vList, iList);
+                vertices = BufferUtils.createFloatBuffer(vList.size());
+                indices = BufferUtils.createIntBuffer(iList.size());
+                adjustVerticesProportion(vList, window);
+                for(Float f : vList)
+                        vertices.put(f);
+                for(Integer i : iList)
+                        indices.put(i);
+                vertices.flip();
+                indices.flip();
+                return mesh = new ColoredMesh(
+                        vertices,
+                        indices,
+                        new Color(255, 255, 0));
+        }
+
+
+        public static Mesh parseFile(String filePath, Window window, Color c)
+        {
+                LinkedList<Float> vList = new LinkedList<>();
+                LinkedList<Integer> iList = new LinkedList<>();
+                categorizeFileData(filePath, vList, iList);
+                vertices = BufferUtils.createFloatBuffer(vList.size());
+                indices = BufferUtils.createIntBuffer(iList.size());
+                adjustVerticesProportion(vList, window);
+                for(Float f : vList)
+                        vertices.put(f);
+                for(Integer i : iList)
+                        indices.put(i);
+                vertices.flip();
+                indices.flip();
+                return mesh = new ColoredMesh(
+                        vertices,
+                        indices,
+                        c);
+        }
+
+
+        public static Mesh parseFile(String filePath, String textureFilePath,
+                                     Window window)
+        {
+                LinkedList<Float> vList = new LinkedList<>();
+                LinkedList<Integer> iList = new LinkedList<>();
+                LinkedList<Float> tList = new LinkedList<>();
+                categorizeFileData(filePath, vList, iList, tList);
+                vertices = BufferUtils.createFloatBuffer(vList.size());
+                indices = BufferUtils.createIntBuffer(iList.size());
+                texCoords = BufferUtils.createFloatBuffer(tList.size());
+                adjustVerticesProportion(vList, window);
+                for(Float f : vList)
+                        vertices.put(f);
+                for(Integer i : iList)
+                        indices.put(i);
+                for(Float f : tList)
+                        texCoords.put(f);
+                vertices.flip();
+                indices.flip();
+                texCoords.flip();
+                return mesh = new TexturedMesh(
+                        vertices,
+                        indices,
+                        texCoords,
+                        textureFilePath
+                );
+        }
+
+
+        private static void categorizeFileData(String filePath,
+                                        LinkedList<Float> vList,
+                                        LinkedList<Integer> iList)
+        {
                 try {
                         FileReader fr = new FileReader(filePath);
                         BufferedReader br = new BufferedReader(fr);
@@ -40,32 +109,15 @@ public class MeshLoader
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
-                vertices = BufferUtils.createFloatBuffer(vList.size());
-                indices = BufferUtils.createIntBuffer(iList.size());
-                for (int i = 0; i < vList.size() - 2; i+=3) {
-                        vList.set(i, vList.get(i) * ratioW);
-                        vList.set(i + 1, vList.get(i + 1) * ratioH);
-                }
-                for(Float f : vList)
-                        vertices.put(f);
-                for(Integer i : iList)
-                        indices.put(i);
-                vertices.flip();
-                indices.flip();
-                System.out.println("Positions: " + String.valueOf(vList.size()));
-                for (Integer i : iList) System.out.println(i);
-                return mesh = new ColoredMesh(
-                        vertices,
-                        indices,
-                        new Color(255, 255, 0)); //TODO make it cusomizable
         }
 
 
-        public static Mesh parseFile(String filePath, String textureFilePath)
+
+        private static void categorizeFileData(String filePath,
+                                               LinkedList<Float> vList,
+                                               LinkedList<Integer> iList,
+                                               LinkedList<Float> tList)
         {
-                LinkedList<Float> vList = new LinkedList<>();
-                LinkedList<Integer> iList = new LinkedList<>();
-                LinkedList<Float> tList = new LinkedList<>();
                 try {
                         FileReader fr = new FileReader(filePath);
                         BufferedReader br = new BufferedReader(fr);
@@ -82,24 +134,6 @@ public class MeshLoader
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
-                vertices = BufferUtils.createFloatBuffer(vList.size());
-                indices = BufferUtils.createIntBuffer(iList.size());
-                texCoords = BufferUtils.createFloatBuffer(tList.size());
-                for(Float f : vList)
-                        vertices.put(f);
-                for(Integer i : iList)
-                        indices.put(i);
-                for(Float f : tList)
-                        texCoords.put(f);
-                vertices.flip();
-                indices.flip();
-                texCoords.flip();
-                return mesh = new TexturedMesh(
-                        vertices,
-                        indices,
-                        texCoords,
-                        textureFilePath
-                );
         }
 
 
@@ -121,10 +155,23 @@ public class MeshLoader
         }
 
 
-        private static void addLineToTexCoordsList(String line, LinkedList tList)
+        private static void addLineToTexCoordsList(String line,
+                                                   LinkedList tList)
         {
                 String[] e = line.split(" ");
                 tList.add(Float.parseFloat(e[1]));
                 tList.add(Float.parseFloat(e[2]));
+        }
+
+
+        private static void adjustVerticesProportion(LinkedList<Float> vList,
+                                                     Window w)
+        {
+                float ratioW = Window.DEFAULT_WIDTH / w.getWidth();
+                float ratioH = Window.DEFAULT_HEIGHT / w.getHeight();
+                for (int i = 0; i < vList.size() - 2; i+=3) {
+                        vList.set(i, vList.get(i) * ratioW);
+                        vList.set(i + 1, vList.get(i + 1) * ratioH);
+                }
         }
 }
