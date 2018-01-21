@@ -13,6 +13,9 @@ public class Circle
         private FloatBuffer vertices;
         private IntBuffer indices;
         private ColoredMesh mesh;
+        private static float RATIO_W = 600f/6000f;
+        private static float RATIO_H = 600f/600f;
+        private static float RATIO_D = 600f/600f;
 
 
         public Circle()
@@ -21,13 +24,13 @@ public class Circle
                 this.vertices = BufferUtils.createFloatBuffer(361 * 3);
                 this.indices = BufferUtils.createIntBuffer(359 * 3);
                 // VERTICES
-                vertices.put(0f);
-                vertices.put(0f);
-                vertices.put(0f);
+                vertices.put(0f * RATIO_W);
+                vertices.put(0f * RATIO_H);
+                vertices.put(0f * RATIO_D);
                 for (int i = 0; i < 360; ++i) {
-                        vertices.put((float) Math.cos(i) * radius);
-                        vertices.put((float) Math.sin(i) * radius);
-                        vertices.put(0f);
+                        vertices.put((float) Math.cos(i) * radius * RATIO_W);
+                        vertices.put((float) Math.sin(i) * radius * RATIO_H);
+                        vertices.put(0f * RATIO_D);
                 }
                 vertices.flip();
                 // INDICES

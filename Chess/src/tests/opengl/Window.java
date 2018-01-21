@@ -11,11 +11,17 @@ import static org.lwjgl.opengl.GL11.glClearColor;
 
 public class Window
 {
+        public static final float DEFAULT_WIDTH = 600f;
+        public static final float DEFAULT_HEIGHT = 600f;
         private long windowId;
+        private int width;
+        private int height;
 
 
         public Window(String title, int width, int height)
         {
+                this.width = width;
+                this.height = height;
                 glfwInit();
                 windowId = glfwCreateWindow(width, height, title, 0, 0);
                 glfwMakeContextCurrent(windowId);
@@ -60,5 +66,17 @@ public class Window
         public void setShouldClose(boolean b)
         {
                 glfwSetWindowShouldClose(windowId, b);
+        }
+
+
+        public int getWidth()
+        {
+                return this.width;
+        }
+
+
+        public int getHeight()
+        {
+                return this.height;
         }
 }

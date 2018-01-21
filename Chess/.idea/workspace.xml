@@ -2,177 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2ad3db3-4bc7-4904-b0fd-ec3860fae010" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/joml-1.9.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-assimp-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-assimp.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-bgfx-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-bgfx-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-bgfx-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-bgfx.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-egl-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-egl-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-egl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-glfw-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-glfw.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jawt-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jawt-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jawt.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jemalloc-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jemalloc-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jemalloc-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-jemalloc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-lmdb-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-lmdb-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-lmdb-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-lmdb.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nanovg-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nanovg-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nanovg-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nanovg.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nfd-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nfd-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nfd-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nfd.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nuklear-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nuklear-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nuklear-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-nuklear.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openal-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openal-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openal-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openal.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opencl-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opencl-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opencl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengl-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengles-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengles-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengles-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-opengles.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openvr-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openvr-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openvr-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-openvr.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-par-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-par-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-par-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-par.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-rpmalloc-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-rpmalloc-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-rpmalloc-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-rpmalloc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-sse-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-sse-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-sse-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-sse.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-stb-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-stb-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-stb-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-stb.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyexr-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyexr-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyexr-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyexr.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyfd-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyfd-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyfd-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-tinyfd.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-vulkan-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-vulkan-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-vulkan.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-xxhash-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-xxhash-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-xxhash-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-xxhash.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-yoga-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-yoga-natives-linux.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-yoga-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl-yoga.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lwjgl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/blackBishop.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/blackKing.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/blackKnight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/blackPawn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/blackQueen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/blackRook.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/bricks.jpeg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/coin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/menuBG.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/whiteBishop.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/whiteKing.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/whiteKnight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/whitePawn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/whiteQueen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/imgs/whiteRook.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/res/blackKing.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/assimp_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/bgfx_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/build.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/dyncall_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/glfw_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/jemalloc_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/khronos_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/lmdb_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/nanovg_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/nfd_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/openal_soft_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/openvr_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/tinyexr_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/tinyfd_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/xxhash_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/yoga_license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/models/cube.obj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/GUI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/Renderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/Shader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/Vector2f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/Vector3f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/Window.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/fragment.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/vertex.vs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui_test/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui_test/Model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui_test/Shader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui_test/Texture.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui_test/shaders/shader.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui_test/shaders/shader.vs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Circle.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Coin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Mesh/Mesh.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Mesh/TexturedMesh.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Shader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Texture.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Transform.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/Window.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/res/coloredShader.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/res/coloredShader.vs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/res/texturedShader.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/res/texturedShader.vs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/MainOpenGL.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/Mesh.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/Shader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/Texture.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/Transform.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/Window.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/res/basicShader.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thebennybox/res/basicShader.vs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/models/.cube.obj.swp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/models/chess.obj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tests/opengl/MeshLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChessIntelliJ.iml" afterPath="$PROJECT_DIR$/ChessIntelliJ.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/LICENSE" afterPath="$PROJECT_DIR$/libs/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/opengl/Circle.java" afterPath="$PROJECT_DIR$/src/tests/opengl/Circle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java" afterPath="$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java" afterPath="$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/opengl/Window.java" afterPath="$PROJECT_DIR$/src/tests/opengl/Window.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -184,55 +22,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainTestOpenGL.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainTestOpenGL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="288">
+              <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.txt">
+      <file leaf-file-name="ColoredMesh.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
+            <state relative-caret-position="180">
+              <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mesh.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/Mesh.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="68" column="23" lean-forward="false" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Circle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Circle.java">
+      <file leaf-file-name="MeshLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/opengl/MeshLoader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Coin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Coin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Shader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -243,20 +71,34 @@
       <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/opengl/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="252">
+              <caret line="14" column="54" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1974#1975#0" expanded="true" />
+                <element signature="e#2019#2020#0" expanded="true" />
+                <element signature="e#2062#2063#0" expanded="true" />
+                <element signature="e#2108#2109#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Transform.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Transform.java">
+      <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="464">
+              <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Circle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Circle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -264,12 +106,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Texture.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Coin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Coin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/opengl/Shader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3763#3764#0" expanded="true" />
+                <element signature="e#3812#3813#0" expanded="true" />
+                <element signature="e#3856#3857#0" expanded="true" />
+                <element signature="e#3903#3904#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Texture.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tests/opengl/Texture.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="288">
+              <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -296,8 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/gui_test2/Loader.java" />
-        <option value="$PROJECT_DIR$/src/gui_test2/TestChessboard.java" />
         <option value="$PROJECT_DIR$/src/gui_test2/vertex.vs" />
         <option value="$PROJECT_DIR$/src/gui_test2/basicShader.vs" />
         <option value="$PROJECT_DIR$/src/gui_test2/basicShader.fs" />
@@ -326,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/thebennybox/res/basicShader.fs" />
         <option value="$PROJECT_DIR$/src/thebennybox/Texture.java" />
         <option value="$PROJECT_DIR$/src/tests/opengl/Texture.java" />
-        <option value="$PROJECT_DIR$/src/tests/opengl/Window.java" />
         <option value="$PROJECT_DIR$/src/tests/opengl/res/Mesh.java" />
         <option value="$PROJECT_DIR$/src/tests/opengl/res/Mesh1.java" />
         <option value="$PROJECT_DIR$/src/tests/opengl/Transform.java" />
@@ -340,13 +209,16 @@
         <option value="$PROJECT_DIR$/src/tests/opengl/res/texturedShader.vs" />
         <option value="$PROJECT_DIR$/src/tests/opengl/res/coloredShader.vs" />
         <option value="$PROJECT_DIR$/src/tests/opengl/ColoredMesh.java" />
-        <option value="$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java" />
         <option value="$PROJECT_DIR$/hs_err_pid17685.log" />
         <option value="$PROJECT_DIR$/README.txt" />
         <option value="$PROJECT_DIR$/src/tests/opengl/Shader.java" />
-        <option value="$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java" />
         <option value="$PROJECT_DIR$/src/tests/opengl/Coin.java" />
+        <option value="$PROJECT_DIR$/src/tests/opengl/ObjLoader.java" />
         <option value="$PROJECT_DIR$/src/tests/opengl/Circle.java" />
+        <option value="$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java" />
+        <option value="$PROJECT_DIR$/src/tests/opengl/MeshLoader.java" />
+        <option value="$PROJECT_DIR$/src/tests/opengl/Window.java" />
+        <option value="$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java" />
       </list>
     </option>
   </component>
@@ -384,6 +256,27 @@
               <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
               <item name="Chess" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chess" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chess" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="opengl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Chess" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="opengl" type="462c0819:PsiDirectoryNode" />
+              <item name="Mesh" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chess" type="b2602c69:ProjectViewProjectNode" />
@@ -634,6 +527,14 @@
       <option name="presentableId" value="Default" />
       <updated>1505928245245</updated>
     </task>
+    <task id="LOCAL-00001" summary="opengl learning stuff, The Benny Box tutorials, and README guide added">
+      <created>1516487329681</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1516487329681</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -683,12 +584,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32475883" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.43704244" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -704,7 +606,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -729,8 +630,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.28550512" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258786" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -741,13 +642,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="opengl learning stuff, The Benny Box tutorials, and README guide added" />
+    <MESSAGE value="MeshLoader added and working partially" />
+    <MESSAGE value="Inversely proportion added to MeshLoader.java and Window.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inversely proportion added to MeshLoader.java and Window.java" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/blackKnight.png" />
-    <entry file="file://$PROJECT_DIR$/res/menuBG.png" />
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -964,15 +869,8 @@
         <state relative-caret-position="504">
           <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Shader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1004,89 +902,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hs_err_pid17685.log" />
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/Mesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="68" column="20" lean-forward="false" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/TexturedMesh.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Coin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Circle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Shader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1103,9 +925,121 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/opengl/Texture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="288">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Shader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Float.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Shader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3763#3764#0" expanded="true" />
+            <element signature="e#3812#3813#0" expanded="true" />
+            <element signature="e#3856#3857#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Coin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Circle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/ColoredMesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Mesh/Mesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="68" column="23" lean-forward="false" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/MeshLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="54" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1974#1975#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+            <element signature="e#2062#2063#0" expanded="true" />
+            <element signature="e#2108#2109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/opengl/MainTestOpenGL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

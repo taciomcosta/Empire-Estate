@@ -25,9 +25,9 @@ public class ColoredMesh extends Mesh
         // TODO create shader properly
         public ColoredMesh(FloatBuffer vertices, IntBuffer indices, Color color)
         {
-                this.shader = new Shader("src/tests/opengl/res/coloredShader");
-                this.buffers[POSITION.ordinal()] = vertices;
-                this.buffers[ELEMENT.ordinal()] = indices;
+                shader = new Shader("src/tests/opengl/res/coloredShader");
+                buffers[POSITION.ordinal()] = vertices;
+                buffers[ELEMENT.ordinal()] = indices;
                 this.color = color;
                 vao = glGenVertexArrays();
                 glBindVertexArray(vao);
@@ -55,9 +55,10 @@ public class ColoredMesh extends Mesh
 
         public void draw()
         {
-                this.shader.bind();
-                this.shader.updatePositions(this.transform.getModel());
-                int colors = glGetUniformLocation(shader.getProgram(), "inColors");
+                shader.bind();
+                shader.updatePositions(transform.getModel());
+                int colors =
+                        glGetUniformLocation(shader.getProgram(), "inColors");
                 glUniform3f(
                         colors,
                         this.color.getRed() / 255f,
@@ -66,7 +67,7 @@ public class ColoredMesh extends Mesh
                 glBindVertexArray(vao);
                 glDrawElements(
                         GL_TRIANGLES,
-                        buffers[ELEMENT.ordinal()].remaining(), //remaining??
+                        buffers[ELEMENT.ordinal()].remaining(),
                         GL_UNSIGNED_INT, 0);
                 //glDrawArrays(GL_TRIANGLES, 0, vertices.size() / coords);
                 glBindVertexArray(0);
